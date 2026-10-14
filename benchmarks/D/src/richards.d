@@ -1,10 +1,11 @@
 module richards;
 
 import benchmark;
+import memory;
 import som.error;
 import std.stdio : writeln;
 
-private class RBObject {
+private class RBObject : TrackedObject {
     enum idler = 0;
     enum worker = 1;
     enum handlerA = 2;
@@ -92,19 +93,19 @@ private class TaskState : RBObject {
     }
 
     static TaskState createRunning() {
-        auto t = new TaskState;
+        auto t = make!TaskState;
         t.running();
         return t;
     }
 
     static TaskState createWaiting() {
-        auto t = new TaskState;
+        auto t = make!TaskState;
         t.waiting();
         return t;
     }
 
     static TaskState createWaitingWithPacket() {
-        auto t = new TaskState;
+        auto t = make!TaskState;
         t.waitingWithPacket();
         return t;
     }
@@ -317,112 +318,116 @@ private final class Scheduler : RBObject {
     private enum tracing = false;
 
     void createDevice(int identity, int priority, Packet workPacket, TaskState state) {
-        auto data = new DeviceTaskDataRecord;
+        auto data = make!DeviceTaskDataRecord;
 
-        createTask(identity, priority, workPacket, state,
-            (Packet workArg, RBObject wordArg) {
-                auto dataRecord = cast(DeviceTaskDataRecord) wordArg;
-                Packet functionWork = workArg;
-                if (noWork is functionWork) {
-                    functionWork = dataRecord.getPending();
-                    if (noWork is functionWork)
-                        return markWaiting();
-                    dataRecord.setPending(noWork);
-                    return queuePacket(functionWork);
-                }
-                dataRecord.setPending(functionWork);
-                static if (tracing)
-                    trace(functionWork.getDatum());
-                return holdSelf();
-            }, data);
+        createTask(identity, priority, workPacket, state, &deviceTask, data);
+    }
+
+    TaskControlBlock deviceTask(Packet workArg, RBObject wordArg) {
+        auto dataRecord = cast(DeviceTaskDataRecord) wordArg;
+        Packet functionWork = workArg;
+        if (noWork is functionWork) {
+            functionWork = dataRecord.getPending();
+            if (noWork is functionWork)
+                return markWaiting();
+            dataRecord.setPending(noWork);
+            return queuePacket(functionWork);
+        }
+        dataRecord.setPending(functionWork);
+        static if (tracing)
+            trace(functionWork.getDatum());
+        return holdSelf();
     }
 
     void createHandler(int identity, int priority, Packet workPaket, TaskState state) {
-        auto data = new HandlerTaskDataRecord;
+        auto data = make!HandlerTaskDataRecord;
 
-        createTask(identity, priority, workPaket, state,
-            (Packet work, RBObject word) {
-                auto dataRecord = cast(HandlerTaskDataRecord) word;
-                if (noWork !is work) {
-                    if (workPacketKind == work.getKind())
-                        dataRecord.workInAdd(work);
-                    else
-                        dataRecord.deviceInAdd(work);
-                }
+        createTask(identity, priority, workPaket, state, &handlerTask, data);
+    }
 
-                Packet workPacket = dataRecord.workIn();
-                if (noWork is workPacket)
-                    return markWaiting();
+    TaskControlBlock handlerTask(Packet work, RBObject word) {
+        auto dataRecord = cast(HandlerTaskDataRecord) word;
+        if (noWork !is work) {
+            if (workPacketKind == work.getKind())
+                dataRecord.workInAdd(work);
+            else
+                dataRecord.deviceInAdd(work);
+        }
 
-                const count = workPacket.getDatum();
-                if (count >= Packet.dataSize) {
-                    dataRecord.workIn(workPacket.getLink());
-                    return queuePacket(workPacket);
-                }
+        Packet workPacket = dataRecord.workIn();
+        if (noWork is workPacket)
+            return markWaiting();
 
-                Packet devicePacket = dataRecord.deviceIn();
-                if (noWork is devicePacket)
-                    return markWaiting();
+        const count = workPacket.getDatum();
+        if (count >= Packet.dataSize) {
+            dataRecord.workIn(workPacket.getLink());
+            return queuePacket(workPacket);
+        }
 
-                dataRecord.deviceIn(devicePacket.getLink());
-                devicePacket.setDatum(workPacket.getData()[count]);
-                workPacket.setDatum(count + 1);
-                return queuePacket(devicePacket);
-            }, data);
+        Packet devicePacket = dataRecord.deviceIn();
+        if (noWork is devicePacket)
+            return markWaiting();
+
+        dataRecord.deviceIn(devicePacket.getLink());
+        devicePacket.setDatum(workPacket.getData()[count]);
+        workPacket.setDatum(count + 1);
+        return queuePacket(devicePacket);
     }
 
     void createIdler(int identity, int priority, Packet work, TaskState state) {
-        auto data = new IdleTaskDataRecord;
+        auto data = make!IdleTaskDataRecord;
 
-        createTask(identity, priority, work, state,
-            (Packet, RBObject wordArg) {
-                auto dataRecord = cast(IdleTaskDataRecord) wordArg;
-                dataRecord.setCount(dataRecord.getCount() - 1);
-                if (0 == dataRecord.getCount())
-                    return holdSelf();
+        createTask(identity, priority, work, state, &idleTask, data);
+    }
 
-                if (0 == (dataRecord.getControl() & 1)) {
-                    dataRecord.setControl(dataRecord.getControl() / 2);
-                    return release(deviceA);
-                }
-                dataRecord.setControl((dataRecord.getControl() / 2) ^ 53_256);
-                return release(deviceB);
-            }, data);
+    TaskControlBlock idleTask(Packet, RBObject wordArg) {
+        auto dataRecord = cast(IdleTaskDataRecord) wordArg;
+        dataRecord.setCount(dataRecord.getCount() - 1);
+        if (0 == dataRecord.getCount())
+            return holdSelf();
+
+        if (0 == (dataRecord.getControl() & 1)) {
+            dataRecord.setControl(dataRecord.getControl() / 2);
+            return release(deviceA);
+        }
+        dataRecord.setControl((dataRecord.getControl() / 2) ^ 53_256);
+        return release(deviceB);
     }
 
     Packet createPacket(Packet link, int identity, int kind) {
-        return new Packet(link, identity, kind);
+        return make!Packet(link, identity, kind);
     }
 
     void createTask(int identity, int priority, Packet work, TaskState state,
                     TaskControlBlock delegate(Packet work, RBObject word) aBlock,
                     RBObject data) {
-        auto t = new TaskControlBlock(taskList, identity, priority, work, state,
-                                      aBlock, data);
+        auto t = make!TaskControlBlock(taskList, identity, priority, work, state,
+                                       aBlock, data);
         taskList = t;
         taskTable[identity] = t;
     }
 
     void createWorker(int identity, int priority, Packet workPaket, TaskState state) {
-        auto dataRecord = new WorkerTaskDataRecord;
+        auto dataRecord = make!WorkerTaskDataRecord;
 
-        createTask(identity, priority, workPaket, state,
-            (Packet work, RBObject word) {
-                auto data = cast(WorkerTaskDataRecord) word;
-                if (noWork is work)
-                    return markWaiting();
+        createTask(identity, priority, workPaket, state, &workerTask, dataRecord);
+    }
 
-                data.setDestination((handlerA == data.getDestination()) ? handlerB : handlerA);
-                work.setIdentity(data.getDestination());
-                work.setDatum(0);
-                foreach (i; 0 .. Packet.dataSize) {
-                    data.setCount(data.getCount() + 1);
-                    if (data.getCount() > 26)
-                        data.setCount(1);
-                    work.getData()[i] = 65 + data.getCount() - 1;
-                }
-                return queuePacket(work);
-            }, dataRecord);
+    TaskControlBlock workerTask(Packet work, RBObject word) {
+        auto data = cast(WorkerTaskDataRecord) word;
+        if (noWork is work)
+            return markWaiting();
+
+        data.setDestination((handlerA == data.getDestination()) ? handlerB : handlerA);
+        work.setIdentity(data.getDestination());
+        work.setDatum(0);
+        foreach (i; 0 .. Packet.dataSize) {
+            data.setCount(data.getCount() + 1);
+            if (data.getCount() > 26)
+                data.setCount(1);
+            work.getData()[i] = 65 + data.getCount() - 1;
+        }
+        return queuePacket(work);
     }
 
     bool start() {
@@ -522,7 +527,10 @@ private final class Scheduler : RBObject {
 
 final class Richards : Benchmark!bool {
     override bool benchmark() {
-        return new Scheduler().start();
+        auto scheduler = make!Scheduler;
+        const result = scheduler.start();
+        ObjectTracker.releaseAll();
+        return result;
     }
 
     override bool verifyResult(bool result) {

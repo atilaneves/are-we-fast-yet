@@ -1,6 +1,7 @@
 module towers;
 
 import benchmark;
+import memory;
 import som.error;
 
 private final class TowersDisk {
@@ -9,6 +10,10 @@ private final class TowersDisk {
 
     this(int size) {
         this.size = size;
+    }
+
+    version (ManualMemory) ~this() {
+        dispose(next);
     }
 
     int getSize() const {
@@ -33,6 +38,9 @@ final class Towers : Benchmark!int {
         buildTowerAt(0, 13);
         movesDone = 0;
         moveDisks(13, 0, 1);
+
+        foreach (ref disk; piles)
+            dispose(disk);
         return movesDone;
     }
 
@@ -62,7 +70,7 @@ final class Towers : Benchmark!int {
 
     private void buildTowerAt(int pile, int disks) {
         for (int i = disks; i >= 0; i -= 1)
-            pushDisk(new TowersDisk(i), pile);
+            pushDisk(make!TowersDisk(i), pile);
     }
 
     private void moveDisks(int disks, int fromPile, int toPile) {

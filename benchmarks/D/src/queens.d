@@ -1,6 +1,7 @@
 module queens;
 
 import benchmark;
+import memory;
 
 final class Queens : Benchmark!bool {
     private bool[] freeMaxs;
@@ -16,15 +17,22 @@ final class Queens : Benchmark!bool {
     }
 
     private bool queens() {
-        freeRows = new bool[8];
+        freeRows = makeArray!bool(8);
         freeRows[] = true;
-        freeMaxs = new bool[16];
+        freeMaxs = makeArray!bool(16);
         freeMaxs[] = true;
-        freeMins = new bool[16];
+        freeMins = makeArray!bool(16);
         freeMins[] = true;
-        queenRows = new int[8];
+        queenRows = makeArray!int(8);
         queenRows[] = -1;
-        return placeQueen(0);
+
+        const result = placeQueen(0);
+
+        disposeArray(freeRows);
+        disposeArray(freeMaxs);
+        disposeArray(freeMins);
+        disposeArray(queenRows);
+        return result;
     }
 
     private bool placeQueen(int c) {

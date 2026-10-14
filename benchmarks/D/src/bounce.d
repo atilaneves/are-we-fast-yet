@@ -52,7 +52,10 @@ private struct Ball {
 
 final class Bounce : Benchmark!int {
     override int benchmark() {
-        auto random = new Random;
+        version (ManualMemory)
+            scope random = new Random;
+        else
+            auto random = new Random;
         enum ballCount = 100;
         int bounces = 0;
         Ball[ballCount] balls;

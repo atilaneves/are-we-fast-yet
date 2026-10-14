@@ -19,4 +19,6 @@ pushd "$SCRIPT_PATH" > /dev/null
 
 INFO Build D Benchmarks with $DC and $OPT
 $DC $OPT -Isrc src/*.d src/som/*.d -of=harness -od=build
+INFO Build D Benchmarks with manual memory management
+$DC $OPT -d-version=ManualMemory -Isrc src/*.d src/som/*.d -of=harness-manual -od=build-manual
 popd > /dev/null

@@ -1,5 +1,6 @@
 module som.identity_dictionary;
 
+import memory;
 import som.dictionary;
 
 final class IdentityDictionary(K, V) : Dictionary!(K, V) {
@@ -18,6 +19,6 @@ final class IdentityDictionary(K, V) : Dictionary!(K, V) {
     }
 
     override protected Entry newEntry(K key, V value, uint hash) {
-        return new IdEntry(hash, key, value, null);
+        return make!IdEntry(hash, key, value, null);
     }
 }

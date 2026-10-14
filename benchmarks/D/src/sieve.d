@@ -5,7 +5,12 @@ import benchmark;
 final class Sieve : Benchmark!int {
     override int benchmark() {
         enum numFlags = 5000;
-        auto flags = new bool[numFlags];
+        version (ManualMemory) {
+            bool[numFlags] storage;
+            bool[] flags = storage[];
+        } else {
+            auto flags = new bool[numFlags];
+        }
         flags[] = true;
         return sieve(flags, 5000);
     }

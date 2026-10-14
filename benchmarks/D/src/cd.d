@@ -2,6 +2,7 @@ module cd;
 
 import benchmark;
 import core.math : cos, sin, sqrt;
+import memory;
 import som.vector;
 import std.stdio : writeln;
 
@@ -98,6 +99,11 @@ private final class RedBlackTree(K, V) {
             this.value = value;
         }
 
+        version (ManualMemory) ~this() {
+            dispose(left);
+            dispose(right);
+        }
+
         Node successor() {
             Node x = this;
             if (x.right !is null)
@@ -124,6 +130,10 @@ private final class RedBlackTree(K, V) {
     }
 
     private Node root;
+
+    version (ManualMemory) ~this() {
+        dispose(root);
+    }
 
     private static Node treeMinimum(Node x) {
         Node current = x;
@@ -246,7 +256,11 @@ private final class RedBlackTree(K, V) {
         } else if (y.color == Color.black) {
             removeFixup(x, xParent);
         }
-        return Optional!V(z.value);
+        auto removed = Optional!V(z.value);
+        z.left = null;
+        z.right = null;
+        dispose(z);
+        return removed;
     }
 
     V* get(K key) {
@@ -298,7 +312,7 @@ private final class RedBlackTree(K, V) {
             }
         }
 
-        Node z = new Node(key, value);
+        Node z = make!Node(key, value);
         z.parent = y;
         if (y is null) {
             root = z;
@@ -581,12 +595,23 @@ private final class CollisionDetector {
     private static immutable vertical = Vector2D(0.0, goodVoxelSize);
 
     this() {
-        state = new typeof(state);
+        state = make!(typeof(state));
+    }
+
+    version (ManualMemory) ~this() {
+        dispose(state);
     }
 
     Vector!Collision handleNewFrame(Vector!Aircraft frame) {
-        auto motions = new Vector!Motion;
-        auto seen = new RedBlackTree!(CallSign, bool);
+        version (ManualMemory) {
+            scope motions = new Vector!Motion;
+            scope seen = new RedBlackTree!(CallSign, bool);
+            scope toRemove = new Vector!CallSign;
+        } else {
+            auto motions = new Vector!Motion;
+            auto seen = new RedBlackTree!(CallSign, bool);
+            auto toRemove = new Vector!CallSign;
+        }
 
         frame.forEach((aircraft) {
             Optional!Vector3D oldPosition = state.put(aircraft.callsign, aircraft.position);
@@ -603,7 +628,6 @@ private final class CollisionDetector {
         });
 
         // Remove aircraft that are no longer present.
-        auto toRemove = new Vector!CallSign;
         state.forEach((e) {
             bool* wasSeen = seen.get(e.key);
             if (wasSeen is null || !*wasSeen)
@@ -613,7 +637,7 @@ private final class CollisionDetector {
         toRemove.forEach((e) { state.remove(e); });
 
         auto allReduced = reduceCollisionSet(motions);
-        auto collisions = new Vector!Collision;
+        auto collisions = make!(Vector!Collision);
         allReduced.forEach((reduced) {
             for (size_t i = 0; i < reduced.size(); i += 1) {
                 const motion1 = reduced.at(i);
@@ -627,6 +651,8 @@ private final class CollisionDetector {
                 }
             }
         });
+        allReduced.destroyValues();
+        dispose(allReduced);
 
         return collisions;
     }
@@ -683,7 +709,7 @@ private final class CollisionDetector {
     private static void putIntoMap(VoxelMap voxelMap, Vector2D voxel, Motion motion) {
         Vector!Motion* array = voxelMap.get(voxel);
         if (array is null) {
-            auto arr = new Vector!Motion;
+            auto arr = make!(Vector!Motion);
             arr.append(motion);
             voxelMap.put(voxel, arr);
         } else {
@@ -713,13 +739,18 @@ private final class CollisionDetector {
     }
 
     private Vector!(Vector!Motion) reduceCollisionSet(Vector!Motion motions) {
-        auto voxelMap = new VoxelMap;
+        version (ManualMemory)
+            scope voxelMap = new VoxelMap;
+        else
+            auto voxelMap = new VoxelMap;
         motions.forEach((motion) { drawMotionOnVoxelMap(voxelMap, motion); });
 
-        auto result = new Vector!(Vector!Motion);
+        auto result = make!(Vector!(Vector!Motion));
         voxelMap.forEach((e) {
             if (e.value.size() > 1)
                 result.append(e.value);
+            else
+                dispose(e.value);
         });
         return result;
     }
@@ -740,7 +771,10 @@ private final class CollisionDetector {
     }
 
     private void drawMotionOnVoxelMap(VoxelMap voxelMap, Motion motion) {
-        auto seen = new RedBlackTree!(Vector2D, bool);
+        version (ManualMemory)
+            scope seen = new RedBlackTree!(Vector2D, bool);
+        else
+            auto seen = new RedBlackTree!(Vector2D, bool);
         recurse(voxelMap, seen, voxelHash(motion.posOne), motion);
     }
 }
@@ -749,13 +783,17 @@ private final class Simulator {
     private Vector!CallSign aircraft;
 
     this(int numAircraft) {
-        aircraft = new Vector!CallSign;
+        aircraft = make!(Vector!CallSign);
         foreach (i; 0 .. numAircraft)
             aircraft.append(CallSign(i));
     }
 
+    version (ManualMemory) ~this() {
+        dispose(aircraft);
+    }
+
     Vector!Aircraft simulate(double time) {
-        auto frame = new Vector!Aircraft;
+        auto frame = make!(Vector!Aircraft);
         for (size_t i = 0; i < aircraft.size(); i += 2) {
             frame.append(Aircraft(aircraft.at(i),
                                   Vector3D(time, cos(time) * 2 + cast(double) i * 3, 10)));
@@ -773,8 +811,13 @@ final class CD : Runnable {
 
     private static size_t benchmark(int numAircrafts) {
         enum numFrames = 200;
-        auto simulator = new Simulator(numAircrafts);
-        auto detector = new CollisionDetector;
+        version (ManualMemory) {
+            scope simulator = new Simulator(numAircrafts);
+            scope detector = new CollisionDetector;
+        } else {
+            auto simulator = new Simulator(numAircrafts);
+            auto detector = new CollisionDetector;
+        }
 
         size_t actualCollisions = 0;
         foreach (i; 0 .. numFrames) {
@@ -782,6 +825,8 @@ final class CD : Runnable {
             Vector!Aircraft frame = simulator.simulate(time);
             Vector!Collision collisions = detector.handleNewFrame(frame);
             actualCollisions += collisions.size();
+            dispose(frame);
+            dispose(collisions);
         }
         return actualCollisions;
     }
