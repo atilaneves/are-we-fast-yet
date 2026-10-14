@@ -2,6 +2,7 @@ module harness;
 
 import benchmark;
 import bounce;
+import deltablue;
 import list;
 import mandelbrot;
 import nbody;
@@ -18,6 +19,7 @@ import std.stdio : stderr, writeln;
 private Runnable selectBenchmark(string name) {
     switch (name) {
         case "Bounce": return new Bounce;
+        case "DeltaBlue": return new DeltaBlue;
         case "List": return new List;
         case "Mandelbrot": return new Mandelbrot;
         case "NBody": return new NBody;

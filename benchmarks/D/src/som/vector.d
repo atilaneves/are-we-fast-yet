@@ -2,7 +2,7 @@ module som.vector;
 
 enum initialSize = 10;
 
-final class Vector(E) {
+class Vector(E) {
     private E[] storage;
     private size_t firstIdx;
     private size_t lastIdx;
@@ -186,7 +186,7 @@ final class Vector(E) {
     }
 
     private void swap(size_t i, size_t j) {
-        const tmp = storage[i];
+        auto tmp = storage[i];
         storage[i] = storage[j];
         storage[j] = tmp;
     }
