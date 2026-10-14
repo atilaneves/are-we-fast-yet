@@ -3,6 +3,7 @@ module harness;
 import benchmark;
 import bounce;
 import deltablue;
+import havlak;
 import json;
 import list;
 import mandelbrot;
@@ -21,6 +22,7 @@ private Runnable selectBenchmark(string name) {
     switch (name) {
         case "Bounce": return new Bounce;
         case "DeltaBlue": return new DeltaBlue;
+        case "Havlak": return new Havlak;
         case "Json": return new Json;
         case "List": return new List;
         case "Mandelbrot": return new Mandelbrot;
