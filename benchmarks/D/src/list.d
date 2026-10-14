@@ -1,6 +1,7 @@
 module list;
 
 import benchmark;
+import memory;
 
 private final class Element {
     private int val;
@@ -8,6 +9,10 @@ private final class Element {
 
     this(int v) {
         val = v;
+    }
+
+    version (ManualMemory) ~this() {
+        dispose(next);
     }
 
     int length() {
@@ -35,14 +40,23 @@ private final class Element {
 
 final class List : Benchmark!int {
     override int benchmark() {
-        Element result = tail(makeList(15), makeList(10), makeList(6));
-        return result.length();
+        Element x = makeList(15);
+        Element y = makeList(10);
+        Element z = makeList(6);
+
+        Element result = tail(x, y, z);
+        const length = result.length();
+
+        dispose(x);
+        dispose(y);
+        dispose(z);
+        return length;
     }
 
     private Element makeList(int length) {
         if (length == 0)
             return null;
-        auto e = new Element(length);
+        auto e = make!Element(length);
         e.setNext(makeList(length - 1));
         return e;
     }

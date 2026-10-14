@@ -1,5 +1,7 @@
 module som.vector;
 
+import memory;
+
 enum initialSize = 10;
 
 class Vector(E) {
@@ -8,13 +10,17 @@ class Vector(E) {
     private size_t lastIdx;
 
     static Vector!E with_(E elem) {
-        auto v = new Vector!E(1);
+        auto v = make!(Vector!E)(1);
         v.append(elem);
         return v;
     }
 
     this(size_t size = 0) {
-        storage = new E[size];
+        storage = makeArray!E(size);
+    }
+
+    version (ManualMemory) ~this() {
+        disposeArray(storage);
     }
 
     E at(size_t idx) {
@@ -25,7 +31,7 @@ class Vector(E) {
 
     void atPut(size_t idx, E val) {
         if (storage.length == 0) {
-            storage = new E[idx + 1 > initialSize ? idx + 1 : initialSize];
+            storage = makeArray!E(idx + 1 > initialSize ? idx + 1 : initialSize);
         } else if (idx >= storage.length) {
             size_t newLength = storage.length;
             while (newLength <= idx)
@@ -39,7 +45,7 @@ class Vector(E) {
 
     void append(E elem) {
         if (storage.length == 0)
-            storage = new E[initialSize];
+            storage = makeArray!E(initialSize);
         else if (lastIdx >= storage.length)
             grow(2 * storage.length);
         storage[lastIdx] = elem;
@@ -89,7 +95,7 @@ class Vector(E) {
         if (storage.length == 0 || isEmpty)
             return false;
 
-        auto newArray = new E[capacity];
+        auto newArray = makeArray!E(capacity);
         size_t newLast = 0;
         bool found = false;
 
@@ -102,6 +108,7 @@ class Vector(E) {
             }
         });
 
+        disposeArray(storage);
         storage = newArray;
         lastIdx = newLast;
         firstIdx = 0;
@@ -111,7 +118,14 @@ class Vector(E) {
     void removeAll() {
         firstIdx = 0;
         lastIdx = 0;
-        storage = new E[storage.length];
+        const length = storage.length;
+        disposeArray(storage);
+        storage = makeArray!E(length);
+    }
+
+    static if (is(E == class)) void destroyValues() {
+        for (size_t i = firstIdx; i < lastIdx; i += 1)
+            dispose(storage[i]);
     }
 
     size_t size() const {
@@ -128,8 +142,9 @@ class Vector(E) {
     }
 
     private void grow(size_t newLength) {
-        auto newStorage = new E[newLength];
+        auto newStorage = makeArray!E(newLength);
         newStorage[0 .. storage.length] = storage[];
+        disposeArray(storage);
         storage = newStorage;
     }
 

@@ -1,5 +1,6 @@
 module som.dictionary;
 
+import memory;
 import som.vector;
 
 class Dictionary(K, V) {
@@ -27,7 +28,12 @@ class Dictionary(K, V) {
     private size_t size_;
 
     this(size_t capacity = initialCapacity) {
-        buckets = new Entry[capacity];
+        buckets = makeArray!Entry(capacity);
+    }
+
+    version (ManualMemory) ~this() {
+        removeAll();
+        disposeArray(buckets);
     }
 
     size_t size() const {
@@ -80,12 +86,26 @@ class Dictionary(K, V) {
     }
 
     void removeAll() {
-        buckets = new Entry[buckets.length];
+        foreach (ref head; buckets) {
+            for (Entry e = head; e !is null;) {
+                Entry next = e.next;
+                dispose(e);
+                e = next;
+            }
+            head = null;
+        }
         size_ = 0;
     }
 
+    static if (is(V == class)) void destroyValues() {
+        foreach (head; buckets) {
+            for (Entry e = head; e !is null; e = e.next)
+                dispose(e.value);
+        }
+    }
+
     Vector!K getKeys() {
-        auto keys = new Vector!K(size_);
+        auto keys = make!(Vector!K)(size_);
         foreach (head; buckets) {
             for (Entry e = head; e !is null; e = e.next)
                 keys.append(e.key);
@@ -94,7 +114,7 @@ class Dictionary(K, V) {
     }
 
     Vector!V getValues() {
-        auto values = new Vector!V(size_);
+        auto values = make!(Vector!V)(size_);
         foreach (head; buckets) {
             for (Entry e = head; e !is null; e = e.next)
                 values.append(e.value);
@@ -103,7 +123,7 @@ class Dictionary(K, V) {
     }
 
     protected Entry newEntry(K key, V value, uint hash) {
-        return new Entry(hash, key, value, null);
+        return make!Entry(hash, key, value, null);
     }
 
     private size_t getBucketIdx(uint hash) const {
@@ -132,8 +152,9 @@ class Dictionary(K, V) {
 
     private void resize() {
         auto oldStorage = buckets;
-        buckets = new Entry[oldStorage.length * 2];
+        buckets = makeArray!Entry(oldStorage.length * 2);
         transferEntries(oldStorage);
+        disposeArray(oldStorage);
     }
 
     private void transferEntries(Entry[] oldStorage) {

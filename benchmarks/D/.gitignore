@@ -1,3 +1,5 @@
 /harness
 /build/
 /.snakebite/
+/harness-manual
+/build-manual/

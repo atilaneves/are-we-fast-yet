@@ -1,6 +1,7 @@
 module permute;
 
 import benchmark;
+import memory;
 
 final class Permute : Benchmark!int {
     private int count;
@@ -8,8 +9,9 @@ final class Permute : Benchmark!int {
 
     override int benchmark() {
         count = 0;
-        v = new int[6];
+        v = makeArray!int(6);
         permute(6);
+        disposeArray(v);
         return count;
     }
 

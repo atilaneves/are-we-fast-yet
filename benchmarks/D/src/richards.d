@@ -1,10 +1,11 @@
 module richards;
 
 import benchmark;
+import memory;
 import som.error;
 import std.stdio : writeln;
 
-private class RBObject {
+private class RBObject : TrackedObject {
     enum idler = 0;
     enum worker = 1;
     enum handlerA = 2;
@@ -92,19 +93,19 @@ private class TaskState : RBObject {
     }
 
     static TaskState createRunning() {
-        auto t = new TaskState;
+        auto t = make!TaskState;
         t.running();
         return t;
     }
 
     static TaskState createWaiting() {
-        auto t = new TaskState;
+        auto t = make!TaskState;
         t.waiting();
         return t;
     }
 
     static TaskState createWaitingWithPacket() {
-        auto t = new TaskState;
+        auto t = make!TaskState;
         t.waitingWithPacket();
         return t;
     }
@@ -317,7 +318,7 @@ private final class Scheduler : RBObject {
     private enum tracing = false;
 
     void createDevice(int identity, int priority, Packet workPacket, TaskState state) {
-        auto data = new DeviceTaskDataRecord;
+        auto data = make!DeviceTaskDataRecord;
 
         createTask(identity, priority, workPacket, state,
             (Packet workArg, RBObject wordArg) {
@@ -338,7 +339,7 @@ private final class Scheduler : RBObject {
     }
 
     void createHandler(int identity, int priority, Packet workPaket, TaskState state) {
-        auto data = new HandlerTaskDataRecord;
+        auto data = make!HandlerTaskDataRecord;
 
         createTask(identity, priority, workPaket, state,
             (Packet work, RBObject word) {
@@ -372,7 +373,7 @@ private final class Scheduler : RBObject {
     }
 
     void createIdler(int identity, int priority, Packet work, TaskState state) {
-        auto data = new IdleTaskDataRecord;
+        auto data = make!IdleTaskDataRecord;
 
         createTask(identity, priority, work, state,
             (Packet, RBObject wordArg) {
@@ -391,20 +392,20 @@ private final class Scheduler : RBObject {
     }
 
     Packet createPacket(Packet link, int identity, int kind) {
-        return new Packet(link, identity, kind);
+        return make!Packet(link, identity, kind);
     }
 
     void createTask(int identity, int priority, Packet work, TaskState state,
                     TaskControlBlock delegate(Packet work, RBObject word) aBlock,
                     RBObject data) {
-        auto t = new TaskControlBlock(taskList, identity, priority, work, state,
-                                      aBlock, data);
+        auto t = make!TaskControlBlock(taskList, identity, priority, work, state,
+                                       aBlock, data);
         taskList = t;
         taskTable[identity] = t;
     }
 
     void createWorker(int identity, int priority, Packet workPaket, TaskState state) {
-        auto dataRecord = new WorkerTaskDataRecord;
+        auto dataRecord = make!WorkerTaskDataRecord;
 
         createTask(identity, priority, workPaket, state,
             (Packet work, RBObject word) {
@@ -522,7 +523,10 @@ private final class Scheduler : RBObject {
 
 final class Richards : Benchmark!bool {
     override bool benchmark() {
-        return new Scheduler().start();
+        auto scheduler = make!Scheduler;
+        const result = scheduler.start();
+        ObjectTracker.releaseAll();
+        return result;
     }
 
     override bool verifyResult(bool result) {

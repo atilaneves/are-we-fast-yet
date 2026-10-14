@@ -8,6 +8,7 @@ import havlak;
 import json;
 import list;
 import mandelbrot;
+import memory;
 import nbody;
 import permute;
 import queens;
@@ -21,20 +22,20 @@ import std.stdio : stderr, writeln;
 
 private Runnable selectBenchmark(string name) {
     switch (name) {
-        case "Bounce": return new Bounce;
-        case "CD": return new CD;
-        case "DeltaBlue": return new DeltaBlue;
-        case "Havlak": return new Havlak;
-        case "Json": return new Json;
-        case "List": return new List;
-        case "Mandelbrot": return new Mandelbrot;
-        case "NBody": return new NBody;
-        case "Permute": return new Permute;
-        case "Queens": return new Queens;
-        case "Richards": return new Richards;
-        case "Sieve": return new Sieve;
-        case "Storage": return new Storage;
-        case "Towers": return new Towers;
+        case "Bounce": return make!Bounce;
+        case "CD": return make!CD;
+        case "DeltaBlue": return make!DeltaBlue;
+        case "Havlak": return make!Havlak;
+        case "Json": return make!Json;
+        case "List": return make!List;
+        case "Mandelbrot": return make!Mandelbrot;
+        case "NBody": return make!NBody;
+        case "Permute": return make!Permute;
+        case "Queens": return make!Queens;
+        case "Richards": return make!Richards;
+        case "Sieve": return make!Sieve;
+        case "Storage": return make!Storage;
+        case "Towers": return make!Towers;
         default:
             stderr.writeln("Benchmark not recognized: ", name);
             return null;
@@ -106,6 +107,7 @@ int main(string[] args) {
     auto run = Run(args[1], selectBenchmark(args[1]));
     if (run.benchmark is null)
         return 1;
+    scope(exit) dispose(run.benchmark);
     if (args.length > 2) {
         run.numIterations = args[2].to!int;
         if (args.length > 3)

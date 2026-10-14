@@ -1,12 +1,17 @@
 module som.set;
 
+import memory;
 import som.vector;
 
 class Set(E) {
     private Vector!E items;
 
     this(size_t size = initialSize) {
-        items = new Vector!E(size);
+        items = make!(Vector!E)(size);
+    }
+
+    version (ManualMemory) ~this() {
+        dispose(items);
     }
 
     size_t size() const {
@@ -31,7 +36,7 @@ class Set(E) {
     }
 
     Vector!T collect(T)(scope T delegate(E) fn) {
-        auto coll = new Vector!T();
+        auto coll = make!(Vector!T);
         forEach((e) { coll.append(fn(e)); });
         return coll;
     }

@@ -1,6 +1,7 @@
 module json;
 
 import benchmark;
+import memory;
 import som.error;
 import som.vector;
 
@@ -525,7 +526,12 @@ private final class JsonArray : JsonValue {
     private Vector!JsonValue values;
 
     this() {
-        values = new Vector!JsonValue;
+        values = make!(Vector!JsonValue);
+    }
+
+    version (ManualMemory) ~this() {
+        values.destroyValues();
+        dispose(values);
     }
 
     void add(JsonValue value) {
@@ -557,7 +563,7 @@ private final class JsonLiteral : JsonValue {
     private bool isTrue_;
     private bool isFalse_;
 
-    private this(string value, bool isNull, bool isTrue, bool isFalse) {
+    this(string value, bool isNull, bool isTrue, bool isFalse) {
         this.value = value;
         isNull_ = isNull;
         isTrue_ = isTrue;
@@ -585,15 +591,15 @@ private final class JsonLiteral : JsonValue {
     }
 
     static JsonLiteral createNull() {
-        return new JsonLiteral("null", true, false, false);
+        return make!JsonLiteral("null", true, false, false);
     }
 
     static JsonLiteral createTrue() {
-        return new JsonLiteral("true", false, true, false);
+        return make!JsonLiteral("true", false, true, false);
     }
 
     static JsonLiteral createFalse() {
-        return new JsonLiteral("false", false, false, true);
+        return make!JsonLiteral("false", false, false, true);
     }
 }
 
@@ -621,9 +627,16 @@ private final class JsonObject : JsonValue {
     private HashIndexTable table;
 
     this() {
-        names = new Vector!string;
-        values = new Vector!JsonValue;
-        table = new HashIndexTable;
+        names = make!(Vector!string);
+        values = make!(Vector!JsonValue);
+        table = make!HashIndexTable;
+    }
+
+    version (ManualMemory) ~this() {
+        values.destroyValues();
+        dispose(values);
+        dispose(names);
+        dispose(table);
     }
 
     private int indexOf(string name) {
@@ -753,7 +766,7 @@ private final class JsonPureStringParser {
 
     private JsonObject readObject() {
         read();
-        auto object = new JsonObject;
+        auto object = make!JsonObject;
         skipWhiteSpace();
         if (readChar("}"))
             return object;
@@ -782,7 +795,7 @@ private final class JsonPureStringParser {
 
     private JsonArray readArray() {
         read();
-        auto array = new JsonArray;
+        auto array = make!JsonArray;
         skipWhiteSpace();
         if (readChar("]"))
             return array;
@@ -828,7 +841,7 @@ private final class JsonPureStringParser {
     }
 
     private JsonValue readString() {
-        return new JsonString(readStringInternal());
+        return make!JsonString(readStringInternal());
     }
 
     private string readStringInternal() {
@@ -883,7 +896,7 @@ private final class JsonPureStringParser {
         readFraction();
         readExponent();
 
-        return new JsonNumber(endCapture());
+        return make!JsonNumber(endCapture());
     }
 
     private bool readFraction() {
@@ -996,7 +1009,10 @@ private final class JsonPureStringParser {
 
 final class Json : Benchmark!JsonValue {
     override JsonValue benchmark() {
-        auto parser = new JsonPureStringParser(rapBenchmarkMinified);
+        version (ManualMemory)
+            scope parser = new JsonPureStringParser(rapBenchmarkMinified);
+        else
+            auto parser = new JsonPureStringParser(rapBenchmarkMinified);
         return parser.parse();
     }
 
@@ -1016,6 +1032,8 @@ final class Json : Benchmark!JsonValue {
     }
 
     override bool verifyResult(JsonValue result) {
-        return hasExpectedContent(result);
+        const verified = hasExpectedContent(result);
+        dispose(result);
+        return verified;
     }
 }
