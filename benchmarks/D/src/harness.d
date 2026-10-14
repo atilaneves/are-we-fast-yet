@@ -2,6 +2,7 @@ module harness;
 
 import benchmark;
 import bounce;
+import cd;
 import deltablue;
 import havlak;
 import json;
@@ -21,6 +22,7 @@ import std.stdio : stderr, writeln;
 private Runnable selectBenchmark(string name) {
     switch (name) {
         case "Bounce": return new Bounce;
+        case "CD": return new CD;
         case "DeltaBlue": return new DeltaBlue;
         case "Havlak": return new Havlak;
         case "Json": return new Json;
