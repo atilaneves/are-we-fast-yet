@@ -1,0 +1,5 @@
+name "ct-perf"
+targetType "executable"
+sourcePaths "source" "../src"
+importPaths "source" "../src"
+excludedSourceFiles "../src/harness.d" "../src/any.d" "../src/list.d"
