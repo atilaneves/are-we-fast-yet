@@ -33,8 +33,9 @@ final class Storage : Benchmark!int {
         return arr;
     }
 
+    // Last to first, as C++ delete[] destroys array elements.
     private static void disposeTree(ref ArrayTree[] trees) {
-        foreach (ref tree; trees)
+        foreach_reverse (ref tree; trees)
             disposeTree(tree.children);
         disposeArray(trees);
     }
