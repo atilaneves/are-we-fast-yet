@@ -34,6 +34,10 @@ final class Towers : Benchmark {
     private int movesDone;
 
     override Any benchmark() {
+        return Any(run());
+    }
+
+    int run() {
         piles = typeof(piles).init;
         buildTowerAt(0, 13);
         movesDone = 0;
@@ -41,7 +45,7 @@ final class Towers : Benchmark {
 
         foreach (ref disk; piles)
             dispose(disk);
-        return Any(movesDone);
+        return movesDone;
     }
 
     private void pushDisk(TowersDisk* disk, int pile) {
@@ -84,7 +88,11 @@ final class Towers : Benchmark {
         }
     }
 
+    bool check(int result) {
+        return 8191 == result;
+    }
+
     override bool verifyResult(Any result) {
-        return 8191 == result.get!int;
+        return check(result.get!int);
     }
 }

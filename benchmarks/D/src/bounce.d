@@ -52,6 +52,10 @@ private struct Ball {
 
 final class Bounce : Benchmark {
     override Any benchmark() {
+        return Any(run());
+    }
+
+    int run() {
         Random random;
         enum ballCount = 100;
         int bounces = 0;
@@ -65,10 +69,14 @@ final class Bounce : Benchmark {
                     bounces += 1;
             }
         }
-        return Any(bounces);
+        return bounces;
+    }
+
+    bool check(int result) {
+        return 1331 == result;
     }
 
     override bool verifyResult(Any result) {
-        return 1331 == result.get!int;
+        return check(result.get!int);
     }
 }

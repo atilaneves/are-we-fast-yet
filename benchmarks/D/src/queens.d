@@ -10,10 +10,14 @@ final class Queens : Benchmark {
     private int[] queenRows;
 
     override Any benchmark() {
+        return Any(run());
+    }
+
+    bool run() {
         bool result = true;
         foreach (i; 0 .. 10)
             result = result && queens();
-        return Any(result);
+        return result;
     }
 
     private bool queens() {
@@ -62,7 +66,11 @@ final class Queens : Benchmark {
         freeMins[c - r + 7] = v;
     }
 
+    bool check(bool result) {
+        return result;
+    }
+
     override bool verifyResult(Any result) {
-        return result.get!bool;
+        return check(result.get!bool);
     }
 }

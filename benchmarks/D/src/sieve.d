@@ -4,6 +4,10 @@ import benchmark;
 
 final class Sieve : Benchmark {
     override Any benchmark() {
+        return Any(run());
+    }
+
+    int run() {
         enum numFlags = 5000;
         version (ManualMemory) {
             bool[numFlags] storage;
@@ -12,7 +16,7 @@ final class Sieve : Benchmark {
             auto flags = new bool[numFlags];
         }
         flags[] = true;
-        return Any(sieve(flags, 5000));
+        return sieve(flags, 5000);
     }
 
     private int sieve(bool[] flags, int size) {
@@ -30,7 +34,11 @@ final class Sieve : Benchmark {
         return primeCount;
     }
 
+    bool check(int result) {
+        return 669 == result;
+    }
+
     override bool verifyResult(Any result) {
-        return 669 == result.get!int;
+        return check(result.get!int);
     }
 }

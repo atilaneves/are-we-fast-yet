@@ -40,6 +40,10 @@ private struct Element {
 
 final class List : Benchmark {
     override Any benchmark() {
+        return Any(run());
+    }
+
+    int run() {
         Element* x = makeList(15);
         Element* y = makeList(10);
         Element* z = makeList(6);
@@ -50,7 +54,7 @@ final class List : Benchmark {
         dispose(x);
         dispose(y);
         dispose(z);
-        return Any(length);
+        return length;
     }
 
     private Element* makeList(int length) {
@@ -81,7 +85,11 @@ final class List : Benchmark {
         return z;
     }
 
+    bool check(int result) {
+        return 10 == result;
+    }
+
     override bool verifyResult(Any result) {
-        return 10 == result.get!int;
+        return check(result.get!int);
     }
 }

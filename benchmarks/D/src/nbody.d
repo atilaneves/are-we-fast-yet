@@ -146,13 +146,17 @@ private struct NBodySystem {
 
 final class NBody : Runnable {
     bool innerBenchmarkLoop(int innerIterations) {
+        return verifyResult(run(innerIterations), innerIterations);
+    }
+
+    double run(int innerIterations) {
         auto system = NBodySystem.create();
         foreach (i; 0 .. innerIterations)
             system.advance(0.01);
-        return verifyResult(system.energy(), innerIterations);
+        return system.energy();
     }
 
-    private bool verifyResult(double result, int innerIterations) {
+    bool verifyResult(double result, int innerIterations) {
         if (innerIterations == 250000)
             return result == -0.1690859889909308;
         if (innerIterations == 1)
