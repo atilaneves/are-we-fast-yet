@@ -1,0 +1,24 @@
+#!/bin/bash
+# usage: run DIRECTORY COMMAND [ARGUMENT...]
+# Run COMMAND with DIRECTORY as the working directory.
+# ReBench starts commands with an empty environment. compare.sh writes the
+# environment that the commands need to .awfy-env in the repository root.
+# If AWFY_LOG is set, also append the command line, the output (stdout and
+# stderr), the exit status and the wall time of COMMAND in microseconds to
+# that file. ReBench does not keep the output of a Time suite.
+here="$(cd "$(dirname "$0")/.." && pwd)"
+# shellcheck disable=SC1091
+[ -f "$here/.awfy-env" ] && . "$here/.awfy-env"
+dir="$1"
+cd "$dir" || exit 127
+shift
+if [ -z "$AWFY_LOG" ]; then exec "$@"; fi
+tmp=$(mktemp)
+start=${EPOCHREALTIME/./}
+"$@" >"$tmp" 2>&1
+rc=$?
+end=${EPOCHREALTIME/./}
+cat "$tmp"
+{ echo "### $dir $*"; cat "$tmp"; echo "### exit $rc wall_us $((end - start))"; } >>"$AWFY_LOG"
+rm -f "$tmp"
+exit $rc
