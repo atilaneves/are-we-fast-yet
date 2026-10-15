@@ -237,11 +237,39 @@ of snakebite ran on the same machine, so data from then on is disturbed.
 
 ## Why bin/sb is slow
 
-Not known yet. A profile of bin/sb on Mandelbrot is in progress; its
-results go to snakebite issue #720 (VM dispatch, call and storage costs).
-The bytecode optimisations of the week before (snakebite PRs #724, #725,
-#731, #734, #736) were chosen and measured on the Cerealed test suite, a
-call- and copy-heavy workload; none of them measured an arithmetic loop.
+Measured on Mandelbrot by a profiler run on 2026-10-15; the full record,
+commands and raw counts are on snakebite issue #720
+(https://github.com/atilaneves/snakebite/issues/720#issuecomment-6191493860).
+
+Per inner Mandelbrot iteration, frontend and start-up removed:
+
+| VM | Bytecodes | Machine instructions | Per bytecode | Cycles |
+|---|---:|---:|---:|---:|
+| bin/sb (release) | 57 | 1073 | 18.8 | 502 |
+| lua | 13 | 456 | 35.1 | 222 |
+| java -Xint | 35 | 311 | 8.9 | 237 |
+| wasm3 | not known | 138 | not known | 65 |
+
+- bin/sb executes too many bytecode instructions: 4.4x Lua's count and
+  1.6x Java's. 40 of the 57 only move data (frame copies, frame
+  addresses, indirect loads and stores); 11 do arithmetic or compares,
+  6 do control flow.
+- The bytecode compiler makes them. `compileBinary` (snakebite
+  `source/snakebite/backends/bytecode/compiler.d:5516`) evaluates each
+  operand into a new temporary and copies the result out.
+  `compileAssign` (`compiler.d:2836`) writes a plain local through
+  `opFrameAddress` + `opStoreIndirect`, not to its frame slot.
+- The cost per bytecode is moderate: 18.8 machine instructions, about
+  half of Lua's.
+- The release build mispredicts more indirect branches than the same
+  source with `--frame-pointer=all -g` (4.33 against 2.41 per
+  iteration) and is slower (1041 against 874 ms per harness iteration).
+  The cause is under investigation; the result goes to #720.
+- The bytecode optimisations of the week before (snakebite PRs #724,
+  #725, #731, #734, #736) made handlers cheaper and fused some pairs.
+  They were chosen and measured on the Cerealed test suite, a call- and
+  copy-heavy workload, and did not change the number of bytecodes the
+  compiler makes for an arithmetic loop.
 
 ## Lessons from running this
 
