@@ -1,0 +1,5376 @@
+### benchmarks/Lua luajit -joff harness.lua Towers 1 600
+Starting Towers benchmark ...
+Towers: iterations=1 runtime: 674639us
+Towers: iterations=1 average: 674639us total: 674639us
+
+Total Runtime: 674639us
+### exit 0 wall_us 679677
+### benchmarks/Lua luajit -joff harness.lua Towers 1 600
+Starting Towers benchmark ...
+Towers: iterations=1 runtime: 711197us
+Towers: iterations=1 average: 711197us total: 711197us
+
+Total Runtime: 711197us
+### exit 0 wall_us 717274
+### benchmarks/Lua luajit -joff harness.lua Towers 1 600
+Starting Towers benchmark ...
+Towers: iterations=1 runtime: 665538us
+Towers: iterations=1 average: 665538us total: 665538us
+
+Total Runtime: 665538us
+### exit 0 wall_us 671057
+### benchmarks/Java java -Xint -cp benchmarks.jar Harness List 1 1500
+Starting List benchmark ...
+List: iterations=1 runtime: 1786923us
+List: iterations=1 average: 1786923us total: 1786923us
+
+
+Total Runtime: 1786923us
+### exit 0 wall_us 1837296
+### benchmarks/Java java -Xint -cp benchmarks.jar Harness List 1 1500
+Starting List benchmark ...
+List: iterations=1 runtime: 1814386us
+List: iterations=1 average: 1814386us total: 1814386us
+
+
+Total Runtime: 1814386us
+### exit 0 wall_us 1867922
+### benchmarks/Java java -Xint -cp benchmarks.jar Harness List 1 1500
+Starting List benchmark ...
+List: iterations=1 runtime: 1806566us
+List: iterations=1 average: 1806566us total: 1806566us
+
+
+Total Runtime: 1806566us
+### exit 0 wall_us 1858377
+### benchmarks/Java java -Xint -cp benchmarks.jar Harness Havlak 1 1500
+Starting Havlak benchmark ...
+Havlak: iterations=1 runtime: 2862170us
+Havlak: iterations=1 average: 2862170us total: 2862170us
+
+
+Total Runtime: 2862170us
+### exit 0 wall_us 2916939
+### benchmarks/Java java -Xint -cp benchmarks.jar Harness Havlak 1 1500
+Starting Havlak benchmark ...
+Havlak: iterations=1 runtime: 2841911us
+Havlak: iterations=1 average: 2841911us total: 2841911us
+
+
+Total Runtime: 2841911us
+### exit 0 wall_us 2894783
+### benchmarks/Java java -Xint -cp benchmarks.jar Harness Havlak 1 1500
+Starting Havlak benchmark ...
+Havlak: iterations=1 runtime: 2902430us
+Havlak: iterations=1 average: 2902430us total: 2902430us
+
+
+Total Runtime: 2902430us
+### exit 0 wall_us 2963605
+### benchmarks/Java java -Xint -cp benchmarks.jar Harness Sieve 1 3000
+Starting Sieve benchmark ...
+Sieve: iterations=1 runtime: 757116us
+Sieve: iterations=1 average: 757116us total: 757116us
+
+
+Total Runtime: 757116us
+### exit 0 wall_us 812768
+### benchmarks/Java java -Xint -cp benchmarks.jar Harness Sieve 1 3000
+Starting Sieve benchmark ...
+Sieve: iterations=1 runtime: 754301us
+Sieve: iterations=1 average: 754301us total: 754301us
+
+
+Total Runtime: 754301us
+### exit 0 wall_us 807502
+### benchmarks/Java java -Xint -cp benchmarks.jar Harness Sieve 1 3000
+Starting Sieve benchmark ...
+Sieve: iterations=1 runtime: 747919us
+Sieve: iterations=1 average: 747919us total: 747919us
+
+
+Total Runtime: 747919us
+### exit 0 wall_us 802485
+### benchmarks/Java java -cp benchmarks.jar Harness NBody 1 250000
+Starting NBody benchmark ...
+NBody: iterations=1 runtime: 36132us
+NBody: iterations=1 average: 36132us total: 36132us
+
+
+Total Runtime: 36132us
+### exit 0 wall_us 99523
+### benchmarks/Java java -cp benchmarks.jar Harness NBody 1 250000
+Starting NBody benchmark ...
+NBody: iterations=1 runtime: 37642us
+NBody: iterations=1 average: 37642us total: 37642us
+
+
+Total Runtime: 37642us
+### exit 0 wall_us 90320
+### benchmarks/Java java -cp benchmarks.jar Harness NBody 1 250000
+Starting NBody benchmark ...
+NBody: iterations=1 runtime: 37589us
+NBody: iterations=1 average: 37589us total: 37589us
+
+
+Total Runtime: 37589us
+### exit 0 wall_us 101046
+### benchmarks/D sb -I src src -- --DRT-testmode=run-main Richards 1 100
+Starting Richards benchmark ...
+Richards: iterations=1 runtime: 12026538us
+Richards: iterations=1 average: 12026538us total: 12026538us
+
+Total Runtime: 12026538us
+src scan:                 0.3 ms
+frontend time:          253.7 ms
+image time:               0.9 ms
+backend latency:      12036.8 ms
+  compile:                9.1 ms
+  ModuleInfo:             0.7 ms
+  module ctors:           0.2 ms
+  tests and main:     12026.8 ms
+  other:                  0.0 ms
+### exit 0 wall_us 12305624
+### benchmarks/D sb -I src src -- --DRT-testmode=run-main Richards 1 100
+Starting Richards benchmark ...
+Richards: iterations=1 runtime: 12030998us
+Richards: iterations=1 average: 12030998us total: 12030998us
+
+Total Runtime: 12030998us
+src scan:                 0.3 ms
+frontend time:          246.4 ms
+image time:               0.9 ms
+backend latency:      12041.0 ms
+  compile:                8.8 ms
+  ModuleInfo:             0.8 ms
+  module ctors:           0.2 ms
+  tests and main:     12031.3 ms
+  other:                  0.0 ms
+### exit 0 wall_us 12302008
+### benchmarks/D sb -I src src -- --DRT-testmode=run-main Richards 1 100
+Starting Richards benchmark ...
+Richards: iterations=1 runtime: 12044516us
+Richards: iterations=1 average: 12044516us total: 12044516us
+
+Total Runtime: 12044516us
+src scan:                 0.3 ms
+frontend time:          254.9 ms
+image time:               0.9 ms
+backend latency:      12055.1 ms
+  compile:                9.4 ms
+  ModuleInfo:             0.8 ms
+  module ctors:           0.2 ms
+  tests and main:     12044.8 ms
+  other:                  0.0 ms
+### exit 0 wall_us 12323644
+### benchmarks/JavaScript node --jitless harness.js Bounce 1 1500
+Starting Bounce benchmark ...
+Bounce: iterations=1 runtime: 1651511us
+Bounce: iterations=1 average: 1651511us total: 1651511us
+
+
+Total Runtime: 1651511us
+### exit 0 wall_us 1707844
+### benchmarks/JavaScript node --jitless harness.js Bounce 1 1500
+Starting Bounce benchmark ...
+Bounce: iterations=1 runtime: 1698829us
+Bounce: iterations=1 average: 1698829us total: 1698829us
+
+
+Total Runtime: 1698829us
+### exit 0 wall_us 1753842
+### benchmarks/JavaScript node --jitless harness.js Bounce 1 1500
+Starting Bounce benchmark ...
+Bounce: iterations=1 runtime: 1628157us
+Bounce: iterations=1 average: 1628157us total: 1628157us
+
+
+Total Runtime: 1628157us
+### exit 0 wall_us 1686277
+### benchmarks/D ./harness Richards 1 100
+Starting Richards benchmark ...
+Richards: iterations=1 runtime: 81937us
+Richards: iterations=1 average: 81937us total: 81937us
+
+Total Runtime: 81937us
+### exit 0 wall_us 85612
+### benchmarks/D ./harness Richards 1 100
+Starting Richards benchmark ...
+Richards: iterations=1 runtime: 82930us
+Richards: iterations=1 average: 82930us total: 82930us
+
+Total Runtime: 82930us
+### exit 0 wall_us 86609
+### benchmarks/D ./harness Richards 1 100
+Starting Richards benchmark ...
+Richards: iterations=1 runtime: 80814us
+Richards: iterations=1 average: 80814us total: 80814us
+
+Total Runtime: 80814us
+### exit 0 wall_us 84737
+### benchmarks/Python python3 harness.py Bounce 1 1500
+Starting Bounce benchmark ...
+Bounce: iterations=1 runtime: 2011396us
+Bounce: iterations=1 average: 2011396us total: 2011396us
+
+
+Total Runtime: 2011396us
+### exit 0 wall_us 2032602
+### benchmarks/Python python3 harness.py Bounce 1 1500
+Starting Bounce benchmark ...
+Bounce: iterations=1 runtime: 1972818us
+Bounce: iterations=1 average: 1972818us total: 1972818us
+
+
+Total Runtime: 1972818us
+### exit 0 wall_us 1993993
+### benchmarks/Python python3 harness.py Bounce 1 1500
+Starting Bounce benchmark ...
+Bounce: iterations=1 runtime: 1977237us
+Bounce: iterations=1 average: 1977237us total: 1977237us
+
+
+Total Runtime: 1977237us
+### exit 0 wall_us 1994964
+### benchmarks/D ./harness List 1 1500
+Starting List benchmark ...
+List: iterations=1 runtime: 44924us
+List: iterations=1 average: 44924us total: 44924us
+
+Total Runtime: 44924us
+### exit 0 wall_us 47791
+### benchmarks/D ./harness List 1 1500
+Starting List benchmark ...
+List: iterations=1 runtime: 52996us
+List: iterations=1 average: 52996us total: 52996us
+
+Total Runtime: 52996us
+### exit 0 wall_us 56319
+### benchmarks/D ./harness List 1 1500
+Starting List benchmark ...
+List: iterations=1 runtime: 37915us
+List: iterations=1 average: 37915us total: 37915us
+
+Total Runtime: 37915us
+### exit 0 wall_us 40260
+### benchmarks/Lua lua harness.lua Havlak 1 1500
+Starting Havlak benchmark ...
+Havlak: iterations=1 runtime: 7278944us
+Havlak: iterations=1 average: 7278944us total: 7278944us
+
+Total Runtime: 7278944us
+### exit 0 wall_us 7372012
+### benchmarks/Lua lua harness.lua Havlak 1 1500
+Starting Havlak benchmark ...
+Havlak: iterations=1 runtime: 7339087us
+Havlak: iterations=1 average: 7339087us total: 7339087us
+
+Total Runtime: 7339087us
+### exit 0 wall_us 7413662
+### benchmarks/Lua lua harness.lua Havlak 1 1500
+Starting Havlak benchmark ...
+Havlak: iterations=1 runtime: 7207008us
+Havlak: iterations=1 average: 7207008us total: 7207008us
+
+Total Runtime: 7207008us
+### exit 0 wall_us 7281725
+### benchmarks/Lua luajit harness.lua Mandelbrot 1 500
+Starting Mandelbrot benchmark ...
+Mandelbrot: iterations=1 runtime: 44773us
+Mandelbrot: iterations=1 average: 44773us total: 44773us
+
+Total Runtime: 44773us
+### exit 0 wall_us 47249
+### benchmarks/Lua luajit harness.lua Mandelbrot 1 500
+Starting Mandelbrot benchmark ...
+Mandelbrot: iterations=1 runtime: 52673us
+Mandelbrot: iterations=1 average: 52673us total: 52673us
+
+Total Runtime: 52673us
+### exit 0 wall_us 55469
+### benchmarks/Lua luajit harness.lua Mandelbrot 1 500
+Starting Mandelbrot benchmark ...
+Mandelbrot: iterations=1 runtime: 52171us
+Mandelbrot: iterations=1 average: 52171us total: 52171us
+
+Total Runtime: 52171us
+### exit 0 wall_us 55002
+### benchmarks/D ./harness Sieve 1 3000
+Starting Sieve benchmark ...
+Sieve: iterations=1 runtime: 40193us
+Sieve: iterations=1 average: 40193us total: 40193us
+
+Total Runtime: 40193us
+### exit 0 wall_us 42839
+### benchmarks/D ./harness Sieve 1 3000
+Starting Sieve benchmark ...
+Sieve: iterations=1 runtime: 52487us
+Sieve: iterations=1 average: 52487us total: 52487us
+
+Total Runtime: 52487us
+### exit 0 wall_us 55536
+### benchmarks/D ./harness Sieve 1 3000
+Starting Sieve benchmark ...
+Sieve: iterations=1 runtime: 41997us
+Sieve: iterations=1 average: 41997us total: 41997us
+
+Total Runtime: 41997us
+### exit 0 wall_us 44247
+### benchmarks/D ./harness-manual Havlak 1 1500
+Starting Havlak benchmark ...
+Havlak: iterations=1 runtime: 94005us
+Havlak: iterations=1 average: 94005us total: 94005us
+
+Total Runtime: 94005us
+### exit 0 wall_us 96234
+### benchmarks/D ./harness-manual Havlak 1 1500
+Starting Havlak benchmark ...
+Havlak: iterations=1 runtime: 98833us
+Havlak: iterations=1 average: 98833us total: 98833us
+
+Total Runtime: 98833us
+### exit 0 wall_us 101636
+### benchmarks/D ./harness-manual Havlak 1 1500
+Starting Havlak benchmark ...
+Havlak: iterations=1 runtime: 93582us
+Havlak: iterations=1 average: 93582us total: 93582us
+
+Total Runtime: 93582us
+### exit 0 wall_us 96237
+### benchmarks/C++ ./harness Mandelbrot 1 500
+Starting Mandelbrot benchmark ...
+Mandelbrot: iterations=1 runtime: 48121us
+Mandelbrot: iterations=1 average: 48121us total: 48121us
+
+Total Runtime: 48121us
+### exit 0 wall_us 50924
+### benchmarks/C++ ./harness Mandelbrot 1 500
+Starting Mandelbrot benchmark ...
+Mandelbrot: iterations=1 runtime: 42188us
+Mandelbrot: iterations=1 average: 42188us total: 42188us
+
+Total Runtime: 42188us
+### exit 0 wall_us 44488
+### benchmarks/C++ ./harness Mandelbrot 1 500
+Starting Mandelbrot benchmark ...
+Mandelbrot: iterations=1 runtime: 42913us
+Mandelbrot: iterations=1 average: 42913us total: 42913us
+
+Total Runtime: 42913us
+### exit 0 wall_us 45266
+### benchmarks/D ./harness-manual List 1 1500
+Starting List benchmark ...
+List: iterations=1 runtime: 32819us
+List: iterations=1 average: 32819us total: 32819us
+
+Total Runtime: 32819us
+### exit 0 wall_us 34393
+### benchmarks/D ./harness-manual List 1 1500
+Starting List benchmark ...
+List: iterations=1 runtime: 47830us
+List: iterations=1 average: 47830us total: 47830us
+
+Total Runtime: 47830us
+### exit 0 wall_us 50058
+### benchmarks/D ./harness-manual List 1 1500
+Starting List benchmark ...
+List: iterations=1 runtime: 42465us
+List: iterations=1 average: 42465us total: 42465us
+
+Total Runtime: 42465us
+### exit 0 wall_us 44655
+### results/sb-manual sb --version=ManualMemory -I ../../benchmarks/D/src ../../benchmarks/D/src -- --DRT-testmode=run-main CD 1 250
+Starting CD benchmark ...
+CD: iterations=1 runtime: 3411179us
+CD: iterations=1 average: 3411179us total: 3411179us
+
+Total Runtime: 3411179us
+src scan:                 0.3 ms
+frontend time:          275.6 ms
+image time:               0.9 ms
+backend latency:       3426.4 ms
+  compile:               13.6 ms
+  ModuleInfo:             1.1 ms
+  module ctors:           0.2 ms
+  tests and main:      3411.5 ms
+  other:                  0.0 ms
+### exit 0 wall_us 3716594
+### results/sb-manual sb --version=ManualMemory -I ../../benchmarks/D/src ../../benchmarks/D/src -- --DRT-testmode=run-main CD 1 250
+Starting CD benchmark ...
+CD: iterations=1 runtime: 3476025us
+CD: iterations=1 average: 3476025us total: 3476025us
+
+Total Runtime: 3476025us
+src scan:                 0.3 ms
+frontend time:          259.8 ms
+image time:               0.9 ms
+backend latency:       3490.6 ms
+  compile:               13.3 ms
+  ModuleInfo:             0.9 ms
+  module ctors:           0.2 ms
+  tests and main:      3476.3 ms
+  other:                  0.0 ms
+### exit 0 wall_us 3765320
+### results/sb-manual sb --version=ManualMemory -I ../../benchmarks/D/src ../../benchmarks/D/src -- --DRT-testmode=run-main CD 1 250
+Starting CD benchmark ...
+CD: iterations=1 runtime: 3447495us
+CD: iterations=1 average: 3447495us total: 3447495us
+
+Total Runtime: 3447495us
+src scan:                 0.3 ms
+frontend time:          265.8 ms
+image time:               0.9 ms
+backend latency:       3461.5 ms
+  compile:               12.8 ms
+  ModuleInfo:             0.8 ms
+  module ctors:           0.2 ms
+  tests and main:      3447.8 ms
+  other:                  0.0 ms
+### exit 0 wall_us 3742387
+### benchmarks/Python python3 harness.py CD 1 250
+Starting CD benchmark ...
+CD: iterations=1 runtime: 3347323us
+CD: iterations=1 average: 3347323us total: 3347323us
+
+
+Total Runtime: 3347323us
+### exit 0 wall_us 3377509
+### benchmarks/Python python3 harness.py CD 1 250
+Starting CD benchmark ...
+CD: iterations=1 runtime: 3290521us
+CD: iterations=1 average: 3290521us total: 3290521us
+
+
+Total Runtime: 3290521us
+### exit 0 wall_us 3313715
+### benchmarks/Python python3 harness.py CD 1 250
+Starting CD benchmark ...
+CD: iterations=1 runtime: 3456400us
+CD: iterations=1 average: 3456400us total: 3456400us
+
+
+Total Runtime: 3456400us
+### exit 0 wall_us 3486942
+### benchmarks/Java java -cp benchmarks.jar Harness Mandelbrot 1 500
+Starting Mandelbrot benchmark ...
+Mandelbrot: iterations=1 runtime: 48062us
+Mandelbrot: iterations=1 average: 48062us total: 48062us
+
+
+Total Runtime: 48062us
+### exit 0 wall_us 104392
+### benchmarks/Java java -cp benchmarks.jar Harness Mandelbrot 1 500
+Starting Mandelbrot benchmark ...
+Mandelbrot: iterations=1 runtime: 63329us
+Mandelbrot: iterations=1 average: 63329us total: 63329us
+
+
+Total Runtime: 63329us
+### exit 0 wall_us 121832
+### benchmarks/Java java -cp benchmarks.jar Harness Mandelbrot 1 500
+Starting Mandelbrot benchmark ...
+Mandelbrot: iterations=1 runtime: 62058us
+Mandelbrot: iterations=1 average: 62058us total: 62058us
+
+
+Total Runtime: 62058us
+### exit 0 wall_us 126466
+### benchmarks/D ./harness Storage 1 1000
+Starting Storage benchmark ...
+Storage: iterations=1 runtime: 498226us
+Storage: iterations=1 average: 498226us total: 498226us
+
+Total Runtime: 498226us
+### exit 0 wall_us 501349
+### benchmarks/D ./harness Storage 1 1000
+Starting Storage benchmark ...
+Storage: iterations=1 runtime: 511743us
+Storage: iterations=1 average: 511743us total: 511743us
+
+Total Runtime: 511743us
+### exit 0 wall_us 515063
+### benchmarks/D ./harness Storage 1 1000
+Starting Storage benchmark ...
+Storage: iterations=1 runtime: 516252us
+Storage: iterations=1 average: 516252us total: 516252us
+
+Total Runtime: 516252us
+### exit 0 wall_us 518934
+### benchmarks/D ./harness --DRT-gcopt=cleanup:none heapSizeFactor:4 Permute 1 1000
+Starting Permute benchmark ...
+Permute: iterations=1 runtime: 36891us
+Permute: iterations=1 average: 36891us total: 36891us
+
+Total Runtime: 36891us
+### exit 0 wall_us 39623
+### benchmarks/D ./harness --DRT-gcopt=cleanup:none heapSizeFactor:4 Permute 1 1000
+Starting Permute benchmark ...
+Permute: iterations=1 runtime: 30635us
+Permute: iterations=1 average: 30635us total: 30635us
+
+Total Runtime: 30635us
+### exit 0 wall_us 32377
+### benchmarks/D ./harness --DRT-gcopt=cleanup:none heapSizeFactor:4 Permute 1 1000
+Starting Permute benchmark ...
+Permute: iterations=1 runtime: 38613us
+Permute: iterations=1 average: 38613us total: 38613us
+
+Total Runtime: 38613us
+### exit 0 wall_us 41052
+### benchmarks/D ./harness --DRT-gcopt=cleanup:none heapSizeFactor:4 Richards 1 100
+Starting Richards benchmark ...
+Richards: iterations=1 runtime: 72589us
+Richards: iterations=1 average: 72589us total: 72589us
+
+Total Runtime: 72589us
+### exit 0 wall_us 74291
+### benchmarks/D ./harness --DRT-gcopt=cleanup:none heapSizeFactor:4 Richards 1 100
+Starting Richards benchmark ...
+Richards: iterations=1 runtime: 83553us
+Richards: iterations=1 average: 83553us total: 83553us
+
+Total Runtime: 83553us
+### exit 0 wall_us 86052
+### benchmarks/D ./harness --DRT-gcopt=cleanup:none heapSizeFactor:4 Richards 1 100
+Starting Richards benchmark ...
+Richards: iterations=1 runtime: 71511us
+Richards: iterations=1 average: 71511us total: 71511us
+
+Total Runtime: 71511us
+### exit 0 wall_us 73208
+### benchmarks/Python python3 harness.py NBody 1 250000
+Starting NBody benchmark ...
+NBody: iterations=1 runtime: 1998227us
+NBody: iterations=1 average: 1998227us total: 1998227us
+
+
+Total Runtime: 1998227us
+### exit 0 wall_us 2019917
+### benchmarks/Python python3 harness.py NBody 1 250000
+Starting NBody benchmark ...
+NBody: iterations=1 runtime: 2015656us
+NBody: iterations=1 average: 2015656us total: 2015656us
+
+
+Total Runtime: 2015656us
+### exit 0 wall_us 2031022
+### benchmarks/Python python3 harness.py NBody 1 250000
+Starting NBody benchmark ...
+NBody: iterations=1 runtime: 1993372us
+NBody: iterations=1 average: 1993372us total: 1993372us
+
+
+Total Runtime: 1993372us
+### exit 0 wall_us 2012243
+### benchmarks/Lua luajit -joff harness.lua Bounce 1 1500
+Starting Bounce benchmark ...
+Bounce: iterations=1 runtime: 725290us
+Bounce: iterations=1 average: 725290us total: 725290us
+
+Total Runtime: 725290us
+### exit 0 wall_us 732061
+### benchmarks/Lua luajit -joff harness.lua Bounce 1 1500
+Starting Bounce benchmark ...
+Bounce: iterations=1 runtime: 700813us
+Bounce: iterations=1 average: 700813us total: 700813us
+
+Total Runtime: 700813us
+### exit 0 wall_us 706933
+### benchmarks/Lua luajit -joff harness.lua Bounce 1 1500
+Starting Bounce benchmark ...
+Bounce: iterations=1 runtime: 683447us
+Bounce: iterations=1 average: 683447us total: 683447us
+
+Total Runtime: 683447us
+### exit 0 wall_us 689350
+### benchmarks/D ./harness-manual CD 1 250
+Starting CD benchmark ...
+CD: iterations=1 runtime: 61061us
+CD: iterations=1 average: 61061us total: 61061us
+
+Total Runtime: 61061us
+### exit 0 wall_us 63483
+### benchmarks/D ./harness-manual CD 1 250
+Starting CD benchmark ...
+CD: iterations=1 runtime: 59456us
+CD: iterations=1 average: 59456us total: 59456us
+
+Total Runtime: 59456us
+### exit 0 wall_us 61772
+### benchmarks/D ./harness-manual CD 1 250
+Starting CD benchmark ...
+CD: iterations=1 runtime: 54201us
+CD: iterations=1 average: 54201us total: 54201us
+
+Total Runtime: 54201us
+### exit 0 wall_us 56143
+### benchmarks/D ./harness-manual Bounce 1 1500
+Starting Bounce benchmark ...
+Bounce: iterations=1 runtime: 30978us
+Bounce: iterations=1 average: 30978us total: 30978us
+
+Total Runtime: 30978us
+### exit 0 wall_us 32895
+### benchmarks/D ./harness-manual Bounce 1 1500
+Starting Bounce benchmark ...
+Bounce: iterations=1 runtime: 34520us
+Bounce: iterations=1 average: 34520us total: 34520us
+
+Total Runtime: 34520us
+### exit 0 wall_us 36591
+### benchmarks/D ./harness-manual Bounce 1 1500
+Starting Bounce benchmark ...
+Bounce: iterations=1 runtime: 23815us
+Bounce: iterations=1 average: 23815us total: 23815us
+
+Total Runtime: 23815us
+### exit 0 wall_us 26069
+### benchmarks/Java java -cp benchmarks.jar Harness Json 1 100
+Starting Json benchmark ...
+Json: iterations=1 runtime: 144731us
+Json: iterations=1 average: 144731us total: 144731us
+
+
+Total Runtime: 144731us
+### exit 0 wall_us 208670
+### benchmarks/Java java -cp benchmarks.jar Harness Json 1 100
+Starting Json benchmark ...
+Json: iterations=1 runtime: 146004us
+Json: iterations=1 average: 146004us total: 146004us
+
+
+Total Runtime: 146004us
+### exit 0 wall_us 206008
+### benchmarks/Java java -cp benchmarks.jar Harness Json 1 100
+Starting Json benchmark ...
+Json: iterations=1 runtime: 156086us
+Json: iterations=1 average: 156086us total: 156086us
+
+
+Total Runtime: 156086us
+### exit 0 wall_us 232487
+### benchmarks/JavaScript node harness.js CD 1 250
+Starting CD benchmark ...
+CD: iterations=1 runtime: 159079us
+CD: iterations=1 average: 159079us total: 159079us
+
+
+Total Runtime: 159079us
+### exit 0 wall_us 211684
+### benchmarks/JavaScript node harness.js CD 1 250
+Starting CD benchmark ...
+CD: iterations=1 runtime: 155480us
+CD: iterations=1 average: 155480us total: 155480us
+
+
+Total Runtime: 155480us
+### exit 0 wall_us 216410
+### benchmarks/JavaScript node harness.js CD 1 250
+Starting CD benchmark ...
+CD: iterations=1 runtime: 159757us
+CD: iterations=1 average: 159757us total: 159757us
+
+
+Total Runtime: 159757us
+### exit 0 wall_us 210604
+### benchmarks/C++ ./harness DeltaBlue 1 12000
+Starting DeltaBlue benchmark ...
+DeltaBlue: iterations=1 runtime: 27998us
+DeltaBlue: iterations=1 average: 27998us total: 27998us
+
+Total Runtime: 27998us
+### exit 0 wall_us 31536
+### benchmarks/C++ ./harness DeltaBlue 1 12000
+Starting DeltaBlue benchmark ...
+DeltaBlue: iterations=1 runtime: 19937us
+DeltaBlue: iterations=1 average: 19937us total: 19937us
+
+Total Runtime: 19937us
+### exit 0 wall_us 22658
+### benchmarks/C++ ./harness DeltaBlue 1 12000
+Starting DeltaBlue benchmark ...
+DeltaBlue: iterations=1 runtime: 28906us
+DeltaBlue: iterations=1 average: 28906us total: 28906us
+
+Total Runtime: 28906us
+### exit 0 wall_us 32303
+### benchmarks/C++ ./harness Richards 1 100
+Starting Richards benchmark ...
+Richards: iterations=1 runtime: 95832us
+Richards: iterations=1 average: 95832us total: 95832us
+
+Total Runtime: 95832us
+### exit 0 wall_us 98638
+### benchmarks/C++ ./harness Richards 1 100
+Starting Richards benchmark ...
+Richards: iterations=1 runtime: 91599us
+Richards: iterations=1 average: 91599us total: 91599us
+
+Total Runtime: 91599us
+### exit 0 wall_us 93585
+### benchmarks/C++ ./harness Richards 1 100
+Starting Richards benchmark ...
+Richards: iterations=1 runtime: 93674us
+Richards: iterations=1 average: 93674us total: 93674us
+
+Total Runtime: 93674us
+### exit 0 wall_us 96593
+### benchmarks/JavaScript node --jitless harness.js Queens 1 1000
+Starting Queens benchmark ...
+Queens: iterations=1 runtime: 1157648us
+Queens: iterations=1 average: 1157648us total: 1157648us
+
+
+Total Runtime: 1157648us
+### exit 0 wall_us 1215983
+### benchmarks/JavaScript node --jitless harness.js Queens 1 1000
+Starting Queens benchmark ...
+Queens: iterations=1 runtime: 1202911us
+Queens: iterations=1 average: 1202911us total: 1202911us
+
+
+Total Runtime: 1202911us
+### exit 0 wall_us 1260166
+### benchmarks/JavaScript node --jitless harness.js Queens 1 1000
+Starting Queens benchmark ...
+Queens: iterations=1 runtime: 1161104us
+Queens: iterations=1 average: 1161104us total: 1161104us
+
+
+Total Runtime: 1161104us
+### exit 0 wall_us 1216790
+### benchmarks/JavaScript node --jitless harness.js List 1 1500
+Starting List benchmark ...
+List: iterations=1 runtime: 838133us
+List: iterations=1 average: 838133us total: 838133us
+
+
+Total Runtime: 838133us
+### exit 0 wall_us 894487
+### benchmarks/JavaScript node --jitless harness.js List 1 1500
+Starting List benchmark ...
+List: iterations=1 runtime: 824543us
+List: iterations=1 average: 824543us total: 824543us
+
+
+Total Runtime: 824543us
+### exit 0 wall_us 874128
+### benchmarks/JavaScript node --jitless harness.js List 1 1500
+Starting List benchmark ...
+List: iterations=1 runtime: 815669us
+List: iterations=1 average: 815669us total: 815669us
+
+
+Total Runtime: 815669us
+### exit 0 wall_us 870419
+### benchmarks/JavaScript node --jitless harness.js Mandelbrot 1 500
+Starting Mandelbrot benchmark ...
+Mandelbrot: iterations=1 runtime: 828017us
+Mandelbrot: iterations=1 average: 828017us total: 828017us
+
+
+Total Runtime: 828017us
+### exit 0 wall_us 885146
+### benchmarks/JavaScript node --jitless harness.js Mandelbrot 1 500
+Starting Mandelbrot benchmark ...
+Mandelbrot: iterations=1 runtime: 850502us
+Mandelbrot: iterations=1 average: 850502us total: 850502us
+
+
+Total Runtime: 850502us
+### exit 0 wall_us 900595
+### benchmarks/JavaScript node --jitless harness.js Mandelbrot 1 500
+Starting Mandelbrot benchmark ...
+Mandelbrot: iterations=1 runtime: 860706us
+Mandelbrot: iterations=1 average: 860706us total: 860706us
+
+
+Total Runtime: 860706us
+### exit 0 wall_us 918435
+### benchmarks/C++ wasm3 harness.wasm Json 1 100
+Starting Json benchmark ...
+Json: iterations=1 runtime: 666552us
+Json: iterations=1 average: 666552us total: 666552us
+
+Total Runtime: 666552us
+### exit 0 wall_us 670851
+### benchmarks/C++ wasm3 harness.wasm Json 1 100
+Starting Json benchmark ...
+Json: iterations=1 runtime: 670482us
+Json: iterations=1 average: 670482us total: 670482us
+
+Total Runtime: 670482us
+### exit 0 wall_us 676755
+### benchmarks/C++ wasm3 harness.wasm Json 1 100
+Starting Json benchmark ...
+Json: iterations=1 runtime: 676432us
+Json: iterations=1 average: 676432us total: 676432us
+
+Total Runtime: 676432us
+### exit 0 wall_us 682862
+### benchmarks/Lua luajit -joff harness.lua NBody 1 250000
+Starting NBody benchmark ...
+NBody: iterations=1 runtime: 515386us
+NBody: iterations=1 average: 515386us total: 515386us
+
+Total Runtime: 515386us
+### exit 0 wall_us 520739
+### benchmarks/Lua luajit -joff harness.lua NBody 1 250000
+Starting NBody benchmark ...
+NBody: iterations=1 runtime: 570884us
+NBody: iterations=1 average: 570884us total: 570884us
+
+Total Runtime: 570884us
+### exit 0 wall_us 575410
+### benchmarks/Lua luajit -joff harness.lua NBody 1 250000
+Starting NBody benchmark ...
+NBody: iterations=1 runtime: 528765us
+NBody: iterations=1 average: 528765us total: 528765us
+
+Total Runtime: 528765us
+### exit 0 wall_us 533495
+### benchmarks/D ./harness-manual Richards 1 100
+Starting Richards benchmark ...
+Richards: iterations=1 runtime: 87717us
+Richards: iterations=1 average: 87717us total: 87717us
+
+Total Runtime: 87717us
+### exit 0 wall_us 90102
+### benchmarks/D ./harness-manual Richards 1 100
+Starting Richards benchmark ...
+Richards: iterations=1 runtime: 79563us
+Richards: iterations=1 average: 79563us total: 79563us
+
+Total Runtime: 79563us
+### exit 0 wall_us 81123
+### benchmarks/D ./harness-manual Richards 1 100
+Starting Richards benchmark ...
+Richards: iterations=1 runtime: 81870us
+Richards: iterations=1 average: 81870us total: 81870us
+
+Total Runtime: 81870us
+### exit 0 wall_us 83855
+### benchmarks/D ./harness --DRT-gcopt=cleanup:none heapSizeFactor:4 CD 1 250
+Starting CD benchmark ...
+CD: iterations=1 runtime: 77041us
+CD: iterations=1 average: 77041us total: 77041us
+
+Total Runtime: 77041us
+### exit 0 wall_us 79991
+### benchmarks/D ./harness --DRT-gcopt=cleanup:none heapSizeFactor:4 CD 1 250
+Starting CD benchmark ...
+CD: iterations=1 runtime: 89035us
+CD: iterations=1 average: 89035us total: 89035us
+
+Total Runtime: 89035us
+### exit 0 wall_us 92657
+### benchmarks/D ./harness --DRT-gcopt=cleanup:none heapSizeFactor:4 CD 1 250
+Starting CD benchmark ...
+CD: iterations=1 runtime: 88944us
+CD: iterations=1 average: 88944us total: 88944us
+
+Total Runtime: 88944us
+### exit 0 wall_us 92724
+### benchmarks/JavaScript node harness.js DeltaBlue 1 12000
+Starting DeltaBlue benchmark ...
+DeltaBlue: iterations=1 runtime: 103426us
+DeltaBlue: iterations=1 average: 103426us total: 103426us
+
+
+Total Runtime: 103426us
+### exit 0 wall_us 157844
+### benchmarks/JavaScript node harness.js DeltaBlue 1 12000
+Starting DeltaBlue benchmark ...
+DeltaBlue: iterations=1 runtime: 111625us
+DeltaBlue: iterations=1 average: 111625us total: 111625us
+
+
+Total Runtime: 111625us
+### exit 0 wall_us 173006
+### benchmarks/JavaScript node harness.js DeltaBlue 1 12000
+Starting DeltaBlue benchmark ...
+DeltaBlue: iterations=1 runtime: 101503us
+DeltaBlue: iterations=1 average: 101503us total: 101503us
+
+
+Total Runtime: 101503us
+### exit 0 wall_us 167476
+### benchmarks/JavaScript node --jitless harness.js Sieve 1 3000
+Starting Sieve benchmark ...
+Sieve: iterations=1 runtime: 1393283us
+Sieve: iterations=1 average: 1393283us total: 1393283us
+
+
+Total Runtime: 1393283us
+### exit 0 wall_us 1446354
+### benchmarks/JavaScript node --jitless harness.js Sieve 1 3000
+Starting Sieve benchmark ...
+Sieve: iterations=1 runtime: 1361675us
+Sieve: iterations=1 average: 1361675us total: 1361675us
+
+
+Total Runtime: 1361675us
+### exit 0 wall_us 1411746
+### benchmarks/JavaScript node --jitless harness.js Sieve 1 3000
+Starting Sieve benchmark ...
+Sieve: iterations=1 runtime: 1366465us
+Sieve: iterations=1 average: 1366465us total: 1366465us
+
+
+Total Runtime: 1366465us
+### exit 0 wall_us 1417213
+### benchmarks/Lua luajit -joff harness.lua Storage 1 1000
+Starting Storage benchmark ...
+Storage: iterations=1 runtime: 1206200us
+Storage: iterations=1 average: 1206200us total: 1206200us
+
+Total Runtime: 1206200us
+### exit 0 wall_us 1217851
+### benchmarks/Lua luajit -joff harness.lua Storage 1 1000
+Starting Storage benchmark ...
+Storage: iterations=1 runtime: 1174721us
+Storage: iterations=1 average: 1174721us total: 1174721us
+
+Total Runtime: 1174721us
+### exit 0 wall_us 1184950
+### benchmarks/Lua luajit -joff harness.lua Storage 1 1000
+Starting Storage benchmark ...
+Storage: iterations=1 runtime: 1171384us
+Storage: iterations=1 average: 1171384us total: 1171384us
+
+Total Runtime: 1171384us
+### exit 0 wall_us 1180607
+### benchmarks/Python python3 harness.py Richards 1 100
+Starting Richards benchmark ...
+Richards: iterations=1 runtime: 6006129us
+Richards: iterations=1 average: 6006129us total: 6006129us
+
+
+Total Runtime: 6006129us
+### exit 0 wall_us 6027508
+### benchmarks/Python python3 harness.py Richards 1 100
+Starting Richards benchmark ...
+Richards: iterations=1 runtime: 6130855us
+Richards: iterations=1 average: 6130855us total: 6130855us
+
+
+Total Runtime: 6130855us
+### exit 0 wall_us 6145076
+### benchmarks/Python python3 harness.py Richards 1 100
+Starting Richards benchmark ...
+Richards: iterations=1 runtime: 6132241us
+Richards: iterations=1 average: 6132241us total: 6132241us
+
+
+Total Runtime: 6132241us
+### exit 0 wall_us 6147218
+### benchmarks/Java java -cp benchmarks.jar Harness Queens 1 1000
+Starting Queens benchmark ...
+Queens: iterations=1 runtime: 41900us
+Queens: iterations=1 average: 41900us total: 41900us
+
+
+Total Runtime: 41900us
+### exit 0 wall_us 103059
+### benchmarks/Java java -cp benchmarks.jar Harness Queens 1 1000
+Starting Queens benchmark ...
+Queens: iterations=1 runtime: 36501us
+Queens: iterations=1 average: 36501us total: 36501us
+
+
+Total Runtime: 36501us
+### exit 0 wall_us 85238
+### benchmarks/Java java -cp benchmarks.jar Harness Queens 1 1000
+Starting Queens benchmark ...
+Queens: iterations=1 runtime: 38407us
+Queens: iterations=1 average: 38407us total: 38407us
+
+
+Total Runtime: 38407us
+### exit 0 wall_us 101174
+### benchmarks/Lua lua harness.lua Towers 1 600
+Starting Towers benchmark ...
+Towers: iterations=1 runtime: 1250513us
+Towers: iterations=1 average: 1250513us total: 1250513us
+
+Total Runtime: 1250513us
+### exit 0 wall_us 1258593
+### benchmarks/Lua lua harness.lua Towers 1 600
+Starting Towers benchmark ...
+Towers: iterations=1 runtime: 1243927us
+Towers: iterations=1 average: 1243927us total: 1243927us
+
+Total Runtime: 1243927us
+### exit 0 wall_us 1251738
+### benchmarks/Lua lua harness.lua Towers 1 600
+Starting Towers benchmark ...
+Towers: iterations=1 runtime: 1247386us
+Towers: iterations=1 average: 1247386us total: 1247386us
+
+Total Runtime: 1247386us
+### exit 0 wall_us 1256536
+### results/sb-manual sb --version=ManualMemory -I ../../benchmarks/D/src ../../benchmarks/D/src -- --DRT-testmode=run-main Json 1 100
+Starting Json benchmark ...
+Json: iterations=1 runtime: 1796334us
+Json: iterations=1 average: 1796334us total: 1796334us
+
+Total Runtime: 1796334us
+src scan:                 0.3 ms
+frontend time:          284.4 ms
+image time:               0.9 ms
+backend latency:       1809.0 ms
+  compile:               11.2 ms
+  ModuleInfo:             0.9 ms
+  module ctors:           0.2 ms
+  tests and main:      1796.7 ms
+  other:                  0.0 ms
+### exit 0 wall_us 2107819
+### results/sb-manual sb --version=ManualMemory -I ../../benchmarks/D/src ../../benchmarks/D/src -- --DRT-testmode=run-main Json 1 100
+Starting Json benchmark ...
+Json: iterations=1 runtime: 1720490us
+Json: iterations=1 average: 1720490us total: 1720490us
+
+Total Runtime: 1720490us
+src scan:                 0.3 ms
+frontend time:          285.0 ms
+image time:               0.9 ms
+backend latency:       1731.9 ms
+  compile:               10.2 ms
+  ModuleInfo:             0.8 ms
+  module ctors:           0.2 ms
+  tests and main:      1720.8 ms
+  other:                  0.0 ms
+### exit 0 wall_us 2031433
+### results/sb-manual sb --version=ManualMemory -I ../../benchmarks/D/src ../../benchmarks/D/src -- --DRT-testmode=run-main Json 1 100
+Starting Json benchmark ...
+Json: iterations=1 runtime: 1734979us
+Json: iterations=1 average: 1734979us total: 1734979us
+
+Total Runtime: 1734979us
+src scan:                 0.3 ms
+frontend time:          278.9 ms
+image time:               0.9 ms
+backend latency:       1745.6 ms
+  compile:                9.3 ms
+  ModuleInfo:             0.9 ms
+  module ctors:           0.2 ms
+  tests and main:      1735.3 ms
+  other:                  0.0 ms
+### exit 0 wall_us 2039194
+### benchmarks/D ./harness NBody 1 250000
+Starting NBody benchmark ...
+NBody: iterations=1 runtime: 23857us
+NBody: iterations=1 average: 23857us total: 23857us
+
+Total Runtime: 23857us
+### exit 0 wall_us 27398
+### benchmarks/D ./harness NBody 1 250000
+Starting NBody benchmark ...
+NBody: iterations=1 runtime: 29781us
+NBody: iterations=1 average: 29781us total: 29781us
+
+Total Runtime: 29781us
+### exit 0 wall_us 33569
+### benchmarks/D ./harness NBody 1 250000
+Starting NBody benchmark ...
+NBody: iterations=1 runtime: 24159us
+NBody: iterations=1 average: 24159us total: 24159us
+
+Total Runtime: 24159us
+### exit 0 wall_us 27918
+### benchmarks/Lua lua harness.lua Json 1 100
+Starting Json benchmark ...
+Json: iterations=1 runtime: 1278518us
+Json: iterations=1 average: 1278518us total: 1278518us
+
+Total Runtime: 1278518us
+### exit 0 wall_us 1291110
+### benchmarks/Lua lua harness.lua Json 1 100
+Starting Json benchmark ...
+Json: iterations=1 runtime: 1239591us
+Json: iterations=1 average: 1239591us total: 1239591us
+
+Total Runtime: 1239591us
+### exit 0 wall_us 1250245
+### benchmarks/Lua lua harness.lua Json 1 100
+Starting Json benchmark ...
+Json: iterations=1 runtime: 1258873us
+Json: iterations=1 average: 1258873us total: 1258873us
+
+Total Runtime: 1258873us
+### exit 0 wall_us 1269607
+### benchmarks/D ./harness --DRT-gcopt=cleanup:none heapSizeFactor:4 Storage 1 1000
+Starting Storage benchmark ...
+Storage: iterations=1 runtime: 490803us
+Storage: iterations=1 average: 490803us total: 490803us
+
+Total Runtime: 490803us
+### exit 0 wall_us 494609
+### benchmarks/D ./harness --DRT-gcopt=cleanup:none heapSizeFactor:4 Storage 1 1000
+Starting Storage benchmark ...
+Storage: iterations=1 runtime: 513306us
+Storage: iterations=1 average: 513306us total: 513306us
+
+Total Runtime: 513306us
+### exit 0 wall_us 516304
+### benchmarks/D ./harness --DRT-gcopt=cleanup:none heapSizeFactor:4 Storage 1 1000
+Starting Storage benchmark ...
+Storage: iterations=1 runtime: 507960us
+Storage: iterations=1 average: 507960us total: 507960us
+
+Total Runtime: 507960us
+### exit 0 wall_us 511102
+### benchmarks/Lua lua harness.lua Mandelbrot 1 500
+Starting Mandelbrot benchmark ...
+Mandelbrot: iterations=1 runtime: 472845us
+Mandelbrot: iterations=1 average: 472845us total: 472845us
+
+Total Runtime: 472845us
+### exit 0 wall_us 477587
+### benchmarks/Lua lua harness.lua Mandelbrot 1 500
+Starting Mandelbrot benchmark ...
+Mandelbrot: iterations=1 runtime: 463118us
+Mandelbrot: iterations=1 average: 463118us total: 463118us
+
+Total Runtime: 463118us
+### exit 0 wall_us 467058
+### benchmarks/Lua lua harness.lua Mandelbrot 1 500
+Starting Mandelbrot benchmark ...
+Mandelbrot: iterations=1 runtime: 454321us
+Mandelbrot: iterations=1 average: 454321us total: 454321us
+
+Total Runtime: 454321us
+### exit 0 wall_us 457866
+### benchmarks/C++ wasm3 harness.wasm Richards 1 100
+Starting Richards benchmark ...
+Richards: iterations=1 runtime: 1226703us
+Richards: iterations=1 average: 1226703us total: 1226703us
+
+Total Runtime: 1226703us
+### exit 0 wall_us 1231534
+### benchmarks/C++ wasm3 harness.wasm Richards 1 100
+Starting Richards benchmark ...
+Richards: iterations=1 runtime: 1220857us
+Richards: iterations=1 average: 1220857us total: 1220857us
+
+Total Runtime: 1220857us
+### exit 0 wall_us 1227346
+### benchmarks/C++ wasm3 harness.wasm Richards 1 100
+Starting Richards benchmark ...
+Richards: iterations=1 runtime: 1195924us
+Richards: iterations=1 average: 1195924us total: 1195924us
+
+Total Runtime: 1195924us
+### exit 0 wall_us 1200378
+### benchmarks/D ./harness --DRT-gcopt=cleanup:none heapSizeFactor:4 Towers 1 600
+Starting Towers benchmark ...
+Towers: iterations=1 runtime: 16660us
+Towers: iterations=1 average: 16660us total: 16660us
+
+Total Runtime: 16660us
+### exit 0 wall_us 18432
+### benchmarks/D ./harness --DRT-gcopt=cleanup:none heapSizeFactor:4 Towers 1 600
+Starting Towers benchmark ...
+Towers: iterations=1 runtime: 21141us
+Towers: iterations=1 average: 21141us total: 21141us
+
+Total Runtime: 21141us
+### exit 0 wall_us 23248
+### benchmarks/D ./harness --DRT-gcopt=cleanup:none heapSizeFactor:4 Towers 1 600
+Starting Towers benchmark ...
+Towers: iterations=1 runtime: 16586us
+Towers: iterations=1 average: 16586us total: 16586us
+
+Total Runtime: 16586us
+### exit 0 wall_us 18228
+### benchmarks/Python python3 harness.py Havlak 1 1500
+Starting Havlak benchmark ...
+Havlak: iterations=1 runtime: 4685848us
+Havlak: iterations=1 average: 4685848us total: 4685848us
+
+
+Total Runtime: 4685848us
+### exit 0 wall_us 4772957
+### benchmarks/Python python3 harness.py Havlak 1 1500
+Starting Havlak benchmark ...
+Havlak: iterations=1 runtime: 4656312us
+Havlak: iterations=1 average: 4656312us total: 4656312us
+
+
+Total Runtime: 4656312us
+### exit 0 wall_us 4737188
+### benchmarks/Python python3 harness.py Havlak 1 1500
+Starting Havlak benchmark ...
+Havlak: iterations=1 runtime: 4653847us
+Havlak: iterations=1 average: 4653847us total: 4653847us
+
+
+Total Runtime: 4653847us
+### exit 0 wall_us 4732458
+### benchmarks/D ./harness Permute 1 1000
+Starting Permute benchmark ...
+Permute: iterations=1 runtime: 33207us
+Permute: iterations=1 average: 33207us total: 33207us
+
+Total Runtime: 33207us
+### exit 0 wall_us 36310
+### benchmarks/D ./harness Permute 1 1000
+Starting Permute benchmark ...
+Permute: iterations=1 runtime: 44286us
+Permute: iterations=1 average: 44286us total: 44286us
+
+Total Runtime: 44286us
+### exit 0 wall_us 48068
+### benchmarks/D ./harness Permute 1 1000
+Starting Permute benchmark ...
+Permute: iterations=1 runtime: 38071us
+Permute: iterations=1 average: 38071us total: 38071us
+
+Total Runtime: 38071us
+### exit 0 wall_us 41808
+### benchmarks/Java java -Xint -cp benchmarks.jar Harness NBody 1 250000
+Starting NBody benchmark ...
+NBody: iterations=1 runtime: 1838897us
+NBody: iterations=1 average: 1838897us total: 1838897us
+
+
+Total Runtime: 1838897us
+### exit 0 wall_us 1892772
+### benchmarks/Java java -Xint -cp benchmarks.jar Harness NBody 1 250000
+Starting NBody benchmark ...
+NBody: iterations=1 runtime: 1860149us
+NBody: iterations=1 average: 1860149us total: 1860149us
+
+
+Total Runtime: 1860149us
+### exit 0 wall_us 1908357
+### benchmarks/Java java -Xint -cp benchmarks.jar Harness NBody 1 250000
+Starting NBody benchmark ...
+NBody: iterations=1 runtime: 1830323us
+NBody: iterations=1 average: 1830323us total: 1830323us
+
+
+Total Runtime: 1830323us
+### exit 0 wall_us 1881338
+### benchmarks/Lua luajit harness.lua Queens 1 1000
+Starting Queens benchmark ...
+Queens: iterations=1 runtime: 88263us
+Queens: iterations=1 average: 88263us total: 88263us
+
+Total Runtime: 88263us
+### exit 0 wall_us 91283
+### benchmarks/Lua luajit harness.lua Queens 1 1000
+Starting Queens benchmark ...
+Queens: iterations=1 runtime: 87879us
+Queens: iterations=1 average: 87879us total: 87879us
+
+Total Runtime: 87879us
+### exit 0 wall_us 90973
+### benchmarks/Lua luajit harness.lua Queens 1 1000
+Starting Queens benchmark ...
+Queens: iterations=1 runtime: 86221us
+Queens: iterations=1 average: 86221us total: 86221us
+
+Total Runtime: 86221us
+### exit 0 wall_us 89210
+### benchmarks/D ./harness --DRT-gcopt=cleanup:none heapSizeFactor:4 Sieve 1 3000
+Starting Sieve benchmark ...
+Sieve: iterations=1 runtime: 52037us
+Sieve: iterations=1 average: 52037us total: 52037us
+
+Total Runtime: 52037us
+### exit 0 wall_us 55177
+### benchmarks/D ./harness --DRT-gcopt=cleanup:none heapSizeFactor:4 Sieve 1 3000
+Starting Sieve benchmark ...
+Sieve: iterations=1 runtime: 46667us
+Sieve: iterations=1 average: 46667us total: 46667us
+
+Total Runtime: 46667us
+### exit 0 wall_us 49548
+### benchmarks/D ./harness --DRT-gcopt=cleanup:none heapSizeFactor:4 Sieve 1 3000
+Starting Sieve benchmark ...
+Sieve: iterations=1 runtime: 50062us
+Sieve: iterations=1 average: 50062us total: 50062us
+
+Total Runtime: 50062us
+### exit 0 wall_us 53129
+### results/sb-manual sb --version=ManualMemory -I ../../benchmarks/D/src ../../benchmarks/D/src -- --DRT-testmode=run-main NBody 1 250000
+Starting NBody benchmark ...
+NBody: iterations=1 runtime: 1370859us
+NBody: iterations=1 average: 1370859us total: 1370859us
+
+Total Runtime: 1370859us
+src scan:                 0.3 ms
+frontend time:          259.8 ms
+image time:               0.9 ms
+backend latency:       1375.4 ms
+  compile:                3.3 ms
+  ModuleInfo:             0.8 ms
+  module ctors:           0.2 ms
+  tests and main:      1371.1 ms
+  other:                  0.0 ms
+### exit 0 wall_us 1647283
+### results/sb-manual sb --version=ManualMemory -I ../../benchmarks/D/src ../../benchmarks/D/src -- --DRT-testmode=run-main NBody 1 250000
+Starting NBody benchmark ...
+NBody: iterations=1 runtime: 1335876us
+NBody: iterations=1 average: 1335876us total: 1335876us
+
+Total Runtime: 1335876us
+src scan:                 0.3 ms
+frontend time:          271.8 ms
+image time:               0.9 ms
+backend latency:       1341.3 ms
+  compile:                3.5 ms
+  ModuleInfo:             1.5 ms
+  module ctors:           0.2 ms
+  tests and main:      1336.2 ms
+  other:                  0.0 ms
+### exit 0 wall_us 1625377
+### results/sb-manual sb --version=ManualMemory -I ../../benchmarks/D/src ../../benchmarks/D/src -- --DRT-testmode=run-main NBody 1 250000
+Starting NBody benchmark ...
+NBody: iterations=1 runtime: 1403410us
+NBody: iterations=1 average: 1403410us total: 1403410us
+
+Total Runtime: 1403410us
+src scan:                 0.3 ms
+frontend time:          265.3 ms
+image time:               0.9 ms
+backend latency:       1408.0 ms
+  compile:                3.4 ms
+  ModuleInfo:             0.8 ms
+  module ctors:           0.2 ms
+  tests and main:      1403.7 ms
+  other:                  0.0 ms
+### exit 0 wall_us 1685249
+### benchmarks/Java java -Xint -cp benchmarks.jar Harness Permute 1 1000
+Starting Permute benchmark ...
+Permute: iterations=1 runtime: 701147us
+Permute: iterations=1 average: 701147us total: 701147us
+
+
+Total Runtime: 701147us
+### exit 0 wall_us 758205
+### benchmarks/Java java -Xint -cp benchmarks.jar Harness Permute 1 1000
+Starting Permute benchmark ...
+Permute: iterations=1 runtime: 690655us
+Permute: iterations=1 average: 690655us total: 690655us
+
+
+Total Runtime: 690655us
+### exit 0 wall_us 750299
+### benchmarks/Java java -Xint -cp benchmarks.jar Harness Permute 1 1000
+Starting Permute benchmark ...
+Permute: iterations=1 runtime: 704126us
+Permute: iterations=1 average: 704126us total: 704126us
+
+
+Total Runtime: 704126us
+### exit 0 wall_us 757437
+### benchmarks/C++ wasm3 harness.wasm Towers 1 600
+Starting Towers benchmark ...
+Towers: iterations=1 runtime: 327645us
+Towers: iterations=1 average: 327645us total: 327645us
+
+Total Runtime: 327645us
+### exit 0 wall_us 333844
+### benchmarks/C++ wasm3 harness.wasm Towers 1 600
+Starting Towers benchmark ...
+Towers: iterations=1 runtime: 307813us
+Towers: iterations=1 average: 307813us total: 307813us
+
+Total Runtime: 307813us
+### exit 0 wall_us 312069
+### benchmarks/C++ wasm3 harness.wasm Towers 1 600
+Starting Towers benchmark ...
+Towers: iterations=1 runtime: 304114us
+Towers: iterations=1 average: 304114us total: 304114us
+
+Total Runtime: 304114us
+### exit 0 wall_us 308483
+### benchmarks/Lua lua harness.lua Bounce 1 1500
+Starting Bounce benchmark ...
+Bounce: iterations=1 runtime: 1431026us
+Bounce: iterations=1 average: 1431026us total: 1431026us
+
+Total Runtime: 1431026us
+### exit 0 wall_us 1441001
+### benchmarks/Lua lua harness.lua Bounce 1 1500
+Starting Bounce benchmark ...
+Bounce: iterations=1 runtime: 1367693us
+Bounce: iterations=1 average: 1367693us total: 1367693us
+
+Total Runtime: 1367693us
+### exit 0 wall_us 1376757
+### benchmarks/Lua lua harness.lua Bounce 1 1500
+Starting Bounce benchmark ...
+Bounce: iterations=1 runtime: 1414771us
+Bounce: iterations=1 average: 1414771us total: 1414771us
+
+Total Runtime: 1414771us
+### exit 0 wall_us 1425820
+### benchmarks/Java java -cp benchmarks.jar Harness CD 1 250
+Starting CD benchmark ...
+CD: iterations=1 runtime: 117288us
+CD: iterations=1 average: 117288us total: 117288us
+
+
+Total Runtime: 117288us
+### exit 0 wall_us 178433
+### benchmarks/Java java -cp benchmarks.jar Harness CD 1 250
+Starting CD benchmark ...
+CD: iterations=1 runtime: 113761us
+CD: iterations=1 average: 113761us total: 113761us
+
+
+Total Runtime: 113761us
+### exit 0 wall_us 172686
+### benchmarks/Java java -cp benchmarks.jar Harness CD 1 250
+Starting CD benchmark ...
+CD: iterations=1 runtime: 108477us
+CD: iterations=1 average: 108477us total: 108477us
+
+
+Total Runtime: 108477us
+### exit 0 wall_us 181010
+### results/sb-manual sb --version=ManualMemory -I ../../benchmarks/D/src ../../benchmarks/D/src -- --DRT-testmode=run-main Bounce 1 1500
+Starting Bounce benchmark ...
+Bounce: iterations=1 runtime: 1448514us
+Bounce: iterations=1 average: 1448514us total: 1448514us
+
+Total Runtime: 1448514us
+src scan:                 0.2 ms
+frontend time:          254.7 ms
+image time:               0.9 ms
+backend latency:       1452.9 ms
+  compile:                3.1 ms
+  ModuleInfo:             0.8 ms
+  module ctors:           0.2 ms
+  tests and main:      1448.8 ms
+  other:                  0.0 ms
+### exit 0 wall_us 1717086
+### results/sb-manual sb --version=ManualMemory -I ../../benchmarks/D/src ../../benchmarks/D/src -- --DRT-testmode=run-main Bounce 1 1500
+Starting Bounce benchmark ...
+Bounce: iterations=1 runtime: 1469865us
+Bounce: iterations=1 average: 1469865us total: 1469865us
+
+Total Runtime: 1469865us
+src scan:                 0.2 ms
+frontend time:          254.7 ms
+image time:               0.9 ms
+backend latency:       1474.3 ms
+  compile:                3.2 ms
+  ModuleInfo:             0.8 ms
+  module ctors:           0.2 ms
+  tests and main:      1470.1 ms
+  other:                  0.0 ms
+### exit 0 wall_us 1738497
+### results/sb-manual sb --version=ManualMemory -I ../../benchmarks/D/src ../../benchmarks/D/src -- --DRT-testmode=run-main Bounce 1 1500
+Starting Bounce benchmark ...
+Bounce: iterations=1 runtime: 1470423us
+Bounce: iterations=1 average: 1470423us total: 1470423us
+
+Total Runtime: 1470423us
+src scan:                 0.2 ms
+frontend time:          267.7 ms
+image time:               0.9 ms
+backend latency:       1474.8 ms
+  compile:                3.1 ms
+  ModuleInfo:             0.8 ms
+  module ctors:           0.2 ms
+  tests and main:      1470.7 ms
+  other:                  0.0 ms
+### exit 0 wall_us 1752940
+### benchmarks/D sb -I src src -- --DRT-testmode=run-main Queens 1 1000
+Starting Queens benchmark ...
+Queens: iterations=1 runtime: 1888648us
+Queens: iterations=1 average: 1888648us total: 1888648us
+
+Total Runtime: 1888648us
+src scan:                 0.3 ms
+frontend time:          240.0 ms
+image time:               0.9 ms
+backend latency:       1892.8 ms
+  compile:                3.0 ms
+  ModuleInfo:             0.7 ms
+  module ctors:           0.2 ms
+  tests and main:      1888.9 ms
+  other:                  0.0 ms
+### exit 0 wall_us 2145906
+### benchmarks/D sb -I src src -- --DRT-testmode=run-main Queens 1 1000
+Starting Queens benchmark ...
+Queens: iterations=1 runtime: 1960359us
+Queens: iterations=1 average: 1960359us total: 1960359us
+
+Total Runtime: 1960359us
+src scan:                 0.3 ms
+frontend time:          237.6 ms
+image time:               0.9 ms
+backend latency:       1964.5 ms
+  compile:                2.9 ms
+  ModuleInfo:             0.7 ms
+  module ctors:           0.2 ms
+  tests and main:      1960.6 ms
+  other:                  0.0 ms
+### exit 0 wall_us 2216560
+### benchmarks/D sb -I src src -- --DRT-testmode=run-main Queens 1 1000
+Starting Queens benchmark ...
+Queens: iterations=1 runtime: 1995450us
+Queens: iterations=1 average: 1995450us total: 1995450us
+
+Total Runtime: 1995450us
+src scan:                 0.3 ms
+frontend time:          249.9 ms
+image time:               0.9 ms
+backend latency:       1999.7 ms
+  compile:                3.0 ms
+  ModuleInfo:             0.8 ms
+  module ctors:           0.2 ms
+  tests and main:      1995.7 ms
+  other:                  0.0 ms
+### exit 0 wall_us 2264796
+### benchmarks/D ./harness --DRT-gcopt=cleanup:none heapSizeFactor:4 Havlak 1 1500
+Starting Havlak benchmark ...
+Havlak: iterations=1 runtime: 261883us
+Havlak: iterations=1 average: 261883us total: 261883us
+
+Total Runtime: 261883us
+### exit 0 wall_us 265762
+### benchmarks/D ./harness --DRT-gcopt=cleanup:none heapSizeFactor:4 Havlak 1 1500
+Starting Havlak benchmark ...
+Havlak: iterations=1 runtime: 245803us
+Havlak: iterations=1 average: 245803us total: 245803us
+
+Total Runtime: 245803us
+### exit 0 wall_us 249494
+### benchmarks/D ./harness --DRT-gcopt=cleanup:none heapSizeFactor:4 Havlak 1 1500
+Starting Havlak benchmark ...
+Havlak: iterations=1 runtime: 246713us
+Havlak: iterations=1 average: 246713us total: 246713us
+
+Total Runtime: 246713us
+### exit 0 wall_us 250376
+### results/sb-manual sb --version=ManualMemory -I ../../benchmarks/D/src ../../benchmarks/D/src -- --DRT-testmode=run-main Storage 1 1000
+Starting Storage benchmark ...
+Storage: iterations=1 runtime: 9515276us
+Storage: iterations=1 average: 9515276us total: 9515276us
+
+Total Runtime: 9515276us
+src scan:                 0.3 ms
+frontend time:          269.7 ms
+image time:               0.9 ms
+backend latency:       9519.9 ms
+  compile:                3.3 ms
+  ModuleInfo:             0.8 ms
+  module ctors:           0.2 ms
+  tests and main:      9515.6 ms
+  other:                  0.0 ms
+### exit 0 wall_us 9802214
+### results/sb-manual sb --version=ManualMemory -I ../../benchmarks/D/src ../../benchmarks/D/src -- --DRT-testmode=run-main Storage 1 1000
+Starting Storage benchmark ...
+Storage: iterations=1 runtime: 9806341us
+Storage: iterations=1 average: 9806341us total: 9806341us
+
+Total Runtime: 9806341us
+src scan:                 0.3 ms
+frontend time:          259.9 ms
+image time:               0.9 ms
+backend latency:       9811.1 ms
+  compile:                3.2 ms
+  ModuleInfo:             1.1 ms
+  module ctors:           0.2 ms
+  tests and main:      9806.6 ms
+  other:                  0.0 ms
+### exit 0 wall_us 10083637
+### results/sb-manual sb --version=ManualMemory -I ../../benchmarks/D/src ../../benchmarks/D/src -- --DRT-testmode=run-main Storage 1 1000
+Starting Storage benchmark ...
+Storage: iterations=1 runtime: 9307470us
+Storage: iterations=1 average: 9307470us total: 9307470us
+
+Total Runtime: 9307470us
+src scan:                 0.2 ms
+frontend time:          250.2 ms
+image time:               0.8 ms
+backend latency:       9311.9 ms
+  compile:                3.1 ms
+  ModuleInfo:             0.8 ms
+  module ctors:           0.2 ms
+  tests and main:      9307.7 ms
+  other:                  0.0 ms
+### exit 0 wall_us 9571629
+### benchmarks/JavaScript node harness.js Sieve 1 3000
+Starting Sieve benchmark ...
+Sieve: iterations=1 runtime: 92355us
+Sieve: iterations=1 average: 92355us total: 92355us
+
+
+Total Runtime: 92355us
+### exit 0 wall_us 134569
+### benchmarks/JavaScript node harness.js Sieve 1 3000
+Starting Sieve benchmark ...
+Sieve: iterations=1 runtime: 108698us
+Sieve: iterations=1 average: 108698us total: 108698us
+
+
+Total Runtime: 108698us
+### exit 0 wall_us 162009
+### benchmarks/JavaScript node harness.js Sieve 1 3000
+Starting Sieve benchmark ...
+Sieve: iterations=1 runtime: 107992us
+Sieve: iterations=1 average: 107992us total: 107992us
+
+
+Total Runtime: 107992us
+### exit 0 wall_us 159349
+### benchmarks/C++ wasm3 harness.wasm List 1 1500
+Starting List benchmark ...
+List: iterations=1 runtime: 371571us
+List: iterations=1 average: 371571us total: 371571us
+
+Total Runtime: 371571us
+### exit 0 wall_us 377806
+### benchmarks/C++ wasm3 harness.wasm List 1 1500
+Starting List benchmark ...
+List: iterations=1 runtime: 358756us
+List: iterations=1 average: 358756us total: 358756us
+
+Total Runtime: 358756us
+### exit 0 wall_us 363084
+### benchmarks/C++ wasm3 harness.wasm List 1 1500
+Starting List benchmark ...
+List: iterations=1 runtime: 334902us
+List: iterations=1 average: 334902us total: 334902us
+
+Total Runtime: 334902us
+### exit 0 wall_us 339448
+### benchmarks/D sb -I src src -- --DRT-testmode=run-main Havlak 1 1500
+Starting Havlak benchmark ...
+Havlak: iterations=1 runtime: 4364804us
+Havlak: iterations=1 average: 4364804us total: 4364804us
+
+Total Runtime: 4364804us
+src scan:                 0.2 ms
+frontend time:          250.7 ms
+image time:               0.9 ms
+backend latency:       4378.3 ms
+  compile:               12.2 ms
+  ModuleInfo:             0.8 ms
+  module ctors:           0.2 ms
+  tests and main:      4365.1 ms
+  other:                  0.0 ms
+### exit 0 wall_us 4641926
+### benchmarks/D sb -I src src -- --DRT-testmode=run-main Havlak 1 1500
+Starting Havlak benchmark ...
+Havlak: iterations=1 runtime: 4597179us
+Havlak: iterations=1 average: 4597179us total: 4597179us
+
+Total Runtime: 4597179us
+src scan:                 0.2 ms
+frontend time:          244.9 ms
+image time:               0.9 ms
+backend latency:       4611.6 ms
+  compile:               13.3 ms
+  ModuleInfo:             0.7 ms
+  module ctors:           0.2 ms
+  tests and main:      4597.4 ms
+  other:                  0.0 ms
+### exit 0 wall_us 4869571
+### benchmarks/D sb -I src src -- --DRT-testmode=run-main Havlak 1 1500
+Starting Havlak benchmark ...
+Havlak: iterations=1 runtime: 4453634us
+Havlak: iterations=1 average: 4453634us total: 4453634us
+
+Total Runtime: 4453634us
+src scan:                 0.3 ms
+frontend time:          263.0 ms
+image time:               0.9 ms
+backend latency:       4467.6 ms
+  compile:               12.7 ms
+  ModuleInfo:             0.8 ms
+  module ctors:           0.2 ms
+  tests and main:      4453.9 ms
+  other:                  0.0 ms
+### exit 0 wall_us 4746915
+### benchmarks/D sb -I src src -- --DRT-testmode=run-main Bounce 1 1500
+Starting Bounce benchmark ...
+Bounce: iterations=1 runtime: 1484428us
+Bounce: iterations=1 average: 1484428us total: 1484428us
+
+Total Runtime: 1484428us
+src scan:                 0.3 ms
+frontend time:          262.1 ms
+image time:               0.9 ms
+backend latency:       1488.8 ms
+  compile:                3.1 ms
+  ModuleInfo:             0.8 ms
+  module ctors:           0.2 ms
+  tests and main:      1484.7 ms
+  other:                  0.0 ms
+### exit 0 wall_us 1762784
+### benchmarks/D sb -I src src -- --DRT-testmode=run-main Bounce 1 1500
+Starting Bounce benchmark ...
+Bounce: iterations=1 runtime: 1486546us
+Bounce: iterations=1 average: 1486546us total: 1486546us
+
+Total Runtime: 1486546us
+src scan:                 0.3 ms
+frontend time:          243.8 ms
+image time:               0.9 ms
+backend latency:       1490.7 ms
+  compile:                3.0 ms
+  ModuleInfo:             0.7 ms
+  module ctors:           0.2 ms
+  tests and main:      1486.8 ms
+  other:                  0.0 ms
+### exit 0 wall_us 1746596
+### benchmarks/D sb -I src src -- --DRT-testmode=run-main Bounce 1 1500
+Starting Bounce benchmark ...
+Bounce: iterations=1 runtime: 1473390us
+Bounce: iterations=1 average: 1473390us total: 1473390us
+
+Total Runtime: 1473390us
+src scan:                 0.2 ms
+frontend time:          244.7 ms
+image time:               0.9 ms
+backend latency:       1477.5 ms
+  compile:                2.9 ms
+  ModuleInfo:             0.8 ms
+  module ctors:           0.2 ms
+  tests and main:      1473.6 ms
+  other:                  0.0 ms
+### exit 0 wall_us 1732392
+### benchmarks/JavaScript node --jitless harness.js Permute 1 1000
+Starting Permute benchmark ...
+Permute: iterations=1 runtime: 1830644us
+Permute: iterations=1 average: 1830644us total: 1830644us
+
+
+Total Runtime: 1830644us
+### exit 0 wall_us 1885532
+### benchmarks/JavaScript node --jitless harness.js Permute 1 1000
+Starting Permute benchmark ...
+Permute: iterations=1 runtime: 1838230us
+Permute: iterations=1 average: 1838230us total: 1838230us
+
+
+Total Runtime: 1838230us
+### exit 0 wall_us 1889028
+### benchmarks/JavaScript node --jitless harness.js Permute 1 1000
+Starting Permute benchmark ...
+Permute: iterations=1 runtime: 1871441us
+Permute: iterations=1 average: 1871441us total: 1871441us
+
+
+Total Runtime: 1871441us
+### exit 0 wall_us 1932263
+### benchmarks/C++ wasm3 harness.wasm NBody 1 250000
+Starting NBody benchmark ...
+NBody: iterations=1 runtime: 249449us
+NBody: iterations=1 average: 249449us total: 249449us
+
+Total Runtime: 249449us
+### exit 0 wall_us 254831
+### benchmarks/C++ wasm3 harness.wasm NBody 1 250000
+Starting NBody benchmark ...
+NBody: iterations=1 runtime: 229926us
+NBody: iterations=1 average: 229926us total: 229926us
+
+Total Runtime: 229926us
+### exit 0 wall_us 235950
+### benchmarks/C++ wasm3 harness.wasm NBody 1 250000
+Starting NBody benchmark ...
+NBody: iterations=1 runtime: 226433us
+NBody: iterations=1 average: 226433us total: 226433us
+
+Total Runtime: 226433us
+### exit 0 wall_us 232495
+### benchmarks/D ./harness --DRT-gcopt=cleanup:none heapSizeFactor:4 NBody 1 250000
+Starting NBody benchmark ...
+NBody: iterations=1 runtime: 23258us
+NBody: iterations=1 average: 23258us total: 23258us
+
+Total Runtime: 23258us
+### exit 0 wall_us 25666
+### benchmarks/D ./harness --DRT-gcopt=cleanup:none heapSizeFactor:4 NBody 1 250000
+Starting NBody benchmark ...
+NBody: iterations=1 runtime: 16808us
+NBody: iterations=1 average: 16808us total: 16808us
+
+Total Runtime: 16808us
+### exit 0 wall_us 18419
+### benchmarks/D ./harness --DRT-gcopt=cleanup:none heapSizeFactor:4 NBody 1 250000
+Starting NBody benchmark ...
+NBody: iterations=1 runtime: 17004us
+NBody: iterations=1 average: 17004us total: 17004us
+
+Total Runtime: 17004us
+### exit 0 wall_us 18630
+### benchmarks/Java java -Xint -cp benchmarks.jar Harness CD 1 250
+Starting CD benchmark ...
+CD: iterations=1 runtime: 1718811us
+CD: iterations=1 average: 1718811us total: 1718811us
+
+
+Total Runtime: 1718811us
+### exit 0 wall_us 1768087
+### benchmarks/Java java -Xint -cp benchmarks.jar Harness CD 1 250
+Starting CD benchmark ...
+CD: iterations=1 runtime: 1703333us
+CD: iterations=1 average: 1703333us total: 1703333us
+
+
+Total Runtime: 1703333us
+### exit 0 wall_us 1755780
+### benchmarks/Java java -Xint -cp benchmarks.jar Harness CD 1 250
+Starting CD benchmark ...
+CD: iterations=1 runtime: 1661604us
+CD: iterations=1 average: 1661604us total: 1661604us
+
+
+Total Runtime: 1661604us
+### exit 0 wall_us 1720571
+### benchmarks/Java java -cp benchmarks.jar Harness Bounce 1 1500
+Starting Bounce benchmark ...
+Bounce: iterations=1 runtime: 46876us
+Bounce: iterations=1 average: 46876us total: 46876us
+
+
+Total Runtime: 46876us
+### exit 0 wall_us 102647
+### benchmarks/Java java -cp benchmarks.jar Harness Bounce 1 1500
+Starting Bounce benchmark ...
+Bounce: iterations=1 runtime: 54586us
+Bounce: iterations=1 average: 54586us total: 54586us
+
+
+Total Runtime: 54586us
+### exit 0 wall_us 113306
+### benchmarks/Java java -cp benchmarks.jar Harness Bounce 1 1500
+Starting Bounce benchmark ...
+Bounce: iterations=1 runtime: 41995us
+Bounce: iterations=1 average: 41995us total: 41995us
+
+
+Total Runtime: 41995us
+### exit 0 wall_us 101617
+### benchmarks/Python python3 harness.py Queens 1 1000
+Starting Queens benchmark ...
+Queens: iterations=1 runtime: 1006576us
+Queens: iterations=1 average: 1006576us total: 1006576us
+
+
+Total Runtime: 1006576us
+### exit 0 wall_us 1020588
+### benchmarks/Python python3 harness.py Queens 1 1000
+Starting Queens benchmark ...
+Queens: iterations=1 runtime: 1011958us
+Queens: iterations=1 average: 1011958us total: 1011958us
+
+
+Total Runtime: 1011958us
+### exit 0 wall_us 1032859
+### benchmarks/Python python3 harness.py Queens 1 1000
+Starting Queens benchmark ...
+Queens: iterations=1 runtime: 1012968us
+Queens: iterations=1 average: 1012968us total: 1012968us
+
+
+Total Runtime: 1012968us
+### exit 0 wall_us 1034013
+### benchmarks/Lua luajit harness.lua Havlak 1 1500
+Starting Havlak benchmark ...
+Havlak: iterations=1 runtime: 3798460us
+Havlak: iterations=1 average: 3798460us total: 3798460us
+
+Total Runtime: 3798460us
+### exit 0 wall_us 3855447
+### benchmarks/Lua luajit harness.lua Havlak 1 1500
+Starting Havlak benchmark ...
+Havlak: iterations=1 runtime: 3703894us
+Havlak: iterations=1 average: 3703894us total: 3703894us
+
+Total Runtime: 3703894us
+### exit 0 wall_us 3769198
+### benchmarks/Lua luajit harness.lua Havlak 1 1500
+Starting Havlak benchmark ...
+Havlak: iterations=1 runtime: 3667545us
+Havlak: iterations=1 average: 3667545us total: 3667545us
+
+Total Runtime: 3667545us
+### exit 0 wall_us 3734301
+### benchmarks/Lua luajit -joff harness.lua Havlak 1 1500
+Starting Havlak benchmark ...
+Havlak: iterations=1 runtime: 4319251us
+Havlak: iterations=1 average: 4319251us total: 4319251us
+
+Total Runtime: 4319251us
+### exit 0 wall_us 4395207
+### benchmarks/Lua luajit -joff harness.lua Havlak 1 1500
+Starting Havlak benchmark ...
+Havlak: iterations=1 runtime: 4328953us
+Havlak: iterations=1 average: 4328953us total: 4328953us
+
+Total Runtime: 4328953us
+### exit 0 wall_us 4401342
+### benchmarks/Lua luajit -joff harness.lua Havlak 1 1500
+Starting Havlak benchmark ...
+Havlak: iterations=1 runtime: 4295292us
+Havlak: iterations=1 average: 4295292us total: 4295292us
+
+Total Runtime: 4295292us
+### exit 0 wall_us 4370824
+### benchmarks/Python python3 harness.py DeltaBlue 1 12000
+Starting DeltaBlue benchmark ...
+DeltaBlue: iterations=1 runtime: 774815us
+DeltaBlue: iterations=1 average: 774815us total: 774815us
+
+
+Total Runtime: 774815us
+### exit 0 wall_us 841697
+### benchmarks/Python python3 harness.py DeltaBlue 1 12000
+Starting DeltaBlue benchmark ...
+DeltaBlue: iterations=1 runtime: 751815us
+DeltaBlue: iterations=1 average: 751815us total: 751815us
+
+
+Total Runtime: 751815us
+### exit 0 wall_us 814373
+### benchmarks/Python python3 harness.py DeltaBlue 1 12000
+Starting DeltaBlue benchmark ...
+DeltaBlue: iterations=1 runtime: 748447us
+DeltaBlue: iterations=1 average: 748447us total: 748447us
+
+
+Total Runtime: 748447us
+### exit 0 wall_us 808955
+### benchmarks/C++ ./harness CD 1 250
+Starting CD benchmark ...
+CD: iterations=1 runtime: 47830us
+CD: iterations=1 average: 47830us total: 47830us
+
+Total Runtime: 47830us
+### exit 0 wall_us 50664
+### benchmarks/C++ ./harness CD 1 250
+Starting CD benchmark ...
+CD: iterations=1 runtime: 48158us
+CD: iterations=1 average: 48158us total: 48158us
+
+Total Runtime: 48158us
+### exit 0 wall_us 51015
+### benchmarks/C++ ./harness CD 1 250
+Starting CD benchmark ...
+CD: iterations=1 runtime: 53938us
+CD: iterations=1 average: 53938us total: 53938us
+
+Total Runtime: 53938us
+### exit 0 wall_us 56743
+### benchmarks/Lua luajit -joff harness.lua DeltaBlue 1 12000
+Starting DeltaBlue benchmark ...
+DeltaBlue: iterations=1 runtime: 762961us
+DeltaBlue: iterations=1 average: 762961us total: 762961us
+
+Total Runtime: 762961us
+### exit 0 wall_us 795466
+### benchmarks/Lua luajit -joff harness.lua DeltaBlue 1 12000
+Starting DeltaBlue benchmark ...
+DeltaBlue: iterations=1 runtime: 806529us
+DeltaBlue: iterations=1 average: 806529us total: 806529us
+
+Total Runtime: 806529us
+### exit 0 wall_us 839048
+### benchmarks/Lua luajit -joff harness.lua DeltaBlue 1 12000
+Starting DeltaBlue benchmark ...
+DeltaBlue: iterations=1 runtime: 932912us
+DeltaBlue: iterations=1 average: 932912us total: 932912us
+
+Total Runtime: 932912us
+### exit 0 wall_us 965467
+### benchmarks/C++ ./harness Queens 1 1000
+Starting Queens benchmark ...
+Queens: iterations=1 runtime: 9679us
+Queens: iterations=1 average: 9679us total: 9679us
+
+Total Runtime: 9679us
+### exit 0 wall_us 12269
+### benchmarks/C++ ./harness Queens 1 1000
+Starting Queens benchmark ...
+Queens: iterations=1 runtime: 9721us
+Queens: iterations=1 average: 9721us total: 9721us
+
+Total Runtime: 9721us
+### exit 0 wall_us 11500
+### benchmarks/C++ ./harness Queens 1 1000
+Starting Queens benchmark ...
+Queens: iterations=1 runtime: 16331us
+Queens: iterations=1 average: 16331us total: 16331us
+
+Total Runtime: 16331us
+### exit 0 wall_us 19183
+### benchmarks/Java java -Xint -cp benchmarks.jar Harness DeltaBlue 1 12000
+Starting DeltaBlue benchmark ...
+DeltaBlue: iterations=1 runtime: 651749us
+DeltaBlue: iterations=1 average: 651749us total: 651749us
+
+
+Total Runtime: 651749us
+### exit 0 wall_us 697815
+### benchmarks/Java java -Xint -cp benchmarks.jar Harness DeltaBlue 1 12000
+Starting DeltaBlue benchmark ...
+DeltaBlue: iterations=1 runtime: 659505us
+DeltaBlue: iterations=1 average: 659505us total: 659505us
+
+
+Total Runtime: 659505us
+### exit 0 wall_us 706928
+### benchmarks/Java java -Xint -cp benchmarks.jar Harness DeltaBlue 1 12000
+Starting DeltaBlue benchmark ...
+DeltaBlue: iterations=1 runtime: 639967us
+DeltaBlue: iterations=1 average: 639967us total: 639967us
+
+
+Total Runtime: 639967us
+### exit 0 wall_us 693303
+### benchmarks/C++ ./harness Bounce 1 1500
+Starting Bounce benchmark ...
+Bounce: iterations=1 runtime: 27741us
+Bounce: iterations=1 average: 27741us total: 27741us
+
+Total Runtime: 27741us
+### exit 0 wall_us 29881
+### benchmarks/C++ ./harness Bounce 1 1500
+Starting Bounce benchmark ...
+Bounce: iterations=1 runtime: 28264us
+Bounce: iterations=1 average: 28264us total: 28264us
+
+Total Runtime: 28264us
+### exit 0 wall_us 31067
+### benchmarks/C++ ./harness Bounce 1 1500
+Starting Bounce benchmark ...
+Bounce: iterations=1 runtime: 27876us
+Bounce: iterations=1 average: 27876us total: 27876us
+
+Total Runtime: 27876us
+### exit 0 wall_us 29880
+### benchmarks/D sb -I src src -- --DRT-testmode=run-main Permute 1 1000
+Starting Permute benchmark ...
+Permute: iterations=1 runtime: 2812652us
+Permute: iterations=1 average: 2812652us total: 2812652us
+
+Total Runtime: 2812652us
+src scan:                 0.3 ms
+frontend time:          249.1 ms
+image time:               0.9 ms
+backend latency:       2816.7 ms
+  compile:                2.9 ms
+  ModuleInfo:             0.7 ms
+  module ctors:           0.2 ms
+  tests and main:      2812.9 ms
+  other:                  0.0 ms
+### exit 0 wall_us 3078070
+### benchmarks/D sb -I src src -- --DRT-testmode=run-main Permute 1 1000
+Starting Permute benchmark ...
+Permute: iterations=1 runtime: 2973348us
+Permute: iterations=1 average: 2973348us total: 2973348us
+
+Total Runtime: 2973348us
+src scan:                 0.3 ms
+frontend time:          241.1 ms
+image time:               0.9 ms
+backend latency:       2977.4 ms
+  compile:                2.9 ms
+  ModuleInfo:             0.7 ms
+  module ctors:           0.2 ms
+  tests and main:      2973.6 ms
+  other:                  0.0 ms
+### exit 0 wall_us 3230667
+### benchmarks/D sb -I src src -- --DRT-testmode=run-main Permute 1 1000
+Starting Permute benchmark ...
+Permute: iterations=1 runtime: 2829748us
+Permute: iterations=1 average: 2829748us total: 2829748us
+
+Total Runtime: 2829748us
+src scan:                 0.2 ms
+frontend time:          237.0 ms
+image time:               0.9 ms
+backend latency:       2833.8 ms
+  compile:                2.9 ms
+  ModuleInfo:             0.7 ms
+  module ctors:           0.2 ms
+  tests and main:      2830.0 ms
+  other:                  0.0 ms
+### exit 0 wall_us 3080381
+### benchmarks/Lua lua harness.lua Richards 1 100
+Starting Richards benchmark ...
+Richards: iterations=1 runtime: 5436630us
+Richards: iterations=1 average: 5436630us total: 5436630us
+
+Total Runtime: 5436630us
+### exit 0 wall_us 5463021
+### benchmarks/Lua lua harness.lua Richards 1 100
+Starting Richards benchmark ...
+Richards: iterations=1 runtime: 5705309us
+Richards: iterations=1 average: 5705309us total: 5705309us
+
+Total Runtime: 5705309us
+### exit 0 wall_us 5735835
+### benchmarks/Lua lua harness.lua Richards 1 100
+Starting Richards benchmark ...
+Richards: iterations=1 runtime: 5635951us
+Richards: iterations=1 average: 5635951us total: 5635951us
+
+Total Runtime: 5635951us
+### exit 0 wall_us 5661079
+### benchmarks/Python python3 harness.py Permute 1 1000
+Starting Permute benchmark ...
+Permute: iterations=1 runtime: 2237770us
+Permute: iterations=1 average: 2237770us total: 2237770us
+
+
+Total Runtime: 2237770us
+### exit 0 wall_us 2259620
+### benchmarks/Python python3 harness.py Permute 1 1000
+Starting Permute benchmark ...
+Permute: iterations=1 runtime: 2170002us
+Permute: iterations=1 average: 2170002us total: 2170002us
+
+
+Total Runtime: 2170002us
+### exit 0 wall_us 2190598
+### benchmarks/Python python3 harness.py Permute 1 1000
+Starting Permute benchmark ...
+Permute: iterations=1 runtime: 2246776us
+Permute: iterations=1 average: 2246776us total: 2246776us
+
+
+Total Runtime: 2246776us
+### exit 0 wall_us 2264290
+### benchmarks/D sb -I src src -- --DRT-testmode=run-main Storage 1 1000
+Starting Storage benchmark ...
+Storage: iterations=1 runtime: 7590561us
+Storage: iterations=1 average: 7590561us total: 7590561us
+
+Total Runtime: 7590561us
+src scan:                 0.2 ms
+frontend time:          234.8 ms
+image time:               0.9 ms
+backend latency:       7594.8 ms
+  compile:                3.0 ms
+  ModuleInfo:             0.8 ms
+  module ctors:           0.2 ms
+  tests and main:      7590.8 ms
+  other:                  0.0 ms
+### exit 0 wall_us 7841766
+### benchmarks/D sb -I src src -- --DRT-testmode=run-main Storage 1 1000
+Starting Storage benchmark ...
+Storage: iterations=1 runtime: 7494689us
+Storage: iterations=1 average: 7494689us total: 7494689us
+
+Total Runtime: 7494689us
+src scan:                 0.3 ms
+frontend time:          246.9 ms
+image time:               1.2 ms
+backend latency:       7499.1 ms
+  compile:                3.1 ms
+  ModuleInfo:             0.9 ms
+  module ctors:           0.2 ms
+  tests and main:      7494.9 ms
+  other:                  0.0 ms
+### exit 0 wall_us 7761509
+### benchmarks/D sb -I src src -- --DRT-testmode=run-main Storage 1 1000
+Starting Storage benchmark ...
+Storage: iterations=1 runtime: 7746308us
+Storage: iterations=1 average: 7746308us total: 7746308us
+
+Total Runtime: 7746308us
+src scan:                 0.3 ms
+frontend time:          241.6 ms
+image time:               0.9 ms
+backend latency:       7750.6 ms
+  compile:                3.1 ms
+  ModuleInfo:             0.7 ms
+  module ctors:           0.1 ms
+  tests and main:      7746.6 ms
+  other:                  0.0 ms
+### exit 0 wall_us 8006716
+### benchmarks/D ./harness-manual Mandelbrot 1 500
+Starting Mandelbrot benchmark ...
+Mandelbrot: iterations=1 runtime: 48410us
+Mandelbrot: iterations=1 average: 48410us total: 48410us
+
+Total Runtime: 48410us
+### exit 0 wall_us 50586
+### benchmarks/D ./harness-manual Mandelbrot 1 500
+Starting Mandelbrot benchmark ...
+Mandelbrot: iterations=1 runtime: 56386us
+Mandelbrot: iterations=1 average: 56386us total: 56386us
+
+Total Runtime: 56386us
+### exit 0 wall_us 58673
+### benchmarks/D ./harness-manual Mandelbrot 1 500
+Starting Mandelbrot benchmark ...
+Mandelbrot: iterations=1 runtime: 49276us
+Mandelbrot: iterations=1 average: 49276us total: 49276us
+
+Total Runtime: 49276us
+### exit 0 wall_us 51399
+### benchmarks/Java java -cp benchmarks.jar Harness Permute 1 1000
+Starting Permute benchmark ...
+Permute: iterations=1 runtime: 44544us
+Permute: iterations=1 average: 44544us total: 44544us
+
+
+Total Runtime: 44544us
+### exit 0 wall_us 102746
+### benchmarks/Java java -cp benchmarks.jar Harness Permute 1 1000
+Starting Permute benchmark ...
+Permute: iterations=1 runtime: 45470us
+Permute: iterations=1 average: 45470us total: 45470us
+
+
+Total Runtime: 45470us
+### exit 0 wall_us 103897
+### benchmarks/Java java -cp benchmarks.jar Harness Permute 1 1000
+Starting Permute benchmark ...
+Permute: iterations=1 runtime: 43849us
+Permute: iterations=1 average: 43849us total: 43849us
+
+
+Total Runtime: 43849us
+### exit 0 wall_us 101797
+### benchmarks/D ./harness CD 1 250
+Starting CD benchmark ...
+CD: iterations=1 runtime: 81836us
+CD: iterations=1 average: 81836us total: 81836us
+
+Total Runtime: 81836us
+### exit 0 wall_us 85313
+### benchmarks/D ./harness CD 1 250
+Starting CD benchmark ...
+CD: iterations=1 runtime: 82053us
+CD: iterations=1 average: 82053us total: 82053us
+
+Total Runtime: 82053us
+### exit 0 wall_us 84950
+### benchmarks/D ./harness CD 1 250
+Starting CD benchmark ...
+CD: iterations=1 runtime: 84924us
+CD: iterations=1 average: 84924us total: 84924us
+
+Total Runtime: 84924us
+### exit 0 wall_us 88368
+### benchmarks/Java java -Xint -cp benchmarks.jar Harness Storage 1 1000
+Starting Storage benchmark ...
+Storage: iterations=1 runtime: 1408189us
+Storage: iterations=1 average: 1408189us total: 1408189us
+
+
+Total Runtime: 1408189us
+### exit 0 wall_us 1463265
+### benchmarks/Java java -Xint -cp benchmarks.jar Harness Storage 1 1000
+Starting Storage benchmark ...
+Storage: iterations=1 runtime: 1439074us
+Storage: iterations=1 average: 1439074us total: 1439074us
+
+
+Total Runtime: 1439074us
+### exit 0 wall_us 1490580
+### benchmarks/Java java -Xint -cp benchmarks.jar Harness Storage 1 1000
+Starting Storage benchmark ...
+Storage: iterations=1 runtime: 1413622us
+Storage: iterations=1 average: 1413622us total: 1413622us
+
+
+Total Runtime: 1413622us
+### exit 0 wall_us 1459727
+### benchmarks/D ./harness-manual Queens 1 1000
+Starting Queens benchmark ...
+Queens: iterations=1 runtime: 24365us
+Queens: iterations=1 average: 24365us total: 24365us
+
+Total Runtime: 24365us
+### exit 0 wall_us 26879
+### benchmarks/D ./harness-manual Queens 1 1000
+Starting Queens benchmark ...
+Queens: iterations=1 runtime: 13895us
+Queens: iterations=1 average: 13895us total: 13895us
+
+Total Runtime: 13895us
+### exit 0 wall_us 15449
+### benchmarks/D ./harness-manual Queens 1 1000
+Starting Queens benchmark ...
+Queens: iterations=1 runtime: 25010us
+Queens: iterations=1 average: 25010us total: 25010us
+
+Total Runtime: 25010us
+### exit 0 wall_us 27368
+### benchmarks/Java java -cp benchmarks.jar Harness Havlak 1 1500
+Starting Havlak benchmark ...
+Havlak: iterations=1 runtime: 232021us
+Havlak: iterations=1 average: 232021us total: 232021us
+
+
+Total Runtime: 232021us
+### exit 0 wall_us 301585
+### benchmarks/Java java -cp benchmarks.jar Harness Havlak 1 1500
+Starting Havlak benchmark ...
+Havlak: iterations=1 runtime: 203812us
+Havlak: iterations=1 average: 203812us total: 203812us
+
+
+Total Runtime: 203812us
+### exit 0 wall_us 264712
+### benchmarks/Java java -cp benchmarks.jar Harness Havlak 1 1500
+Starting Havlak benchmark ...
+Havlak: iterations=1 runtime: 206389us
+Havlak: iterations=1 average: 206389us total: 206389us
+
+
+Total Runtime: 206389us
+### exit 0 wall_us 275425
+### benchmarks/JavaScript node harness.js NBody 1 250000
+Starting NBody benchmark ...
+NBody: iterations=1 runtime: 36085us
+NBody: iterations=1 average: 36085us total: 36085us
+
+
+Total Runtime: 36085us
+### exit 0 wall_us 80398
+### benchmarks/JavaScript node harness.js NBody 1 250000
+Starting NBody benchmark ...
+NBody: iterations=1 runtime: 31751us
+NBody: iterations=1 average: 31751us total: 31751us
+
+
+Total Runtime: 31751us
+### exit 0 wall_us 83078
+### benchmarks/JavaScript node harness.js NBody 1 250000
+Starting NBody benchmark ...
+NBody: iterations=1 runtime: 34251us
+NBody: iterations=1 average: 34251us total: 34251us
+
+
+Total Runtime: 34251us
+### exit 0 wall_us 85993
+### benchmarks/Lua luajit -joff harness.lua Mandelbrot 1 500
+Starting Mandelbrot benchmark ...
+Mandelbrot: iterations=1 runtime: 201373us
+Mandelbrot: iterations=1 average: 201373us total: 201373us
+
+Total Runtime: 201373us
+### exit 0 wall_us 205270
+### benchmarks/Lua luajit -joff harness.lua Mandelbrot 1 500
+Starting Mandelbrot benchmark ...
+Mandelbrot: iterations=1 runtime: 199828us
+Mandelbrot: iterations=1 average: 199828us total: 199828us
+
+Total Runtime: 199828us
+### exit 0 wall_us 203354
+### benchmarks/Lua luajit -joff harness.lua Mandelbrot 1 500
+Starting Mandelbrot benchmark ...
+Mandelbrot: iterations=1 runtime: 192667us
+Mandelbrot: iterations=1 average: 192667us total: 192667us
+
+Total Runtime: 192667us
+### exit 0 wall_us 196183
+### benchmarks/D ./harness --DRT-gcopt=cleanup:none heapSizeFactor:4 Queens 1 1000
+Starting Queens benchmark ...
+Queens: iterations=1 runtime: 17870us
+Queens: iterations=1 average: 17870us total: 17870us
+
+Total Runtime: 17870us
+### exit 0 wall_us 19805
+### benchmarks/D ./harness --DRT-gcopt=cleanup:none heapSizeFactor:4 Queens 1 1000
+Starting Queens benchmark ...
+Queens: iterations=1 runtime: 17915us
+Queens: iterations=1 average: 17915us total: 17915us
+
+Total Runtime: 17915us
+### exit 0 wall_us 20233
+### benchmarks/D ./harness --DRT-gcopt=cleanup:none heapSizeFactor:4 Queens 1 1000
+Starting Queens benchmark ...
+Queens: iterations=1 runtime: 18579us
+Queens: iterations=1 average: 18579us total: 18579us
+
+Total Runtime: 18579us
+### exit 0 wall_us 20933
+### benchmarks/JavaScript node harness.js Richards 1 100
+Starting Richards benchmark ...
+Richards: iterations=1 runtime: 191240us
+Richards: iterations=1 average: 191240us total: 191240us
+
+
+Total Runtime: 191240us
+### exit 0 wall_us 237332
+### benchmarks/JavaScript node harness.js Richards 1 100
+Starting Richards benchmark ...
+Richards: iterations=1 runtime: 192241us
+Richards: iterations=1 average: 192241us total: 192241us
+
+
+Total Runtime: 192241us
+### exit 0 wall_us 249412
+### benchmarks/JavaScript node harness.js Richards 1 100
+Starting Richards benchmark ...
+Richards: iterations=1 runtime: 195540us
+Richards: iterations=1 average: 195540us total: 195540us
+
+
+Total Runtime: 195540us
+### exit 0 wall_us 240243
+### benchmarks/D ./harness Bounce 1 1500
+Starting Bounce benchmark ...
+Bounce: iterations=1 runtime: 23463us
+Bounce: iterations=1 average: 23463us total: 23463us
+
+Total Runtime: 23463us
+### exit 0 wall_us 26658
+### benchmarks/D ./harness Bounce 1 1500
+Starting Bounce benchmark ...
+Bounce: iterations=1 runtime: 29861us
+Bounce: iterations=1 average: 29861us total: 29861us
+
+Total Runtime: 29861us
+### exit 0 wall_us 33490
+### benchmarks/D ./harness Bounce 1 1500
+Starting Bounce benchmark ...
+Bounce: iterations=1 runtime: 23358us
+Bounce: iterations=1 average: 23358us total: 23358us
+
+Total Runtime: 23358us
+### exit 0 wall_us 26082
+### benchmarks/D ./harness DeltaBlue 1 12000
+Starting DeltaBlue benchmark ...
+DeltaBlue: iterations=1 runtime: 40317us
+DeltaBlue: iterations=1 average: 40317us total: 40317us
+
+Total Runtime: 40317us
+### exit 0 wall_us 43035
+### benchmarks/D ./harness DeltaBlue 1 12000
+Starting DeltaBlue benchmark ...
+DeltaBlue: iterations=1 runtime: 39380us
+DeltaBlue: iterations=1 average: 39380us total: 39380us
+
+Total Runtime: 39380us
+### exit 0 wall_us 42153
+### benchmarks/D ./harness DeltaBlue 1 12000
+Starting DeltaBlue benchmark ...
+DeltaBlue: iterations=1 runtime: 44426us
+DeltaBlue: iterations=1 average: 44426us total: 44426us
+
+Total Runtime: 44426us
+### exit 0 wall_us 47139
+### benchmarks/JavaScript node harness.js Storage 1 1000
+Starting Storage benchmark ...
+Storage: iterations=1 runtime: 123301us
+Storage: iterations=1 average: 123301us total: 123301us
+
+
+Total Runtime: 123301us
+### exit 0 wall_us 182037
+### benchmarks/JavaScript node harness.js Storage 1 1000
+Starting Storage benchmark ...
+Storage: iterations=1 runtime: 123437us
+Storage: iterations=1 average: 123437us total: 123437us
+
+
+Total Runtime: 123437us
+### exit 0 wall_us 177783
+### benchmarks/JavaScript node harness.js Storage 1 1000
+Starting Storage benchmark ...
+Storage: iterations=1 runtime: 124073us
+Storage: iterations=1 average: 124073us total: 124073us
+
+
+Total Runtime: 124073us
+### exit 0 wall_us 177103
+### results/sb-manual sb --version=ManualMemory -I ../../benchmarks/D/src ../../benchmarks/D/src -- --DRT-testmode=run-main Mandelbrot 1 500
+Starting Mandelbrot benchmark ...
+Mandelbrot: iterations=1 runtime: 1053984us
+Mandelbrot: iterations=1 average: 1053984us total: 1053984us
+
+Total Runtime: 1053984us
+src scan:                 0.3 ms
+frontend time:          260.6 ms
+image time:               0.9 ms
+backend latency:       1058.3 ms
+  compile:                3.0 ms
+  ModuleInfo:             0.8 ms
+  module ctors:           0.2 ms
+  tests and main:      1054.2 ms
+  other:                  0.0 ms
+### exit 0 wall_us 1331013
+### results/sb-manual sb --version=ManualMemory -I ../../benchmarks/D/src ../../benchmarks/D/src -- --DRT-testmode=run-main Mandelbrot 1 500
+Starting Mandelbrot benchmark ...
+Mandelbrot: iterations=1 runtime: 1064438us
+Mandelbrot: iterations=1 average: 1064438us total: 1064438us
+
+Total Runtime: 1064438us
+src scan:                 0.2 ms
+frontend time:          258.0 ms
+image time:               0.9 ms
+backend latency:       1068.8 ms
+  compile:                3.1 ms
+  ModuleInfo:             0.8 ms
+  module ctors:           0.2 ms
+  tests and main:      1064.7 ms
+  other:                  0.0 ms
+### exit 0 wall_us 1336473
+### results/sb-manual sb --version=ManualMemory -I ../../benchmarks/D/src ../../benchmarks/D/src -- --DRT-testmode=run-main Mandelbrot 1 500
+Starting Mandelbrot benchmark ...
+Mandelbrot: iterations=1 runtime: 1026663us
+Mandelbrot: iterations=1 average: 1026663us total: 1026663us
+
+Total Runtime: 1026663us
+src scan:                 0.2 ms
+frontend time:          261.0 ms
+image time:               0.9 ms
+backend latency:       1031.0 ms
+  compile:                3.1 ms
+  ModuleInfo:             0.8 ms
+  module ctors:           0.2 ms
+  tests and main:      1026.9 ms
+  other:                  0.0 ms
+### exit 0 wall_us 1301855
+### benchmarks/JavaScript node --jitless harness.js Richards 1 100
+Starting Richards benchmark ...
+Richards: iterations=1 runtime: 5752990us
+Richards: iterations=1 average: 5752990us total: 5752990us
+
+
+Total Runtime: 5752990us
+### exit 0 wall_us 5809382
+### benchmarks/JavaScript node --jitless harness.js Richards 1 100
+Starting Richards benchmark ...
+Richards: iterations=1 runtime: 5708117us
+Richards: iterations=1 average: 5708117us total: 5708117us
+
+
+Total Runtime: 5708117us
+### exit 0 wall_us 5763522
+### benchmarks/JavaScript node --jitless harness.js Richards 1 100
+Starting Richards benchmark ...
+Richards: iterations=1 runtime: 5633225us
+Richards: iterations=1 average: 5633225us total: 5633225us
+
+
+Total Runtime: 5633225us
+### exit 0 wall_us 5689770
+### benchmarks/C++ wasm3 harness.wasm Queens 1 1000
+Starting Queens benchmark ...
+Queens: iterations=1 runtime: 188592us
+Queens: iterations=1 average: 188592us total: 188592us
+
+Total Runtime: 188592us
+### exit 0 wall_us 194765
+### benchmarks/C++ wasm3 harness.wasm Queens 1 1000
+Starting Queens benchmark ...
+Queens: iterations=1 runtime: 195840us
+Queens: iterations=1 average: 195840us total: 195840us
+
+Total Runtime: 195840us
+### exit 0 wall_us 201906
+### benchmarks/C++ wasm3 harness.wasm Queens 1 1000
+Starting Queens benchmark ...
+Queens: iterations=1 runtime: 188948us
+Queens: iterations=1 average: 188948us total: 188948us
+
+Total Runtime: 188948us
+### exit 0 wall_us 194510
+### benchmarks/D ./harness --DRT-gcopt=cleanup:none heapSizeFactor:4 DeltaBlue 1 12000
+Starting DeltaBlue benchmark ...
+DeltaBlue: iterations=1 runtime: 45511us
+DeltaBlue: iterations=1 average: 45511us total: 45511us
+
+Total Runtime: 45511us
+### exit 0 wall_us 48325
+### benchmarks/D ./harness --DRT-gcopt=cleanup:none heapSizeFactor:4 DeltaBlue 1 12000
+Starting DeltaBlue benchmark ...
+DeltaBlue: iterations=1 runtime: 45266us
+DeltaBlue: iterations=1 average: 45266us total: 45266us
+
+Total Runtime: 45266us
+### exit 0 wall_us 48688
+### benchmarks/D ./harness --DRT-gcopt=cleanup:none heapSizeFactor:4 DeltaBlue 1 12000
+Starting DeltaBlue benchmark ...
+DeltaBlue: iterations=1 runtime: 41361us
+DeltaBlue: iterations=1 average: 41361us total: 41361us
+
+Total Runtime: 41361us
+### exit 0 wall_us 44315
+### benchmarks/JavaScript node --jitless harness.js Towers 1 600
+Starting Towers benchmark ...
+Towers: iterations=1 runtime: 1769639us
+Towers: iterations=1 average: 1769639us total: 1769639us
+
+
+Total Runtime: 1769639us
+### exit 0 wall_us 1819388
+### benchmarks/JavaScript node --jitless harness.js Towers 1 600
+Starting Towers benchmark ...
+Towers: iterations=1 runtime: 1755411us
+Towers: iterations=1 average: 1755411us total: 1755411us
+
+
+Total Runtime: 1755411us
+### exit 0 wall_us 1822564
+### benchmarks/JavaScript node --jitless harness.js Towers 1 600
+Starting Towers benchmark ...
+Towers: iterations=1 runtime: 1754476us
+Towers: iterations=1 average: 1754476us total: 1754476us
+
+
+Total Runtime: 1754476us
+### exit 0 wall_us 1815957
+### benchmarks/C++ ./harness Storage 1 1000
+Starting Storage benchmark ...
+Storage: iterations=1 runtime: 285661us
+Storage: iterations=1 average: 285661us total: 285661us
+
+Total Runtime: 285661us
+### exit 0 wall_us 288389
+### benchmarks/C++ ./harness Storage 1 1000
+Starting Storage benchmark ...
+Storage: iterations=1 runtime: 273118us
+Storage: iterations=1 average: 273118us total: 273118us
+
+Total Runtime: 273118us
+### exit 0 wall_us 276288
+### benchmarks/C++ ./harness Storage 1 1000
+Starting Storage benchmark ...
+Storage: iterations=1 runtime: 272546us
+Storage: iterations=1 average: 272546us total: 272546us
+
+Total Runtime: 272546us
+### exit 0 wall_us 275393
+### benchmarks/D sb -I src src -- --DRT-testmode=run-main Json 1 100
+Starting Json benchmark ...
+Json: iterations=1 runtime: 1533712us
+Json: iterations=1 average: 1533712us total: 1533712us
+
+Total Runtime: 1533712us
+src scan:                 0.3 ms
+frontend time:          249.3 ms
+image time:               0.9 ms
+backend latency:       1543.9 ms
+  compile:                9.0 ms
+  ModuleInfo:             0.8 ms
+  module ctors:           0.2 ms
+  tests and main:      1534.0 ms
+  other:                  0.0 ms
+### exit 0 wall_us 1808075
+### benchmarks/D sb -I src src -- --DRT-testmode=run-main Json 1 100
+Starting Json benchmark ...
+Json: iterations=1 runtime: 1534627us
+Json: iterations=1 average: 1534627us total: 1534627us
+
+Total Runtime: 1534627us
+src scan:                 0.2 ms
+frontend time:          238.1 ms
+image time:               0.9 ms
+backend latency:       1544.8 ms
+  compile:                9.0 ms
+  ModuleInfo:             0.8 ms
+  module ctors:           0.2 ms
+  tests and main:      1534.9 ms
+  other:                  0.0 ms
+### exit 0 wall_us 1797553
+### benchmarks/D sb -I src src -- --DRT-testmode=run-main Json 1 100
+Starting Json benchmark ...
+Json: iterations=1 runtime: 1501471us
+Json: iterations=1 average: 1501471us total: 1501471us
+
+Total Runtime: 1501471us
+src scan:                 0.3 ms
+frontend time:          245.2 ms
+image time:               0.9 ms
+backend latency:       1512.5 ms
+  compile:                9.8 ms
+  ModuleInfo:             0.7 ms
+  module ctors:           0.2 ms
+  tests and main:      1501.7 ms
+  other:                  0.0 ms
+### exit 0 wall_us 1772618
+### benchmarks/Lua luajit -joff harness.lua Richards 1 100
+Starting Richards benchmark ...
+Richards: iterations=1 runtime: 3737600us
+Richards: iterations=1 average: 3737600us total: 3737600us
+
+Total Runtime: 3737600us
+### exit 0 wall_us 3758166
+### benchmarks/Lua luajit -joff harness.lua Richards 1 100
+Starting Richards benchmark ...
+Richards: iterations=1 runtime: 3699551us
+Richards: iterations=1 average: 3699551us total: 3699551us
+
+Total Runtime: 3699551us
+### exit 0 wall_us 3719192
+### benchmarks/Lua luajit -joff harness.lua Richards 1 100
+Starting Richards benchmark ...
+Richards: iterations=1 runtime: 3742477us
+Richards: iterations=1 average: 3742477us total: 3742477us
+
+Total Runtime: 3742477us
+### exit 0 wall_us 3762101
+### benchmarks/C++ wasm3 harness.wasm DeltaBlue 1 12000
+Starting DeltaBlue benchmark ...
+DeltaBlue: iterations=1 runtime: 285020us
+DeltaBlue: iterations=1 average: 285020us total: 285020us
+
+Total Runtime: 285020us
+### exit 0 wall_us 291670
+### benchmarks/C++ wasm3 harness.wasm DeltaBlue 1 12000
+Starting DeltaBlue benchmark ...
+DeltaBlue: iterations=1 runtime: 282583us
+DeltaBlue: iterations=1 average: 282583us total: 282583us
+
+Total Runtime: 282583us
+### exit 0 wall_us 287397
+### benchmarks/C++ wasm3 harness.wasm DeltaBlue 1 12000
+Starting DeltaBlue benchmark ...
+DeltaBlue: iterations=1 runtime: 282050us
+DeltaBlue: iterations=1 average: 282050us total: 282050us
+
+Total Runtime: 282050us
+### exit 0 wall_us 288382
+### benchmarks/Python python3 harness.py List 1 1500
+Starting List benchmark ...
+List: iterations=1 runtime: 1046714us
+List: iterations=1 average: 1046714us total: 1046714us
+
+
+Total Runtime: 1046714us
+### exit 0 wall_us 1060764
+### benchmarks/Python python3 harness.py List 1 1500
+Starting List benchmark ...
+List: iterations=1 runtime: 1047470us
+List: iterations=1 average: 1047470us total: 1047470us
+
+
+Total Runtime: 1047470us
+### exit 0 wall_us 1068258
+### benchmarks/Python python3 harness.py List 1 1500
+Starting List benchmark ...
+List: iterations=1 runtime: 1054397us
+List: iterations=1 average: 1054397us total: 1054397us
+
+
+Total Runtime: 1054397us
+### exit 0 wall_us 1071510
+### benchmarks/Lua luajit -joff harness.lua Sieve 1 3000
+Starting Sieve benchmark ...
+Sieve: iterations=1 runtime: 571709us
+Sieve: iterations=1 average: 571709us total: 571709us
+
+Total Runtime: 571709us
+### exit 0 wall_us 577255
+### benchmarks/Lua luajit -joff harness.lua Sieve 1 3000
+Starting Sieve benchmark ...
+Sieve: iterations=1 runtime: 572857us
+Sieve: iterations=1 average: 572857us total: 572857us
+
+Total Runtime: 572857us
+### exit 0 wall_us 578570
+### benchmarks/Lua luajit -joff harness.lua Sieve 1 3000
+Starting Sieve benchmark ...
+Sieve: iterations=1 runtime: 575256us
+Sieve: iterations=1 average: 575256us total: 575256us
+
+Total Runtime: 575256us
+### exit 0 wall_us 581389
+### benchmarks/Python python3 harness.py Storage 1 1000
+Starting Storage benchmark ...
+Storage: iterations=1 runtime: 1859050us
+Storage: iterations=1 average: 1859050us total: 1859050us
+
+
+Total Runtime: 1859050us
+### exit 0 wall_us 1879896
+### benchmarks/Python python3 harness.py Storage 1 1000
+Starting Storage benchmark ...
+Storage: iterations=1 runtime: 1811742us
+Storage: iterations=1 average: 1811742us total: 1811742us
+
+
+Total Runtime: 1811742us
+### exit 0 wall_us 1827411
+### benchmarks/Python python3 harness.py Storage 1 1000
+Starting Storage benchmark ...
+Storage: iterations=1 runtime: 1794519us
+Storage: iterations=1 average: 1794519us total: 1794519us
+
+
+Total Runtime: 1794519us
+### exit 0 wall_us 1808539
+### benchmarks/JavaScript node harness.js Bounce 1 1500
+Starting Bounce benchmark ...
+Bounce: iterations=1 runtime: 59978us
+Bounce: iterations=1 average: 59978us total: 59978us
+
+
+Total Runtime: 59978us
+### exit 0 wall_us 115140
+### benchmarks/JavaScript node harness.js Bounce 1 1500
+Starting Bounce benchmark ...
+Bounce: iterations=1 runtime: 57444us
+Bounce: iterations=1 average: 57444us total: 57444us
+
+
+Total Runtime: 57444us
+### exit 0 wall_us 108920
+### benchmarks/JavaScript node harness.js Bounce 1 1500
+Starting Bounce benchmark ...
+Bounce: iterations=1 runtime: 66013us
+Bounce: iterations=1 average: 66013us total: 66013us
+
+
+Total Runtime: 66013us
+### exit 0 wall_us 119102
+### benchmarks/Java java -Xint -cp benchmarks.jar Harness Queens 1 1000
+Starting Queens benchmark ...
+Queens: iterations=1 runtime: 503991us
+Queens: iterations=1 average: 503991us total: 503991us
+
+
+Total Runtime: 503991us
+### exit 0 wall_us 558133
+### benchmarks/Java java -Xint -cp benchmarks.jar Harness Queens 1 1000
+Starting Queens benchmark ...
+Queens: iterations=1 runtime: 499388us
+Queens: iterations=1 average: 499388us total: 499388us
+
+
+Total Runtime: 499388us
+### exit 0 wall_us 555705
+### benchmarks/Java java -Xint -cp benchmarks.jar Harness Queens 1 1000
+Starting Queens benchmark ...
+Queens: iterations=1 runtime: 529831us
+Queens: iterations=1 average: 529831us total: 529831us
+
+
+Total Runtime: 529831us
+### exit 0 wall_us 581833
+### benchmarks/JavaScript node harness.js Towers 1 600
+Starting Towers benchmark ...
+Towers: iterations=1 runtime: 56901us
+Towers: iterations=1 average: 56901us total: 56901us
+
+
+Total Runtime: 56901us
+### exit 0 wall_us 101006
+### benchmarks/JavaScript node harness.js Towers 1 600
+Starting Towers benchmark ...
+Towers: iterations=1 runtime: 59302us
+Towers: iterations=1 average: 59302us total: 59302us
+
+
+Total Runtime: 59302us
+### exit 0 wall_us 116186
+### benchmarks/JavaScript node harness.js Towers 1 600
+Starting Towers benchmark ...
+Towers: iterations=1 runtime: 56390us
+Towers: iterations=1 average: 56390us total: 56390us
+
+
+Total Runtime: 56390us
+### exit 0 wall_us 112516
+### benchmarks/D sb -I src src -- --DRT-testmode=run-main Towers 1 600
+Starting Towers benchmark ...
+Towers: iterations=1 runtime: 3550293us
+Towers: iterations=1 average: 3550293us total: 3550293us
+
+Total Runtime: 3550293us
+src scan:                 0.3 ms
+frontend time:          256.1 ms
+image time:               0.9 ms
+backend latency:       3558.7 ms
+  compile:                7.3 ms
+  ModuleInfo:             0.7 ms
+  module ctors:           0.2 ms
+  tests and main:      3550.5 ms
+  other:                  0.0 ms
+### exit 0 wall_us 3824352
+### benchmarks/D sb -I src src -- --DRT-testmode=run-main Towers 1 600
+Starting Towers benchmark ...
+Towers: iterations=1 runtime: 3466526us
+Towers: iterations=1 average: 3466526us total: 3466526us
+
+Total Runtime: 3466526us
+src scan:                 0.3 ms
+frontend time:          255.7 ms
+image time:               0.9 ms
+backend latency:       3474.2 ms
+  compile:                6.5 ms
+  ModuleInfo:             0.8 ms
+  module ctors:           0.2 ms
+  tests and main:      3466.8 ms
+  other:                  0.0 ms
+### exit 0 wall_us 3740028
+### benchmarks/D sb -I src src -- --DRT-testmode=run-main Towers 1 600
+Starting Towers benchmark ...
+Towers: iterations=1 runtime: 3490055us
+Towers: iterations=1 average: 3490055us total: 3490055us
+
+Total Runtime: 3490055us
+src scan:                 0.3 ms
+frontend time:          249.3 ms
+image time:               0.9 ms
+backend latency:       3498.3 ms
+  compile:                7.0 ms
+  ModuleInfo:             0.8 ms
+  module ctors:           0.2 ms
+  tests and main:      3490.3 ms
+  other:                  0.0 ms
+### exit 0 wall_us 3757320
+### benchmarks/C++ wasm3 harness.wasm Storage 1 1000
+Starting Storage benchmark ...
+Storage: iterations=1 runtime: 2052243us
+Storage: iterations=1 average: 2052243us total: 2052243us
+
+Total Runtime: 2052243us
+### exit 0 wall_us 2058796
+### benchmarks/C++ wasm3 harness.wasm Storage 1 1000
+Starting Storage benchmark ...
+Storage: iterations=1 runtime: 1988006us
+Storage: iterations=1 average: 1988006us total: 1988006us
+
+Total Runtime: 1988006us
+### exit 0 wall_us 1992462
+### benchmarks/C++ wasm3 harness.wasm Storage 1 1000
+Starting Storage benchmark ...
+Storage: iterations=1 runtime: 1976335us
+Storage: iterations=1 average: 1976335us total: 1976335us
+
+Total Runtime: 1976335us
+### exit 0 wall_us 1980824
+### benchmarks/Lua luajit -joff harness.lua Permute 1 1000
+Starting Permute benchmark ...
+Permute: iterations=1 runtime: 646409us
+Permute: iterations=1 average: 646409us total: 646409us
+
+Total Runtime: 646409us
+### exit 0 wall_us 651902
+### benchmarks/Lua luajit -joff harness.lua Permute 1 1000
+Starting Permute benchmark ...
+Permute: iterations=1 runtime: 626306us
+Permute: iterations=1 average: 626306us total: 626306us
+
+Total Runtime: 626306us
+### exit 0 wall_us 632025
+### benchmarks/Lua luajit -joff harness.lua Permute 1 1000
+Starting Permute benchmark ...
+Permute: iterations=1 runtime: 758389us
+Permute: iterations=1 average: 758389us total: 758389us
+
+Total Runtime: 758389us
+### exit 0 wall_us 764067
+### benchmarks/Lua luajit harness.lua List 1 1500
+Starting List benchmark ...
+List: iterations=1 runtime: 191017us
+List: iterations=1 average: 191017us total: 191017us
+
+Total Runtime: 191017us
+### exit 0 wall_us 194670
+### benchmarks/Lua luajit harness.lua List 1 1500
+Starting List benchmark ...
+List: iterations=1 runtime: 206522us
+List: iterations=1 average: 206522us total: 206522us
+
+Total Runtime: 206522us
+### exit 0 wall_us 209948
+### benchmarks/Lua luajit harness.lua List 1 1500
+Starting List benchmark ...
+List: iterations=1 runtime: 196613us
+List: iterations=1 average: 196613us total: 196613us
+
+Total Runtime: 196613us
+### exit 0 wall_us 200623
+### benchmarks/Lua luajit harness.lua Permute 1 1000
+Starting Permute benchmark ...
+Permute: iterations=1 runtime: 333024us
+Permute: iterations=1 average: 333024us total: 333024us
+
+Total Runtime: 333024us
+### exit 0 wall_us 337696
+### benchmarks/Lua luajit harness.lua Permute 1 1000
+Starting Permute benchmark ...
+Permute: iterations=1 runtime: 159268us
+Permute: iterations=1 average: 159268us total: 159268us
+
+Total Runtime: 159268us
+### exit 0 wall_us 163082
+### benchmarks/Lua luajit harness.lua Permute 1 1000
+Starting Permute benchmark ...
+Permute: iterations=1 runtime: 234619us
+Permute: iterations=1 average: 234619us total: 234619us
+
+Total Runtime: 234619us
+### exit 0 wall_us 238863
+### benchmarks/Java java -cp benchmarks.jar Harness Storage 1 1000
+Starting Storage benchmark ...
+Storage: iterations=1 runtime: 89362us
+Storage: iterations=1 average: 89362us total: 89362us
+
+
+Total Runtime: 89362us
+### exit 0 wall_us 149486
+### benchmarks/Java java -cp benchmarks.jar Harness Storage 1 1000
+Starting Storage benchmark ...
+Storage: iterations=1 runtime: 85964us
+Storage: iterations=1 average: 85964us total: 85964us
+
+
+Total Runtime: 85964us
+### exit 0 wall_us 143920
+### benchmarks/Java java -cp benchmarks.jar Harness Storage 1 1000
+Starting Storage benchmark ...
+Storage: iterations=1 runtime: 90090us
+Storage: iterations=1 average: 90090us total: 90090us
+
+
+Total Runtime: 90090us
+### exit 0 wall_us 143635
+### results/sb-manual sb --version=ManualMemory -I ../../benchmarks/D/src ../../benchmarks/D/src -- --DRT-testmode=run-main DeltaBlue 1 12000
+Starting DeltaBlue benchmark ...
+DeltaBlue: iterations=1 runtime: 1298484us
+DeltaBlue: iterations=1 average: 1298484us total: 1298484us
+
+Total Runtime: 1298484us
+src scan:                 0.2 ms
+frontend time:          257.7 ms
+image time:               0.9 ms
+backend latency:       1313.8 ms
+  compile:               14.0 ms
+  ModuleInfo:             0.8 ms
+  module ctors:           0.2 ms
+  tests and main:      1298.8 ms
+  other:                  0.0 ms
+### exit 0 wall_us 1585043
+### results/sb-manual sb --version=ManualMemory -I ../../benchmarks/D/src ../../benchmarks/D/src -- --DRT-testmode=run-main DeltaBlue 1 12000
+Starting DeltaBlue benchmark ...
+DeltaBlue: iterations=1 runtime: 1303373us
+DeltaBlue: iterations=1 average: 1303373us total: 1303373us
+
+Total Runtime: 1303373us
+src scan:                 0.3 ms
+frontend time:          257.3 ms
+image time:               0.9 ms
+backend latency:       1318.4 ms
+  compile:               13.8 ms
+  ModuleInfo:             0.8 ms
+  module ctors:           0.2 ms
+  tests and main:      1303.7 ms
+  other:                  0.0 ms
+### exit 0 wall_us 1591473
+### results/sb-manual sb --version=ManualMemory -I ../../benchmarks/D/src ../../benchmarks/D/src -- --DRT-testmode=run-main DeltaBlue 1 12000
+Starting DeltaBlue benchmark ...
+DeltaBlue: iterations=1 runtime: 1292206us
+DeltaBlue: iterations=1 average: 1292206us total: 1292206us
+
+Total Runtime: 1292206us
+src scan:                 0.3 ms
+frontend time:          265.1 ms
+image time:               0.9 ms
+backend latency:       1308.2 ms
+  compile:               14.6 ms
+  ModuleInfo:             0.8 ms
+  module ctors:           0.2 ms
+  tests and main:      1292.5 ms
+  other:                  0.0 ms
+### exit 0 wall_us 1589093
+### benchmarks/JavaScript node --jitless harness.js Json 1 100
+Starting Json benchmark ...
+Json: iterations=1 runtime: 1024482us
+Json: iterations=1 average: 1024482us total: 1024482us
+
+
+Total Runtime: 1024482us
+### exit 0 wall_us 1077493
+### benchmarks/JavaScript node --jitless harness.js Json 1 100
+Starting Json benchmark ...
+Json: iterations=1 runtime: 1033405us
+Json: iterations=1 average: 1033405us total: 1033405us
+
+
+Total Runtime: 1033405us
+### exit 0 wall_us 1089354
+### benchmarks/JavaScript node --jitless harness.js Json 1 100
+Starting Json benchmark ...
+Json: iterations=1 runtime: 1010299us
+Json: iterations=1 average: 1010299us total: 1010299us
+
+
+Total Runtime: 1010299us
+### exit 0 wall_us 1070293
+### benchmarks/Java java -cp benchmarks.jar Harness List 1 1500
+Starting List benchmark ...
+List: iterations=1 runtime: 40528us
+List: iterations=1 average: 40528us total: 40528us
+
+
+Total Runtime: 40528us
+### exit 0 wall_us 97791
+### benchmarks/Java java -cp benchmarks.jar Harness List 1 1500
+Starting List benchmark ...
+List: iterations=1 runtime: 38728us
+List: iterations=1 average: 38728us total: 38728us
+
+
+Total Runtime: 38728us
+### exit 0 wall_us 94798
+### benchmarks/Java java -cp benchmarks.jar Harness List 1 1500
+Starting List benchmark ...
+List: iterations=1 runtime: 41776us
+List: iterations=1 average: 41776us total: 41776us
+
+
+Total Runtime: 41776us
+### exit 0 wall_us 94302
+### benchmarks/C++ ./harness Json 1 100
+Starting Json benchmark ...
+Json: iterations=1 runtime: 49992us
+Json: iterations=1 average: 49992us total: 49992us
+
+Total Runtime: 49992us
+### exit 0 wall_us 53116
+### benchmarks/C++ ./harness Json 1 100
+Starting Json benchmark ...
+Json: iterations=1 runtime: 43568us
+Json: iterations=1 average: 43568us total: 43568us
+
+Total Runtime: 43568us
+### exit 0 wall_us 46388
+### benchmarks/C++ ./harness Json 1 100
+Starting Json benchmark ...
+Json: iterations=1 runtime: 50917us
+Json: iterations=1 average: 50917us total: 50917us
+
+Total Runtime: 50917us
+### exit 0 wall_us 53937
+### benchmarks/Java java -cp benchmarks.jar Harness Sieve 1 3000
+Starting Sieve benchmark ...
+Sieve: iterations=1 runtime: 58713us
+Sieve: iterations=1 average: 58713us total: 58713us
+
+
+Total Runtime: 58713us
+### exit 0 wall_us 116695
+### benchmarks/Java java -cp benchmarks.jar Harness Sieve 1 3000
+Starting Sieve benchmark ...
+Sieve: iterations=1 runtime: 56680us
+Sieve: iterations=1 average: 56680us total: 56680us
+
+
+Total Runtime: 56680us
+### exit 0 wall_us 111337
+### benchmarks/Java java -cp benchmarks.jar Harness Sieve 1 3000
+Starting Sieve benchmark ...
+Sieve: iterations=1 runtime: 60885us
+Sieve: iterations=1 average: 60885us total: 60885us
+
+
+Total Runtime: 60885us
+### exit 0 wall_us 116314
+### benchmarks/JavaScript node --jitless harness.js DeltaBlue 1 12000
+Starting DeltaBlue benchmark ...
+DeltaBlue: iterations=1 runtime: 592154us
+DeltaBlue: iterations=1 average: 592154us total: 592154us
+
+
+Total Runtime: 592154us
+### exit 0 wall_us 656007
+### benchmarks/JavaScript node --jitless harness.js DeltaBlue 1 12000
+Starting DeltaBlue benchmark ...
+DeltaBlue: iterations=1 runtime: 606174us
+DeltaBlue: iterations=1 average: 606174us total: 606174us
+
+
+Total Runtime: 606174us
+### exit 0 wall_us 662507
+### benchmarks/JavaScript node --jitless harness.js DeltaBlue 1 12000
+Starting DeltaBlue benchmark ...
+DeltaBlue: iterations=1 runtime: 585894us
+DeltaBlue: iterations=1 average: 585894us total: 585894us
+
+
+Total Runtime: 585894us
+### exit 0 wall_us 640852
+### benchmarks/JavaScript node harness.js Mandelbrot 1 500
+Starting Mandelbrot benchmark ...
+Mandelbrot: iterations=1 runtime: 49405us
+Mandelbrot: iterations=1 average: 49405us total: 49405us
+
+
+Total Runtime: 49405us
+### exit 0 wall_us 98406
+### benchmarks/JavaScript node harness.js Mandelbrot 1 500
+Starting Mandelbrot benchmark ...
+Mandelbrot: iterations=1 runtime: 47693us
+Mandelbrot: iterations=1 average: 47693us total: 47693us
+
+
+Total Runtime: 47693us
+### exit 0 wall_us 93103
+### benchmarks/JavaScript node harness.js Mandelbrot 1 500
+Starting Mandelbrot benchmark ...
+Mandelbrot: iterations=1 runtime: 46644us
+Mandelbrot: iterations=1 average: 46644us total: 46644us
+
+
+Total Runtime: 46644us
+### exit 0 wall_us 92404
+### benchmarks/Lua lua harness.lua Permute 1 1000
+Starting Permute benchmark ...
+Permute: iterations=1 runtime: 1262608us
+Permute: iterations=1 average: 1262608us total: 1262608us
+
+Total Runtime: 1262608us
+### exit 0 wall_us 1270598
+### benchmarks/Lua lua harness.lua Permute 1 1000
+Starting Permute benchmark ...
+Permute: iterations=1 runtime: 1274094us
+Permute: iterations=1 average: 1274094us total: 1274094us
+
+Total Runtime: 1274094us
+### exit 0 wall_us 1282210
+### benchmarks/Lua lua harness.lua Permute 1 1000
+Starting Permute benchmark ...
+Permute: iterations=1 runtime: 1344245us
+Permute: iterations=1 average: 1344245us total: 1344245us
+
+Total Runtime: 1344245us
+### exit 0 wall_us 1351688
+### benchmarks/D sb -I src src -- --DRT-testmode=run-main DeltaBlue 1 12000
+Starting DeltaBlue benchmark ...
+DeltaBlue: iterations=1 runtime: 1204594us
+DeltaBlue: iterations=1 average: 1204594us total: 1204594us
+
+Total Runtime: 1204594us
+src scan:                 0.2 ms
+frontend time:          236.6 ms
+image time:               0.9 ms
+backend latency:       1219.7 ms
+  compile:               13.9 ms
+  ModuleInfo:             0.7 ms
+  module ctors:           0.2 ms
+  tests and main:      1204.9 ms
+  other:                  0.0 ms
+### exit 0 wall_us 1468422
+### benchmarks/D sb -I src src -- --DRT-testmode=run-main DeltaBlue 1 12000
+Starting DeltaBlue benchmark ...
+DeltaBlue: iterations=1 runtime: 1184428us
+DeltaBlue: iterations=1 average: 1184428us total: 1184428us
+
+Total Runtime: 1184428us
+src scan:                 0.3 ms
+frontend time:          246.8 ms
+image time:               0.9 ms
+backend latency:       1199.8 ms
+  compile:               14.2 ms
+  ModuleInfo:             0.7 ms
+  module ctors:           0.2 ms
+  tests and main:      1184.7 ms
+  other:                  0.0 ms
+### exit 0 wall_us 1462264
+### benchmarks/D sb -I src src -- --DRT-testmode=run-main DeltaBlue 1 12000
+Starting DeltaBlue benchmark ...
+DeltaBlue: iterations=1 runtime: 1191691us
+DeltaBlue: iterations=1 average: 1191691us total: 1191691us
+
+Total Runtime: 1191691us
+src scan:                 0.3 ms
+frontend time:          243.4 ms
+image time:               0.9 ms
+backend latency:       1206.5 ms
+  compile:               13.7 ms
+  ModuleInfo:             0.7 ms
+  module ctors:           0.2 ms
+  tests and main:      1191.9 ms
+  other:                  0.0 ms
+### exit 0 wall_us 1465508
+### benchmarks/JavaScript node --jitless harness.js Storage 1 1000
+Starting Storage benchmark ...
+Storage: iterations=1 runtime: 963781us
+Storage: iterations=1 average: 963781us total: 963781us
+
+
+Total Runtime: 963781us
+### exit 0 wall_us 1022478
+### benchmarks/JavaScript node --jitless harness.js Storage 1 1000
+Starting Storage benchmark ...
+Storage: iterations=1 runtime: 1022132us
+Storage: iterations=1 average: 1022132us total: 1022132us
+
+
+Total Runtime: 1022132us
+### exit 0 wall_us 1083477
+### benchmarks/JavaScript node --jitless harness.js Storage 1 1000
+Starting Storage benchmark ...
+Storage: iterations=1 runtime: 941362us
+Storage: iterations=1 average: 941362us total: 941362us
+
+
+Total Runtime: 941362us
+### exit 0 wall_us 1000045
+### benchmarks/Lua lua harness.lua DeltaBlue 1 12000
+Starting DeltaBlue benchmark ...
+DeltaBlue: iterations=1 runtime: 964415us
+DeltaBlue: iterations=1 average: 964415us total: 964415us
+
+Total Runtime: 964415us
+### exit 0 wall_us 1000758
+### benchmarks/Lua lua harness.lua DeltaBlue 1 12000
+Starting DeltaBlue benchmark ...
+DeltaBlue: iterations=1 runtime: 1074517us
+DeltaBlue: iterations=1 average: 1074517us total: 1074517us
+
+Total Runtime: 1074517us
+### exit 0 wall_us 1112361
+### benchmarks/Lua lua harness.lua DeltaBlue 1 12000
+Starting DeltaBlue benchmark ...
+DeltaBlue: iterations=1 runtime: 1082730us
+DeltaBlue: iterations=1 average: 1082730us total: 1082730us
+
+Total Runtime: 1082730us
+### exit 0 wall_us 1122023
+### benchmarks/Lua lua harness.lua Sieve 1 3000
+Starting Sieve benchmark ...
+Sieve: iterations=1 runtime: 782769us
+Sieve: iterations=1 average: 782769us total: 782769us
+
+Total Runtime: 782769us
+### exit 0 wall_us 789332
+### benchmarks/Lua lua harness.lua Sieve 1 3000
+Starting Sieve benchmark ...
+Sieve: iterations=1 runtime: 787540us
+Sieve: iterations=1 average: 787540us total: 787540us
+
+Total Runtime: 787540us
+### exit 0 wall_us 793772
+### benchmarks/Lua lua harness.lua Sieve 1 3000
+Starting Sieve benchmark ...
+Sieve: iterations=1 runtime: 803891us
+Sieve: iterations=1 average: 803891us total: 803891us
+
+Total Runtime: 803891us
+### exit 0 wall_us 810316
+### benchmarks/C++ ./harness Towers 1 600
+Starting Towers benchmark ...
+Towers: iterations=1 runtime: 26670us
+Towers: iterations=1 average: 26670us total: 26670us
+
+Total Runtime: 26670us
+### exit 0 wall_us 29389
+### benchmarks/C++ ./harness Towers 1 600
+Starting Towers benchmark ...
+Towers: iterations=1 runtime: 22681us
+Towers: iterations=1 average: 22681us total: 22681us
+
+Total Runtime: 22681us
+### exit 0 wall_us 25771
+### benchmarks/C++ ./harness Towers 1 600
+Starting Towers benchmark ...
+Towers: iterations=1 runtime: 26365us
+Towers: iterations=1 average: 26365us total: 26365us
+
+Total Runtime: 26365us
+### exit 0 wall_us 29172
+### benchmarks/D ./harness Towers 1 600
+Starting Towers benchmark ...
+Towers: iterations=1 runtime: 17093us
+Towers: iterations=1 average: 17093us total: 17093us
+
+Total Runtime: 17093us
+### exit 0 wall_us 20518
+### benchmarks/D ./harness Towers 1 600
+Starting Towers benchmark ...
+Towers: iterations=1 runtime: 29535us
+Towers: iterations=1 average: 29535us total: 29535us
+
+Total Runtime: 29535us
+### exit 0 wall_us 33300
+### benchmarks/D ./harness Towers 1 600
+Starting Towers benchmark ...
+Towers: iterations=1 runtime: 23608us
+Towers: iterations=1 average: 23608us total: 23608us
+
+Total Runtime: 23608us
+### exit 0 wall_us 27185
+### benchmarks/Lua luajit harness.lua Towers 1 600
+Starting Towers benchmark ...
+Towers: iterations=1 runtime: 107739us
+Towers: iterations=1 average: 107739us total: 107739us
+
+Total Runtime: 107739us
+### exit 0 wall_us 110394
+### benchmarks/Lua luajit harness.lua Towers 1 600
+Starting Towers benchmark ...
+Towers: iterations=1 runtime: 107100us
+Towers: iterations=1 average: 107100us total: 107100us
+
+Total Runtime: 107100us
+### exit 0 wall_us 110410
+### benchmarks/Lua luajit harness.lua Towers 1 600
+Starting Towers benchmark ...
+Towers: iterations=1 runtime: 99442us
+Towers: iterations=1 average: 99442us total: 99442us
+
+Total Runtime: 99442us
+### exit 0 wall_us 102507
+### benchmarks/JavaScript node --jitless harness.js Havlak 1 1500
+Starting Havlak benchmark ...
+Havlak: iterations=1 runtime: 3129589us
+Havlak: iterations=1 average: 3129589us total: 3129589us
+
+
+Total Runtime: 3129589us
+### exit 0 wall_us 3199809
+### benchmarks/JavaScript node --jitless harness.js Havlak 1 1500
+Starting Havlak benchmark ...
+Havlak: iterations=1 runtime: 3236702us
+Havlak: iterations=1 average: 3236702us total: 3236702us
+
+
+Total Runtime: 3236702us
+### exit 0 wall_us 3297801
+### benchmarks/JavaScript node --jitless harness.js Havlak 1 1500
+Starting Havlak benchmark ...
+Havlak: iterations=1 runtime: 3055871us
+Havlak: iterations=1 average: 3055871us total: 3055871us
+
+
+Total Runtime: 3055871us
+### exit 0 wall_us 3120503
+### benchmarks/D ./harness --DRT-gcopt=cleanup:none heapSizeFactor:4 List 1 1500
+Starting List benchmark ...
+List: iterations=1 runtime: 43244us
+List: iterations=1 average: 43244us total: 43244us
+
+Total Runtime: 43244us
+### exit 0 wall_us 46018
+### benchmarks/D ./harness --DRT-gcopt=cleanup:none heapSizeFactor:4 List 1 1500
+Starting List benchmark ...
+List: iterations=1 runtime: 37551us
+List: iterations=1 average: 37551us total: 37551us
+
+Total Runtime: 37551us
+### exit 0 wall_us 39480
+### benchmarks/D ./harness --DRT-gcopt=cleanup:none heapSizeFactor:4 List 1 1500
+Starting List benchmark ...
+List: iterations=1 runtime: 55474us
+List: iterations=1 average: 55474us total: 55474us
+
+Total Runtime: 55474us
+### exit 0 wall_us 58333
+### benchmarks/C++ wasm3 harness.wasm Havlak 1 1500
+Starting Havlak benchmark ...
+Havlak: iterations=1 runtime: 1550675us
+Havlak: iterations=1 average: 1550675us total: 1550675us
+
+Total Runtime: 1550675us
+### exit 0 wall_us 1556802
+### benchmarks/C++ wasm3 harness.wasm Havlak 1 1500
+Starting Havlak benchmark ...
+Havlak: iterations=1 runtime: 1548626us
+Havlak: iterations=1 average: 1548626us total: 1548626us
+
+Total Runtime: 1548626us
+### exit 0 wall_us 1555119
+### benchmarks/C++ wasm3 harness.wasm Havlak 1 1500
+Starting Havlak benchmark ...
+Havlak: iterations=1 runtime: 1550438us
+Havlak: iterations=1 average: 1550438us total: 1550438us
+
+Total Runtime: 1550438us
+### exit 0 wall_us 1556979
+### benchmarks/Java java -Xint -cp benchmarks.jar Harness Mandelbrot 1 500
+Starting Mandelbrot benchmark ...
+Mandelbrot: iterations=1 runtime: 496259us
+Mandelbrot: iterations=1 average: 496259us total: 496259us
+
+
+Total Runtime: 496259us
+### exit 0 wall_us 548124
+### benchmarks/Java java -Xint -cp benchmarks.jar Harness Mandelbrot 1 500
+Starting Mandelbrot benchmark ...
+Mandelbrot: iterations=1 runtime: 489421us
+Mandelbrot: iterations=1 average: 489421us total: 489421us
+
+
+Total Runtime: 489421us
+### exit 0 wall_us 541032
+### benchmarks/Java java -Xint -cp benchmarks.jar Harness Mandelbrot 1 500
+Starting Mandelbrot benchmark ...
+Mandelbrot: iterations=1 runtime: 496454us
+Mandelbrot: iterations=1 average: 496454us total: 496454us
+
+
+Total Runtime: 496454us
+### exit 0 wall_us 549799
+### benchmarks/Java java -cp benchmarks.jar Harness Towers 1 600
+Starting Towers benchmark ...
+Towers: iterations=1 runtime: 34576us
+Towers: iterations=1 average: 34576us total: 34576us
+
+
+Total Runtime: 34576us
+### exit 0 wall_us 91741
+### benchmarks/Java java -cp benchmarks.jar Harness Towers 1 600
+Starting Towers benchmark ...
+Towers: iterations=1 runtime: 33947us
+Towers: iterations=1 average: 33947us total: 33947us
+
+
+Total Runtime: 33947us
+### exit 0 wall_us 96100
+### benchmarks/Java java -cp benchmarks.jar Harness Towers 1 600
+Starting Towers benchmark ...
+Towers: iterations=1 runtime: 33047us
+Towers: iterations=1 average: 33047us total: 33047us
+
+
+Total Runtime: 33047us
+### exit 0 wall_us 90998
+### benchmarks/Lua lua harness.lua NBody 1 250000
+Starting NBody benchmark ...
+NBody: iterations=1 runtime: 933991us
+NBody: iterations=1 average: 933991us total: 933991us
+
+Total Runtime: 933991us
+### exit 0 wall_us 941780
+### benchmarks/Lua lua harness.lua NBody 1 250000
+Starting NBody benchmark ...
+NBody: iterations=1 runtime: 915747us
+NBody: iterations=1 average: 915747us total: 915747us
+
+Total Runtime: 915747us
+### exit 0 wall_us 922285
+### benchmarks/Lua lua harness.lua NBody 1 250000
+Starting NBody benchmark ...
+NBody: iterations=1 runtime: 941554us
+NBody: iterations=1 average: 941554us total: 941554us
+
+Total Runtime: 941554us
+### exit 0 wall_us 947786
+### benchmarks/Python python3 harness.py Sieve 1 3000
+Starting Sieve benchmark ...
+Sieve: iterations=1 runtime: 2690106us
+Sieve: iterations=1 average: 2690106us total: 2690106us
+
+
+Total Runtime: 2690106us
+### exit 0 wall_us 2703878
+### benchmarks/Python python3 harness.py Sieve 1 3000
+Starting Sieve benchmark ...
+Sieve: iterations=1 runtime: 3003294us
+Sieve: iterations=1 average: 3003294us total: 3003294us
+
+
+Total Runtime: 3003294us
+### exit 0 wall_us 3024540
+### benchmarks/Python python3 harness.py Sieve 1 3000
+Starting Sieve benchmark ...
+Sieve: iterations=1 runtime: 2740619us
+Sieve: iterations=1 average: 2740619us total: 2740619us
+
+
+Total Runtime: 2740619us
+### exit 0 wall_us 2755870
+### benchmarks/Lua luajit -joff harness.lua Queens 1 1000
+Starting Queens benchmark ...
+Queens: iterations=1 runtime: 449444us
+Queens: iterations=1 average: 449444us total: 449444us
+
+Total Runtime: 449444us
+### exit 0 wall_us 454494
+### benchmarks/Lua luajit -joff harness.lua Queens 1 1000
+Starting Queens benchmark ...
+Queens: iterations=1 runtime: 453782us
+Queens: iterations=1 average: 453782us total: 453782us
+
+Total Runtime: 453782us
+### exit 0 wall_us 458578
+### benchmarks/Lua luajit -joff harness.lua Queens 1 1000
+Starting Queens benchmark ...
+Queens: iterations=1 runtime: 442442us
+Queens: iterations=1 average: 442442us total: 442442us
+
+Total Runtime: 442442us
+### exit 0 wall_us 447102
+### benchmarks/D ./harness-manual Storage 1 1000
+Starting Storage benchmark ...
+Storage: iterations=1 runtime: 320252us
+Storage: iterations=1 average: 320252us total: 320252us
+
+Total Runtime: 320252us
+### exit 0 wall_us 322680
+### benchmarks/D ./harness-manual Storage 1 1000
+Starting Storage benchmark ...
+Storage: iterations=1 runtime: 322866us
+Storage: iterations=1 average: 322866us total: 322866us
+
+Total Runtime: 322866us
+### exit 0 wall_us 325411
+### benchmarks/D ./harness-manual Storage 1 1000
+Starting Storage benchmark ...
+Storage: iterations=1 runtime: 334228us
+Storage: iterations=1 average: 334228us total: 334228us
+
+Total Runtime: 334228us
+### exit 0 wall_us 336969
+### results/sb-manual sb --version=ManualMemory -I ../../benchmarks/D/src ../../benchmarks/D/src -- --DRT-testmode=run-main List 1 1500
+Starting List benchmark ...
+List: iterations=1 runtime: 4024440us
+List: iterations=1 average: 4024440us total: 4024440us
+
+Total Runtime: 4024440us
+src scan:                 0.2 ms
+frontend time:          261.3 ms
+image time:               0.9 ms
+backend latency:       4029.0 ms
+  compile:                3.3 ms
+  ModuleInfo:             0.8 ms
+  module ctors:           0.2 ms
+  tests and main:      4024.7 ms
+  other:                  0.0 ms
+### exit 0 wall_us 4300993
+### results/sb-manual sb --version=ManualMemory -I ../../benchmarks/D/src ../../benchmarks/D/src -- --DRT-testmode=run-main List 1 1500
+Starting List benchmark ...
+List: iterations=1 runtime: 3978958us
+List: iterations=1 average: 3978958us total: 3978958us
+
+Total Runtime: 3978958us
+src scan:                 0.2 ms
+frontend time:          253.5 ms
+image time:               1.0 ms
+backend latency:       3983.7 ms
+  compile:                3.4 ms
+  ModuleInfo:             1.0 ms
+  module ctors:           0.2 ms
+  tests and main:      3979.2 ms
+  other:                  0.0 ms
+### exit 0 wall_us 4246675
+### results/sb-manual sb --version=ManualMemory -I ../../benchmarks/D/src ../../benchmarks/D/src -- --DRT-testmode=run-main List 1 1500
+Starting List benchmark ...
+List: iterations=1 runtime: 3998536us
+List: iterations=1 average: 3998536us total: 3998536us
+
+Total Runtime: 3998536us
+src scan:                 0.3 ms
+frontend time:          262.2 ms
+image time:               0.9 ms
+backend latency:       4003.4 ms
+  compile:                3.6 ms
+  ModuleInfo:             0.8 ms
+  module ctors:           0.2 ms
+  tests and main:      3998.8 ms
+  other:                  0.0 ms
+### exit 0 wall_us 4277931
+### benchmarks/Lua lua harness.lua Storage 1 1000
+Starting Storage benchmark ...
+Storage: iterations=1 runtime: 1930373us
+Storage: iterations=1 average: 1930373us total: 1930373us
+
+Total Runtime: 1930373us
+### exit 0 wall_us 1946373
+### benchmarks/Lua lua harness.lua Storage 1 1000
+Starting Storage benchmark ...
+Storage: iterations=1 runtime: 1946291us
+Storage: iterations=1 average: 1946291us total: 1946291us
+
+Total Runtime: 1946291us
+### exit 0 wall_us 1960654
+### benchmarks/Lua lua harness.lua Storage 1 1000
+Starting Storage benchmark ...
+Storage: iterations=1 runtime: 1950271us
+Storage: iterations=1 average: 1950271us total: 1950271us
+
+Total Runtime: 1950271us
+### exit 0 wall_us 1964978
+### results/sb-manual sb --version=ManualMemory -I ../../benchmarks/D/src ../../benchmarks/D/src -- --DRT-testmode=run-main Queens 1 1000
+Starting Queens benchmark ...
+Queens: iterations=1 runtime: 1943708us
+Queens: iterations=1 average: 1943708us total: 1943708us
+
+Total Runtime: 1943708us
+src scan:                 0.3 ms
+frontend time:          257.3 ms
+image time:               0.9 ms
+backend latency:       1948.5 ms
+  compile:                3.5 ms
+  ModuleInfo:             0.9 ms
+  module ctors:           0.2 ms
+  tests and main:      1944.0 ms
+  other:                  0.0 ms
+### exit 0 wall_us 2218089
+### results/sb-manual sb --version=ManualMemory -I ../../benchmarks/D/src ../../benchmarks/D/src -- --DRT-testmode=run-main Queens 1 1000
+Starting Queens benchmark ...
+Queens: iterations=1 runtime: 1999575us
+Queens: iterations=1 average: 1999575us total: 1999575us
+
+Total Runtime: 1999575us
+src scan:                 0.2 ms
+frontend time:          268.3 ms
+image time:               0.9 ms
+backend latency:       2004.1 ms
+  compile:                3.3 ms
+  ModuleInfo:             0.8 ms
+  module ctors:           0.2 ms
+  tests and main:      1999.8 ms
+  other:                  0.0 ms
+### exit 0 wall_us 2283120
+### results/sb-manual sb --version=ManualMemory -I ../../benchmarks/D/src ../../benchmarks/D/src -- --DRT-testmode=run-main Queens 1 1000
+Starting Queens benchmark ...
+Queens: iterations=1 runtime: 1920320us
+Queens: iterations=1 average: 1920320us total: 1920320us
+
+Total Runtime: 1920320us
+src scan:                 0.3 ms
+frontend time:          258.5 ms
+image time:               0.9 ms
+backend latency:       1924.8 ms
+  compile:                3.3 ms
+  ModuleInfo:             0.8 ms
+  module ctors:           0.2 ms
+  tests and main:      1920.6 ms
+  other:                  0.0 ms
+### exit 0 wall_us 2195693
+### benchmarks/D ./harness Mandelbrot 1 500
+Starting Mandelbrot benchmark ...
+Mandelbrot: iterations=1 runtime: 49307us
+Mandelbrot: iterations=1 average: 49307us total: 49307us
+
+Total Runtime: 49307us
+### exit 0 wall_us 53410
+### benchmarks/D ./harness Mandelbrot 1 500
+Starting Mandelbrot benchmark ...
+Mandelbrot: iterations=1 runtime: 43127us
+Mandelbrot: iterations=1 average: 43127us total: 43127us
+
+Total Runtime: 43127us
+### exit 0 wall_us 46054
+### benchmarks/D ./harness Mandelbrot 1 500
+Starting Mandelbrot benchmark ...
+Mandelbrot: iterations=1 runtime: 48698us
+Mandelbrot: iterations=1 average: 48698us total: 48698us
+
+Total Runtime: 48698us
+### exit 0 wall_us 52221
+### benchmarks/JavaScript node harness.js Queens 1 1000
+Starting Queens benchmark ...
+Queens: iterations=1 runtime: 52233us
+Queens: iterations=1 average: 52233us total: 52233us
+
+
+Total Runtime: 52233us
+### exit 0 wall_us 96757
+### benchmarks/JavaScript node harness.js Queens 1 1000
+Starting Queens benchmark ...
+Queens: iterations=1 runtime: 51469us
+Queens: iterations=1 average: 51469us total: 51469us
+
+
+Total Runtime: 51469us
+### exit 0 wall_us 96507
+### benchmarks/JavaScript node harness.js Queens 1 1000
+Starting Queens benchmark ...
+Queens: iterations=1 runtime: 48957us
+Queens: iterations=1 average: 48957us total: 48957us
+
+
+Total Runtime: 48957us
+### exit 0 wall_us 93318
+### benchmarks/D ./harness --DRT-gcopt=cleanup:none heapSizeFactor:4 Mandelbrot 1 500
+Starting Mandelbrot benchmark ...
+Mandelbrot: iterations=1 runtime: 50517us
+Mandelbrot: iterations=1 average: 50517us total: 50517us
+
+Total Runtime: 50517us
+### exit 0 wall_us 52870
+### benchmarks/D ./harness --DRT-gcopt=cleanup:none heapSizeFactor:4 Mandelbrot 1 500
+Starting Mandelbrot benchmark ...
+Mandelbrot: iterations=1 runtime: 43767us
+Mandelbrot: iterations=1 average: 43767us total: 43767us
+
+Total Runtime: 43767us
+### exit 0 wall_us 46080
+### benchmarks/D ./harness --DRT-gcopt=cleanup:none heapSizeFactor:4 Mandelbrot 1 500
+Starting Mandelbrot benchmark ...
+Mandelbrot: iterations=1 runtime: 43076us
+Mandelbrot: iterations=1 average: 43076us total: 43076us
+
+Total Runtime: 43076us
+### exit 0 wall_us 44762
+### benchmarks/Lua lua harness.lua Queens 1 1000
+Starting Queens benchmark ...
+Queens: iterations=1 runtime: 828845us
+Queens: iterations=1 average: 828845us total: 828845us
+
+Total Runtime: 828845us
+### exit 0 wall_us 835228
+### benchmarks/Lua lua harness.lua Queens 1 1000
+Starting Queens benchmark ...
+Queens: iterations=1 runtime: 861681us
+Queens: iterations=1 average: 861681us total: 861681us
+
+Total Runtime: 861681us
+### exit 0 wall_us 868550
+### benchmarks/Lua lua harness.lua Queens 1 1000
+Starting Queens benchmark ...
+Queens: iterations=1 runtime: 805741us
+Queens: iterations=1 average: 805741us total: 805741us
+
+Total Runtime: 805741us
+### exit 0 wall_us 811760
+### benchmarks/D sb -I src src -- --DRT-testmode=run-main List 1 1500
+Starting List benchmark ...
+List: iterations=1 runtime: 3978005us
+List: iterations=1 average: 3978005us total: 3978005us
+
+Total Runtime: 3978005us
+src scan:                 0.2 ms
+frontend time:          245.1 ms
+image time:               0.9 ms
+backend latency:       3982.3 ms
+  compile:                3.1 ms
+  ModuleInfo:             0.8 ms
+  module ctors:           0.2 ms
+  tests and main:      3978.3 ms
+  other:                  0.0 ms
+### exit 0 wall_us 4239159
+### benchmarks/D sb -I src src -- --DRT-testmode=run-main List 1 1500
+Starting List benchmark ...
+List: iterations=1 runtime: 3976810us
+List: iterations=1 average: 3976810us total: 3976810us
+
+Total Runtime: 3976810us
+src scan:                 0.3 ms
+frontend time:          248.1 ms
+image time:               0.9 ms
+backend latency:       3981.0 ms
+  compile:                3.0 ms
+  ModuleInfo:             0.7 ms
+  module ctors:           0.2 ms
+  tests and main:      3977.1 ms
+  other:                  0.0 ms
+### exit 0 wall_us 4244222
+### benchmarks/D sb -I src src -- --DRT-testmode=run-main List 1 1500
+Starting List benchmark ...
+List: iterations=1 runtime: 4079636us
+List: iterations=1 average: 4079636us total: 4079636us
+
+Total Runtime: 4079636us
+src scan:                 0.2 ms
+frontend time:          235.7 ms
+image time:               0.9 ms
+backend latency:       4083.8 ms
+  compile:                3.0 ms
+  ModuleInfo:             0.7 ms
+  module ctors:           0.2 ms
+  tests and main:      4079.9 ms
+  other:                  0.0 ms
+### exit 0 wall_us 4332710
+### benchmarks/Lua luajit harness.lua Json 1 100
+Starting Json benchmark ...
+Json: iterations=1 runtime: 242639us
+Json: iterations=1 average: 242639us total: 242639us
+
+Total Runtime: 242639us
+### exit 0 wall_us 250209
+### benchmarks/Lua luajit harness.lua Json 1 100
+Starting Json benchmark ...
+Json: iterations=1 runtime: 272633us
+Json: iterations=1 average: 272633us total: 272633us
+
+Total Runtime: 272633us
+### exit 0 wall_us 279213
+### benchmarks/Lua luajit harness.lua Json 1 100
+Starting Json benchmark ...
+Json: iterations=1 runtime: 267634us
+Json: iterations=1 average: 267634us total: 267634us
+
+Total Runtime: 267634us
+### exit 0 wall_us 274648
+### benchmarks/Python python3 harness.py Towers 1 600
+Starting Towers benchmark ...
+Towers: iterations=1 runtime: 1435828us
+Towers: iterations=1 average: 1435828us total: 1435828us
+
+
+Total Runtime: 1435828us
+### exit 0 wall_us 1456886
+### benchmarks/Python python3 harness.py Towers 1 600
+Starting Towers benchmark ...
+Towers: iterations=1 runtime: 1430955us
+Towers: iterations=1 average: 1430955us total: 1430955us
+
+
+Total Runtime: 1430955us
+### exit 0 wall_us 1445347
+### benchmarks/Python python3 harness.py Towers 1 600
+Starting Towers benchmark ...
+Towers: iterations=1 runtime: 1415586us
+Towers: iterations=1 average: 1415586us total: 1415586us
+
+
+Total Runtime: 1415586us
+### exit 0 wall_us 1436468
+### benchmarks/Lua luajit harness.lua NBody 1 250000
+Starting NBody benchmark ...
+NBody: iterations=1 runtime: 50560us
+NBody: iterations=1 average: 50560us total: 50560us
+
+Total Runtime: 50560us
+### exit 0 wall_us 53131
+### benchmarks/Lua luajit harness.lua NBody 1 250000
+Starting NBody benchmark ...
+NBody: iterations=1 runtime: 56590us
+NBody: iterations=1 average: 56590us total: 56590us
+
+Total Runtime: 56590us
+### exit 0 wall_us 59644
+### benchmarks/Lua luajit harness.lua NBody 1 250000
+Starting NBody benchmark ...
+NBody: iterations=1 runtime: 64319us
+NBody: iterations=1 average: 64319us total: 64319us
+
+Total Runtime: 64319us
+### exit 0 wall_us 67411
+### benchmarks/D ./harness-manual Sieve 1 3000
+Starting Sieve benchmark ...
+Sieve: iterations=1 runtime: 40492us
+Sieve: iterations=1 average: 40492us total: 40492us
+
+Total Runtime: 40492us
+### exit 0 wall_us 42419
+### benchmarks/D ./harness-manual Sieve 1 3000
+Starting Sieve benchmark ...
+Sieve: iterations=1 runtime: 47402us
+Sieve: iterations=1 average: 47402us total: 47402us
+
+Total Runtime: 47402us
+### exit 0 wall_us 49827
+### benchmarks/D ./harness-manual Sieve 1 3000
+Starting Sieve benchmark ...
+Sieve: iterations=1 runtime: 40089us
+Sieve: iterations=1 average: 40089us total: 40089us
+
+Total Runtime: 40089us
+### exit 0 wall_us 41658
+### benchmarks/Lua luajit harness.lua Bounce 1 1500
+Starting Bounce benchmark ...
+Bounce: iterations=1 runtime: 108518us
+Bounce: iterations=1 average: 108518us total: 108518us
+
+Total Runtime: 108518us
+### exit 0 wall_us 111318
+### benchmarks/Lua luajit harness.lua Bounce 1 1500
+Starting Bounce benchmark ...
+Bounce: iterations=1 runtime: 113964us
+Bounce: iterations=1 average: 113964us total: 113964us
+
+Total Runtime: 113964us
+### exit 0 wall_us 116649
+### benchmarks/Lua luajit harness.lua Bounce 1 1500
+Starting Bounce benchmark ...
+Bounce: iterations=1 runtime: 121800us
+Bounce: iterations=1 average: 121800us total: 121800us
+
+Total Runtime: 121800us
+### exit 0 wall_us 125684
+### benchmarks/D ./harness-manual NBody 1 250000
+Starting NBody benchmark ...
+NBody: iterations=1 runtime: 16945us
+NBody: iterations=1 average: 16945us total: 16945us
+
+Total Runtime: 16945us
+### exit 0 wall_us 18530
+### benchmarks/D ./harness-manual NBody 1 250000
+Starting NBody benchmark ...
+NBody: iterations=1 runtime: 17034us
+NBody: iterations=1 average: 17034us total: 17034us
+
+Total Runtime: 17034us
+### exit 0 wall_us 18530
+### benchmarks/D ./harness-manual NBody 1 250000
+Starting NBody benchmark ...
+NBody: iterations=1 runtime: 17015us
+NBody: iterations=1 average: 17015us total: 17015us
+
+Total Runtime: 17015us
+### exit 0 wall_us 18578
+### results/sb-manual sb --version=ManualMemory -I ../../benchmarks/D/src ../../benchmarks/D/src -- --DRT-testmode=run-main Towers 1 600
+Starting Towers benchmark ...
+Towers: iterations=1 runtime: 3568257us
+Towers: iterations=1 average: 3568257us total: 3568257us
+
+Total Runtime: 3568257us
+src scan:                 0.3 ms
+frontend time:          261.6 ms
+image time:               0.9 ms
+backend latency:       3573.0 ms
+  compile:                3.5 ms
+  ModuleInfo:             0.8 ms
+  module ctors:           0.2 ms
+  tests and main:      3568.5 ms
+  other:                  0.0 ms
+### exit 0 wall_us 3847060
+### results/sb-manual sb --version=ManualMemory -I ../../benchmarks/D/src ../../benchmarks/D/src -- --DRT-testmode=run-main Towers 1 600
+Starting Towers benchmark ...
+Towers: iterations=1 runtime: 3577718us
+Towers: iterations=1 average: 3577718us total: 3577718us
+
+Total Runtime: 3577718us
+src scan:                 0.2 ms
+frontend time:          276.0 ms
+image time:               0.9 ms
+backend latency:       3583.2 ms
+  compile:                3.9 ms
+  ModuleInfo:             1.1 ms
+  module ctors:           0.2 ms
+  tests and main:      3578.0 ms
+  other:                  0.0 ms
+### exit 0 wall_us 3870322
+### results/sb-manual sb --version=ManualMemory -I ../../benchmarks/D/src ../../benchmarks/D/src -- --DRT-testmode=run-main Towers 1 600
+Starting Towers benchmark ...
+Towers: iterations=1 runtime: 3460960us
+Towers: iterations=1 average: 3460960us total: 3460960us
+
+Total Runtime: 3460960us
+src scan:                 0.2 ms
+frontend time:          258.1 ms
+image time:               0.9 ms
+backend latency:       3465.8 ms
+  compile:                3.6 ms
+  ModuleInfo:             0.8 ms
+  module ctors:           0.2 ms
+  tests and main:      3461.2 ms
+  other:                  0.0 ms
+### exit 0 wall_us 3733629
+### benchmarks/C++ ./harness Permute 1 1000
+Starting Permute benchmark ...
+Permute: iterations=1 runtime: 25571us
+Permute: iterations=1 average: 25571us total: 25571us
+
+Total Runtime: 25571us
+### exit 0 wall_us 28579
+### benchmarks/C++ ./harness Permute 1 1000
+Starting Permute benchmark ...
+Permute: iterations=1 runtime: 32412us
+Permute: iterations=1 average: 32412us total: 32412us
+
+Total Runtime: 32412us
+### exit 0 wall_us 35349
+### benchmarks/C++ ./harness Permute 1 1000
+Starting Permute benchmark ...
+Permute: iterations=1 runtime: 25700us
+Permute: iterations=1 average: 25700us total: 25700us
+
+Total Runtime: 25700us
+### exit 0 wall_us 28421
+### benchmarks/JavaScript node --jitless harness.js CD 1 250
+Starting CD benchmark ...
+CD: iterations=1 runtime: 2560473us
+CD: iterations=1 average: 2560473us total: 2560473us
+
+
+Total Runtime: 2560473us
+### exit 0 wall_us 2615222
+### benchmarks/JavaScript node --jitless harness.js CD 1 250
+Starting CD benchmark ...
+CD: iterations=1 runtime: 2470566us
+CD: iterations=1 average: 2470566us total: 2470566us
+
+
+Total Runtime: 2470566us
+### exit 0 wall_us 2526496
+### benchmarks/JavaScript node --jitless harness.js CD 1 250
+Starting CD benchmark ...
+CD: iterations=1 runtime: 2558881us
+CD: iterations=1 average: 2558881us total: 2558881us
+
+
+Total Runtime: 2558881us
+### exit 0 wall_us 2621767
+### benchmarks/Lua luajit harness.lua Richards 1 100
+Starting Richards benchmark ...
+Richards: iterations=1 runtime: 1033773us
+Richards: iterations=1 average: 1033773us total: 1033773us
+
+Total Runtime: 1033773us
+### exit 0 wall_us 1041867
+### benchmarks/Lua luajit harness.lua Richards 1 100
+Starting Richards benchmark ...
+Richards: iterations=1 runtime: 961100us
+Richards: iterations=1 average: 961100us total: 961100us
+
+Total Runtime: 961100us
+### exit 0 wall_us 969466
+### benchmarks/Lua luajit harness.lua Richards 1 100
+Starting Richards benchmark ...
+Richards: iterations=1 runtime: 970745us
+Richards: iterations=1 average: 970745us total: 970745us
+
+Total Runtime: 970745us
+### exit 0 wall_us 978783
+### benchmarks/Lua luajit harness.lua Storage 1 1000
+Starting Storage benchmark ...
+Storage: iterations=1 runtime: 757603us
+Storage: iterations=1 average: 757603us total: 757603us
+
+Total Runtime: 757603us
+### exit 0 wall_us 764649
+### benchmarks/Lua luajit harness.lua Storage 1 1000
+Starting Storage benchmark ...
+Storage: iterations=1 runtime: 778136us
+Storage: iterations=1 average: 778136us total: 778136us
+
+Total Runtime: 778136us
+### exit 0 wall_us 786161
+### benchmarks/Lua luajit harness.lua Storage 1 1000
+Starting Storage benchmark ...
+Storage: iterations=1 runtime: 765395us
+Storage: iterations=1 average: 765395us total: 765395us
+
+Total Runtime: 765395us
+### exit 0 wall_us 771966
+### benchmarks/Lua luajit -joff harness.lua List 1 1500
+Starting List benchmark ...
+List: iterations=1 runtime: 544347us
+List: iterations=1 average: 544347us total: 544347us
+
+Total Runtime: 544347us
+### exit 0 wall_us 550161
+### benchmarks/Lua luajit -joff harness.lua List 1 1500
+Starting List benchmark ...
+List: iterations=1 runtime: 529346us
+List: iterations=1 average: 529346us total: 529346us
+
+Total Runtime: 529346us
+### exit 0 wall_us 534457
+### benchmarks/Lua luajit -joff harness.lua List 1 1500
+Starting List benchmark ...
+List: iterations=1 runtime: 525750us
+List: iterations=1 average: 525750us total: 525750us
+
+Total Runtime: 525750us
+### exit 0 wall_us 531507
+### benchmarks/JavaScript node harness.js Json 1 100
+Starting Json benchmark ...
+Json: iterations=1 runtime: 81174us
+Json: iterations=1 average: 81174us total: 81174us
+
+
+Total Runtime: 81174us
+### exit 0 wall_us 132803
+### benchmarks/JavaScript node harness.js Json 1 100
+Starting Json benchmark ...
+Json: iterations=1 runtime: 83542us
+Json: iterations=1 average: 83542us total: 83542us
+
+
+Total Runtime: 83542us
+### exit 0 wall_us 130392
+### benchmarks/JavaScript node harness.js Json 1 100
+Starting Json benchmark ...
+Json: iterations=1 runtime: 84553us
+Json: iterations=1 average: 84553us total: 84553us
+
+
+Total Runtime: 84553us
+### exit 0 wall_us 142572
+### benchmarks/D sb -I src src -- --DRT-testmode=run-main CD 1 250
+Starting CD benchmark ...
+CD: iterations=1 runtime: 3461279us
+CD: iterations=1 average: 3461279us total: 3461279us
+
+Total Runtime: 3461279us
+src scan:                 0.3 ms
+frontend time:          239.0 ms
+image time:               0.9 ms
+backend latency:       3474.9 ms
+  compile:               12.5 ms
+  ModuleInfo:             0.7 ms
+  module ctors:           0.2 ms
+  tests and main:      3461.5 ms
+  other:                  0.0 ms
+### exit 0 wall_us 3729094
+### benchmarks/D sb -I src src -- --DRT-testmode=run-main CD 1 250
+Starting CD benchmark ...
+CD: iterations=1 runtime: 3384524us
+CD: iterations=1 average: 3384524us total: 3384524us
+
+Total Runtime: 3384524us
+src scan:                 0.3 ms
+frontend time:          240.2 ms
+image time:               0.9 ms
+backend latency:       3397.0 ms
+  compile:               11.3 ms
+  ModuleInfo:             0.7 ms
+  module ctors:           0.2 ms
+  tests and main:      3384.8 ms
+  other:                  0.0 ms
+### exit 0 wall_us 3652874
+### benchmarks/D sb -I src src -- --DRT-testmode=run-main CD 1 250
+Starting CD benchmark ...
+CD: iterations=1 runtime: 3370564us
+CD: iterations=1 average: 3370564us total: 3370564us
+
+Total Runtime: 3370564us
+src scan:                 0.3 ms
+frontend time:          245.4 ms
+image time:               0.9 ms
+backend latency:       3383.8 ms
+  compile:               12.1 ms
+  ModuleInfo:             0.7 ms
+  module ctors:           0.2 ms
+  tests and main:      3370.8 ms
+  other:                  0.0 ms
+### exit 0 wall_us 3644340
+### benchmarks/Lua luajit -joff harness.lua CD 1 250
+Starting CD benchmark ...
+CD: iterations=1 runtime: 1783680us
+CD: iterations=1 average: 1783680us total: 1783680us
+
+Total Runtime: 1783680us
+### exit 0 wall_us 1798946
+### benchmarks/Lua luajit -joff harness.lua CD 1 250
+Starting CD benchmark ...
+CD: iterations=1 runtime: 1803950us
+CD: iterations=1 average: 1803950us total: 1803950us
+
+Total Runtime: 1803950us
+### exit 0 wall_us 1816547
+### benchmarks/Lua luajit -joff harness.lua CD 1 250
+Starting CD benchmark ...
+CD: iterations=1 runtime: 1821029us
+CD: iterations=1 average: 1821029us total: 1821029us
+
+Total Runtime: 1821029us
+### exit 0 wall_us 1835890
+### benchmarks/Lua lua harness.lua List 1 1500
+Starting List benchmark ...
+List: iterations=1 runtime: 905094us
+List: iterations=1 average: 905094us total: 905094us
+
+Total Runtime: 905094us
+### exit 0 wall_us 912783
+### benchmarks/Lua lua harness.lua List 1 1500
+Starting List benchmark ...
+List: iterations=1 runtime: 918859us
+List: iterations=1 average: 918859us total: 918859us
+
+Total Runtime: 918859us
+### exit 0 wall_us 925457
+### benchmarks/Lua lua harness.lua List 1 1500
+Starting List benchmark ...
+List: iterations=1 runtime: 862234us
+List: iterations=1 average: 862234us total: 862234us
+
+Total Runtime: 862234us
+### exit 0 wall_us 868742
+### benchmarks/D ./harness Havlak 1 1500
+Starting Havlak benchmark ...
+Havlak: iterations=1 runtime: 256193us
+Havlak: iterations=1 average: 256193us total: 256193us
+
+Total Runtime: 256193us
+### exit 0 wall_us 259929
+### benchmarks/D ./harness Havlak 1 1500
+Starting Havlak benchmark ...
+Havlak: iterations=1 runtime: 256269us
+Havlak: iterations=1 average: 256269us total: 256269us
+
+Total Runtime: 256269us
+### exit 0 wall_us 260169
+### benchmarks/D ./harness Havlak 1 1500
+Starting Havlak benchmark ...
+Havlak: iterations=1 runtime: 257113us
+Havlak: iterations=1 average: 257113us total: 257113us
+
+Total Runtime: 257113us
+### exit 0 wall_us 260208
+### benchmarks/D sb -I src src -- --DRT-testmode=run-main NBody 1 250000
+Starting NBody benchmark ...
+NBody: iterations=1 runtime: 1409410us
+NBody: iterations=1 average: 1409410us total: 1409410us
+
+Total Runtime: 1409410us
+src scan:                 0.2 ms
+frontend time:          238.6 ms
+image time:               0.9 ms
+backend latency:       1413.6 ms
+  compile:                3.1 ms
+  ModuleInfo:             0.7 ms
+  module ctors:           0.1 ms
+  tests and main:      1409.7 ms
+  other:                  0.0 ms
+### exit 0 wall_us 1661814
+### benchmarks/D sb -I src src -- --DRT-testmode=run-main NBody 1 250000
+Starting NBody benchmark ...
+NBody: iterations=1 runtime: 1375893us
+NBody: iterations=1 average: 1375893us total: 1375893us
+
+Total Runtime: 1375893us
+src scan:                 0.3 ms
+frontend time:          248.1 ms
+image time:               0.9 ms
+backend latency:       1380.2 ms
+  compile:                3.1 ms
+  ModuleInfo:             0.7 ms
+  module ctors:           0.2 ms
+  tests and main:      1376.1 ms
+  other:                  0.0 ms
+### exit 0 wall_us 1639265
+### benchmarks/D sb -I src src -- --DRT-testmode=run-main NBody 1 250000
+Starting NBody benchmark ...
+NBody: iterations=1 runtime: 1444108us
+NBody: iterations=1 average: 1444108us total: 1444108us
+
+Total Runtime: 1444108us
+src scan:                 0.3 ms
+frontend time:          249.9 ms
+image time:               0.9 ms
+backend latency:       1448.3 ms
+  compile:                3.1 ms
+  ModuleInfo:             0.7 ms
+  module ctors:           0.2 ms
+  tests and main:      1444.4 ms
+  other:                  0.0 ms
+### exit 0 wall_us 1709892
+### benchmarks/C++ ./harness List 1 1500
+Starting List benchmark ...
+List: iterations=1 runtime: 33833us
+List: iterations=1 average: 33833us total: 33833us
+
+Total Runtime: 33833us
+### exit 0 wall_us 36809
+### benchmarks/C++ ./harness List 1 1500
+Starting List benchmark ...
+List: iterations=1 runtime: 33381us
+List: iterations=1 average: 33381us total: 33381us
+
+Total Runtime: 33381us
+### exit 0 wall_us 36241
+### benchmarks/C++ ./harness List 1 1500
+Starting List benchmark ...
+List: iterations=1 runtime: 37334us
+List: iterations=1 average: 37334us total: 37334us
+
+Total Runtime: 37334us
+### exit 0 wall_us 40047
+### benchmarks/Lua luajit harness.lua Sieve 1 3000
+Starting Sieve benchmark ...
+Sieve: iterations=1 runtime: 121154us
+Sieve: iterations=1 average: 121154us total: 121154us
+
+Total Runtime: 121154us
+### exit 0 wall_us 123941
+### benchmarks/Lua luajit harness.lua Sieve 1 3000
+Starting Sieve benchmark ...
+Sieve: iterations=1 runtime: 125365us
+Sieve: iterations=1 average: 125365us total: 125365us
+
+Total Runtime: 125365us
+### exit 0 wall_us 128302
+### benchmarks/Lua luajit harness.lua Sieve 1 3000
+Starting Sieve benchmark ...
+Sieve: iterations=1 runtime: 120881us
+Sieve: iterations=1 average: 120881us total: 120881us
+
+Total Runtime: 120881us
+### exit 0 wall_us 123642
+### benchmarks/C++ wasm3 harness.wasm Mandelbrot 1 500
+Starting Mandelbrot benchmark ...
+Mandelbrot: iterations=1 runtime: 138177us
+Mandelbrot: iterations=1 average: 138177us total: 138177us
+
+Total Runtime: 138177us
+### exit 0 wall_us 144290
+### benchmarks/C++ wasm3 harness.wasm Mandelbrot 1 500
+Starting Mandelbrot benchmark ...
+Mandelbrot: iterations=1 runtime: 139815us
+Mandelbrot: iterations=1 average: 139815us total: 139815us
+
+Total Runtime: 139815us
+### exit 0 wall_us 144284
+### benchmarks/C++ wasm3 harness.wasm Mandelbrot 1 500
+Starting Mandelbrot benchmark ...
+Mandelbrot: iterations=1 runtime: 136158us
+Mandelbrot: iterations=1 average: 136158us total: 136158us
+
+Total Runtime: 136158us
+### exit 0 wall_us 142266
+### benchmarks/JavaScript node harness.js Permute 1 1000
+Starting Permute benchmark ...
+Permute: iterations=1 runtime: 50922us
+Permute: iterations=1 average: 50922us total: 50922us
+
+
+Total Runtime: 50922us
+### exit 0 wall_us 100676
+### benchmarks/JavaScript node harness.js Permute 1 1000
+Starting Permute benchmark ...
+Permute: iterations=1 runtime: 53061us
+Permute: iterations=1 average: 53061us total: 53061us
+
+
+Total Runtime: 53061us
+### exit 0 wall_us 106103
+### benchmarks/JavaScript node harness.js Permute 1 1000
+Starting Permute benchmark ...
+Permute: iterations=1 runtime: 51623us
+Permute: iterations=1 average: 51623us total: 51623us
+
+
+Total Runtime: 51623us
+### exit 0 wall_us 100008
+### benchmarks/Python python3 harness.py Json 1 100
+Starting Json benchmark ...
+Json: iterations=1 runtime: 1122148us
+Json: iterations=1 average: 1122148us total: 1122148us
+
+
+Total Runtime: 1122148us
+### exit 0 wall_us 1143887
+### benchmarks/Python python3 harness.py Json 1 100
+Starting Json benchmark ...
+Json: iterations=1 runtime: 1123184us
+Json: iterations=1 average: 1123184us total: 1123184us
+
+
+Total Runtime: 1123184us
+### exit 0 wall_us 1145479
+### benchmarks/Python python3 harness.py Json 1 100
+Starting Json benchmark ...
+Json: iterations=1 runtime: 1117921us
+Json: iterations=1 average: 1117921us total: 1117921us
+
+
+Total Runtime: 1117921us
+### exit 0 wall_us 1140768
+### benchmarks/JavaScript node --jitless harness.js NBody 1 250000
+Starting NBody benchmark ...
+NBody: iterations=1 runtime: 1494755us
+NBody: iterations=1 average: 1494755us total: 1494755us
+
+
+Total Runtime: 1494755us
+### exit 0 wall_us 1547209
+### benchmarks/JavaScript node --jitless harness.js NBody 1 250000
+Starting NBody benchmark ...
+NBody: iterations=1 runtime: 1512637us
+NBody: iterations=1 average: 1512637us total: 1512637us
+
+
+Total Runtime: 1512637us
+### exit 0 wall_us 1564370
+### benchmarks/JavaScript node --jitless harness.js NBody 1 250000
+Starting NBody benchmark ...
+NBody: iterations=1 runtime: 1521887us
+NBody: iterations=1 average: 1521887us total: 1521887us
+
+
+Total Runtime: 1521887us
+### exit 0 wall_us 1581121
+### benchmarks/D ./harness-manual Towers 1 600
+Starting Towers benchmark ...
+Towers: iterations=1 runtime: 22756us
+Towers: iterations=1 average: 22756us total: 22756us
+
+Total Runtime: 22756us
+### exit 0 wall_us 24943
+### benchmarks/D ./harness-manual Towers 1 600
+Starting Towers benchmark ...
+Towers: iterations=1 runtime: 28587us
+Towers: iterations=1 average: 28587us total: 28587us
+
+Total Runtime: 28587us
+### exit 0 wall_us 31113
+### benchmarks/D ./harness-manual Towers 1 600
+Starting Towers benchmark ...
+Towers: iterations=1 runtime: 29272us
+Towers: iterations=1 average: 29272us total: 29272us
+
+Total Runtime: 29272us
+### exit 0 wall_us 31883
+### benchmarks/D ./harness-manual Json 1 100
+Starting Json benchmark ...
+Json: iterations=1 runtime: 34956us
+Json: iterations=1 average: 34956us total: 34956us
+
+Total Runtime: 34956us
+### exit 0 wall_us 36596
+### benchmarks/D ./harness-manual Json 1 100
+Starting Json benchmark ...
+Json: iterations=1 runtime: 41001us
+Json: iterations=1 average: 41001us total: 41001us
+
+Total Runtime: 41001us
+### exit 0 wall_us 42873
+### benchmarks/D ./harness-manual Json 1 100
+Starting Json benchmark ...
+Json: iterations=1 runtime: 42975us
+Json: iterations=1 average: 42975us total: 42975us
+
+Total Runtime: 42975us
+### exit 0 wall_us 45163
+### benchmarks/Java java -Xint -cp benchmarks.jar Harness Json 1 100
+Starting Json benchmark ...
+Json: iterations=1 runtime: 4694747us
+Json: iterations=1 average: 4694747us total: 4694747us
+
+
+Total Runtime: 4694747us
+### exit 0 wall_us 4745710
+### benchmarks/Java java -Xint -cp benchmarks.jar Harness Json 1 100
+Starting Json benchmark ...
+Json: iterations=1 runtime: 4496870us
+Json: iterations=1 average: 4496870us total: 4496870us
+
+
+Total Runtime: 4496870us
+### exit 0 wall_us 4550630
+### benchmarks/Java java -Xint -cp benchmarks.jar Harness Json 1 100
+Starting Json benchmark ...
+Json: iterations=1 runtime: 4521207us
+Json: iterations=1 average: 4521207us total: 4521207us
+
+
+Total Runtime: 4521207us
+### exit 0 wall_us 4580315
+### benchmarks/C++ ./harness Havlak 1 1500
+Starting Havlak benchmark ...
+Havlak: iterations=1 runtime: 120550us
+Havlak: iterations=1 average: 120550us total: 120550us
+
+Total Runtime: 120550us
+### exit 0 wall_us 124070
+### benchmarks/C++ ./harness Havlak 1 1500
+Starting Havlak benchmark ...
+Havlak: iterations=1 runtime: 103071us
+Havlak: iterations=1 average: 103071us total: 103071us
+
+Total Runtime: 103071us
+### exit 0 wall_us 105875
+### benchmarks/C++ ./harness Havlak 1 1500
+Starting Havlak benchmark ...
+Havlak: iterations=1 runtime: 110024us
+Havlak: iterations=1 average: 110024us total: 110024us
+
+Total Runtime: 110024us
+### exit 0 wall_us 113551
+### benchmarks/Java java -cp benchmarks.jar Harness DeltaBlue 1 12000
+Starting DeltaBlue benchmark ...
+DeltaBlue: iterations=1 runtime: 133236us
+DeltaBlue: iterations=1 average: 133236us total: 133236us
+
+
+Total Runtime: 133236us
+### exit 0 wall_us 194544
+### benchmarks/Java java -cp benchmarks.jar Harness DeltaBlue 1 12000
+Starting DeltaBlue benchmark ...
+DeltaBlue: iterations=1 runtime: 125372us
+DeltaBlue: iterations=1 average: 125372us total: 125372us
+
+
+Total Runtime: 125372us
+### exit 0 wall_us 183858
+### benchmarks/Java java -cp benchmarks.jar Harness DeltaBlue 1 12000
+Starting DeltaBlue benchmark ...
+DeltaBlue: iterations=1 runtime: 134627us
+DeltaBlue: iterations=1 average: 134627us total: 134627us
+
+
+Total Runtime: 134627us
+### exit 0 wall_us 205457
+### benchmarks/D ./harness-manual DeltaBlue 1 12000
+Starting DeltaBlue benchmark ...
+DeltaBlue: iterations=1 runtime: 22675us
+DeltaBlue: iterations=1 average: 22675us total: 22675us
+
+Total Runtime: 22675us
+### exit 0 wall_us 25092
+### benchmarks/D ./harness-manual DeltaBlue 1 12000
+Starting DeltaBlue benchmark ...
+DeltaBlue: iterations=1 runtime: 20160us
+DeltaBlue: iterations=1 average: 20160us total: 20160us
+
+Total Runtime: 20160us
+### exit 0 wall_us 22434
+### benchmarks/D ./harness-manual DeltaBlue 1 12000
+Starting DeltaBlue benchmark ...
+DeltaBlue: iterations=1 runtime: 24657us
+DeltaBlue: iterations=1 average: 24657us total: 24657us
+
+Total Runtime: 24657us
+### exit 0 wall_us 27357
+### benchmarks/Java java -cp benchmarks.jar Harness Richards 1 100
+Starting Richards benchmark ...
+Richards: iterations=1 runtime: 120849us
+Richards: iterations=1 average: 120849us total: 120849us
+
+
+Total Runtime: 120849us
+### exit 0 wall_us 178674
+### benchmarks/Java java -cp benchmarks.jar Harness Richards 1 100
+Starting Richards benchmark ...
+Richards: iterations=1 runtime: 124425us
+Richards: iterations=1 average: 124425us total: 124425us
+
+
+Total Runtime: 124425us
+### exit 0 wall_us 187759
+### benchmarks/Java java -cp benchmarks.jar Harness Richards 1 100
+Starting Richards benchmark ...
+Richards: iterations=1 runtime: 120784us
+Richards: iterations=1 average: 120784us total: 120784us
+
+
+Total Runtime: 120784us
+### exit 0 wall_us 188156
+### results/sb-manual sb --version=ManualMemory -I ../../benchmarks/D/src ../../benchmarks/D/src -- --DRT-testmode=run-main Permute 1 1000
+Starting Permute benchmark ...
+Permute: iterations=1 runtime: 2846603us
+Permute: iterations=1 average: 2846603us total: 2846603us
+
+Total Runtime: 2846603us
+src scan:                 0.2 ms
+frontend time:          252.2 ms
+image time:               0.9 ms
+backend latency:       2851.1 ms
+  compile:                3.2 ms
+  ModuleInfo:             0.8 ms
+  module ctors:           0.2 ms
+  tests and main:      2846.9 ms
+  other:                  0.0 ms
+### exit 0 wall_us 3113024
+### results/sb-manual sb --version=ManualMemory -I ../../benchmarks/D/src ../../benchmarks/D/src -- --DRT-testmode=run-main Permute 1 1000
+Starting Permute benchmark ...
+Permute: iterations=1 runtime: 2856896us
+Permute: iterations=1 average: 2856896us total: 2856896us
+
+Total Runtime: 2856896us
+src scan:                 0.3 ms
+frontend time:          267.1 ms
+image time:               0.9 ms
+backend latency:       2861.4 ms
+  compile:                3.2 ms
+  ModuleInfo:             0.8 ms
+  module ctors:           0.2 ms
+  tests and main:      2857.2 ms
+  other:                  0.0 ms
+### exit 0 wall_us 3140911
+### results/sb-manual sb --version=ManualMemory -I ../../benchmarks/D/src ../../benchmarks/D/src -- --DRT-testmode=run-main Permute 1 1000
+Starting Permute benchmark ...
+Permute: iterations=1 runtime: 2807381us
+Permute: iterations=1 average: 2807381us total: 2807381us
+
+Total Runtime: 2807381us
+src scan:                 0.3 ms
+frontend time:          276.5 ms
+image time:               0.9 ms
+backend latency:       2811.8 ms
+  compile:                3.1 ms
+  ModuleInfo:             0.8 ms
+  module ctors:           0.2 ms
+  tests and main:      2807.6 ms
+  other:                  0.0 ms
+### exit 0 wall_us 3100544
+### benchmarks/JavaScript node harness.js Havlak 1 1500
+Starting Havlak benchmark ...
+Havlak: iterations=1 runtime: 244238us
+Havlak: iterations=1 average: 244238us total: 244238us
+
+
+Total Runtime: 244238us
+### exit 0 wall_us 304128
+### benchmarks/JavaScript node harness.js Havlak 1 1500
+Starting Havlak benchmark ...
+Havlak: iterations=1 runtime: 228625us
+Havlak: iterations=1 average: 228625us total: 228625us
+
+
+Total Runtime: 228625us
+### exit 0 wall_us 294097
+### benchmarks/JavaScript node harness.js Havlak 1 1500
+Starting Havlak benchmark ...
+Havlak: iterations=1 runtime: 229781us
+Havlak: iterations=1 average: 229781us total: 229781us
+
+
+Total Runtime: 229781us
+### exit 0 wall_us 292107
+### benchmarks/D sb -I src src -- --DRT-testmode=run-main Mandelbrot 1 500
+Starting Mandelbrot benchmark ...
+Mandelbrot: iterations=1 runtime: 1031247us
+Mandelbrot: iterations=1 average: 1031247us total: 1031247us
+
+Total Runtime: 1031247us
+src scan:                 0.3 ms
+frontend time:          236.4 ms
+image time:               0.9 ms
+backend latency:       1035.1 ms
+  compile:                2.8 ms
+  ModuleInfo:             0.7 ms
+  module ctors:           0.2 ms
+  tests and main:      1031.5 ms
+  other:                  0.0 ms
+### exit 0 wall_us 1283392
+### benchmarks/D sb -I src src -- --DRT-testmode=run-main Mandelbrot 1 500
+Starting Mandelbrot benchmark ...
+Mandelbrot: iterations=1 runtime: 1034394us
+Mandelbrot: iterations=1 average: 1034394us total: 1034394us
+
+Total Runtime: 1034394us
+src scan:                 0.2 ms
+frontend time:          235.9 ms
+image time:               0.9 ms
+backend latency:       1038.3 ms
+  compile:                2.7 ms
+  ModuleInfo:             0.8 ms
+  module ctors:           0.2 ms
+  tests and main:      1034.6 ms
+  other:                  0.0 ms
+### exit 0 wall_us 1284590
+### benchmarks/D sb -I src src -- --DRT-testmode=run-main Mandelbrot 1 500
+Starting Mandelbrot benchmark ...
+Mandelbrot: iterations=1 runtime: 1067977us
+Mandelbrot: iterations=1 average: 1067977us total: 1067977us
+
+Total Runtime: 1067977us
+src scan:                 0.3 ms
+frontend time:          250.1 ms
+image time:               0.9 ms
+backend latency:       1071.9 ms
+  compile:                2.8 ms
+  ModuleInfo:             0.7 ms
+  module ctors:           0.2 ms
+  tests and main:      1068.2 ms
+  other:                  0.0 ms
+### exit 0 wall_us 1333784
+### benchmarks/Java java -Xint -cp benchmarks.jar Harness Richards 1 100
+Starting Richards benchmark ...
+Richards: iterations=1 runtime: 5048518us
+Richards: iterations=1 average: 5048518us total: 5048518us
+
+
+Total Runtime: 5048518us
+### exit 0 wall_us 5107378
+### benchmarks/Java java -Xint -cp benchmarks.jar Harness Richards 1 100
+Starting Richards benchmark ...
+Richards: iterations=1 runtime: 4982485us
+Richards: iterations=1 average: 4982485us total: 4982485us
+
+
+Total Runtime: 4982485us
+### exit 0 wall_us 5040885
+### benchmarks/Java java -Xint -cp benchmarks.jar Harness Richards 1 100
+Starting Richards benchmark ...
+Richards: iterations=1 runtime: 4992372us
+Richards: iterations=1 average: 4992372us total: 4992372us
+
+
+Total Runtime: 4992372us
+### exit 0 wall_us 5044528
+### benchmarks/Lua luajit harness.lua DeltaBlue 1 12000
+Starting DeltaBlue benchmark ...
+DeltaBlue: iterations=1 runtime: 550143us
+DeltaBlue: iterations=1 average: 550143us total: 550143us
+
+Total Runtime: 550143us
+### exit 0 wall_us 579894
+### benchmarks/Lua luajit harness.lua DeltaBlue 1 12000
+Starting DeltaBlue benchmark ...
+DeltaBlue: iterations=1 runtime: 524466us
+DeltaBlue: iterations=1 average: 524466us total: 524466us
+
+Total Runtime: 524466us
+### exit 0 wall_us 554139
+### benchmarks/Lua luajit harness.lua DeltaBlue 1 12000
+Starting DeltaBlue benchmark ...
+DeltaBlue: iterations=1 runtime: 563992us
+DeltaBlue: iterations=1 average: 563992us total: 563992us
+
+Total Runtime: 563992us
+### exit 0 wall_us 593164
+### benchmarks/Java java -Xint -cp benchmarks.jar Harness Bounce 1 1500
+Starting Bounce benchmark ...
+Bounce: iterations=1 runtime: 584239us
+Bounce: iterations=1 average: 584239us total: 584239us
+
+
+Total Runtime: 584239us
+### exit 0 wall_us 646977
+### benchmarks/Java java -Xint -cp benchmarks.jar Harness Bounce 1 1500
+Starting Bounce benchmark ...
+Bounce: iterations=1 runtime: 595203us
+Bounce: iterations=1 average: 595203us total: 595203us
+
+
+Total Runtime: 595203us
+### exit 0 wall_us 648556
+### benchmarks/Java java -Xint -cp benchmarks.jar Harness Bounce 1 1500
+Starting Bounce benchmark ...
+Bounce: iterations=1 runtime: 573564us
+Bounce: iterations=1 average: 573564us total: 573564us
+
+
+Total Runtime: 573564us
+### exit 0 wall_us 628003
+### benchmarks/Lua luajit harness.lua CD 1 250
+Starting CD benchmark ...
+CD: iterations=1 runtime: 1041467us
+CD: iterations=1 average: 1041467us total: 1041467us
+
+Total Runtime: 1041467us
+### exit 0 wall_us 1057046
+### benchmarks/Lua luajit harness.lua CD 1 250
+Starting CD benchmark ...
+CD: iterations=1 runtime: 1088487us
+CD: iterations=1 average: 1088487us total: 1088487us
+
+Total Runtime: 1088487us
+### exit 0 wall_us 1102486
+### benchmarks/Lua luajit harness.lua CD 1 250
+Starting CD benchmark ...
+CD: iterations=1 runtime: 1086411us
+CD: iterations=1 average: 1086411us total: 1086411us
+
+Total Runtime: 1086411us
+### exit 0 wall_us 1099607
+### benchmarks/JavaScript node harness.js List 1 1500
+Starting List benchmark ...
+List: iterations=1 runtime: 50988us
+List: iterations=1 average: 50988us total: 50988us
+
+
+Total Runtime: 50988us
+### exit 0 wall_us 95929
+### benchmarks/JavaScript node harness.js List 1 1500
+Starting List benchmark ...
+List: iterations=1 runtime: 50158us
+List: iterations=1 average: 50158us total: 50158us
+
+
+Total Runtime: 50158us
+### exit 0 wall_us 97520
+### benchmarks/JavaScript node harness.js List 1 1500
+Starting List benchmark ...
+List: iterations=1 runtime: 56023us
+List: iterations=1 average: 56023us total: 56023us
+
+
+Total Runtime: 56023us
+### exit 0 wall_us 106387
+### benchmarks/D ./harness-manual Permute 1 1000
+Starting Permute benchmark ...
+Permute: iterations=1 runtime: 30621us
+Permute: iterations=1 average: 30621us total: 30621us
+
+Total Runtime: 30621us
+### exit 0 wall_us 32296
+### benchmarks/D ./harness-manual Permute 1 1000
+Starting Permute benchmark ...
+Permute: iterations=1 runtime: 30685us
+Permute: iterations=1 average: 30685us total: 30685us
+
+Total Runtime: 30685us
+### exit 0 wall_us 32182
+### benchmarks/D ./harness-manual Permute 1 1000
+Starting Permute benchmark ...
+Permute: iterations=1 runtime: 45104us
+Permute: iterations=1 average: 45104us total: 45104us
+
+Total Runtime: 45104us
+### exit 0 wall_us 47376
+### benchmarks/D ./harness Queens 1 1000
+Starting Queens benchmark ...
+Queens: iterations=1 runtime: 18422us
+Queens: iterations=1 average: 18422us total: 18422us
+
+Total Runtime: 18422us
+### exit 0 wall_us 20828
+### benchmarks/D ./harness Queens 1 1000
+Starting Queens benchmark ...
+Queens: iterations=1 runtime: 24353us
+Queens: iterations=1 average: 24353us total: 24353us
+
+Total Runtime: 24353us
+### exit 0 wall_us 26833
+### benchmarks/D ./harness Queens 1 1000
+Starting Queens benchmark ...
+Queens: iterations=1 runtime: 17682us
+Queens: iterations=1 average: 17682us total: 17682us
+
+Total Runtime: 17682us
+### exit 0 wall_us 19723
+### results/sb-manual sb --version=ManualMemory -I ../../benchmarks/D/src ../../benchmarks/D/src -- --DRT-testmode=run-main Havlak 1 1500
+Starting Havlak benchmark ...
+Havlak: iterations=1 runtime: 5930927us
+Havlak: iterations=1 average: 5930927us total: 5930927us
+
+Total Runtime: 5930927us
+src scan:                 0.2 ms
+frontend time:          263.2 ms
+image time:               0.9 ms
+backend latency:       5944.8 ms
+  compile:               12.5 ms
+  ModuleInfo:             0.9 ms
+  module ctors:           0.2 ms
+  tests and main:      5931.2 ms
+  other:                  0.0 ms
+### exit 0 wall_us 6222345
+### results/sb-manual sb --version=ManualMemory -I ../../benchmarks/D/src ../../benchmarks/D/src -- --DRT-testmode=run-main Havlak 1 1500
+Starting Havlak benchmark ...
+Havlak: iterations=1 runtime: 6107977us
+Havlak: iterations=1 average: 6107977us total: 6107977us
+
+Total Runtime: 6107977us
+src scan:                 0.2 ms
+frontend time:          255.5 ms
+image time:               0.9 ms
+backend latency:       6123.1 ms
+  compile:               13.9 ms
+  ModuleInfo:             0.8 ms
+  module ctors:           0.2 ms
+  tests and main:      6108.3 ms
+  other:                  0.0 ms
+### exit 0 wall_us 6392342
+### results/sb-manual sb --version=ManualMemory -I ../../benchmarks/D/src ../../benchmarks/D/src -- --DRT-testmode=run-main Havlak 1 1500
+Starting Havlak benchmark ...
+Havlak: iterations=1 runtime: 5978442us
+Havlak: iterations=1 average: 5978442us total: 5978442us
+
+Total Runtime: 5978442us
+src scan:                 0.3 ms
+frontend time:          267.3 ms
+image time:               0.9 ms
+backend latency:       5993.0 ms
+  compile:               13.3 ms
+  ModuleInfo:             0.8 ms
+  module ctors:           0.2 ms
+  tests and main:      5978.7 ms
+  other:                  0.0 ms
+### exit 0 wall_us 6276199
+### benchmarks/C++ wasm3 harness.wasm Bounce 1 1500
+Starting Bounce benchmark ...
+Bounce: iterations=1 runtime: 241300us
+Bounce: iterations=1 average: 241300us total: 241300us
+
+Total Runtime: 241300us
+### exit 0 wall_us 247298
+### benchmarks/C++ wasm3 harness.wasm Bounce 1 1500
+Starting Bounce benchmark ...
+Bounce: iterations=1 runtime: 245116us
+Bounce: iterations=1 average: 245116us total: 245116us
+
+Total Runtime: 245116us
+### exit 0 wall_us 251245
+### benchmarks/C++ wasm3 harness.wasm Bounce 1 1500
+Starting Bounce benchmark ...
+Bounce: iterations=1 runtime: 242611us
+Bounce: iterations=1 average: 242611us total: 242611us
+
+Total Runtime: 242611us
+### exit 0 wall_us 248859
+### benchmarks/D sb -I src src -- --DRT-testmode=run-main Sieve 1 3000
+Starting Sieve benchmark ...
+Sieve: iterations=1 runtime: 2617117us
+Sieve: iterations=1 average: 2617117us total: 2617117us
+
+Total Runtime: 2617117us
+src scan:                 0.2 ms
+frontend time:          236.2 ms
+image time:               0.9 ms
+backend latency:       2621.1 ms
+  compile:                2.8 ms
+  ModuleInfo:             0.7 ms
+  module ctors:           0.2 ms
+  tests and main:      2617.4 ms
+  other:                  0.0 ms
+### exit 0 wall_us 2868379
+### benchmarks/D sb -I src src -- --DRT-testmode=run-main Sieve 1 3000
+Starting Sieve benchmark ...
+Sieve: iterations=1 runtime: 2550430us
+Sieve: iterations=1 average: 2550430us total: 2550430us
+
+Total Runtime: 2550430us
+src scan:                 0.3 ms
+frontend time:          246.5 ms
+image time:               0.9 ms
+backend latency:       2554.3 ms
+  compile:                2.8 ms
+  ModuleInfo:             0.7 ms
+  module ctors:           0.2 ms
+  tests and main:      2550.7 ms
+  other:                  0.0 ms
+### exit 0 wall_us 2814835
+### benchmarks/D sb -I src src -- --DRT-testmode=run-main Sieve 1 3000
+Starting Sieve benchmark ...
+Sieve: iterations=1 runtime: 2527742us
+Sieve: iterations=1 average: 2527742us total: 2527742us
+
+Total Runtime: 2527742us
+src scan:                 0.3 ms
+frontend time:          254.9 ms
+image time:               0.9 ms
+backend latency:       2531.7 ms
+  compile:                2.8 ms
+  ModuleInfo:             0.7 ms
+  module ctors:           0.2 ms
+  tests and main:      2528.0 ms
+  other:                  0.0 ms
+### exit 0 wall_us 2800820
+### benchmarks/D ./harness --DRT-gcopt=cleanup:none heapSizeFactor:4 Bounce 1 1500
+Starting Bounce benchmark ...
+Bounce: iterations=1 runtime: 29915us
+Bounce: iterations=1 average: 29915us total: 29915us
+
+Total Runtime: 29915us
+### exit 0 wall_us 32239
+### benchmarks/D ./harness --DRT-gcopt=cleanup:none heapSizeFactor:4 Bounce 1 1500
+Starting Bounce benchmark ...
+Bounce: iterations=1 runtime: 29645us
+Bounce: iterations=1 average: 29645us total: 29645us
+
+Total Runtime: 29645us
+### exit 0 wall_us 32051
+### benchmarks/D ./harness --DRT-gcopt=cleanup:none heapSizeFactor:4 Bounce 1 1500
+Starting Bounce benchmark ...
+Bounce: iterations=1 runtime: 22272us
+Bounce: iterations=1 average: 22272us total: 22272us
+
+Total Runtime: 22272us
+### exit 0 wall_us 23904
+### results/sb-manual sb --version=ManualMemory -I ../../benchmarks/D/src ../../benchmarks/D/src -- --DRT-testmode=run-main Richards 1 100
+Starting Richards benchmark ...
+Richards: iterations=1 runtime: 12022519us
+Richards: iterations=1 average: 12022519us total: 12022519us
+
+Total Runtime: 12022519us
+src scan:                 0.3 ms
+frontend time:          260.0 ms
+image time:               1.2 ms
+backend latency:      12033.3 ms
+  compile:                9.4 ms
+  ModuleInfo:             0.9 ms
+  module ctors:           0.2 ms
+  tests and main:     12022.8 ms
+  other:                  0.0 ms
+### exit 0 wall_us 12307646
+### results/sb-manual sb --version=ManualMemory -I ../../benchmarks/D/src ../../benchmarks/D/src -- --DRT-testmode=run-main Richards 1 100
+Starting Richards benchmark ...
+Richards: iterations=1 runtime: 12190591us
+Richards: iterations=1 average: 12190591us total: 12190591us
+
+Total Runtime: 12190591us
+src scan:                 0.3 ms
+frontend time:          256.4 ms
+image time:               0.9 ms
+backend latency:      12201.6 ms
+  compile:                9.7 ms
+  ModuleInfo:             0.8 ms
+  module ctors:           0.2 ms
+  tests and main:     12190.9 ms
+  other:                  0.0 ms
+### exit 0 wall_us 12472389
+### results/sb-manual sb --version=ManualMemory -I ../../benchmarks/D/src ../../benchmarks/D/src -- --DRT-testmode=run-main Richards 1 100
+Starting Richards benchmark ...
+Richards: iterations=1 runtime: 12170767us
+Richards: iterations=1 average: 12170767us total: 12170767us
+
+Total Runtime: 12170767us
+src scan:                 0.3 ms
+frontend time:          273.9 ms
+image time:               0.9 ms
+backend latency:      12181.2 ms
+  compile:                9.1 ms
+  ModuleInfo:             0.9 ms
+  module ctors:           0.2 ms
+  tests and main:     12171.0 ms
+  other:                  0.0 ms
+### exit 0 wall_us 12469720
+### benchmarks/Java java -Xint -cp benchmarks.jar Harness Towers 1 600
+Starting Towers benchmark ...
+Towers: iterations=1 runtime: 1115405us
+Towers: iterations=1 average: 1115405us total: 1115405us
+
+
+Total Runtime: 1115405us
+### exit 0 wall_us 1163514
+### benchmarks/Java java -Xint -cp benchmarks.jar Harness Towers 1 600
+Starting Towers benchmark ...
+Towers: iterations=1 runtime: 1097965us
+Towers: iterations=1 average: 1097965us total: 1097965us
+
+
+Total Runtime: 1097965us
+### exit 0 wall_us 1151326
+### benchmarks/Java java -Xint -cp benchmarks.jar Harness Towers 1 600
+Starting Towers benchmark ...
+Towers: iterations=1 runtime: 1091428us
+Towers: iterations=1 average: 1091428us total: 1091428us
+
+
+Total Runtime: 1091428us
+### exit 0 wall_us 1147076
+### benchmarks/D ./harness Json 1 100
+Starting Json benchmark ...
+Json: iterations=1 runtime: 50512us
+Json: iterations=1 average: 50512us total: 50512us
+
+Total Runtime: 50512us
+### exit 0 wall_us 52815
+### benchmarks/D ./harness Json 1 100
+Starting Json benchmark ...
+Json: iterations=1 runtime: 47795us
+Json: iterations=1 average: 47795us total: 47795us
+
+Total Runtime: 47795us
+### exit 0 wall_us 50626
+### benchmarks/D ./harness Json 1 100
+Starting Json benchmark ...
+Json: iterations=1 runtime: 42344us
+Json: iterations=1 average: 42344us total: 42344us
+
+Total Runtime: 42344us
+### exit 0 wall_us 44770
+### benchmarks/Lua luajit -joff harness.lua Json 1 100
+Starting Json benchmark ...
+Json: iterations=1 runtime: 745599us
+Json: iterations=1 average: 745599us total: 745599us
+
+Total Runtime: 745599us
+### exit 0 wall_us 754824
+### benchmarks/Lua luajit -joff harness.lua Json 1 100
+Starting Json benchmark ...
+Json: iterations=1 runtime: 759394us
+Json: iterations=1 average: 759394us total: 759394us
+
+Total Runtime: 759394us
+### exit 0 wall_us 769535
+### benchmarks/Lua luajit -joff harness.lua Json 1 100
+Starting Json benchmark ...
+Json: iterations=1 runtime: 718287us
+Json: iterations=1 average: 718287us total: 718287us
+
+Total Runtime: 718287us
+### exit 0 wall_us 725504
+### benchmarks/C++ wasm3 harness.wasm CD 1 250
+Starting CD benchmark ...
+CD: iterations=1 runtime: 528467us
+CD: iterations=1 average: 528467us total: 528467us
+
+Total Runtime: 528467us
+### exit 0 wall_us 532826
+### benchmarks/C++ wasm3 harness.wasm CD 1 250
+Starting CD benchmark ...
+CD: iterations=1 runtime: 533940us
+CD: iterations=1 average: 533940us total: 533940us
+
+Total Runtime: 533940us
+### exit 0 wall_us 540470
+### benchmarks/C++ wasm3 harness.wasm CD 1 250
+Starting CD benchmark ...
+CD: iterations=1 runtime: 531418us
+CD: iterations=1 average: 531418us total: 531418us
+
+Total Runtime: 531418us
+### exit 0 wall_us 537865
+### benchmarks/Lua lua harness.lua CD 1 250
+Starting CD benchmark ...
+CD: iterations=1 runtime: 3120451us
+CD: iterations=1 average: 3120451us total: 3120451us
+
+Total Runtime: 3120451us
+### exit 0 wall_us 3141911
+### benchmarks/Lua lua harness.lua CD 1 250
+Starting CD benchmark ...
+CD: iterations=1 runtime: 3084585us
+CD: iterations=1 average: 3084585us total: 3084585us
+
+Total Runtime: 3084585us
+### exit 0 wall_us 3107364
+### benchmarks/Lua lua harness.lua CD 1 250
+Starting CD benchmark ...
+CD: iterations=1 runtime: 3118599us
+CD: iterations=1 average: 3118599us total: 3118599us
+
+Total Runtime: 3118599us
+### exit 0 wall_us 3140517
+### benchmarks/D ./harness --DRT-gcopt=cleanup:none heapSizeFactor:4 Json 1 100
+Starting Json benchmark ...
+Json: iterations=1 runtime: 40565us
+Json: iterations=1 average: 40565us total: 40565us
+
+Total Runtime: 40565us
+### exit 0 wall_us 43179
+### benchmarks/D ./harness --DRT-gcopt=cleanup:none heapSizeFactor:4 Json 1 100
+Starting Json benchmark ...
+Json: iterations=1 runtime: 40844us
+Json: iterations=1 average: 40844us total: 40844us
+
+Total Runtime: 40844us
+### exit 0 wall_us 44277
+### benchmarks/D ./harness --DRT-gcopt=cleanup:none heapSizeFactor:4 Json 1 100
+Starting Json benchmark ...
+Json: iterations=1 runtime: 43842us
+Json: iterations=1 average: 43842us total: 43842us
+
+Total Runtime: 43842us
+### exit 0 wall_us 46978
+### benchmarks/Python python3 harness.py Mandelbrot 1 500
+Starting Mandelbrot benchmark ...
+Mandelbrot: iterations=1 runtime: 1590593us
+Mandelbrot: iterations=1 average: 1590593us total: 1590593us
+
+
+Total Runtime: 1590593us
+### exit 0 wall_us 1604372
+### benchmarks/Python python3 harness.py Mandelbrot 1 500
+Starting Mandelbrot benchmark ...
+Mandelbrot: iterations=1 runtime: 1593508us
+Mandelbrot: iterations=1 average: 1593508us total: 1593508us
+
+
+Total Runtime: 1593508us
+### exit 0 wall_us 1614170
+### benchmarks/Python python3 harness.py Mandelbrot 1 500
+Starting Mandelbrot benchmark ...
+Mandelbrot: iterations=1 runtime: 1594536us
+Mandelbrot: iterations=1 average: 1594536us total: 1594536us
+
+
+Total Runtime: 1594536us
+### exit 0 wall_us 1609059
+### benchmarks/C++ ./harness NBody 1 250000
+Starting NBody benchmark ...
+NBody: iterations=1 runtime: 31727us
+NBody: iterations=1 average: 31727us total: 31727us
+
+Total Runtime: 31727us
+### exit 0 wall_us 34500
+### benchmarks/C++ ./harness NBody 1 250000
+Starting NBody benchmark ...
+NBody: iterations=1 runtime: 31932us
+NBody: iterations=1 average: 31932us total: 31932us
+
+Total Runtime: 31932us
+### exit 0 wall_us 34816
+### benchmarks/C++ ./harness NBody 1 250000
+Starting NBody benchmark ...
+NBody: iterations=1 runtime: 31684us
+NBody: iterations=1 average: 31684us total: 31684us
+
+Total Runtime: 31684us
+### exit 0 wall_us 34617
+### benchmarks/C++ wasm3 harness.wasm Permute 1 1000
+Starting Permute benchmark ...
+Permute: iterations=1 runtime: 313017us
+Permute: iterations=1 average: 313017us total: 313017us
+
+Total Runtime: 313017us
+### exit 0 wall_us 319475
+### benchmarks/C++ wasm3 harness.wasm Permute 1 1000
+Starting Permute benchmark ...
+Permute: iterations=1 runtime: 331574us
+Permute: iterations=1 average: 331574us total: 331574us
+
+Total Runtime: 331574us
+### exit 0 wall_us 337977
+### benchmarks/C++ wasm3 harness.wasm Permute 1 1000
+Starting Permute benchmark ...
+Permute: iterations=1 runtime: 346962us
+Permute: iterations=1 average: 346962us total: 346962us
+
+Total Runtime: 346962us
+### exit 0 wall_us 353303
+### benchmarks/C++ wasm3 harness.wasm Sieve 1 3000
+Starting Sieve benchmark ...
+Sieve: iterations=1 runtime: 383985us
+Sieve: iterations=1 average: 383985us total: 383985us
+
+Total Runtime: 383985us
+### exit 0 wall_us 390158
+### benchmarks/C++ wasm3 harness.wasm Sieve 1 3000
+Starting Sieve benchmark ...
+Sieve: iterations=1 runtime: 355013us
+Sieve: iterations=1 average: 355013us total: 355013us
+
+Total Runtime: 355013us
+### exit 0 wall_us 359122
+### benchmarks/C++ wasm3 harness.wasm Sieve 1 3000
+Starting Sieve benchmark ...
+Sieve: iterations=1 runtime: 378219us
+Sieve: iterations=1 average: 378219us total: 378219us
+
+Total Runtime: 378219us
+### exit 0 wall_us 384246
+### results/sb-manual sb --version=ManualMemory -I ../../benchmarks/D/src ../../benchmarks/D/src -- --DRT-testmode=run-main Sieve 1 3000
+Starting Sieve benchmark ...
+Sieve: iterations=1 runtime: 2535942us
+Sieve: iterations=1 average: 2535942us total: 2535942us
+
+Total Runtime: 2535942us
+src scan:                 0.2 ms
+frontend time:          258.0 ms
+image time:               0.9 ms
+backend latency:       2540.3 ms
+  compile:                3.0 ms
+  ModuleInfo:             0.9 ms
+  module ctors:           0.2 ms
+  tests and main:      2536.2 ms
+  other:                  0.0 ms
+### exit 0 wall_us 2809635
+### results/sb-manual sb --version=ManualMemory -I ../../benchmarks/D/src ../../benchmarks/D/src -- --DRT-testmode=run-main Sieve 1 3000
+Starting Sieve benchmark ...
+Sieve: iterations=1 runtime: 2517229us
+Sieve: iterations=1 average: 2517229us total: 2517229us
+
+Total Runtime: 2517229us
+src scan:                 0.2 ms
+frontend time:          260.2 ms
+image time:               0.9 ms
+backend latency:       2521.7 ms
+  compile:                3.1 ms
+  ModuleInfo:             0.8 ms
+  module ctors:           0.2 ms
+  tests and main:      2517.5 ms
+  other:                  0.0 ms
+### exit 0 wall_us 2791407
+### results/sb-manual sb --version=ManualMemory -I ../../benchmarks/D/src ../../benchmarks/D/src -- --DRT-testmode=run-main Sieve 1 3000
+Starting Sieve benchmark ...
+Sieve: iterations=1 runtime: 2556056us
+Sieve: iterations=1 average: 2556056us total: 2556056us
+
+Total Runtime: 2556056us
+src scan:                 0.3 ms
+frontend time:          264.2 ms
+image time:               0.9 ms
+backend latency:       2560.3 ms
+  compile:                3.0 ms
+  ModuleInfo:             0.8 ms
+  module ctors:           0.2 ms
+  tests and main:      2556.3 ms
+  other:                  0.0 ms
+### exit 0 wall_us 2835596
+### benchmarks/C++ ./harness Sieve 1 3000
+Starting Sieve benchmark ...
+Sieve: iterations=1 runtime: 36638us
+Sieve: iterations=1 average: 36638us total: 36638us
+
+Total Runtime: 36638us
+### exit 0 wall_us 39599
+### benchmarks/C++ ./harness Sieve 1 3000
+Starting Sieve benchmark ...
+Sieve: iterations=1 runtime: 28207us
+Sieve: iterations=1 average: 28207us total: 28207us
+
+Total Runtime: 28207us
+### exit 0 wall_us 30097
+### benchmarks/C++ ./harness Sieve 1 3000
+Starting Sieve benchmark ...
+Sieve: iterations=1 runtime: 29822us
+Sieve: iterations=1 average: 29822us total: 29822us
+
+Total Runtime: 29822us
+### exit 0 wall_us 31649
