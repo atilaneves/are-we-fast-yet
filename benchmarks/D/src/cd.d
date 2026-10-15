@@ -86,12 +86,12 @@ private struct RedBlackTree(K, V) {
         black,
     }
 
-    private static final class Node {
+    private static struct Node {
         K key;
         V value;
-        Node left;
-        Node right;
-        Node parent;
+        Node* left;
+        Node* right;
+        Node* parent;
         Color color = Color.red;
 
         this(K key, V value) {
@@ -104,12 +104,12 @@ private struct RedBlackTree(K, V) {
             dispose(right);
         }
 
-        Node successor() {
-            Node x = this;
+        Node* successor() {
+            Node* x = &this;
             if (x.right !is null)
                 return treeMinimum(x.right);
 
-            Node y = x.parent;
+            Node* y = x.parent;
             while (y !is null && x is y.right) {
                 x = y;
                 y = y.parent;
@@ -120,7 +120,7 @@ private struct RedBlackTree(K, V) {
 
     private struct InsertResult {
         bool isNewEntry;
-        Node newNode;
+        Node* newNode;
         V oldValue;
     }
 
@@ -129,7 +129,7 @@ private struct RedBlackTree(K, V) {
         V value;
     }
 
-    private Node root;
+    private Node* root;
 
     @disable this(this);
 
@@ -137,8 +137,8 @@ private struct RedBlackTree(K, V) {
         dispose(root);
     }
 
-    private static Node treeMinimum(Node x) {
-        Node current = x;
+    private static Node* treeMinimum(Node* x) {
+        Node* current = x;
         while (current.left !is null)
             current = current.left;
         return current;
@@ -148,11 +148,11 @@ private struct RedBlackTree(K, V) {
         InsertResult insertionResult = treeInsert(key, value);
         if (!insertionResult.isNewEntry)
             return Optional!V(insertionResult.oldValue);
-        Node x = insertionResult.newNode;
+        Node* x = insertionResult.newNode;
 
         while (x !is root && x.parent.color == Color.red) {
             if (x.parent is x.parent.parent.left) {
-                Node y = x.parent.parent.right;
+                Node* y = x.parent.parent.right;
                 if (y !is null && y.color == Color.red) {
                     // Case 1
                     x.parent.color = Color.black;
@@ -172,7 +172,7 @@ private struct RedBlackTree(K, V) {
                 }
             } else {
                 // Same as "then" clause with "right" and "left" exchanged.
-                Node y = x.parent.parent.left;
+                Node* y = x.parent.parent.left;
                 if (y !is null && y.color == Color.red) {
                     // Case 1
                     x.parent.color = Color.black;
@@ -198,19 +198,19 @@ private struct RedBlackTree(K, V) {
     }
 
     Optional!V remove(K key) {
-        Node z = findNode(key);
+        Node* z = findNode(key);
         if (z is null)
             return Optional!V();
 
         // Y is the node to be unlinked from the tree.
-        Node y;
+        Node* y;
         if (z.left is null || z.right is null)
             y = z;
         else
             y = z.successor();
 
         // Y is guaranteed to be non-null at this point.
-        Node x;
+        Node* x;
         if (y.left !is null)
             x = y.left;
         else
@@ -218,7 +218,7 @@ private struct RedBlackTree(K, V) {
 
         // X is the child of y which might potentially replace y in the tree. X
         // might be null at this point.
-        Node xParent;
+        Node* xParent;
         if (x !is null) {
             x.parent = y.parent;
             xParent = x.parent;
@@ -266,7 +266,7 @@ private struct RedBlackTree(K, V) {
     }
 
     V* get(K key) {
-        Node node = findNode(key);
+        Node* node = findNode(key);
         if (node is null)
             return null;
         return &node.value;
@@ -276,15 +276,15 @@ private struct RedBlackTree(K, V) {
         if (root is null)
             return;
 
-        Node current = treeMinimum(root);
+        Node* current = treeMinimum(root);
         while (current !is null) {
             fn(Entry(current.key, current.value));
             current = current.successor();
         }
     }
 
-    private Node findNode(K key) {
-        Node current = root;
+    private Node* findNode(K key) {
+        Node* current = root;
         while (current !is null) {
             const comparisonResult = key.compareTo(current.key);
             if (comparisonResult == 0)
@@ -298,8 +298,8 @@ private struct RedBlackTree(K, V) {
     }
 
     private InsertResult treeInsert(K key, V value) {
-        Node y;
-        Node x = root;
+        Node* y;
+        Node* x = root;
         while (x !is null) {
             y = x;
             const comparisonResult = key.compareTo(x.key);
@@ -314,7 +314,7 @@ private struct RedBlackTree(K, V) {
             }
         }
 
-        Node z = make!Node(key, value);
+        Node* z = makePtr!Node(key, value);
         z.parent = y;
         if (y is null) {
             root = z;
@@ -327,8 +327,8 @@ private struct RedBlackTree(K, V) {
         return InsertResult(true, z, V.init);
     }
 
-    private Node leftRotate(Node x) {
-        Node y = x.right;
+    private Node* leftRotate(Node* x) {
+        Node* y = x.right;
 
         // Turn y's left subtree into x's right subtree.
         x.right = y.left;
@@ -353,8 +353,8 @@ private struct RedBlackTree(K, V) {
         return y;
     }
 
-    private Node rightRotate(Node y) {
-        Node x = y.left;
+    private Node* rightRotate(Node* y) {
+        Node* x = y.left;
 
         // Turn x's right subtree into y's left subtree.
         y.left = x.right;
@@ -378,13 +378,13 @@ private struct RedBlackTree(K, V) {
         return x;
     }
 
-    private void removeFixup(Node x, Node xParent) {
+    private void removeFixup(Node* x, Node* xParent) {
         while (x !is root && (x is null || x.color == Color.black)) {
             if (x is xParent.left) {
                 // Note: the text points out that w cannot be null. The reason is not
                 // obvious from simply looking at the code; it comes about from the
                 // properties of the red-black tree.
-                Node w = xParent.right;
+                Node* w = xParent.right;
                 if (w.color == Color.red) {
                     // Case 1
                     w.color = Color.black;
@@ -417,7 +417,7 @@ private struct RedBlackTree(K, V) {
                 }
             } else {
                 // Same as "then" clause with "right" and "left" exchanged.
-                Node w = xParent.left;
+                Node* w = xParent.left;
                 if (w.color == Color.red) {
                     // Case 1
                     w.color = Color.black;

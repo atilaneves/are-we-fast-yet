@@ -38,7 +38,7 @@ struct Set(E) {
     }
 
     bool contains(E obj) {
-        static if (is(E == class))
+        static if (is(E == class) || is(E == U*, U))
             return hasSome((e) => e.equal(obj));
         else
             return hasSome((e) => e == obj);

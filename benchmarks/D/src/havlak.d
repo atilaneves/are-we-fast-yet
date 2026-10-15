@@ -8,22 +8,22 @@ import som.set;
 import som.vector;
 import std.stdio : writeln;
 
-private final class BasicBlock {
-    private Vector!BasicBlock inEdges;
-    private Vector!BasicBlock outEdges;
+private struct BasicBlock {
+    private Vector!(BasicBlock*) inEdges;
+    private Vector!(BasicBlock*) outEdges;
     private uint name;
 
     this(int name) {
-        inEdges = Vector!BasicBlock(2);
-        outEdges = Vector!BasicBlock(2);
+        inEdges = Vector!(BasicBlock*)(2);
+        outEdges = Vector!(BasicBlock*)(2);
         this.name = name;
     }
 
-    ref Vector!BasicBlock getInEdges() {
+    ref Vector!(BasicBlock*) getInEdges() {
         return inEdges;
     }
 
-    ref Vector!BasicBlock getOutEdges() {
+    ref Vector!(BasicBlock*) getOutEdges() {
         return outEdges;
     }
 
@@ -31,11 +31,11 @@ private final class BasicBlock {
         return cast(int) inEdges.size();
     }
 
-    void addOutEdge(BasicBlock to) {
+    void addOutEdge(BasicBlock* to) {
         outEdges.append(to);
     }
 
-    void addInEdge(BasicBlock from) {
+    void addInEdge(BasicBlock* from) {
         inEdges.append(from);
     }
 
@@ -43,15 +43,15 @@ private final class BasicBlock {
         return name;
     }
 
-    bool equal(BasicBlock other) const {
+    bool equal(BasicBlock* other) const {
         return name == other.name;
     }
 }
 
 private struct ControlFlowGraph {
-    private Vector!BasicBlock basicBlockMap;
-    private BasicBlock startNode;
-    private Vector!BasicBlockEdge edgeList;
+    private Vector!(BasicBlock*) basicBlockMap;
+    private BasicBlock* startNode;
+    private Vector!(BasicBlockEdge*) edgeList;
 
     @disable this(this);
 
@@ -60,12 +60,12 @@ private struct ControlFlowGraph {
         edgeList.destroyValues();
     }
 
-    BasicBlock createNode(int name) {
-        BasicBlock node;
+    BasicBlock* createNode(int name) {
+        BasicBlock* node;
         if (basicBlockMap.at(name) !is null) {
             node = basicBlockMap.at(name);
         } else {
-            node = make!BasicBlock(name);
+            node = makePtr!BasicBlock(name);
             basicBlockMap.atPut(name, node);
         }
 
@@ -74,7 +74,7 @@ private struct ControlFlowGraph {
         return node;
     }
 
-    void addEdge(BasicBlockEdge edge) {
+    void addEdge(BasicBlockEdge* edge) {
         edgeList.append(edge);
     }
 
@@ -82,18 +82,18 @@ private struct ControlFlowGraph {
         return cast(int) basicBlockMap.size();
     }
 
-    BasicBlock getStartBasicBlock() {
+    BasicBlock* getStartBasicBlock() {
         return startNode;
     }
 
-    ref Vector!BasicBlock getBasicBlocks() {
+    ref Vector!(BasicBlock*) getBasicBlocks() {
         return basicBlockMap;
     }
 }
 
-private final class BasicBlockEdge {
-    private BasicBlock from;
-    private BasicBlock to;
+private struct BasicBlockEdge {
+    private BasicBlock* from;
+    private BasicBlock* to;
 
     this(ref ControlFlowGraph cfg, int fromName, int toName) {
         from = cfg.createNode(fromName);
@@ -102,15 +102,15 @@ private final class BasicBlockEdge {
         from.addOutEdge(to);
         to.addInEdge(from);
 
-        cfg.addEdge(this);
+        cfg.addEdge(&this);
     }
 }
 
-private final class SimpleLoop {
-    private IdentitySet!BasicBlock basicBlocks;
-    private IdentitySet!SimpleLoop children;
-    private SimpleLoop parent;
-    private BasicBlock header;
+private struct SimpleLoop {
+    private IdentitySet!(BasicBlock*) basicBlocks;
+    private IdentitySet!(SimpleLoop*) children;
+    private SimpleLoop* parent;
+    private BasicBlock* header;
 
     private bool isReducible;
     private bool isRoot_;
@@ -118,9 +118,9 @@ private final class SimpleLoop {
     private int counter;
     private int depthLevel;
 
-    this(BasicBlock bb, bool isReducible) {
-        basicBlocks = IdentitySet!BasicBlock(initialSize);
-        children = IdentitySet!SimpleLoop(initialSize);
+    this(BasicBlock* bb, bool isReducible) {
+        basicBlocks = IdentitySet!(BasicBlock*)(initialSize);
+        children = IdentitySet!(SimpleLoop*)(initialSize);
         header = bb;
         this.isReducible = isReducible;
 
@@ -128,23 +128,23 @@ private final class SimpleLoop {
             basicBlocks.add(bb);
     }
 
-    private void addChildLoop(SimpleLoop loop) {
+    private void addChildLoop(SimpleLoop* loop) {
         children.add(loop);
     }
 
-    void addNode(BasicBlock bb) {
+    void addNode(BasicBlock* bb) {
         basicBlocks.add(bb);
     }
 
-    bool equal(SimpleLoop other) const {
-        return this is other;
+    bool equal(SimpleLoop* other) const {
+        return &this is other;
     }
 
-    ref IdentitySet!SimpleLoop getChildren() {
+    ref IdentitySet!(SimpleLoop*) getChildren() {
         return children;
     }
 
-    SimpleLoop getParent() {
+    SimpleLoop* getParent() {
         return parent;
     }
 
@@ -156,9 +156,9 @@ private final class SimpleLoop {
         return isRoot_;
     }
 
-    void setParent(SimpleLoop parent) {
+    void setParent(SimpleLoop* parent) {
         this.parent = parent;
-        this.parent.addChildLoop(this);
+        this.parent.addChildLoop(&this);
     }
 
     void setIsRoot() {
@@ -181,15 +181,15 @@ private final class SimpleLoop {
 }
 
 private struct LoopStructureGraph {
-    private SimpleLoop root;
-    private Vector!SimpleLoop loops;
+    private SimpleLoop* root;
+    private Vector!(SimpleLoop*) loops;
     private int loopCounter;
 
     @disable this(this);
 
     static LoopStructureGraph create() {
         LoopStructureGraph graph;
-        graph.root = make!SimpleLoop(null, true);
+        graph.root = makePtr!SimpleLoop(null, true);
         graph.root.setNestingLevel(0);
         graph.root.setCounter(graph.loopCounter);
         graph.loopCounter += 1;
@@ -201,8 +201,8 @@ private struct LoopStructureGraph {
         loops.destroyValues();
     }
 
-    SimpleLoop createNewLoop(BasicBlock bb, bool isReducible) {
-        auto loop = make!SimpleLoop(bb, isReducible);
+    SimpleLoop* createNewLoop(BasicBlock* bb, bool isReducible) {
+        auto loop = makePtr!SimpleLoop(bb, isReducible);
         loop.setCounter(loopCounter);
         loopCounter += 1;
         loops.append(loop);
@@ -222,7 +222,7 @@ private struct LoopStructureGraph {
         calculateNestingLevelRec(root, 0);
     }
 
-    void calculateNestingLevelRec(SimpleLoop loop, int depth) {
+    void calculateNestingLevelRec(SimpleLoop* loop, int depth) {
         loop.setDepthLevel(depth);
         loop.getChildren().forEach((liter) {
             calculateNestingLevelRec(liter, depth + 1);
@@ -238,23 +238,23 @@ private struct LoopStructureGraph {
     }
 }
 
-private final class UnionFindNode {
-    private UnionFindNode parent;
-    private BasicBlock bb;
-    private SimpleLoop loop;
+private struct UnionFindNode {
+    private UnionFindNode* parent;
+    private BasicBlock* bb;
+    private SimpleLoop* loop;
     private int dfsNumber;
 
-    void initNode(BasicBlock bb, int dfsNumber) {
-        parent = this;
+    void initNode(BasicBlock* bb, int dfsNumber) {
+        parent = &this;
         this.bb = bb;
         this.dfsNumber = dfsNumber;
         loop = null;
     }
 
-    UnionFindNode findSet() {
-        Vector!UnionFindNode nodeList;
+    UnionFindNode* findSet() {
+        Vector!(UnionFindNode*) nodeList;
 
-        UnionFindNode node = this;
+        UnionFindNode* node = &this;
         while (node !is node.parent) {
             if (node.parent !is node.parent.parent)
                 nodeList.append(node);
@@ -266,15 +266,15 @@ private final class UnionFindNode {
         return node;
     }
 
-    void unionSet(UnionFindNode basicBlock) {
+    void unionSet(UnionFindNode* basicBlock) {
         parent = basicBlock;
     }
 
-    BasicBlock getBb() {
+    BasicBlock* getBb() {
         return bb;
     }
 
-    SimpleLoop getLoop() {
+    SimpleLoop* getLoop() {
         return loop;
     }
 
@@ -282,7 +282,7 @@ private final class UnionFindNode {
         return dfsNumber;
     }
 
-    void setLoop(SimpleLoop loop) {
+    void setLoop(SimpleLoop* loop) {
         this.loop = loop;
     }
 }
@@ -306,12 +306,12 @@ private struct HavlakLoopFinder {
 
     private Vector!(Set!int*) nonBackPreds;
     private Vector!(Vector!int*) backPreds;
-    private IdentityDictionary!(BasicBlock, int) number;
+    private IdentityDictionary!(BasicBlock*, int) number;
     private int maxSize;
     private int[] header;
     private BasicBlockClass[] type;
     private int[] last;
-    private UnionFindNode[] nodes;
+    private UnionFindNode*[] nodes;
 
     @disable this(this);
 
@@ -349,14 +349,14 @@ private struct HavlakLoopFinder {
             header = makeArray!int(size);
             type = makeArray!BasicBlockClass(size);
             last = makeArray!int(size);
-            nodes = makeArray!UnionFindNode(size);
+            nodes = makeArray!(UnionFindNode*)(size);
             maxSize = size;
         }
 
         foreach (i; 0 .. size) {
             nonBackPreds.append(makePtr!(Set!int)(initialSize));
             backPreds.append(makePtr!(Vector!int)());
-            nodes[i] = make!UnionFindNode;
+            nodes[i] = makePtr!UnionFindNode;
         }
 
         initAllNodes();
@@ -367,14 +367,14 @@ private struct HavlakLoopFinder {
 
         for (int w = size - 1; w >= 0; w -= 1) {
             // this is 'P' in Havlak's paper
-            Vector!UnionFindNode nodePool;
+            Vector!(UnionFindNode*) nodePool;
 
-            BasicBlock nodeW = nodes[w].getBb();
+            BasicBlock* nodeW = nodes[w].getBb();
             if (nodeW !is null) {
                 stepD(w, nodePool);
 
                 // Copy nodePool to workList.
-                Vector!UnionFindNode workList;
+                Vector!(UnionFindNode*) workList;
                 nodePool.forEach((niter) { workList.append(niter); });
 
                 if (nodePool.size() != 0)
@@ -382,7 +382,7 @@ private struct HavlakLoopFinder {
 
                 // work the list...
                 while (!workList.isEmpty()) {
-                    UnionFindNode x = workList.removeFirst();
+                    UnionFindNode* x = workList.removeFirst();
 
                     // Step e:
                     //
@@ -403,7 +403,7 @@ private struct HavlakLoopFinder {
                 // Collapse/Unionize nodes in a SCC to a single node
                 // For every SCC found, create a loop descriptor and link it in.
                 if (nodePool.size() > 0 || type[w] == BasicBlockClass.self) {
-                    SimpleLoop loop = lsg.createNewLoop(nodeW, type[w] != BasicBlockClass.irreducible);
+                    SimpleLoop* loop = lsg.createNewLoop(nodeW, type[w] != BasicBlockClass.irreducible);
                     setLoopAttributes(w, nodePool, loop);
                 }
             }
@@ -414,7 +414,7 @@ private struct HavlakLoopFinder {
         return w <= v && v <= last[w];
     }
 
-    private int doDFS(BasicBlock currentNode, int current) {
+    private int doDFS(BasicBlock* currentNode, int current) {
         nodes[current].initNode(currentNode, current);
         number.atPut(currentNode, current);
 
@@ -422,7 +422,7 @@ private struct HavlakLoopFinder {
         auto outerBlocks = &currentNode.getOutEdges();
 
         foreach (i; 0 .. outerBlocks.size()) {
-            BasicBlock target = outerBlocks.at(i);
+            BasicBlock* target = outerBlocks.at(i);
             if (number.at(target) == unvisited)
                 lastId = doDFS(target, lastId + 1);
         }
@@ -454,7 +454,7 @@ private struct HavlakLoopFinder {
             header[w] = 0;
             type[w] = BasicBlockClass.nonHeader;
 
-            BasicBlock nodeW = nodes[w].getBb();
+            BasicBlock* nodeW = nodes[w].getBb();
             if (nodeW is null)
                 type[w] = BasicBlockClass.dead;
             else
@@ -462,7 +462,7 @@ private struct HavlakLoopFinder {
         }
     }
 
-    private void processEdges(BasicBlock nodeW, int w) {
+    private void processEdges(BasicBlock* nodeW, int w) {
         if (nodeW.getNumPred() > 0) {
             nodeW.getInEdges().forEach((nodeV) {
                 const v = number.at(nodeV);
@@ -476,11 +476,11 @@ private struct HavlakLoopFinder {
         }
     }
 
-    private void stepEProcessNonBackPreds(int w, ref Vector!UnionFindNode nodePool,
-                                          ref Vector!UnionFindNode workList, UnionFindNode x) {
+    private void stepEProcessNonBackPreds(int w, ref Vector!(UnionFindNode*) nodePool,
+                                          ref Vector!(UnionFindNode*) workList, UnionFindNode* x) {
         nonBackPreds.at(x.getDfsNumber()).forEach((iter) {
-            UnionFindNode y = nodes[iter];
-            UnionFindNode ydash = y.findSet();
+            UnionFindNode* y = nodes[iter];
+            UnionFindNode* ydash = y.findSet();
 
             if (!isAncestor(w, ydash.getDfsNumber())) {
                 type[w] = BasicBlockClass.irreducible;
@@ -496,7 +496,7 @@ private struct HavlakLoopFinder {
         });
     }
 
-    private void setLoopAttributes(int w, ref Vector!UnionFindNode nodePool, SimpleLoop loop) {
+    private void setLoopAttributes(int w, ref Vector!(UnionFindNode*) nodePool, SimpleLoop* loop) {
         // At this point, one can set attributes to the loop, such as:
         //
         // the bottom node:
@@ -520,7 +520,7 @@ private struct HavlakLoopFinder {
         });
     }
 
-    private void stepD(int w, ref Vector!UnionFindNode nodePool) {
+    private void stepD(int w, ref Vector!(UnionFindNode*) nodePool) {
         backPreds.at(w).forEach((v) {
             if (v != w)
                 nodePool.append(nodes[v].findSet());
@@ -545,15 +545,15 @@ private struct LoopTesterApp {
 
     private int buildDiamond(int start) {
         const bb0 = start;
-        make!BasicBlockEdge(cfg, bb0, bb0 + 1);
-        make!BasicBlockEdge(cfg, bb0, bb0 + 2);
-        make!BasicBlockEdge(cfg, bb0 + 1, bb0 + 3);
-        make!BasicBlockEdge(cfg, bb0 + 2, bb0 + 3);
+        makePtr!BasicBlockEdge(cfg, bb0, bb0 + 1);
+        makePtr!BasicBlockEdge(cfg, bb0, bb0 + 2);
+        makePtr!BasicBlockEdge(cfg, bb0 + 1, bb0 + 3);
+        makePtr!BasicBlockEdge(cfg, bb0 + 2, bb0 + 3);
         return bb0 + 3;
     }
 
     private void buildConnect(int start, int end) {
-        make!BasicBlockEdge(cfg, start, end);
+        makePtr!BasicBlockEdge(cfg, start, end);
     }
 
     private int buildStraight(int start, int n) {
@@ -580,7 +580,7 @@ private struct LoopTesterApp {
         cfg.createNode(0);
         buildBaseLoop(0);
         cfg.createNode(1);
-        make!BasicBlockEdge(cfg, 0, 2);
+        makePtr!BasicBlockEdge(cfg, 0, 2);
     }
 
     int[2] main(int numDummyLoops, int findLoopIterations, int parLoops,

@@ -20,7 +20,7 @@ private struct Sym {
     }
 }
 
-private final class Strength {
+private struct Strength {
     __gshared static Sym absoluteStrongest = Sym(0);
     __gshared static Sym required_ = Sym(1);
     __gshared static Sym strongPreferred = Sym(2);
@@ -31,9 +31,9 @@ private final class Strength {
     __gshared static Sym absoluteWeakest_ = Sym(7);
 
     private static IdentityDictionary!(Sym*, int) strengthTable;
-    private static IdentityDictionary!(Sym*, Strength) strengthConstant;
-    private static Strength absoluteWeakestStrength;
-    private static Strength requiredStrength;
+    private static IdentityDictionary!(Sym*, Strength*) strengthConstant;
+    private static Strength* absoluteWeakestStrength;
+    private static Strength* requiredStrength;
 
     private int arithmeticValue;
     private Sym* symbolicValue;
@@ -43,39 +43,39 @@ private final class Strength {
         this.symbolicValue = symbolicValue;
     }
 
-    bool sameAs(Strength s) const {
+    bool sameAs(Strength* s) const {
         return arithmeticValue == s.arithmeticValue;
     }
 
-    bool stronger(Strength s) const {
+    bool stronger(Strength* s) const {
         return arithmeticValue < s.arithmeticValue;
     }
 
-    bool weaker(Strength s) const {
+    bool weaker(Strength* s) const {
         return arithmeticValue > s.arithmeticValue;
     }
 
-    Strength strongest(Strength s) {
-        return s.stronger(this) ? s : this;
+    Strength* strongest(Strength* s) {
+        return s.stronger(&this) ? s : &this;
     }
 
-    Strength weakest(Strength s) {
-        return s.weaker(this) ? s : this;
+    Strength* weakest(Strength* s) {
+        return s.weaker(&this) ? s : &this;
     }
 
     int getArithmeticValue() const {
         return arithmeticValue;
     }
 
-    static Strength of(Sym* strength) {
+    static Strength* of(Sym* strength) {
         return strengthConstant.at(strength);
     }
 
-    static Strength absoluteWeakest() {
+    static Strength* absoluteWeakest() {
         return absoluteWeakestStrength;
     }
 
-    static Strength required() {
+    static Strength* required() {
         return requiredStrength;
     }
 
@@ -92,11 +92,11 @@ private final class Strength {
         return table;
     }
 
-    private static IdentityDictionary!(Sym*, Strength) createStrengthConstants() {
-        auto constants = make!(IdentityDictionary!(Sym*, Strength));
+    private static IdentityDictionary!(Sym*, Strength*) createStrengthConstants() {
+        auto constants = make!(IdentityDictionary!(Sym*, Strength*));
         auto keys = strengthTable.getKeys();
         keys.forEach((key) {
-            constants.atPut(key, make!Strength(key));
+            constants.atPut(key, makePtr!Strength(key));
         });
         dispose(keys);
         return constants;
@@ -121,13 +121,13 @@ private final class Strength {
 }
 
 private abstract class AbstractConstraint : TrackedObject {
-    protected Strength strength;
+    protected Strength* strength;
 
     this(Sym* strength) {
         this.strength = Strength.of(strength);
     }
 
-    Strength getStrength() {
+    Strength* getStrength() {
         return strength;
     }
 
@@ -192,7 +192,7 @@ private final class Variable : TrackedObject {
     private Vector!AbstractConstraint* constraints;
     private AbstractConstraint determinedBy;
     private int mark;
-    private Strength walkStrength;
+    private Strength* walkStrength;
     private bool stay = true;
 
     this() {
@@ -256,11 +256,11 @@ private final class Variable : TrackedObject {
         this.value = value;
     }
 
-    Strength getWalkStrength() {
+    Strength* getWalkStrength() {
         return walkStrength;
     }
 
-    void setWalkStrength(Strength strength) {
+    void setWalkStrength(Strength* strength) {
         walkStrength = strength;
     }
 }

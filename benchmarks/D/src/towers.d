@@ -4,9 +4,9 @@ import benchmark;
 import memory;
 import som.error;
 
-private final class TowersDisk {
+private struct TowersDisk {
     private int size;
-    private TowersDisk next;
+    private TowersDisk* next;
 
     this(int size) {
         this.size = size;
@@ -20,17 +20,17 @@ private final class TowersDisk {
         return size;
     }
 
-    TowersDisk getNext() {
+    TowersDisk* getNext() {
         return next;
     }
 
-    void setNext(TowersDisk disk) {
+    void setNext(TowersDisk* disk) {
         next = disk;
     }
 }
 
 final class Towers : Benchmark!int {
-    private TowersDisk[3] piles;
+    private TowersDisk*[3] piles;
     private int movesDone;
 
     override int benchmark() {
@@ -44,8 +44,8 @@ final class Towers : Benchmark!int {
         return movesDone;
     }
 
-    private void pushDisk(TowersDisk disk, int pile) {
-        TowersDisk top = piles[pile];
+    private void pushDisk(TowersDisk* disk, int pile) {
+        TowersDisk* top = piles[pile];
         if (top !is null && disk.getSize() >= top.getSize())
             throw new SomError("Cannot put a big disk on a smaller one");
 
@@ -53,8 +53,8 @@ final class Towers : Benchmark!int {
         piles[pile] = disk;
     }
 
-    private TowersDisk popDiskFrom(int pile) {
-        TowersDisk top = piles[pile];
+    private TowersDisk* popDiskFrom(int pile) {
+        TowersDisk* top = piles[pile];
         if (top is null)
             throw new SomError("Attempting to remove a disk from an empty pile");
 
@@ -70,7 +70,7 @@ final class Towers : Benchmark!int {
 
     private void buildTowerAt(int pile, int disks) {
         for (int i = disks; i >= 0; i -= 1)
-            pushDisk(make!TowersDisk(i), pile);
+            pushDisk(makePtr!TowersDisk(i), pile);
     }
 
     private void moveDisks(int disks, int fromPile, int toPile) {

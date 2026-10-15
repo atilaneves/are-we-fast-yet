@@ -97,7 +97,7 @@ class Dictionary(K, V) {
         size_ = 0;
     }
 
-    static if (is(V == class)) void destroyValues() {
+    static if (is(V == class) || is(V == U*, U) && is(U == struct)) void destroyValues() {
         foreach (head; buckets) {
             for (Entry e = head; e !is null; e = e.next)
                 dispose(e.value);

@@ -3,9 +3,9 @@ module list;
 import benchmark;
 import memory;
 
-private final class Element {
+private struct Element {
     private int val;
-    private Element next;
+    private Element* next;
 
     this(int v) {
         val = v;
@@ -29,22 +29,22 @@ private final class Element {
         val = v;
     }
 
-    Element getNext() {
+    Element* getNext() {
         return next;
     }
 
-    void setNext(Element e) {
+    void setNext(Element* e) {
         next = e;
     }
 }
 
 final class List : Benchmark!int {
     override int benchmark() {
-        Element x = makeList(15);
-        Element y = makeList(10);
-        Element z = makeList(6);
+        Element* x = makeList(15);
+        Element* y = makeList(10);
+        Element* z = makeList(6);
 
-        Element result = tail(x, y, z);
+        Element* result = tail(x, y, z);
         const length = result.length();
 
         dispose(x);
@@ -53,17 +53,17 @@ final class List : Benchmark!int {
         return length;
     }
 
-    private Element makeList(int length) {
+    private Element* makeList(int length) {
         if (length == 0)
             return null;
-        auto e = make!Element(length);
+        auto e = makePtr!Element(length);
         e.setNext(makeList(length - 1));
         return e;
     }
 
-    private bool isShorterThan(Element x, Element y) {
-        Element xTail = x;
-        Element yTail = y;
+    private bool isShorterThan(Element* x, Element* y) {
+        Element* xTail = x;
+        Element* yTail = y;
         while (yTail !is null) {
             if (xTail is null)
                 return true;
@@ -73,7 +73,7 @@ final class List : Benchmark!int {
         return false;
     }
 
-    private Element tail(Element x, Element y, Element z) {
+    private Element* tail(Element* x, Element* y, Element* z) {
         if (isShorterThan(y, x)) {
             return tail(tail(x.getNext(), y, z), tail(y.getNext(), z, x),
                         tail(z.getNext(), x, y));
