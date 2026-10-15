@@ -4,10 +4,10 @@ import benchmark;
 import memory;
 
 private struct Element {
-    private int val;
+    private Any val;
     private Element* next;
 
-    this(int v) {
+    this(Any v) {
         val = v;
     }
 
@@ -21,11 +21,11 @@ private struct Element {
         return 1 + next.length();
     }
 
-    int getVal() const {
+    Any getVal() const {
         return val;
     }
 
-    void setVal(int v) {
+    void setVal(Any v) {
         val = v;
     }
 
@@ -38,25 +38,25 @@ private struct Element {
     }
 }
 
-final class List : Benchmark!int {
-    override int benchmark() {
+final class List : Benchmark {
+    override Any benchmark() {
         Element* x = makeList(15);
         Element* y = makeList(10);
         Element* z = makeList(6);
 
         Element* result = tail(x, y, z);
-        const length = result.length();
+        int length = result.length();
 
         dispose(x);
         dispose(y);
         dispose(z);
-        return length;
+        return Any(length);
     }
 
     private Element* makeList(int length) {
         if (length == 0)
             return null;
-        auto e = makePtr!Element(length);
+        auto e = makePtr!Element(Any(length));
         e.setNext(makeList(length - 1));
         return e;
     }
@@ -81,7 +81,7 @@ final class List : Benchmark!int {
         return z;
     }
 
-    override bool verifyResult(int result) {
-        return 10 == result;
+    override bool verifyResult(Any result) {
+        return 10 == result.get!int;
     }
 }

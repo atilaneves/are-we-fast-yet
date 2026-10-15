@@ -3,16 +3,16 @@ module permute;
 import benchmark;
 import memory;
 
-final class Permute : Benchmark!int {
+final class Permute : Benchmark {
     private int count;
     private int[] v;
 
-    override int benchmark() {
+    override Any benchmark() {
         count = 0;
         v = makeArray!int(6);
         permute(6);
         disposeArray(v);
-        return count;
+        return Any(count);
     }
 
     private void permute(int n) {
@@ -34,7 +34,7 @@ final class Permute : Benchmark!int {
         v[j] = tmp;
     }
 
-    override bool verifyResult(int result) {
-        return 8660 == result;
+    override bool verifyResult(Any result) {
+        return 8660 == result.get!int;
     }
 }

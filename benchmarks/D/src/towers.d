@@ -29,11 +29,11 @@ private struct TowersDisk {
     }
 }
 
-final class Towers : Benchmark!int {
+final class Towers : Benchmark {
     private TowersDisk*[3] piles;
     private int movesDone;
 
-    override int benchmark() {
+    override Any benchmark() {
         piles = typeof(piles).init;
         buildTowerAt(0, 13);
         movesDone = 0;
@@ -41,7 +41,7 @@ final class Towers : Benchmark!int {
 
         foreach (ref disk; piles)
             dispose(disk);
-        return movesDone;
+        return Any(movesDone);
     }
 
     private void pushDisk(TowersDisk* disk, int pile) {
@@ -84,7 +84,7 @@ final class Towers : Benchmark!int {
         }
     }
 
-    override bool verifyResult(int result) {
-        return 8191 == result;
+    override bool verifyResult(Any result) {
+        return 8191 == result.get!int;
     }
 }

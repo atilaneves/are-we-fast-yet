@@ -8,15 +8,15 @@ private struct ArrayTree {
     ArrayTree[] children;
 }
 
-final class Storage : Benchmark!int {
+final class Storage : Benchmark {
     private int count;
 
-    override int benchmark() {
+    override Any benchmark() {
         Random random;
         count = 0;
         auto result = buildTreeDepth(7, random);
         disposeTree(result);
-        return count;
+        return Any(count);
     }
 
     private ArrayTree[] buildTreeDepth(int depth, ref Random random) {
@@ -37,7 +37,7 @@ final class Storage : Benchmark!int {
         disposeArray(trees);
     }
 
-    override bool verifyResult(int result) {
-        return 5461 == result;
+    override bool verifyResult(Any result) {
+        return 5461 == result.get!int;
     }
 }

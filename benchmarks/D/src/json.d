@@ -993,10 +993,10 @@ private struct JsonPureStringParser {
     }
 }
 
-final class Json : Benchmark!JsonValue {
-    override JsonValue benchmark() {
+final class Json : Benchmark {
+    override Any benchmark() {
         auto parser = JsonPureStringParser(rapBenchmarkMinified);
-        return parser.parse();
+        return Any(parser.parse());
     }
 
     private bool hasExpectedContent(JsonValue result) {
@@ -1014,7 +1014,8 @@ final class Json : Benchmark!JsonValue {
         return resultArray.size() == 156;
     }
 
-    override bool verifyResult(JsonValue result) {
+    override bool verifyResult(Any r) {
+        auto result = r.get!JsonValue;
         const verified = hasExpectedContent(result);
         dispose(result);
         return verified;

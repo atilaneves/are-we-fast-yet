@@ -50,8 +50,8 @@ private struct Ball {
     }
 }
 
-final class Bounce : Benchmark!int {
-    override int benchmark() {
+final class Bounce : Benchmark {
+    override Any benchmark() {
         Random random;
         enum ballCount = 100;
         int bounces = 0;
@@ -65,10 +65,10 @@ final class Bounce : Benchmark!int {
                     bounces += 1;
             }
         }
-        return bounces;
+        return Any(bounces);
     }
 
-    override bool verifyResult(int result) {
-        return 1331 == result;
+    override bool verifyResult(Any result) {
+        return 1331 == result.get!int;
     }
 }
