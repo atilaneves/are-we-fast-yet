@@ -528,7 +528,7 @@ private final class Scheduler : RBObject {
 final class Richards : Benchmark {
     override Any benchmark() {
         auto scheduler = make!Scheduler;
-        bool result = scheduler.start();
+        const result = scheduler.start();
         ObjectTracker.releaseAll();
         return Any(result);
     }

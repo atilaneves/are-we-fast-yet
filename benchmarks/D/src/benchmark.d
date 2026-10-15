@@ -1,8 +1,6 @@
 module benchmark;
 
-import std.variant : VariantN;
-
-alias Any = VariantN!(size_t.sizeof);
+public import any : Any;
 
 interface Runnable {
     bool innerBenchmarkLoop(int innerIterations);

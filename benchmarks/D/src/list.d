@@ -45,7 +45,7 @@ final class List : Benchmark {
         Element* z = makeList(6);
 
         Element* result = tail(x, y, z);
-        int length = result.length();
+        const length = result.length();
 
         dispose(x);
         dispose(y);
