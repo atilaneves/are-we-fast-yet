@@ -20,6 +20,27 @@ T make(T, Args...)(auto ref Args args) if (is(T == class)) {
     }
 }
 
+T* makePtr(T, Args...)(auto ref Args args) if (is(T == struct)) {
+    version (ManualMemory) {
+        auto memory = malloc(T.sizeof);
+        if (memory is null)
+            abort();
+        return emplace(cast(T*) memory, args);
+    } else {
+        return new T(args);
+    }
+}
+
+void dispose(T)(ref T* object) if (is(T == struct)) {
+    version (ManualMemory) {
+        if (object is null)
+            return;
+        destroy!false(*object);
+        free(object);
+        object = null;
+    }
+}
+
 void dispose(T)(ref T object) if (is(T == class) || is(T == interface)) {
     version (ManualMemory) {
         if (object is null)

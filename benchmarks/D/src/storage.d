@@ -8,21 +8,18 @@ private struct ArrayTree {
     ArrayTree[] children;
 }
 
-final class Storage : Benchmark!int {
+final class Storage : Benchmark {
     private int count;
 
-    override int benchmark() {
-        version (ManualMemory)
-            scope random = new Random;
-        else
-            auto random = new Random;
+    override Any benchmark() {
+        Random random;
         count = 0;
         auto result = buildTreeDepth(7, random);
         disposeTree(result);
-        return count;
+        return Any(count);
     }
 
-    private ArrayTree[] buildTreeDepth(int depth, Random random) {
+    private ArrayTree[] buildTreeDepth(int depth, ref Random random) {
         count += 1;
         if (depth == 1)
             return makeArray!ArrayTree(random.next() % 10 + 1);
@@ -33,13 +30,14 @@ final class Storage : Benchmark!int {
         return arr;
     }
 
+    // Last to first, as C++ delete[] destroys array elements.
     private static void disposeTree(ref ArrayTree[] trees) {
-        foreach (ref tree; trees)
+        foreach_reverse (ref tree; trees)
             disposeTree(tree.children);
         disposeArray(trees);
     }
 
-    override bool verifyResult(int result) {
-        return 5461 == result;
+    override bool verifyResult(Any result) {
+        return 5461 == result.get!int;
     }
 }

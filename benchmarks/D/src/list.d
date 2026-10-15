@@ -3,11 +3,11 @@ module list;
 import benchmark;
 import memory;
 
-private final class Element {
-    private int val;
-    private Element next;
+private struct Element {
+    private Any val;
+    private Element* next;
 
-    this(int v) {
+    this(Any v) {
         val = v;
     }
 
@@ -21,49 +21,49 @@ private final class Element {
         return 1 + next.length();
     }
 
-    int getVal() const {
+    Any getVal() const {
         return val;
     }
 
-    void setVal(int v) {
+    void setVal(Any v) {
         val = v;
     }
 
-    Element getNext() {
+    Element* getNext() {
         return next;
     }
 
-    void setNext(Element e) {
+    void setNext(Element* e) {
         next = e;
     }
 }
 
-final class List : Benchmark!int {
-    override int benchmark() {
-        Element x = makeList(15);
-        Element y = makeList(10);
-        Element z = makeList(6);
+final class List : Benchmark {
+    override Any benchmark() {
+        Element* x = makeList(15);
+        Element* y = makeList(10);
+        Element* z = makeList(6);
 
-        Element result = tail(x, y, z);
+        Element* result = tail(x, y, z);
         const length = result.length();
 
         dispose(x);
         dispose(y);
         dispose(z);
-        return length;
+        return Any(length);
     }
 
-    private Element makeList(int length) {
+    private Element* makeList(int length) {
         if (length == 0)
             return null;
-        auto e = make!Element(length);
+        auto e = makePtr!Element(Any(length));
         e.setNext(makeList(length - 1));
         return e;
     }
 
-    private bool isShorterThan(Element x, Element y) {
-        Element xTail = x;
-        Element yTail = y;
+    private bool isShorterThan(Element* x, Element* y) {
+        Element* xTail = x;
+        Element* yTail = y;
         while (yTail !is null) {
             if (xTail is null)
                 return true;
@@ -73,7 +73,7 @@ final class List : Benchmark!int {
         return false;
     }
 
-    private Element tail(Element x, Element y, Element z) {
+    private Element* tail(Element* x, Element* y, Element* z) {
         if (isShorterThan(y, x)) {
             return tail(tail(x.getNext(), y, z), tail(y.getNext(), z, x),
                         tail(z.getNext(), x, y));
@@ -81,7 +81,7 @@ final class List : Benchmark!int {
         return z;
     }
 
-    override bool verifyResult(int result) {
-        return 10 == result;
+    override bool verifyResult(Any result) {
+        return 10 == result.get!int;
     }
 }

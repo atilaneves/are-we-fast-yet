@@ -13,7 +13,7 @@ private struct Ball {
     int xVel;
     int yVel;
 
-    this(Random random) {
+    this(ref Random random) {
         x = random.next() % 500;
         y = random.next() % 500;
         xVel = (random.next() % 300) - 150;
@@ -50,12 +50,9 @@ private struct Ball {
     }
 }
 
-final class Bounce : Benchmark!int {
-    override int benchmark() {
-        version (ManualMemory)
-            scope random = new Random;
-        else
-            auto random = new Random;
+final class Bounce : Benchmark {
+    override Any benchmark() {
+        Random random;
         enum ballCount = 100;
         int bounces = 0;
         Ball[ballCount] balls;
@@ -68,10 +65,10 @@ final class Bounce : Benchmark!int {
                     bounces += 1;
             }
         }
-        return bounces;
+        return Any(bounces);
     }
 
-    override bool verifyResult(int result) {
-        return 1331 == result;
+    override bool verifyResult(Any result) {
+        return 1331 == result.get!int;
     }
 }

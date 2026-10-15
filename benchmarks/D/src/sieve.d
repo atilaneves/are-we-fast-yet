@@ -2,8 +2,8 @@ module sieve;
 
 import benchmark;
 
-final class Sieve : Benchmark!int {
-    override int benchmark() {
+final class Sieve : Benchmark {
+    override Any benchmark() {
         enum numFlags = 5000;
         version (ManualMemory) {
             bool[numFlags] storage;
@@ -12,7 +12,7 @@ final class Sieve : Benchmark!int {
             auto flags = new bool[numFlags];
         }
         flags[] = true;
-        return sieve(flags, 5000);
+        return Any(sieve(flags, 5000));
     }
 
     private int sieve(bool[] flags, int size) {
@@ -30,7 +30,7 @@ final class Sieve : Benchmark!int {
         return primeCount;
     }
 
-    override bool verifyResult(int result) {
-        return 669 == result;
+    override bool verifyResult(Any result) {
+        return 669 == result.get!int;
     }
 }

@@ -1,6 +1,6 @@
 module som.random;
 
-final class Random {
+struct Random {
     private int seed = 74755;
 
     int next() @safe pure nothrow @nogc {

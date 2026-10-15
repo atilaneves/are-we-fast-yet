@@ -80,18 +80,18 @@ private struct Vector3D {
     }
 }
 
-private final class RedBlackTree(K, V) {
+private struct RedBlackTree(K, V) {
     private enum Color {
         red,
         black,
     }
 
-    private static final class Node {
+    private static struct Node {
         K key;
         V value;
-        Node left;
-        Node right;
-        Node parent;
+        Node* left;
+        Node* right;
+        Node* parent;
         Color color = Color.red;
 
         this(K key, V value) {
@@ -104,12 +104,12 @@ private final class RedBlackTree(K, V) {
             dispose(right);
         }
 
-        Node successor() {
-            Node x = this;
+        Node* successor() {
+            Node* x = &this;
             if (x.right !is null)
                 return treeMinimum(x.right);
 
-            Node y = x.parent;
+            Node* y = x.parent;
             while (y !is null && x is y.right) {
                 x = y;
                 y = y.parent;
@@ -120,7 +120,7 @@ private final class RedBlackTree(K, V) {
 
     private struct InsertResult {
         bool isNewEntry;
-        Node newNode;
+        Node* newNode;
         V oldValue;
     }
 
@@ -129,14 +129,16 @@ private final class RedBlackTree(K, V) {
         V value;
     }
 
-    private Node root;
+    private Node* root;
+
+    @disable this(this);
 
     version (ManualMemory) ~this() {
         dispose(root);
     }
 
-    private static Node treeMinimum(Node x) {
-        Node current = x;
+    private static Node* treeMinimum(Node* x) {
+        Node* current = x;
         while (current.left !is null)
             current = current.left;
         return current;
@@ -146,11 +148,11 @@ private final class RedBlackTree(K, V) {
         InsertResult insertionResult = treeInsert(key, value);
         if (!insertionResult.isNewEntry)
             return Optional!V(insertionResult.oldValue);
-        Node x = insertionResult.newNode;
+        Node* x = insertionResult.newNode;
 
         while (x !is root && x.parent.color == Color.red) {
             if (x.parent is x.parent.parent.left) {
-                Node y = x.parent.parent.right;
+                Node* y = x.parent.parent.right;
                 if (y !is null && y.color == Color.red) {
                     // Case 1
                     x.parent.color = Color.black;
@@ -170,7 +172,7 @@ private final class RedBlackTree(K, V) {
                 }
             } else {
                 // Same as "then" clause with "right" and "left" exchanged.
-                Node y = x.parent.parent.left;
+                Node* y = x.parent.parent.left;
                 if (y !is null && y.color == Color.red) {
                     // Case 1
                     x.parent.color = Color.black;
@@ -196,19 +198,19 @@ private final class RedBlackTree(K, V) {
     }
 
     Optional!V remove(K key) {
-        Node z = findNode(key);
+        Node* z = findNode(key);
         if (z is null)
             return Optional!V();
 
         // Y is the node to be unlinked from the tree.
-        Node y;
+        Node* y;
         if (z.left is null || z.right is null)
             y = z;
         else
             y = z.successor();
 
         // Y is guaranteed to be non-null at this point.
-        Node x;
+        Node* x;
         if (y.left !is null)
             x = y.left;
         else
@@ -216,7 +218,7 @@ private final class RedBlackTree(K, V) {
 
         // X is the child of y which might potentially replace y in the tree. X
         // might be null at this point.
-        Node xParent;
+        Node* xParent;
         if (x !is null) {
             x.parent = y.parent;
             xParent = x.parent;
@@ -264,7 +266,7 @@ private final class RedBlackTree(K, V) {
     }
 
     V* get(K key) {
-        Node node = findNode(key);
+        Node* node = findNode(key);
         if (node is null)
             return null;
         return &node.value;
@@ -274,15 +276,15 @@ private final class RedBlackTree(K, V) {
         if (root is null)
             return;
 
-        Node current = treeMinimum(root);
+        Node* current = treeMinimum(root);
         while (current !is null) {
             fn(Entry(current.key, current.value));
             current = current.successor();
         }
     }
 
-    private Node findNode(K key) {
-        Node current = root;
+    private Node* findNode(K key) {
+        Node* current = root;
         while (current !is null) {
             const comparisonResult = key.compareTo(current.key);
             if (comparisonResult == 0)
@@ -296,8 +298,8 @@ private final class RedBlackTree(K, V) {
     }
 
     private InsertResult treeInsert(K key, V value) {
-        Node y;
-        Node x = root;
+        Node* y;
+        Node* x = root;
         while (x !is null) {
             y = x;
             const comparisonResult = key.compareTo(x.key);
@@ -312,7 +314,7 @@ private final class RedBlackTree(K, V) {
             }
         }
 
-        Node z = make!Node(key, value);
+        Node* z = makePtr!Node(key, value);
         z.parent = y;
         if (y is null) {
             root = z;
@@ -325,8 +327,8 @@ private final class RedBlackTree(K, V) {
         return InsertResult(true, z, V.init);
     }
 
-    private Node leftRotate(Node x) {
-        Node y = x.right;
+    private Node* leftRotate(Node* x) {
+        Node* y = x.right;
 
         // Turn y's left subtree into x's right subtree.
         x.right = y.left;
@@ -351,8 +353,8 @@ private final class RedBlackTree(K, V) {
         return y;
     }
 
-    private Node rightRotate(Node y) {
-        Node x = y.left;
+    private Node* rightRotate(Node* y) {
+        Node* x = y.left;
 
         // Turn x's right subtree into y's left subtree.
         y.left = x.right;
@@ -376,13 +378,13 @@ private final class RedBlackTree(K, V) {
         return x;
     }
 
-    private void removeFixup(Node x, Node xParent) {
+    private void removeFixup(Node* x, Node* xParent) {
         while (x !is root && (x is null || x.color == Color.black)) {
             if (x is xParent.left) {
                 // Note: the text points out that w cannot be null. The reason is not
                 // obvious from simply looking at the code; it comes about from the
                 // properties of the red-black tree.
-                Node w = xParent.right;
+                Node* w = xParent.right;
                 if (w.color == Color.red) {
                     // Case 1
                     w.color = Color.black;
@@ -415,7 +417,7 @@ private final class RedBlackTree(K, V) {
                 }
             } else {
                 // Same as "then" clause with "right" and "left" exchanged.
-                Node w = xParent.left;
+                Node* w = xParent.left;
                 if (w.color == Color.red) {
                     // Case 1
                     w.color = Color.black;
@@ -586,32 +588,20 @@ private struct Aircraft {
     Vector3D position;
 }
 
-private final class CollisionDetector {
-    private alias VoxelMap = RedBlackTree!(Vector2D, Vector!Motion);
+private struct CollisionDetector {
+    private alias VoxelMap = RedBlackTree!(Vector2D, Vector!Motion*);
 
     private RedBlackTree!(CallSign, Vector3D) state;
 
     private static immutable horizontal = Vector2D(goodVoxelSize, 0.0);
     private static immutable vertical = Vector2D(0.0, goodVoxelSize);
 
-    this() {
-        state = make!(typeof(state));
-    }
+    @disable this(this);
 
-    version (ManualMemory) ~this() {
-        dispose(state);
-    }
-
-    Vector!Collision handleNewFrame(Vector!Aircraft frame) {
-        version (ManualMemory) {
-            scope motions = new Vector!Motion;
-            scope seen = new RedBlackTree!(CallSign, bool);
-            scope toRemove = new Vector!CallSign;
-        } else {
-            auto motions = new Vector!Motion;
-            auto seen = new RedBlackTree!(CallSign, bool);
-            auto toRemove = new Vector!CallSign;
-        }
+    Vector!Collision* handleNewFrame(ref Vector!Aircraft frame) {
+        Vector!Motion motions;
+        RedBlackTree!(CallSign, bool) seen;
+        Vector!CallSign toRemove;
 
         frame.forEach((aircraft) {
             Optional!Vector3D oldPosition = state.put(aircraft.callsign, aircraft.position);
@@ -637,7 +627,7 @@ private final class CollisionDetector {
         toRemove.forEach((e) { state.remove(e); });
 
         auto allReduced = reduceCollisionSet(motions);
-        auto collisions = make!(Vector!Collision);
+        auto collisions = makePtr!(Vector!Collision);
         allReduced.forEach((reduced) {
             for (size_t i = 0; i < reduced.size(); i += 1) {
                 const motion1 = reduced.at(i);
@@ -706,18 +696,18 @@ private final class CollisionDetector {
              (low_x <= low_y && high_y <= high_x)));
     }
 
-    private static void putIntoMap(VoxelMap voxelMap, Vector2D voxel, Motion motion) {
-        Vector!Motion* array = voxelMap.get(voxel);
+    private static void putIntoMap(ref VoxelMap voxelMap, Vector2D voxel, Motion motion) {
+        Vector!Motion** array = voxelMap.get(voxel);
         if (array is null) {
-            auto arr = make!(Vector!Motion);
+            auto arr = makePtr!(Vector!Motion);
             arr.append(motion);
             voxelMap.put(voxel, arr);
         } else {
-            array.append(motion);
+            (*array).append(motion);
         }
     }
 
-    private void recurse(VoxelMap voxelMap, RedBlackTree!(Vector2D, bool) seen,
+    private void recurse(ref VoxelMap voxelMap, ref RedBlackTree!(Vector2D, bool) seen,
                          Vector2D nextVoxel, Motion motion) {
         if (!isInVoxel(nextVoxel, motion))
             return;
@@ -738,14 +728,11 @@ private final class CollisionDetector {
         recurse(voxelMap, seen, nextVoxel.plus(horizontal).plus(vertical), motion);
     }
 
-    private Vector!(Vector!Motion) reduceCollisionSet(Vector!Motion motions) {
-        version (ManualMemory)
-            scope voxelMap = new VoxelMap;
-        else
-            auto voxelMap = new VoxelMap;
+    private Vector!(Vector!Motion*)* reduceCollisionSet(ref Vector!Motion motions) {
+        VoxelMap voxelMap;
         motions.forEach((motion) { drawMotionOnVoxelMap(voxelMap, motion); });
 
-        auto result = make!(Vector!(Vector!Motion));
+        auto result = makePtr!(Vector!(Vector!Motion*));
         voxelMap.forEach((e) {
             if (e.value.size() > 1)
                 result.append(e.value);
@@ -770,30 +757,24 @@ private final class CollisionDetector {
         return Vector2D(x, y);
     }
 
-    private void drawMotionOnVoxelMap(VoxelMap voxelMap, Motion motion) {
-        version (ManualMemory)
-            scope seen = new RedBlackTree!(Vector2D, bool);
-        else
-            auto seen = new RedBlackTree!(Vector2D, bool);
+    private void drawMotionOnVoxelMap(ref VoxelMap voxelMap, Motion motion) {
+        RedBlackTree!(Vector2D, bool) seen;
         recurse(voxelMap, seen, voxelHash(motion.posOne), motion);
     }
 }
 
-private final class Simulator {
+private struct Simulator {
     private Vector!CallSign aircraft;
 
+    @disable this(this);
+
     this(int numAircraft) {
-        aircraft = make!(Vector!CallSign);
         foreach (i; 0 .. numAircraft)
             aircraft.append(CallSign(i));
     }
 
-    version (ManualMemory) ~this() {
-        dispose(aircraft);
-    }
-
     Vector!Aircraft simulate(double time) {
-        auto frame = make!(Vector!Aircraft);
+        Vector!Aircraft frame;
         for (size_t i = 0; i < aircraft.size(); i += 2) {
             frame.append(Aircraft(aircraft.at(i),
                                   Vector3D(time, cos(time) * 2 + cast(double) i * 3, 10)));
@@ -811,21 +792,15 @@ final class CD : Runnable {
 
     private static size_t benchmark(int numAircrafts) {
         enum numFrames = 200;
-        version (ManualMemory) {
-            scope simulator = new Simulator(numAircrafts);
-            scope detector = new CollisionDetector;
-        } else {
-            auto simulator = new Simulator(numAircrafts);
-            auto detector = new CollisionDetector;
-        }
+        auto simulator = Simulator(numAircrafts);
+        CollisionDetector detector;
 
         size_t actualCollisions = 0;
         foreach (i; 0 .. numFrames) {
             const time = i / 10.0;
             Vector!Aircraft frame = simulator.simulate(time);
-            Vector!Collision collisions = detector.handleNewFrame(frame);
+            Vector!Collision* collisions = detector.handleNewFrame(frame);
             actualCollisions += collisions.size();
-            dispose(frame);
             dispose(collisions);
         }
         return actualCollisions;

@@ -3,17 +3,17 @@ module queens;
 import benchmark;
 import memory;
 
-final class Queens : Benchmark!bool {
+final class Queens : Benchmark {
     private bool[] freeMaxs;
     private bool[] freeRows;
     private bool[] freeMins;
     private int[] queenRows;
 
-    override bool benchmark() {
+    override Any benchmark() {
         bool result = true;
         foreach (i; 0 .. 10)
             result = result && queens();
-        return result;
+        return Any(result);
     }
 
     private bool queens() {
@@ -62,7 +62,7 @@ final class Queens : Benchmark!bool {
         freeMins[c - r + 7] = v;
     }
 
-    override bool verifyResult(bool result) {
-        return result;
+    override bool verifyResult(Any result) {
+        return result.get!bool;
     }
 }

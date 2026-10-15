@@ -12,114 +12,101 @@ private enum Direction {
     none,
 }
 
-private final class Sym {
+private struct Sym {
     private uint hash;
-
-    this(uint hash) {
-        this.hash = hash;
-    }
 
     uint customHash() const {
         return hash;
     }
 }
 
-private final class Strength {
-    static Sym absoluteStrongest;
-    static Sym required_;
-    static Sym strongPreferred;
-    static Sym preferred;
-    static Sym strongDefault;
-    static Sym default_;
-    static Sym weakDefault;
-    static Sym absoluteWeakest_;
+private struct Strength {
+    __gshared static Sym absoluteStrongest = Sym(0);
+    __gshared static Sym required_ = Sym(1);
+    __gshared static Sym strongPreferred = Sym(2);
+    __gshared static Sym preferred = Sym(3);
+    __gshared static Sym strongDefault = Sym(4);
+    __gshared static Sym default_ = Sym(5);
+    __gshared static Sym weakDefault = Sym(6);
+    __gshared static Sym absoluteWeakest_ = Sym(7);
 
-    private static IdentityDictionary!(Sym, int) strengthTable;
-    private static IdentityDictionary!(Sym, Strength) strengthConstant;
-    private static Strength absoluteWeakestStrength;
-    private static Strength requiredStrength;
+    private static IdentityDictionary!(Sym*, int) strengthTable;
+    private static IdentityDictionary!(Sym*, Strength*) strengthConstant;
+    private static Strength* absoluteWeakestStrength;
+    private static Strength* requiredStrength;
 
     private int arithmeticValue;
-    private Sym symbolicValue;
+    private Sym* symbolicValue;
 
-    this(Sym symbolicValue) {
+    this(Sym* symbolicValue) {
         arithmeticValue = strengthTable.at(symbolicValue);
         this.symbolicValue = symbolicValue;
     }
 
-    bool sameAs(Strength s) const {
+    bool sameAs(Strength* s) const {
         return arithmeticValue == s.arithmeticValue;
     }
 
-    bool stronger(Strength s) const {
+    bool stronger(Strength* s) const {
         return arithmeticValue < s.arithmeticValue;
     }
 
-    bool weaker(Strength s) const {
+    bool weaker(Strength* s) const {
         return arithmeticValue > s.arithmeticValue;
     }
 
-    Strength strongest(Strength s) {
-        return s.stronger(this) ? s : this;
+    Strength* strongest(Strength* s) {
+        return s.stronger(&this) ? s : &this;
     }
 
-    Strength weakest(Strength s) {
-        return s.weaker(this) ? s : this;
+    Strength* weakest(Strength* s) {
+        return s.weaker(&this) ? s : &this;
     }
 
     int getArithmeticValue() const {
         return arithmeticValue;
     }
 
-    static Strength of(Sym strength) {
+    static Strength* of(Sym* strength) {
         return strengthConstant.at(strength);
     }
 
-    static Strength absoluteWeakest() {
+    static Strength* absoluteWeakest() {
         return absoluteWeakestStrength;
     }
 
-    static Strength required() {
+    static Strength* required() {
         return requiredStrength;
     }
 
-    private static IdentityDictionary!(Sym, int) createStrengthTable() {
-        auto table = make!(IdentityDictionary!(Sym, int));
-        table.atPut(absoluteStrongest, -10_000);
-        table.atPut(required_, -800);
-        table.atPut(strongPreferred, -600);
-        table.atPut(preferred, -400);
-        table.atPut(strongDefault, -200);
-        table.atPut(default_, 0);
-        table.atPut(weakDefault, 500);
-        table.atPut(absoluteWeakest_, 10_000);
+    private static IdentityDictionary!(Sym*, int) createStrengthTable() {
+        auto table = make!(IdentityDictionary!(Sym*, int));
+        table.atPut(&absoluteStrongest, -10_000);
+        table.atPut(&required_, -800);
+        table.atPut(&strongPreferred, -600);
+        table.atPut(&preferred, -400);
+        table.atPut(&strongDefault, -200);
+        table.atPut(&default_, 0);
+        table.atPut(&weakDefault, 500);
+        table.atPut(&absoluteWeakest_, 10_000);
         return table;
     }
 
-    private static IdentityDictionary!(Sym, Strength) createStrengthConstants() {
-        auto constants = make!(IdentityDictionary!(Sym, Strength));
+    private static IdentityDictionary!(Sym*, Strength*) createStrengthConstants() {
+        auto constants = make!(IdentityDictionary!(Sym*, Strength*));
         auto keys = strengthTable.getKeys();
         keys.forEach((key) {
-            constants.atPut(key, make!Strength(key));
+            constants.atPut(key, makePtr!Strength(key));
         });
         dispose(keys);
         return constants;
     }
 
     static void initializeConstants() {
-        absoluteStrongest = make!Sym(0);
-        required_ = make!Sym(1);
-        strongPreferred = make!Sym(2);
-        preferred = make!Sym(3);
-        strongDefault = make!Sym(4);
-        default_ = make!Sym(5);
-        weakDefault = make!Sym(6);
-        absoluteWeakest_ = make!Sym(7);
-
         strengthTable = createStrengthTable();
         strengthConstant = createStrengthConstants();
-        absoluteWeakestStrength = of(absoluteWeakest_);
-        requiredStrength = of(required_);
+        absoluteWeakestStrength = of(&absoluteWeakest_);
+        requiredStrength = of(&required_);
     }
 
     static void releaseConstants() {
@@ -129,27 +116,18 @@ private final class Strength {
             dispose(strengthConstant);
             absoluteWeakestStrength = null;
             requiredStrength = null;
-
-            dispose(absoluteStrongest);
-            dispose(required_);
-            dispose(strongPreferred);
-            dispose(preferred);
-            dispose(strongDefault);
-            dispose(default_);
-            dispose(weakDefault);
-            dispose(absoluteWeakest_);
         }
     }
 }
 
 private abstract class AbstractConstraint : TrackedObject {
-    protected Strength strength;
+    protected Strength* strength;
 
-    this(Sym strength) {
+    this(Sym* strength) {
         this.strength = Strength.of(strength);
     }
 
-    Strength getStrength() {
+    Strength* getStrength() {
         return strength;
     }
 
@@ -157,12 +135,12 @@ private abstract class AbstractConstraint : TrackedObject {
         return false;
     }
 
-    final void addConstraint(Planner planner) {
+    final void addConstraint(Planner* planner) {
         addToGraph();
         planner.incrementalAdd(this);
     }
 
-    final void destroyConstraint(Planner planner) {
+    final void destroyConstraint(Planner* planner) {
         if (isSatisfied())
             planner.incrementalRemove(this);
         removeFromGraph();
@@ -173,7 +151,7 @@ private abstract class AbstractConstraint : TrackedObject {
             !(v.getMark() == mark || v.getStay() || v.getDeterminedBy() is null));
     }
 
-    final AbstractConstraint satisfy(int mark, Planner planner) {
+    final AbstractConstraint satisfy(int mark, Planner* planner) {
         AbstractConstraint overridden;
 
         chooseMethod(mark);
@@ -211,14 +189,14 @@ private abstract class AbstractConstraint : TrackedObject {
 
 private final class Variable : TrackedObject {
     private int value;
-    private Vector!AbstractConstraint constraints;
+    private Vector!AbstractConstraint* constraints;
     private AbstractConstraint determinedBy;
     private int mark;
-    private Strength walkStrength;
+    private Strength* walkStrength;
     private bool stay = true;
 
     this() {
-        constraints = make!(Vector!AbstractConstraint)(2);
+        constraints = makePtr!(Vector!AbstractConstraint)(2);
         walkStrength = Strength.absoluteWeakest();
     }
 
@@ -236,7 +214,7 @@ private final class Variable : TrackedObject {
         constraints.append(c);
     }
 
-    Vector!AbstractConstraint getConstraints() {
+    Vector!AbstractConstraint* getConstraints() {
         return constraints;
     }
 
@@ -278,11 +256,11 @@ private final class Variable : TrackedObject {
         this.value = value;
     }
 
-    Strength getWalkStrength() {
+    Strength* getWalkStrength() {
         return walkStrength;
     }
 
-    void setWalkStrength(Strength strength) {
+    void setWalkStrength(Strength* strength) {
         walkStrength = strength;
     }
 }
@@ -292,7 +270,7 @@ private abstract class BinaryConstraint : AbstractConstraint {
     protected Variable v2;
     protected Direction direction = Direction.none;
 
-    this(Variable var1, Variable var2, Sym strength, Planner) {
+    this(Variable var1, Variable var2, Sym* strength, Planner*) {
         super(strength);
         v1 = var1;
         v2 = var2;
@@ -393,7 +371,7 @@ private abstract class UnaryConstraint : AbstractConstraint {
     protected Variable output;
     protected bool satisfied;
 
-    this(Variable v, Sym strength, Planner) {
+    this(Variable v, Sym* strength, Planner*) {
         super(strength);
         output = v;
     }
@@ -443,7 +421,7 @@ private abstract class UnaryConstraint : AbstractConstraint {
 }
 
 private final class EditConstraint : UnaryConstraint {
-    this(Variable v, Sym strength, Planner planner) {
+    this(Variable v, Sym* strength, Planner* planner) {
         super(v, strength, planner);
         addConstraint(planner);
     }
@@ -457,7 +435,7 @@ private final class EditConstraint : UnaryConstraint {
 }
 
 private final class EqualityConstraint : BinaryConstraint {
-    this(Variable var1, Variable var2, Sym strength, Planner planner) {
+    this(Variable var1, Variable var2, Sym* strength, Planner* planner) {
         super(var1, var2, strength, planner);
         addConstraint(planner);
     }
@@ -470,9 +448,12 @@ private final class EqualityConstraint : BinaryConstraint {
     }
 }
 
-private final class Plan : Vector!AbstractConstraint {
-    this() {
-        super(15);
+private struct Plan {
+    Vector!AbstractConstraint vector;
+    alias vector this;
+
+    this(size_t size) {
+        vector = Vector!AbstractConstraint(size);
     }
 
     void execute() {
@@ -485,7 +466,7 @@ private final class ScaleConstraint : BinaryConstraint {
     private Variable offset;
 
     this(Variable src, Variable scale, Variable offset, Variable dest,
-         Sym strength, Planner planner) {
+         Sym* strength, Planner* planner) {
         super(src, dest, strength, planner);
         this.scale = scale;
         this.offset = offset;
@@ -550,7 +531,7 @@ private final class ScaleConstraint : BinaryConstraint {
 }
 
 private final class StayConstraint : UnaryConstraint {
-    this(Variable v, Sym strength, Planner planner) {
+    this(Variable v, Sym* strength, Planner* planner) {
         super(v, strength, planner);
         addConstraint(planner);
     }
@@ -559,43 +540,40 @@ private final class StayConstraint : UnaryConstraint {
     }
 }
 
-private final class Planner {
+private struct Planner {
     private int currentMark = 1;
 
     void incrementalAdd(AbstractConstraint c) {
         const mark = newMark();
-        AbstractConstraint overridden = c.satisfy(mark, this);
+        AbstractConstraint overridden = c.satisfy(mark, &this);
         while (overridden !is null)
-            overridden = overridden.satisfy(mark, this);
+            overridden = overridden.satisfy(mark, &this);
     }
 
     void incrementalRemove(AbstractConstraint c) {
         Variable out_ = c.getOutput();
         c.markUnsatisfied();
         c.removeFromGraph();
-        Vector!AbstractConstraint unsatisfied = removePropagateFrom(out_);
+        Vector!AbstractConstraint* unsatisfied = removePropagateFrom(out_);
         unsatisfied.forEach((u) { incrementalAdd(u); });
         dispose(unsatisfied);
     }
 
-    Plan extractPlanFromConstraints(Vector!AbstractConstraint constraints) {
-        version (ManualMemory)
-            scope sources = new Vector!AbstractConstraint;
-        else
-            auto sources = new Vector!AbstractConstraint;
+    Plan* extractPlanFromConstraints(Vector!AbstractConstraint* constraints) {
+        Vector!AbstractConstraint sources;
 
         constraints.forEach((c) {
             if (c.isInput() && c.isSatisfied())
                 sources.append(c);
         });
 
-        return makePlan(sources);
+        return makePlan(&sources);
     }
 
-    Plan makePlan(Vector!AbstractConstraint sources) {
+    Plan* makePlan(Vector!AbstractConstraint* sources) {
         const mark = newMark();
-        auto plan = make!Plan;
-        Vector!AbstractConstraint todo = sources;
+        auto plan = makePtr!Plan(15);
+        Vector!AbstractConstraint* todo = sources;
 
         while (!todo.isEmpty()) {
             AbstractConstraint c = todo.removeFirst();
@@ -609,7 +587,7 @@ private final class Planner {
         return plan;
     }
 
-    void addConstraintsConsumingTo(Variable v, Vector!AbstractConstraint coll) {
+    void addConstraintsConsumingTo(Variable v, Vector!AbstractConstraint* coll) {
         AbstractConstraint determiningC = v.getDeterminedBy();
         v.getConstraints().forEach((c) {
             if (c !is determiningC && c.isSatisfied())
@@ -635,15 +613,15 @@ private final class Planner {
     }
 
     void change(Variable var, int newValue) {
-        auto editC = make!EditConstraint(var, Strength.preferred, this);
+        auto editC = make!EditConstraint(var, &Strength.preferred, &this);
 
         auto editV = Vector!AbstractConstraint.with_(editC);
-        Plan plan = extractPlanFromConstraints(editV);
+        Plan* plan = extractPlanFromConstraints(editV);
         foreach (i; 0 .. 10) {
             var.setValue(newValue);
             plan.execute();
         }
-        editC.destroyConstraint(this);
+        editC.destroyConstraint(&this);
         dispose(plan);
         dispose(editV);
     }
@@ -661,8 +639,8 @@ private final class Planner {
         return currentMark;
     }
 
-    Vector!AbstractConstraint removePropagateFrom(Variable out_) {
-        auto unsatisfied = make!(Vector!AbstractConstraint);
+    Vector!AbstractConstraint* removePropagateFrom(Variable out_) {
+        auto unsatisfied = makePtr!(Vector!AbstractConstraint);
 
         out_.setDeterminedBy(null);
         out_.setWalkStrength(Strength.absoluteWeakest());
@@ -691,10 +669,7 @@ private final class Planner {
 
     static void chainTest(int n) {
         Strength.initializeConstants();
-        version (ManualMemory)
-            scope planner = new Planner;
-        else
-            auto planner = new Planner;
+        Planner planner;
         auto vars = makeArray!Variable(n + 1);
         foreach (ref v; vars)
             v = make!Variable;
@@ -702,14 +677,14 @@ private final class Planner {
         foreach (i; 0 .. n) {
             Variable v1 = vars[i];
             Variable v2 = vars[i + 1];
-            make!EqualityConstraint(v1, v2, Strength.required_, planner);
+            make!EqualityConstraint(v1, v2, &Strength.required_, &planner);
         }
 
-        make!StayConstraint(vars[n], Strength.strongDefault, planner);
-        auto editC = make!EditConstraint(vars[0], Strength.preferred, planner);
+        make!StayConstraint(vars[n], &Strength.strongDefault, &planner);
+        auto editC = make!EditConstraint(vars[0], &Strength.preferred, &planner);
 
         auto editV = Vector!AbstractConstraint.with_(editC);
-        Plan plan = planner.extractPlanFromConstraints(editV);
+        Plan* plan = planner.extractPlanFromConstraints(editV);
         dispose(editV);
         foreach (i; 0 .. 100) {
             vars[0].setValue(i);
@@ -717,20 +692,15 @@ private final class Planner {
             if (vars[n].getValue() != i)
                 throw new SomError("Chain test failed!");
         }
-        editC.destroyConstraint(planner);
+        editC.destroyConstraint(&planner);
         dispose(plan);
         disposeArray(vars);
         ObjectTracker.releaseAll();
     }
 
     static void projectionTest(int n) {
-        version (ManualMemory) {
-            scope planner = new Planner;
-            scope dests = new Vector!Variable;
-        } else {
-            auto planner = new Planner;
-            auto dests = new Vector!Variable;
-        }
+        Planner planner;
+        Vector!Variable dests;
 
         Variable scale = Variable.value_(10);
         Variable offset = Variable.value_(1000);
@@ -742,8 +712,8 @@ private final class Planner {
             src = Variable.value_(i);
             dst = Variable.value_(i);
             dests.append(dst);
-            make!StayConstraint(src, Strength.default_, planner);
-            make!ScaleConstraint(src, scale, offset, dst, Strength.required_, planner);
+            make!StayConstraint(src, &Strength.default_, &planner);
+            make!ScaleConstraint(src, scale, offset, dst, &Strength.required_, &planner);
         }
 
         planner.change(src, 17);
