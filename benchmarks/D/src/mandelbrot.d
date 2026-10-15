@@ -8,7 +8,7 @@ final class Mandelbrot : Runnable {
         return verifyResult(mandelbrot(innerIterations), innerIterations);
     }
 
-    private bool verifyResult(int result, int innerIterations) {
+    bool verifyResult(int result, int innerIterations) {
         if (innerIterations == 500)
             return result == 191;
         if (innerIterations == 750)
@@ -21,7 +21,7 @@ final class Mandelbrot : Runnable {
         return false;
     }
 
-    private int mandelbrot(int size) {
+    int mandelbrot(int size) {
         int sum = 0;
         int byteAcc = 0;
         int bitNum = 0;

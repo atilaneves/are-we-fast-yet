@@ -633,12 +633,15 @@ private struct LoopTesterApp {
 
 final class Havlak : Runnable {
     bool innerBenchmarkLoop(int innerIterations) {
-        auto app = LoopTesterApp.create();
-        return verifyResult(app.main(innerIterations, 50, 10 /* was 100 */, 10, 5),
-                            innerIterations);
+        return verifyResult(run(innerIterations), innerIterations);
     }
 
-    private bool verifyResult(int[2] r, int innerIterations) {
+    int[2] run(int innerIterations) {
+        auto app = LoopTesterApp.create();
+        return app.main(innerIterations, 50, 10 /* was 100 */, 10, 5);
+    }
+
+    bool verifyResult(int[2] r, int innerIterations) {
         if (innerIterations == 15_000)
             return r[0] == 46_602 && r[1] == 5213;
         if (innerIterations == 1500)

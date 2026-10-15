@@ -527,13 +527,21 @@ private final class Scheduler : RBObject {
 
 final class Richards : Benchmark {
     override Any benchmark() {
+        return Any(run());
+    }
+
+    bool run() {
         auto scheduler = make!Scheduler;
         const result = scheduler.start();
         ObjectTracker.releaseAll();
-        return Any(result);
+        return result;
+    }
+
+    bool check(bool result) {
+        return result;
     }
 
     override bool verifyResult(Any result) {
-        return result.get!bool;
+        return check(result.get!bool);
     }
 }

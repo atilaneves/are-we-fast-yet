@@ -12,11 +12,15 @@ final class Storage : Benchmark {
     private int count;
 
     override Any benchmark() {
+        return Any(run());
+    }
+
+    int run() {
         Random random;
         count = 0;
         auto result = buildTreeDepth(7, random);
         disposeTree(result);
-        return Any(count);
+        return count;
     }
 
     private ArrayTree[] buildTreeDepth(int depth, ref Random random) {
@@ -37,7 +41,11 @@ final class Storage : Benchmark {
         disposeArray(trees);
     }
 
+    bool check(int result) {
+        return 5461 == result;
+    }
+
     override bool verifyResult(Any result) {
-        return 5461 == result.get!int;
+        return check(result.get!int);
     }
 }

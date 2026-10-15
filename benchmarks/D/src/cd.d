@@ -790,7 +790,7 @@ final class CD : Runnable {
         return verifyResult(benchmark(innerIterations), innerIterations);
     }
 
-    private static size_t benchmark(int numAircrafts) {
+    static size_t benchmark(int numAircrafts) {
         enum numFrames = 200;
         auto simulator = Simulator(numAircrafts);
         CollisionDetector detector;
@@ -806,7 +806,7 @@ final class CD : Runnable {
         return actualCollisions;
     }
 
-    private static bool verifyResult(size_t actualCollisions, int numAircrafts) {
+    static bool verifyResult(size_t actualCollisions, int numAircrafts) {
         if (numAircrafts == 1000)
             return actualCollisions == 14_484;
         if (numAircrafts == 500)

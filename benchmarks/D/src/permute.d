@@ -8,11 +8,15 @@ final class Permute : Benchmark {
     private int[] v;
 
     override Any benchmark() {
+        return Any(run());
+    }
+
+    int run() {
         count = 0;
         v = makeArray!int(6);
         permute(6);
         disposeArray(v);
-        return Any(count);
+        return count;
     }
 
     private void permute(int n) {
@@ -34,7 +38,11 @@ final class Permute : Benchmark {
         v[j] = tmp;
     }
 
+    bool check(int result) {
+        return 8660 == result;
+    }
+
     override bool verifyResult(Any result) {
-        return 8660 == result.get!int;
+        return check(result.get!int);
     }
 }
