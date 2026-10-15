@@ -4,18 +4,20 @@ import memory;
 
 enum initialSize = 10;
 
-class Vector(E) {
+struct Vector(E) {
     private E[] storage;
     private size_t firstIdx;
     private size_t lastIdx;
 
-    static Vector!E with_(E elem) {
-        auto v = make!(Vector!E)(1);
+    @disable this(this);
+
+    static Vector!E* with_(E elem) {
+        auto v = makePtr!(Vector!E)(1);
         v.append(elem);
         return v;
     }
 
-    this(size_t size = 0) {
+    this(size_t size) {
         storage = makeArray!E(size);
     }
 
@@ -123,7 +125,7 @@ class Vector(E) {
         storage = makeArray!E(length);
     }
 
-    static if (is(E == class)) void destroyValues() {
+    static if (is(E == class) || is(E == U*, U) && is(U == struct)) void destroyValues() {
         for (size_t i = firstIdx; i < lastIdx; i += 1)
             dispose(storage[i]);
     }

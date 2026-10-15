@@ -2,10 +2,9 @@ module nbody;
 
 import benchmark;
 import core.math : sqrt;
-import memory;
 import std.stdio : writeln;
 
-private final class Body {
+private struct Body {
     private enum pi = 3.141592653589793;
     private enum solarMass = 4 * pi * pi;
     private enum daysPerYear = 365.24;
@@ -35,53 +34,49 @@ private final class Body {
     }
 
     static Body jupiter() {
-        return make!Body(4.84143144246472090e+00, -1.16032004402742839e+00,
+        return Body(4.84143144246472090e+00, -1.16032004402742839e+00,
                         -1.03622044471123109e-01, 1.66007664274403694e-03,
                         7.69901118419740425e-03, -6.90460016972063023e-05,
                         9.54791938424326609e-04);
     }
 
     static Body saturn() {
-        return make!Body(8.34336671824457987e+00, 4.12479856412430479e+00,
+        return Body(8.34336671824457987e+00, 4.12479856412430479e+00,
                         -4.03523417114321381e-01, -2.76742510726862411e-03,
                         4.99852801234917238e-03, 2.30417297573763929e-05,
                         2.85885980666130812e-04);
     }
 
     static Body uranus() {
-        return make!Body(1.28943695621391310e+01, -1.51111514016986312e+01,
+        return Body(1.28943695621391310e+01, -1.51111514016986312e+01,
                         -2.23307578892655734e-01, 2.96460137564761618e-03,
                         2.37847173959480950e-03, -2.96589568540237556e-05,
                         4.36624404335156298e-05);
     }
 
     static Body neptune() {
-        return make!Body(1.53796971148509165e+01, -2.59193146099879641e+01,
+        return Body(1.53796971148509165e+01, -2.59193146099879641e+01,
                         1.79258772950371181e-01, 2.68067772490389322e-03,
                         1.62824170038242295e-03, -9.51592254519715870e-05,
                         5.15138902046611451e-05);
     }
 
     static Body sun() {
-        return make!Body(0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0);
+        return Body(0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0);
     }
 }
 
-private final class NBodySystem {
-    private Body[] bodies;
+private struct NBodySystem {
+    private Body[5] bodies;
 
-    this() {
-        bodies = createBodies();
+    static NBodySystem create() {
+        NBodySystem system;
+        system.bodies = createBodies();
+        return system;
     }
 
-    version (ManualMemory) ~this() {
-        foreach (ref body; bodies)
-            dispose(body);
-        disposeArray(bodies);
-    }
-
-    private Body[] createBodies() {
-        auto bodies = makeArray!Body(5);
+    private static Body[5] createBodies() {
+        Body[5] bodies;
         bodies[0] = Body.sun();
         bodies[1] = Body.jupiter();
         bodies[2] = Body.saturn();
@@ -91,7 +86,7 @@ private final class NBodySystem {
         double px = 0.0;
         double py = 0.0;
         double pz = 0.0;
-        foreach (body; bodies) {
+        foreach (ref body; bodies) {
             px += body.vx * body.mass;
             py += body.vy * body.mass;
             pz += body.vz * body.mass;
@@ -102,8 +97,8 @@ private final class NBodySystem {
     }
 
     void advance(double dt) {
-        foreach (i, iBody; bodies) {
-            foreach (jBody; bodies[i + 1 .. $]) {
+        foreach (i, ref iBody; bodies) {
+            foreach (ref jBody; bodies[i + 1 .. $]) {
                 const dx = iBody.x - jBody.x;
                 const dy = iBody.y - jBody.y;
                 const dz = iBody.z - jBody.z;
@@ -122,7 +117,7 @@ private final class NBodySystem {
             }
         }
 
-        foreach (body; bodies) {
+        foreach (ref body; bodies) {
             body.x += dt * body.vx;
             body.y += dt * body.vy;
             body.z += dt * body.vz;
@@ -132,11 +127,11 @@ private final class NBodySystem {
     double energy() {
         double e = 0.0;
 
-        foreach (i, iBody; bodies) {
+        foreach (i, ref iBody; bodies) {
             e += 0.5 * iBody.mass *
                  (iBody.vx * iBody.vx + iBody.vy * iBody.vy + iBody.vz * iBody.vz);
 
-            foreach (jBody; bodies[i + 1 .. $]) {
+            foreach (ref jBody; bodies[i + 1 .. $]) {
                 const dx = iBody.x - jBody.x;
                 const dy = iBody.y - jBody.y;
                 const dz = iBody.z - jBody.z;
@@ -151,10 +146,7 @@ private final class NBodySystem {
 
 final class NBody : Runnable {
     bool innerBenchmarkLoop(int innerIterations) {
-        version (ManualMemory)
-            scope system = new NBodySystem;
-        else
-            auto system = new NBodySystem;
+        auto system = NBodySystem.create();
         foreach (i; 0 .. innerIterations)
             system.advance(0.01);
         return verifyResult(system.energy(), innerIterations);

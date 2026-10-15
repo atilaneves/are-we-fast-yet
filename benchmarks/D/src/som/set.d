@@ -3,15 +3,11 @@ module som.set;
 import memory;
 import som.vector;
 
-class Set(E) {
+struct Set(E) {
     private Vector!E items;
 
-    this(size_t size = initialSize) {
-        items = make!(Vector!E)(size);
-    }
-
-    version (ManualMemory) ~this() {
-        dispose(items);
+    this(size_t size) {
+        items = Vector!E(size);
     }
 
     size_t size() const {
@@ -35,14 +31,17 @@ class Set(E) {
             items.append(obj);
     }
 
-    Vector!T collect(T)(scope T delegate(E) fn) {
-        auto coll = make!(Vector!T);
+    Vector!T* collect(T)(scope T delegate(E) fn) {
+        auto coll = makePtr!(Vector!T);
         forEach((e) { coll.append(fn(e)); });
         return coll;
     }
 
     bool contains(E obj) {
-        return hasSome((e) => e == obj);
+        static if (is(E == class))
+            return hasSome((e) => e.equal(obj));
+        else
+            return hasSome((e) => e == obj);
     }
 
     void removeAll() {

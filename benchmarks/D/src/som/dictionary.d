@@ -18,7 +18,7 @@ class Dictionary(K, V) {
         }
 
         bool match(uint h, K k) {
-            return hash == h && key == k;
+            return hash == h && key is k;
         }
     }
 
@@ -104,8 +104,8 @@ class Dictionary(K, V) {
         }
     }
 
-    Vector!K getKeys() {
-        auto keys = make!(Vector!K)(size_);
+    Vector!K* getKeys() {
+        auto keys = makePtr!(Vector!K)(size_);
         foreach (head; buckets) {
             for (Entry e = head; e !is null; e = e.next)
                 keys.append(e.key);
@@ -113,8 +113,8 @@ class Dictionary(K, V) {
         return keys;
     }
 
-    Vector!V getValues() {
-        auto values = make!(Vector!V)(size_);
+    Vector!V* getValues() {
+        auto values = makePtr!(Vector!V)(size_);
         foreach (head; buckets) {
             for (Entry e = head; e !is null; e = e.next)
                 values.append(e.value);

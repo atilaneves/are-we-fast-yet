@@ -12,17 +12,14 @@ final class Storage : Benchmark!int {
     private int count;
 
     override int benchmark() {
-        version (ManualMemory)
-            scope random = new Random;
-        else
-            auto random = new Random;
+        Random random;
         count = 0;
         auto result = buildTreeDepth(7, random);
         disposeTree(result);
         return count;
     }
 
-    private ArrayTree[] buildTreeDepth(int depth, Random random) {
+    private ArrayTree[] buildTreeDepth(int depth, ref Random random) {
         count += 1;
         if (depth == 1)
             return makeArray!ArrayTree(random.next() % 10 + 1);

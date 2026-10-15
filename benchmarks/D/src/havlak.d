@@ -14,21 +14,16 @@ private final class BasicBlock {
     private uint name;
 
     this(int name) {
-        inEdges = make!(Vector!BasicBlock)(2);
-        outEdges = make!(Vector!BasicBlock)(2);
+        inEdges = Vector!BasicBlock(2);
+        outEdges = Vector!BasicBlock(2);
         this.name = name;
     }
 
-    version (ManualMemory) ~this() {
-        dispose(inEdges);
-        dispose(outEdges);
-    }
-
-    Vector!BasicBlock getInEdges() {
+    ref Vector!BasicBlock getInEdges() {
         return inEdges;
     }
 
-    Vector!BasicBlock getOutEdges() {
+    ref Vector!BasicBlock getOutEdges() {
         return outEdges;
     }
 
@@ -47,23 +42,22 @@ private final class BasicBlock {
     uint customHash() const {
         return name;
     }
+
+    bool equal(BasicBlock other) const {
+        return name == other.name;
+    }
 }
 
-private final class ControlFlowGraph {
+private struct ControlFlowGraph {
     private Vector!BasicBlock basicBlockMap;
     private BasicBlock startNode;
     private Vector!BasicBlockEdge edgeList;
 
-    this() {
-        basicBlockMap = make!(Vector!BasicBlock);
-        edgeList = make!(Vector!BasicBlockEdge);
-    }
+    @disable this(this);
 
     version (ManualMemory) ~this() {
         basicBlockMap.destroyValues();
         edgeList.destroyValues();
-        dispose(basicBlockMap);
-        dispose(edgeList);
     }
 
     BasicBlock createNode(int name) {
@@ -92,7 +86,7 @@ private final class ControlFlowGraph {
         return startNode;
     }
 
-    Vector!BasicBlock getBasicBlocks() {
+    ref Vector!BasicBlock getBasicBlocks() {
         return basicBlockMap;
     }
 }
@@ -101,7 +95,7 @@ private final class BasicBlockEdge {
     private BasicBlock from;
     private BasicBlock to;
 
-    this(ControlFlowGraph cfg, int fromName, int toName) {
+    this(ref ControlFlowGraph cfg, int fromName, int toName) {
         from = cfg.createNode(fromName);
         to = cfg.createNode(toName);
 
@@ -125,18 +119,13 @@ private final class SimpleLoop {
     private int depthLevel;
 
     this(BasicBlock bb, bool isReducible) {
-        basicBlocks = make!(IdentitySet!BasicBlock);
-        children = make!(IdentitySet!SimpleLoop);
+        basicBlocks = IdentitySet!BasicBlock(initialSize);
+        children = IdentitySet!SimpleLoop(initialSize);
         header = bb;
         this.isReducible = isReducible;
 
         if (bb !is null)
             basicBlocks.add(bb);
-    }
-
-    version (ManualMemory) ~this() {
-        dispose(basicBlocks);
-        dispose(children);
     }
 
     private void addChildLoop(SimpleLoop loop) {
@@ -147,7 +136,11 @@ private final class SimpleLoop {
         basicBlocks.add(bb);
     }
 
-    IdentitySet!SimpleLoop getChildren() {
+    bool equal(SimpleLoop other) const {
+        return this is other;
+    }
+
+    ref IdentitySet!SimpleLoop getChildren() {
         return children;
     }
 
@@ -187,23 +180,25 @@ private final class SimpleLoop {
     }
 }
 
-private final class LoopStructureGraph {
+private struct LoopStructureGraph {
     private SimpleLoop root;
     private Vector!SimpleLoop loops;
     private int loopCounter;
 
-    this() {
-        loops = make!(Vector!SimpleLoop);
-        root = make!SimpleLoop(null, true);
-        root.setNestingLevel(0);
-        root.setCounter(loopCounter);
-        loopCounter += 1;
-        loops.append(root);
+    @disable this(this);
+
+    static LoopStructureGraph create() {
+        LoopStructureGraph graph;
+        graph.root = make!SimpleLoop(null, true);
+        graph.root.setNestingLevel(0);
+        graph.root.setCounter(graph.loopCounter);
+        graph.loopCounter += 1;
+        graph.loops.append(graph.root);
+        return graph;
     }
 
     version (ManualMemory) ~this() {
         loops.destroyValues();
-        dispose(loops);
     }
 
     SimpleLoop createNewLoop(BasicBlock bb, bool isReducible) {
@@ -257,10 +252,7 @@ private final class UnionFindNode {
     }
 
     UnionFindNode findSet() {
-        version (ManualMemory)
-            scope nodeList = new Vector!UnionFindNode;
-        else
-            auto nodeList = new Vector!UnionFindNode;
+        Vector!UnionFindNode nodeList;
 
         UnionFindNode node = this;
         while (node !is node.parent) {
@@ -295,7 +287,7 @@ private final class UnionFindNode {
     }
 }
 
-private final class HavlakLoopFinder {
+private struct HavlakLoopFinder {
     private enum BasicBlockClass {
         top,
         nonHeader,
@@ -306,14 +298,14 @@ private final class HavlakLoopFinder {
         last,
     }
 
-    private ControlFlowGraph cfg;
-    private LoopStructureGraph lsg;
+    private ControlFlowGraph* cfg;
+    private LoopStructureGraph* lsg;
 
     private enum unvisited = int.max;
     private enum maxNonBackPreds = 32 * 1024;
 
-    private Vector!(Set!int) nonBackPreds;
-    private Vector!(Vector!int) backPreds;
+    private Vector!(Set!int*) nonBackPreds;
+    private Vector!(Vector!int*) backPreds;
     private IdentityDictionary!(BasicBlock, int) number;
     private int maxSize;
     private int[] header;
@@ -321,19 +313,17 @@ private final class HavlakLoopFinder {
     private int[] last;
     private UnionFindNode[] nodes;
 
-    this(ControlFlowGraph cfg, LoopStructureGraph lsg) {
+    @disable this(this);
+
+    this(ControlFlowGraph* cfg, LoopStructureGraph* lsg) {
         this.cfg = cfg;
         this.lsg = lsg;
-        nonBackPreds = make!(typeof(nonBackPreds));
-        backPreds = make!(typeof(backPreds));
         number = make!(typeof(number));
     }
 
     version (ManualMemory) ~this() {
         nonBackPreds.destroyValues();
         backPreds.destroyValues();
-        dispose(nonBackPreds);
-        dispose(backPreds);
         dispose(number);
         disposeArray(header);
         disposeArray(type);
@@ -364,8 +354,8 @@ private final class HavlakLoopFinder {
         }
 
         foreach (i; 0 .. size) {
-            nonBackPreds.append(make!(Set!int));
-            backPreds.append(make!(Vector!int));
+            nonBackPreds.append(makePtr!(Set!int)(initialSize));
+            backPreds.append(makePtr!(Vector!int)());
             nodes[i] = make!UnionFindNode;
         }
 
@@ -377,20 +367,14 @@ private final class HavlakLoopFinder {
 
         for (int w = size - 1; w >= 0; w -= 1) {
             // this is 'P' in Havlak's paper
-            version (ManualMemory)
-                scope nodePool = new Vector!UnionFindNode;
-            else
-                auto nodePool = new Vector!UnionFindNode;
+            Vector!UnionFindNode nodePool;
 
             BasicBlock nodeW = nodes[w].getBb();
             if (nodeW !is null) {
                 stepD(w, nodePool);
 
                 // Copy nodePool to workList.
-                version (ManualMemory)
-                    scope workList = new Vector!UnionFindNode;
-                else
-                    auto workList = new Vector!UnionFindNode;
+                Vector!UnionFindNode workList;
                 nodePool.forEach((niter) { workList.append(niter); });
 
                 if (nodePool.size() != 0)
@@ -435,7 +419,7 @@ private final class HavlakLoopFinder {
         number.atPut(currentNode, current);
 
         int lastId = current;
-        auto outerBlocks = currentNode.getOutEdges();
+        auto outerBlocks = &currentNode.getOutEdges();
 
         foreach (i; 0 .. outerBlocks.size()) {
             BasicBlock target = outerBlocks.at(i);
@@ -492,8 +476,8 @@ private final class HavlakLoopFinder {
         }
     }
 
-    private void stepEProcessNonBackPreds(int w, Vector!UnionFindNode nodePool,
-                                          Vector!UnionFindNode workList, UnionFindNode x) {
+    private void stepEProcessNonBackPreds(int w, ref Vector!UnionFindNode nodePool,
+                                          ref Vector!UnionFindNode workList, UnionFindNode x) {
         nonBackPreds.at(x.getDfsNumber()).forEach((iter) {
             UnionFindNode y = nodes[iter];
             UnionFindNode ydash = y.findSet();
@@ -512,7 +496,7 @@ private final class HavlakLoopFinder {
         });
     }
 
-    private void setLoopAttributes(int w, Vector!UnionFindNode nodePool, SimpleLoop loop) {
+    private void setLoopAttributes(int w, ref Vector!UnionFindNode nodePool, SimpleLoop loop) {
         // At this point, one can set attributes to the loop, such as:
         //
         // the bottom node:
@@ -536,7 +520,7 @@ private final class HavlakLoopFinder {
         });
     }
 
-    private void stepD(int w, Vector!UnionFindNode nodePool) {
+    private void stepD(int w, ref Vector!UnionFindNode nodePool) {
         backPreds.at(w).forEach((v) {
             if (v != w)
                 nodePool.append(nodes[v].findSet());
@@ -546,19 +530,17 @@ private final class HavlakLoopFinder {
     }
 }
 
-private final class LoopTesterApp {
+private struct LoopTesterApp {
     private ControlFlowGraph cfg;
     private LoopStructureGraph lsg;
 
-    this() {
-        cfg = make!ControlFlowGraph;
-        lsg = make!LoopStructureGraph;
-        cfg.createNode(0);
-    }
+    @disable this(this);
 
-    version (ManualMemory) ~this() {
-        dispose(cfg);
-        dispose(lsg);
+    static LoopTesterApp create() {
+        LoopTesterApp app;
+        app.lsg = LoopStructureGraph.create();
+        app.cfg.createNode(0);
+        return app;
     }
 
     private int buildDiamond(int start) {
@@ -609,10 +591,7 @@ private final class LoopTesterApp {
         findLoops(lsg);
 
         foreach (i; 0 .. findLoopIterations) {
-            version (ManualMemory)
-                scope loopStructure = new LoopStructureGraph;
-            else
-                auto loopStructure = new LoopStructureGraph;
+            auto loopStructure = LoopStructureGraph.create();
             findLoops(loopStructure);
         }
 
@@ -646,21 +625,15 @@ private final class LoopTesterApp {
             findLoops(lsg);
     }
 
-    private void findLoops(LoopStructureGraph loopStructure) {
-        version (ManualMemory)
-            scope finder = new HavlakLoopFinder(cfg, loopStructure);
-        else
-            auto finder = new HavlakLoopFinder(cfg, loopStructure);
+    private void findLoops(ref LoopStructureGraph loopStructure) {
+        auto finder = HavlakLoopFinder(&cfg, &loopStructure);
         finder.findLoops();
     }
 }
 
 final class Havlak : Runnable {
     bool innerBenchmarkLoop(int innerIterations) {
-        version (ManualMemory)
-            scope app = new LoopTesterApp;
-        else
-            auto app = new LoopTesterApp;
+        auto app = LoopTesterApp.create();
         return verifyResult(app.main(innerIterations, 50, 10 /* was 100 */, 10, 5),
                             innerIterations);
     }

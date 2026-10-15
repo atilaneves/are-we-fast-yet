@@ -446,7 +446,7 @@ private enum rapBenchmarkMinified =
     "client.BrowserNavigation\",\"addToHistory\",{\"entries\":[[" ~
     "\"tableviewer\",\"TableViewer\"]]}]]}";
 
-private final class HashIndexTable {
+private struct HashIndexTable {
     private int[32] hashTable;
 
     void add(string name, int index) {
@@ -525,13 +525,8 @@ private class JsonValue {
 private final class JsonArray : JsonValue {
     private Vector!JsonValue values;
 
-    this() {
-        values = make!(Vector!JsonValue);
-    }
-
     version (ManualMemory) ~this() {
         values.destroyValues();
-        dispose(values);
     }
 
     void add(JsonValue value) {
@@ -626,17 +621,8 @@ private final class JsonObject : JsonValue {
     private Vector!JsonValue values;
     private HashIndexTable table;
 
-    this() {
-        names = make!(Vector!string);
-        values = make!(Vector!JsonValue);
-        table = make!HashIndexTable;
-    }
-
     version (ManualMemory) ~this() {
         values.destroyValues();
-        dispose(values);
-        dispose(names);
-        dispose(table);
     }
 
     private int indexOf(string name) {
@@ -721,7 +707,7 @@ private final class ParseException : Exception {
     }
 }
 
-private final class JsonPureStringParser {
+private struct JsonPureStringParser {
     private string input;
     private size_t index = size_t.max;
     private int line = 1;
@@ -1009,10 +995,7 @@ private final class JsonPureStringParser {
 
 final class Json : Benchmark!JsonValue {
     override JsonValue benchmark() {
-        version (ManualMemory)
-            scope parser = new JsonPureStringParser(rapBenchmarkMinified);
-        else
-            auto parser = new JsonPureStringParser(rapBenchmarkMinified);
+        auto parser = JsonPureStringParser(rapBenchmarkMinified);
         return parser.parse();
     }
 
