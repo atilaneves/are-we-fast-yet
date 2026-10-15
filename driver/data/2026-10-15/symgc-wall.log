@@ -1,0 +1,901 @@
+### benchmarks/D ./harness-symgc --DRT-gcopt=gc:sdcq List 1 1500
+Starting List benchmark ...
+List: iterations=1 runtime: 34064us
+List: iterations=1 average: 34064us total: 34064us
+
+Total Runtime: 34064us
+### exit 0 wall_us 37630
+### benchmarks/D ./harness-symgc --DRT-gcopt=gc:sdcq List 1 1500
+Starting List benchmark ...
+List: iterations=1 runtime: 33881us
+List: iterations=1 average: 33881us total: 33881us
+
+Total Runtime: 33881us
+### exit 0 wall_us 37444
+### benchmarks/D ./harness-symgc --DRT-gcopt=gc:sdcq List 1 1500
+Starting List benchmark ...
+List: iterations=1 runtime: 33894us
+List: iterations=1 average: 33894us total: 33894us
+
+Total Runtime: 33894us
+### exit 0 wall_us 37423
+### benchmarks/D ./harness-symgc --DRT-gcopt=gc:sdcq Json 1 100
+Starting Json benchmark ...
+Json: iterations=1 runtime: 39428us
+Json: iterations=1 average: 39428us total: 39428us
+
+Total Runtime: 39428us
+### exit 0 wall_us 45671
+### benchmarks/D ./harness-symgc --DRT-gcopt=gc:sdcq Json 1 100
+Starting Json benchmark ...
+Json: iterations=1 runtime: 32708us
+Json: iterations=1 average: 32708us total: 32708us
+
+Total Runtime: 32708us
+### exit 0 wall_us 37233
+### benchmarks/D ./harness-symgc --DRT-gcopt=gc:sdcq Json 1 100
+Starting Json benchmark ...
+Json: iterations=1 runtime: 32706us
+Json: iterations=1 average: 32706us total: 32706us
+
+Total Runtime: 32706us
+### exit 0 wall_us 37515
+### benchmarks/D ./harness-symgc --DRT-gcopt=gc:sdcq Permute 1 1000
+Starting Permute benchmark ...
+Permute: iterations=1 runtime: 34799us
+Permute: iterations=1 average: 34799us total: 34799us
+
+Total Runtime: 34799us
+### exit 0 wall_us 38675
+### benchmarks/D ./harness-symgc --DRT-gcopt=gc:sdcq Permute 1 1000
+Starting Permute benchmark ...
+Permute: iterations=1 runtime: 31816us
+Permute: iterations=1 average: 31816us total: 31816us
+
+Total Runtime: 31816us
+### exit 0 wall_us 34904
+### benchmarks/D ./harness-symgc --DRT-gcopt=gc:sdcq Permute 1 1000
+Starting Permute benchmark ...
+Permute: iterations=1 runtime: 32062us
+Permute: iterations=1 average: 32062us total: 32062us
+
+Total Runtime: 32062us
+### exit 0 wall_us 35344
+### benchmarks/D ./harness-symgc --DRT-gcopt=gc:sdcq Havlak 1 1500
+Starting Havlak benchmark ...
+Havlak: iterations=1 runtime: 145911us
+Havlak: iterations=1 average: 145911us total: 145911us
+
+Total Runtime: 145911us
+### exit 0 wall_us 153189
+### benchmarks/D ./harness-symgc --DRT-gcopt=gc:sdcq Havlak 1 1500
+Starting Havlak benchmark ...
+Havlak: iterations=1 runtime: 146859us
+Havlak: iterations=1 average: 146859us total: 146859us
+
+Total Runtime: 146859us
+### exit 0 wall_us 153917
+### benchmarks/D ./harness-symgc --DRT-gcopt=gc:sdcq Havlak 1 1500
+Starting Havlak benchmark ...
+Havlak: iterations=1 runtime: 150866us
+Havlak: iterations=1 average: 150866us total: 150866us
+
+Total Runtime: 150866us
+### exit 0 wall_us 158384
+### benchmarks/D env DGC=symgc sb -I src src -- --DRT-testmode=run-main Towers 1 600
+Starting Towers benchmark ...
+Towers: iterations=1 runtime: 2867258us
+Towers: iterations=1 average: 2867258us total: 2867258us
+
+Total Runtime: 2867258us
+src scan:                 0.2 ms
+frontend time:          255.0 ms
+image time:               0.9 ms
+backend latency:       2870.9 ms
+  compile:                2.4 ms
+  ModuleInfo:             0.8 ms
+  module ctors:           0.2 ms
+  tests and main:      2867.5 ms
+  other:                  0.0 ms
+### exit 0 wall_us 3138826
+### benchmarks/D env DGC=symgc sb -I src src -- --DRT-testmode=run-main Towers 1 600
+Starting Towers benchmark ...
+Towers: iterations=1 runtime: 2932509us
+Towers: iterations=1 average: 2932509us total: 2932509us
+
+Total Runtime: 2932509us
+src scan:                 0.2 ms
+frontend time:          261.2 ms
+image time:               0.9 ms
+backend latency:       2936.2 ms
+  compile:                2.4 ms
+  ModuleInfo:             0.8 ms
+  module ctors:           0.2 ms
+  tests and main:      2932.8 ms
+  other:                  0.0 ms
+### exit 0 wall_us 3209494
+### benchmarks/D env DGC=symgc sb -I src src -- --DRT-testmode=run-main Towers 1 600
+Starting Towers benchmark ...
+Towers: iterations=1 runtime: 2946305us
+Towers: iterations=1 average: 2946305us total: 2946305us
+
+Total Runtime: 2946305us
+src scan:                 0.2 ms
+frontend time:          255.6 ms
+image time:               0.9 ms
+backend latency:       2950.2 ms
+  compile:                2.5 ms
+  ModuleInfo:             0.9 ms
+  module ctors:           0.2 ms
+  tests and main:      2946.6 ms
+  other:                  0.0 ms
+### exit 0 wall_us 3217500
+### benchmarks/D ./harness-symgc --DRT-gcopt=gc:sdcq Queens 1 1000
+Starting Queens benchmark ...
+Queens: iterations=1 runtime: 18754us
+Queens: iterations=1 average: 18754us total: 18754us
+
+Total Runtime: 18754us
+### exit 0 wall_us 21452
+### benchmarks/D ./harness-symgc --DRT-gcopt=gc:sdcq Queens 1 1000
+Starting Queens benchmark ...
+Queens: iterations=1 runtime: 18505us
+Queens: iterations=1 average: 18505us total: 18505us
+
+Total Runtime: 18505us
+### exit 0 wall_us 21235
+### benchmarks/D ./harness-symgc --DRT-gcopt=gc:sdcq Queens 1 1000
+Starting Queens benchmark ...
+Queens: iterations=1 runtime: 18769us
+Queens: iterations=1 average: 18769us total: 18769us
+
+Total Runtime: 18769us
+### exit 0 wall_us 21624
+### benchmarks/D ./harness-symgc --DRT-gcopt=gc:sdcq Storage 1 1000
+Starting Storage benchmark ...
+Storage: iterations=1 runtime: 657425us
+Storage: iterations=1 average: 657425us total: 657425us
+
+Total Runtime: 657425us
+### exit 0 wall_us 662005
+### benchmarks/D ./harness-symgc --DRT-gcopt=gc:sdcq Storage 1 1000
+Starting Storage benchmark ...
+Storage: iterations=1 runtime: 659617us
+Storage: iterations=1 average: 659617us total: 659617us
+
+Total Runtime: 659617us
+### exit 0 wall_us 664096
+### benchmarks/D ./harness-symgc --DRT-gcopt=gc:sdcq Storage 1 1000
+Starting Storage benchmark ...
+Storage: iterations=1 runtime: 658841us
+Storage: iterations=1 average: 658841us total: 658841us
+
+Total Runtime: 658841us
+### exit 0 wall_us 663020
+### benchmarks/D env DGC=symgc sb -I src src -- --DRT-testmode=run-main NBody 1 250000
+Starting NBody benchmark ...
+NBody: iterations=1 runtime: 1092995us
+NBody: iterations=1 average: 1092995us total: 1092995us
+
+Total Runtime: 1092995us
+src scan:                 0.2 ms
+frontend time:          253.7 ms
+image time:               0.9 ms
+backend latency:       1096.7 ms
+  compile:                2.4 ms
+  ModuleInfo:             0.8 ms
+  module ctors:           0.2 ms
+  tests and main:      1093.3 ms
+  other:                  0.0 ms
+### exit 0 wall_us 1361228
+### benchmarks/D env DGC=symgc sb -I src src -- --DRT-testmode=run-main NBody 1 250000
+Starting NBody benchmark ...
+NBody: iterations=1 runtime: 1115010us
+NBody: iterations=1 average: 1115010us total: 1115010us
+
+Total Runtime: 1115010us
+src scan:                 0.2 ms
+frontend time:          257.9 ms
+image time:               0.9 ms
+backend latency:       1118.8 ms
+  compile:                2.4 ms
+  ModuleInfo:             0.9 ms
+  module ctors:           0.2 ms
+  tests and main:      1115.3 ms
+  other:                  0.0 ms
+### exit 0 wall_us 1388613
+### benchmarks/D env DGC=symgc sb -I src src -- --DRT-testmode=run-main NBody 1 250000
+Starting NBody benchmark ...
+NBody: iterations=1 runtime: 1148850us
+NBody: iterations=1 average: 1148850us total: 1148850us
+
+Total Runtime: 1148850us
+src scan:                 0.2 ms
+frontend time:          299.0 ms
+image time:               0.9 ms
+backend latency:       1153.5 ms
+  compile:                2.7 ms
+  ModuleInfo:             1.4 ms
+  module ctors:           0.3 ms
+  tests and main:      1149.2 ms
+  other:                  0.0 ms
+### exit 0 wall_us 1466288
+### benchmarks/D env DGC=symgc sb -I src src -- --DRT-testmode=run-main Storage 1 1000
+Starting Storage benchmark ...
+Storage: iterations=1 runtime: 11979365us
+Storage: iterations=1 average: 11979365us total: 11979365us
+
+Total Runtime: 11979365us
+src scan:                 0.2 ms
+frontend time:          300.0 ms
+image time:               1.0 ms
+backend latency:      11983.9 ms
+  compile:                2.6 ms
+  ModuleInfo:             1.3 ms
+  module ctors:           0.3 ms
+  tests and main:     11979.7 ms
+  other:                  0.0 ms
+### exit 0 wall_us 12299094
+### benchmarks/D env DGC=symgc sb -I src src -- --DRT-testmode=run-main Storage 1 1000
+Starting Storage benchmark ...
+Storage: iterations=1 runtime: 10285230us
+Storage: iterations=1 average: 10285230us total: 10285230us
+
+Total Runtime: 10285230us
+src scan:                 0.3 ms
+frontend time:          514.6 ms
+image time:               1.5 ms
+backend latency:      10293.1 ms
+  compile:                4.7 ms
+  ModuleInfo:             2.2 ms
+  module ctors:           0.4 ms
+  tests and main:     10285.8 ms
+  other:                  0.0 ms
+### exit 0 wall_us 10828537
+### benchmarks/D env DGC=symgc sb -I src src -- --DRT-testmode=run-main Storage 1 1000
+Starting Storage benchmark ...
+Storage: iterations=1 runtime: 6336199us
+Storage: iterations=1 average: 6336199us total: 6336199us
+
+Total Runtime: 6336199us
+src scan:                 0.2 ms
+frontend time:          321.3 ms
+image time:               1.0 ms
+backend latency:       6340.9 ms
+  compile:                2.7 ms
+  ModuleInfo:             1.4 ms
+  module ctors:           0.3 ms
+  tests and main:      6336.5 ms
+  other:                  0.0 ms
+### exit 0 wall_us 6676486
+### benchmarks/D env DGC=symgc sb -I src src -- --DRT-testmode=run-main Bounce 1 1500
+Starting Bounce benchmark ...
+Bounce: iterations=1 runtime: 1363862us
+Bounce: iterations=1 average: 1363862us total: 1363862us
+
+Total Runtime: 1363862us
+src scan:                 0.2 ms
+frontend time:          251.8 ms
+image time:               0.8 ms
+backend latency:       1367.1 ms
+  compile:                2.1 ms
+  ModuleInfo:             0.8 ms
+  module ctors:           0.2 ms
+  tests and main:      1364.1 ms
+  other:                  0.0 ms
+### exit 0 wall_us 1630079
+### benchmarks/D env DGC=symgc sb -I src src -- --DRT-testmode=run-main Bounce 1 1500
+Starting Bounce benchmark ...
+Bounce: iterations=1 runtime: 1387248us
+Bounce: iterations=1 average: 1387248us total: 1387248us
+
+Total Runtime: 1387248us
+src scan:                 0.2 ms
+frontend time:          252.0 ms
+image time:               0.9 ms
+backend latency:       1390.7 ms
+  compile:                2.2 ms
+  ModuleInfo:             0.7 ms
+  module ctors:           0.2 ms
+  tests and main:      1387.5 ms
+  other:                  0.0 ms
+### exit 0 wall_us 1653799
+### benchmarks/D env DGC=symgc sb -I src src -- --DRT-testmode=run-main Bounce 1 1500
+Starting Bounce benchmark ...
+Bounce: iterations=1 runtime: 1400361us
+Bounce: iterations=1 average: 1400361us total: 1400361us
+
+Total Runtime: 1400361us
+src scan:                 0.2 ms
+frontend time:          252.6 ms
+image time:               0.8 ms
+backend latency:       1403.8 ms
+  compile:                2.2 ms
+  ModuleInfo:             0.8 ms
+  module ctors:           0.2 ms
+  tests and main:      1400.6 ms
+  other:                  0.0 ms
+### exit 0 wall_us 1667319
+### benchmarks/D ./harness-symgc --DRT-gcopt=gc:sdcq CD 1 250
+Starting CD benchmark ...
+CD: iterations=1 runtime: 87182us
+CD: iterations=1 average: 87182us total: 87182us
+
+Total Runtime: 87182us
+### exit 0 wall_us 91015
+### benchmarks/D ./harness-symgc --DRT-gcopt=gc:sdcq CD 1 250
+Starting CD benchmark ...
+CD: iterations=1 runtime: 85870us
+CD: iterations=1 average: 85870us total: 85870us
+
+Total Runtime: 85870us
+### exit 0 wall_us 89711
+### benchmarks/D ./harness-symgc --DRT-gcopt=gc:sdcq CD 1 250
+Starting CD benchmark ...
+CD: iterations=1 runtime: 84508us
+CD: iterations=1 average: 84508us total: 84508us
+
+Total Runtime: 84508us
+### exit 0 wall_us 88319
+### benchmarks/D ./harness-symgc --DRT-gcopt=gc:sdcq Towers 1 600
+Starting Towers benchmark ...
+Towers: iterations=1 runtime: 17636us
+Towers: iterations=1 average: 17636us total: 17636us
+
+Total Runtime: 17636us
+### exit 0 wall_us 20379
+### benchmarks/D ./harness-symgc --DRT-gcopt=gc:sdcq Towers 1 600
+Starting Towers benchmark ...
+Towers: iterations=1 runtime: 17533us
+Towers: iterations=1 average: 17533us total: 17533us
+
+Total Runtime: 17533us
+### exit 0 wall_us 20206
+### benchmarks/D ./harness-symgc --DRT-gcopt=gc:sdcq Towers 1 600
+Starting Towers benchmark ...
+Towers: iterations=1 runtime: 18352us
+Towers: iterations=1 average: 18352us total: 18352us
+
+Total Runtime: 18352us
+### exit 0 wall_us 21037
+### benchmarks/D env DGC=symgc sb -I src src -- --DRT-testmode=run-main Sieve 1 3000
+Starting Sieve benchmark ...
+Sieve: iterations=1 runtime: 2005892us
+Sieve: iterations=1 average: 2005892us total: 2005892us
+
+Total Runtime: 2005892us
+src scan:                 0.2 ms
+frontend time:          247.3 ms
+image time:               0.8 ms
+backend latency:       2009.1 ms
+  compile:                2.0 ms
+  ModuleInfo:             0.7 ms
+  module ctors:           0.2 ms
+  tests and main:      2006.2 ms
+  other:                  0.0 ms
+### exit 0 wall_us 2267484
+### benchmarks/D env DGC=symgc sb -I src src -- --DRT-testmode=run-main Sieve 1 3000
+Starting Sieve benchmark ...
+Sieve: iterations=1 runtime: 2051182us
+Sieve: iterations=1 average: 2051182us total: 2051182us
+
+Total Runtime: 2051182us
+src scan:                 0.2 ms
+frontend time:          247.3 ms
+image time:               0.9 ms
+backend latency:       2054.5 ms
+  compile:                2.1 ms
+  ModuleInfo:             0.8 ms
+  module ctors:           0.2 ms
+  tests and main:      2051.4 ms
+  other:                  0.0 ms
+### exit 0 wall_us 2313002
+### benchmarks/D env DGC=symgc sb -I src src -- --DRT-testmode=run-main Sieve 1 3000
+Starting Sieve benchmark ...
+Sieve: iterations=1 runtime: 2107339us
+Sieve: iterations=1 average: 2107339us total: 2107339us
+
+Total Runtime: 2107339us
+src scan:                 0.2 ms
+frontend time:          251.0 ms
+image time:               0.8 ms
+backend latency:       2110.6 ms
+  compile:                2.0 ms
+  ModuleInfo:             0.7 ms
+  module ctors:           0.2 ms
+  tests and main:      2107.6 ms
+  other:                  0.0 ms
+### exit 0 wall_us 2372824
+### benchmarks/D env DGC=symgc sb -I src src -- --DRT-testmode=run-main Mandelbrot 1 500
+Starting Mandelbrot benchmark ...
+Mandelbrot: iterations=1 runtime: 434313us
+Mandelbrot: iterations=1 average: 434313us total: 434313us
+
+Total Runtime: 434313us
+src scan:                 0.2 ms
+frontend time:          255.6 ms
+image time:               0.8 ms
+backend latency:        437.5 ms
+  compile:                2.0 ms
+  ModuleInfo:             0.7 ms
+  module ctors:           0.2 ms
+  tests and main:       434.6 ms
+  other:                  0.0 ms
+### exit 0 wall_us 704194
+### benchmarks/D env DGC=symgc sb -I src src -- --DRT-testmode=run-main Mandelbrot 1 500
+Starting Mandelbrot benchmark ...
+Mandelbrot: iterations=1 runtime: 425968us
+Mandelbrot: iterations=1 average: 425968us total: 425968us
+
+Total Runtime: 425968us
+src scan:                 0.2 ms
+frontend time:          255.8 ms
+image time:               0.8 ms
+backend latency:        429.3 ms
+  compile:                2.1 ms
+  ModuleInfo:             0.8 ms
+  module ctors:           0.2 ms
+  tests and main:       426.2 ms
+  other:                  0.0 ms
+### exit 0 wall_us 696065
+### benchmarks/D env DGC=symgc sb -I src src -- --DRT-testmode=run-main Mandelbrot 1 500
+Starting Mandelbrot benchmark ...
+Mandelbrot: iterations=1 runtime: 433631us
+Mandelbrot: iterations=1 average: 433631us total: 433631us
+
+Total Runtime: 433631us
+src scan:                 0.2 ms
+frontend time:          252.5 ms
+image time:               0.9 ms
+backend latency:        437.0 ms
+  compile:                2.1 ms
+  ModuleInfo:             0.8 ms
+  module ctors:           0.2 ms
+  tests and main:       433.9 ms
+  other:                  0.0 ms
+### exit 0 wall_us 700491
+### benchmarks/D ./harness-symgc --DRT-gcopt=gc:sdcq NBody 1 250000
+Starting NBody benchmark ...
+NBody: iterations=1 runtime: 17237us
+NBody: iterations=1 average: 17237us total: 17237us
+
+Total Runtime: 17237us
+### exit 0 wall_us 20752
+### benchmarks/D ./harness-symgc --DRT-gcopt=gc:sdcq NBody 1 250000
+Starting NBody benchmark ...
+NBody: iterations=1 runtime: 17293us
+NBody: iterations=1 average: 17293us total: 17293us
+
+Total Runtime: 17293us
+### exit 0 wall_us 20898
+### benchmarks/D ./harness-symgc --DRT-gcopt=gc:sdcq NBody 1 250000
+Starting NBody benchmark ...
+NBody: iterations=1 runtime: 17268us
+NBody: iterations=1 average: 17268us total: 17268us
+
+Total Runtime: 17268us
+### exit 0 wall_us 21057
+### benchmarks/D ./harness-symgc --DRT-gcopt=gc:sdcq Sieve 1 3000
+Starting Sieve benchmark ...
+Sieve: iterations=1 runtime: 44749us
+Sieve: iterations=1 average: 44749us total: 44749us
+
+Total Runtime: 44749us
+### exit 0 wall_us 47902
+### benchmarks/D ./harness-symgc --DRT-gcopt=gc:sdcq Sieve 1 3000
+Starting Sieve benchmark ...
+Sieve: iterations=1 runtime: 44711us
+Sieve: iterations=1 average: 44711us total: 44711us
+
+Total Runtime: 44711us
+### exit 0 wall_us 47970
+### benchmarks/D ./harness-symgc --DRT-gcopt=gc:sdcq Sieve 1 3000
+Starting Sieve benchmark ...
+Sieve: iterations=1 runtime: 44357us
+Sieve: iterations=1 average: 44357us total: 44357us
+
+Total Runtime: 44357us
+### exit 0 wall_us 47520
+### benchmarks/D ./harness-symgc --DRT-gcopt=gc:sdcq DeltaBlue 1 12000
+Starting DeltaBlue benchmark ...
+DeltaBlue: iterations=1 runtime: 27059us
+DeltaBlue: iterations=1 average: 27059us total: 27059us
+
+Total Runtime: 27059us
+### exit 0 wall_us 30931
+### benchmarks/D ./harness-symgc --DRT-gcopt=gc:sdcq DeltaBlue 1 12000
+Starting DeltaBlue benchmark ...
+DeltaBlue: iterations=1 runtime: 27159us
+DeltaBlue: iterations=1 average: 27159us total: 27159us
+
+Total Runtime: 27159us
+### exit 0 wall_us 31055
+### benchmarks/D ./harness-symgc --DRT-gcopt=gc:sdcq DeltaBlue 1 12000
+Starting DeltaBlue benchmark ...
+DeltaBlue: iterations=1 runtime: 27121us
+DeltaBlue: iterations=1 average: 27121us total: 27121us
+
+Total Runtime: 27121us
+### exit 0 wall_us 30937
+### benchmarks/D ./harness-symgc --DRT-gcopt=gc:sdcq Richards 1 100
+Starting Richards benchmark ...
+Richards: iterations=1 runtime: 81781us
+Richards: iterations=1 average: 81781us total: 81781us
+
+Total Runtime: 81781us
+### exit 0 wall_us 84887
+### benchmarks/D ./harness-symgc --DRT-gcopt=gc:sdcq Richards 1 100
+Starting Richards benchmark ...
+Richards: iterations=1 runtime: 82955us
+Richards: iterations=1 average: 82955us total: 82955us
+
+Total Runtime: 82955us
+### exit 0 wall_us 85976
+### benchmarks/D ./harness-symgc --DRT-gcopt=gc:sdcq Richards 1 100
+Starting Richards benchmark ...
+Richards: iterations=1 runtime: 80127us
+Richards: iterations=1 average: 80127us total: 80127us
+
+Total Runtime: 80127us
+### exit 0 wall_us 83180
+### benchmarks/D env DGC=symgc sb -I src src -- --DRT-testmode=run-main Json 1 100
+Starting Json benchmark ...
+Json: iterations=1 runtime: 1549727us
+Json: iterations=1 average: 1549727us total: 1549727us
+
+Total Runtime: 1549727us
+src scan:                 0.2 ms
+frontend time:          252.1 ms
+image time:               0.8 ms
+backend latency:       1554.9 ms
+  compile:                3.9 ms
+  ModuleInfo:             0.8 ms
+  module ctors:           0.2 ms
+  tests and main:      1550.0 ms
+  other:                  0.0 ms
+### exit 0 wall_us 1818384
+### benchmarks/D env DGC=symgc sb -I src src -- --DRT-testmode=run-main Json 1 100
+Starting Json benchmark ...
+Json: iterations=1 runtime: 1547338us
+Json: iterations=1 average: 1547338us total: 1547338us
+
+Total Runtime: 1547338us
+src scan:                 0.2 ms
+frontend time:          251.4 ms
+image time:               0.9 ms
+backend latency:       1552.6 ms
+  compile:                3.9 ms
+  ModuleInfo:             0.9 ms
+  module ctors:           0.2 ms
+  tests and main:      1547.6 ms
+  other:                  0.0 ms
+### exit 0 wall_us 1815947
+### benchmarks/D env DGC=symgc sb -I src src -- --DRT-testmode=run-main Json 1 100
+Starting Json benchmark ...
+Json: iterations=1 runtime: 1548148us
+Json: iterations=1 average: 1548148us total: 1548148us
+
+Total Runtime: 1548148us
+src scan:                 0.2 ms
+frontend time:          248.9 ms
+image time:               0.8 ms
+backend latency:       1553.1 ms
+  compile:                3.8 ms
+  ModuleInfo:             0.7 ms
+  module ctors:           0.2 ms
+  tests and main:      1548.4 ms
+  other:                  0.0 ms
+### exit 0 wall_us 1813608
+### benchmarks/D ./harness-symgc --DRT-gcopt=gc:sdcq Mandelbrot 1 500
+Starting Mandelbrot benchmark ...
+Mandelbrot: iterations=1 runtime: 43437us
+Mandelbrot: iterations=1 average: 43437us total: 43437us
+
+Total Runtime: 43437us
+### exit 0 wall_us 47017
+### benchmarks/D ./harness-symgc --DRT-gcopt=gc:sdcq Mandelbrot 1 500
+Starting Mandelbrot benchmark ...
+Mandelbrot: iterations=1 runtime: 43349us
+Mandelbrot: iterations=1 average: 43349us total: 43349us
+
+Total Runtime: 43349us
+### exit 0 wall_us 46906
+### benchmarks/D ./harness-symgc --DRT-gcopt=gc:sdcq Mandelbrot 1 500
+Starting Mandelbrot benchmark ...
+Mandelbrot: iterations=1 runtime: 43345us
+Mandelbrot: iterations=1 average: 43345us total: 43345us
+
+Total Runtime: 43345us
+### exit 0 wall_us 46837
+### benchmarks/D env DGC=symgc sb -I src src -- --DRT-testmode=run-main Havlak 1 1500
+Starting Havlak benchmark ...
+Havlak: iterations=1 runtime: 4163335us
+Havlak: iterations=1 average: 4163335us total: 4163335us
+
+Total Runtime: 4163335us
+src scan:                 0.2 ms
+frontend time:          264.0 ms
+image time:               0.9 ms
+backend latency:       4171.3 ms
+  compile:                6.3 ms
+  ModuleInfo:             1.1 ms
+  module ctors:           0.2 ms
+  tests and main:      4163.6 ms
+  other:                  0.0 ms
+### exit 0 wall_us 4447579
+### benchmarks/D env DGC=symgc sb -I src src -- --DRT-testmode=run-main Havlak 1 1500
+Starting Havlak benchmark ...
+Havlak: iterations=1 runtime: 4221840us
+Havlak: iterations=1 average: 4221840us total: 4221840us
+
+Total Runtime: 4221840us
+src scan:                 0.2 ms
+frontend time:          259.7 ms
+image time:               0.9 ms
+backend latency:       4229.3 ms
+  compile:                6.2 ms
+  ModuleInfo:             0.8 ms
+  module ctors:           0.2 ms
+  tests and main:      4222.1 ms
+  other:                  0.0 ms
+### exit 0 wall_us 4504600
+### benchmarks/D env DGC=symgc sb -I src src -- --DRT-testmode=run-main Havlak 1 1500
+Starting Havlak benchmark ...
+Havlak: iterations=1 runtime: 5790209us
+Havlak: iterations=1 average: 5790209us total: 5790209us
+
+Total Runtime: 5790209us
+src scan:                 0.3 ms
+frontend time:          424.3 ms
+image time:               1.3 ms
+backend latency:       5803.7 ms
+  compile:               10.6 ms
+  ModuleInfo:             2.2 ms
+  module ctors:           0.3 ms
+  tests and main:      5790.6 ms
+  other:                  0.0 ms
+### exit 0 wall_us 6246043
+### benchmarks/D env DGC=symgc sb -I src src -- --DRT-testmode=run-main Queens 1 1000
+Starting Queens benchmark ...
+Queens: iterations=1 runtime: 2241714us
+Queens: iterations=1 average: 2241714us total: 2241714us
+
+Total Runtime: 2241714us
+src scan:                 0.2 ms
+frontend time:          268.9 ms
+image time:               0.8 ms
+backend latency:       2245.6 ms
+  compile:                2.3 ms
+  ModuleInfo:             1.1 ms
+  module ctors:           0.2 ms
+  tests and main:      2242.0 ms
+  other:                  0.0 ms
+### exit 0 wall_us 2527368
+### benchmarks/D env DGC=symgc sb -I src src -- --DRT-testmode=run-main Queens 1 1000
+Starting Queens benchmark ...
+Queens: iterations=1 runtime: 2478160us
+Queens: iterations=1 average: 2478160us total: 2478160us
+
+Total Runtime: 2478160us
+src scan:                 0.3 ms
+frontend time:          363.3 ms
+image time:               1.1 ms
+backend latency:       2483.2 ms
+  compile:                3.2 ms
+  ModuleInfo:             1.3 ms
+  module ctors:           0.3 ms
+  tests and main:      2478.5 ms
+  other:                  0.0 ms
+### exit 0 wall_us 2861031
+### benchmarks/D env DGC=symgc sb -I src src -- --DRT-testmode=run-main Queens 1 1000
+Starting Queens benchmark ...
+Queens: iterations=1 runtime: 2302683us
+Queens: iterations=1 average: 2302683us total: 2302683us
+
+Total Runtime: 2302683us
+src scan:                 0.3 ms
+frontend time:          358.6 ms
+image time:               1.1 ms
+backend latency:       2307.7 ms
+  compile:                3.2 ms
+  ModuleInfo:             1.3 ms
+  module ctors:           0.3 ms
+  tests and main:      2303.0 ms
+  other:                  0.0 ms
+### exit 0 wall_us 2680945
+### benchmarks/D env DGC=symgc sb -I src src -- --DRT-testmode=run-main DeltaBlue 1 12000
+Starting DeltaBlue benchmark ...
+DeltaBlue: iterations=1 runtime: 1214083us
+DeltaBlue: iterations=1 average: 1214083us total: 1214083us
+
+Total Runtime: 1214083us
+src scan:                 0.2 ms
+frontend time:          357.8 ms
+image time:               1.1 ms
+backend latency:       1225.4 ms
+  compile:                9.4 ms
+  ModuleInfo:             1.3 ms
+  module ctors:           0.3 ms
+  tests and main:      1214.4 ms
+  other:                  0.0 ms
+### exit 0 wall_us 1597121
+### benchmarks/D env DGC=symgc sb -I src src -- --DRT-testmode=run-main DeltaBlue 1 12000
+Starting DeltaBlue benchmark ...
+DeltaBlue: iterations=1 runtime: 1024119us
+DeltaBlue: iterations=1 average: 1024119us total: 1024119us
+
+Total Runtime: 1024119us
+src scan:                 0.2 ms
+frontend time:          246.2 ms
+image time:               0.8 ms
+backend latency:       1031.7 ms
+  compile:                6.4 ms
+  ModuleInfo:             0.8 ms
+  module ctors:           0.2 ms
+  tests and main:      1024.4 ms
+  other:                  0.0 ms
+### exit 0 wall_us 1289240
+### benchmarks/D env DGC=symgc sb -I src src -- --DRT-testmode=run-main DeltaBlue 1 12000
+Starting DeltaBlue benchmark ...
+DeltaBlue: iterations=1 runtime: 1012779us
+DeltaBlue: iterations=1 average: 1012779us total: 1012779us
+
+Total Runtime: 1012779us
+src scan:                 0.2 ms
+frontend time:          256.2 ms
+image time:               0.8 ms
+backend latency:       1020.7 ms
+  compile:                6.7 ms
+  ModuleInfo:             0.8 ms
+  module ctors:           0.2 ms
+  tests and main:      1013.0 ms
+  other:                  0.0 ms
+### exit 0 wall_us 1288282
+### benchmarks/D env DGC=symgc sb -I src src -- --DRT-testmode=run-main Richards 1 100
+Starting Richards benchmark ...
+Richards: iterations=1 runtime: 11511510us
+Richards: iterations=1 average: 11511510us total: 11511510us
+
+Total Runtime: 11511510us
+src scan:                 0.2 ms
+frontend time:          257.7 ms
+image time:               0.8 ms
+backend latency:      11516.0 ms
+  compile:                3.3 ms
+  ModuleInfo:             0.7 ms
+  module ctors:           0.2 ms
+  tests and main:     11511.8 ms
+  other:                  0.0 ms
+### exit 0 wall_us 11785689
+### benchmarks/D env DGC=symgc sb -I src src -- --DRT-testmode=run-main Richards 1 100
+Starting Richards benchmark ...
+Richards: iterations=1 runtime: 11143839us
+Richards: iterations=1 average: 11143839us total: 11143839us
+
+Total Runtime: 11143839us
+src scan:                 0.2 ms
+frontend time:          272.2 ms
+image time:               0.9 ms
+backend latency:      11149.0 ms
+  compile:                3.5 ms
+  ModuleInfo:             1.1 ms
+  module ctors:           0.2 ms
+  tests and main:     11144.1 ms
+  other:                  0.0 ms
+### exit 0 wall_us 11433483
+### benchmarks/D env DGC=symgc sb -I src src -- --DRT-testmode=run-main Richards 1 100
+Starting Richards benchmark ...
+Richards: iterations=1 runtime: 10732495us
+Richards: iterations=1 average: 10732495us total: 10732495us
+
+Total Runtime: 10732495us
+src scan:                 0.2 ms
+frontend time:          266.3 ms
+image time:               0.9 ms
+backend latency:      10739.0 ms
+  compile:                4.9 ms
+  ModuleInfo:             1.1 ms
+  module ctors:           0.2 ms
+  tests and main:     10732.8 ms
+  other:                  0.0 ms
+### exit 0 wall_us 11016814
+### benchmarks/D ./harness-symgc --DRT-gcopt=gc:sdcq Bounce 1 1500
+### exit 1 wall_us 27669
+### benchmarks/D env DGC=symgc sb -I src src -- --DRT-testmode=run-main Permute 1 1000
+### exit 1 wall_us 2925087
+### benchmarks/D env DGC=symgc sb -I src src -- --DRT-testmode=run-main CD 1 250
+Starting CD benchmark ...
+CD: iterations=1 runtime: 3144731us
+CD: iterations=1 average: 3144731us total: 3144731us
+
+Total Runtime: 3144731us
+src scan:                 0.2 ms
+frontend time:          248.5 ms
+image time:               0.9 ms
+backend latency:       3151.4 ms
+  compile:                5.4 ms
+  ModuleInfo:             0.8 ms
+  module ctors:           0.2 ms
+  tests and main:      3145.0 ms
+  other:                  0.0 ms
+### exit 0 wall_us 3412147
+### benchmarks/D env DGC=symgc sb -I src src -- --DRT-testmode=run-main CD 1 250
+Starting CD benchmark ...
+CD: iterations=1 runtime: 3100028us
+CD: iterations=1 average: 3100028us total: 3100028us
+
+Total Runtime: 3100028us
+src scan:                 0.2 ms
+frontend time:          254.3 ms
+image time:               0.9 ms
+backend latency:       3106.8 ms
+  compile:                5.5 ms
+  ModuleInfo:             0.8 ms
+  module ctors:           0.2 ms
+  tests and main:      3100.3 ms
+  other:                  0.0 ms
+### exit 0 wall_us 3373450
+### benchmarks/D env DGC=symgc sb -I src src -- --DRT-testmode=run-main CD 1 250
+Starting CD benchmark ...
+CD: iterations=1 runtime: 3142273us
+CD: iterations=1 average: 3142273us total: 3142273us
+
+Total Runtime: 3142273us
+src scan:                 0.2 ms
+frontend time:          252.3 ms
+image time:               0.9 ms
+backend latency:       3149.0 ms
+  compile:                5.5 ms
+  ModuleInfo:             0.8 ms
+  module ctors:           0.2 ms
+  tests and main:      3142.5 ms
+  other:                  0.0 ms
+### exit 0 wall_us 3413272
+### benchmarks/D env DGC=symgc sb -I src src -- --DRT-testmode=run-main List 1 1500
+Starting List benchmark ...
+List: iterations=1 runtime: 3131137us
+List: iterations=1 average: 3131137us total: 3131137us
+
+Total Runtime: 3131137us
+src scan:                 0.2 ms
+frontend time:          268.4 ms
+image time:               1.2 ms
+backend latency:       3136.5 ms
+  compile:                3.4 ms
+  ModuleInfo:             1.4 ms
+  module ctors:           0.3 ms
+  tests and main:      3131.5 ms
+  other:                  0.0 ms
+### exit 0 wall_us 3417722
+### benchmarks/D env DGC=symgc sb -I src src -- --DRT-testmode=run-main List 1 1500
+Starting List benchmark ...
+List: iterations=1 runtime: 3087421us
+List: iterations=1 average: 3087421us total: 3087421us
+
+Total Runtime: 3087421us
+src scan:                 0.4 ms
+frontend time:          256.7 ms
+image time:               0.8 ms
+backend latency:       3091.0 ms
+  compile:                2.3 ms
+  ModuleInfo:             0.8 ms
+  module ctors:           0.2 ms
+  tests and main:      3087.7 ms
+  other:                  0.0 ms
+### exit 0 wall_us 3359901
+### benchmarks/D env DGC=symgc sb -I src src -- --DRT-testmode=run-main List 1 1500
+Starting List benchmark ...
+List: iterations=1 runtime: 3157388us
+List: iterations=1 average: 3157388us total: 3157388us
+
+Total Runtime: 3157388us
+src scan:                 0.2 ms
+frontend time:          250.1 ms
+image time:               0.9 ms
+backend latency:       3161.5 ms
+  compile:                2.7 ms
+  ModuleInfo:             0.9 ms
+  module ctors:           0.2 ms
+  tests and main:      3157.7 ms
+  other:                  0.0 ms
+### exit 0 wall_us 3422930

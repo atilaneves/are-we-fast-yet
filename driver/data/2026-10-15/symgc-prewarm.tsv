@@ -1,0 +1,29 @@
+executor	wall_s	exit	command
+D-symgc	0.043	0	driver/run benchmarks/D ./harness-symgc --DRT-gcopt=gc:sdcq  Json 1  100
+D-symgc	0.030	0	driver/run benchmarks/D ./harness-symgc --DRT-gcopt=gc:sdcq  Towers 1  600
+D-symgc	0.037	0	driver/run benchmarks/D ./harness-symgc --DRT-gcopt=gc:sdcq  DeltaBlue 1  12000
+D-symgc	0.158	0	driver/run benchmarks/D ./harness-symgc --DRT-gcopt=gc:sdcq  Havlak 1  1500
+D-symgc	0.032	0	driver/run benchmarks/D ./harness-symgc --DRT-gcopt=gc:sdcq  Bounce 1  1500
+D-symgc	0.026	0	driver/run benchmarks/D ./harness-symgc --DRT-gcopt=gc:sdcq  NBody 1  250000
+D-symgc	0.052	0	driver/run benchmarks/D ./harness-symgc --DRT-gcopt=gc:sdcq  Sieve 1  3000
+D-symgc	0.039	0	driver/run benchmarks/D ./harness-symgc --DRT-gcopt=gc:sdcq  Permute 1  1000
+D-symgc	0.646	0	driver/run benchmarks/D ./harness-symgc --DRT-gcopt=gc:sdcq  Storage 1  1000
+D-symgc	0.042	0	driver/run benchmarks/D ./harness-symgc --DRT-gcopt=gc:sdcq  List 1  1500
+D-symgc	0.094	0	driver/run benchmarks/D ./harness-symgc --DRT-gcopt=gc:sdcq  CD 1  250
+D-symgc	0.026	0	driver/run benchmarks/D ./harness-symgc --DRT-gcopt=gc:sdcq  Queens 1  1000
+D-symgc	0.088	0	driver/run benchmarks/D ./harness-symgc --DRT-gcopt=gc:sdcq  Richards 1  100
+D-symgc	0.051	0	driver/run benchmarks/D ./harness-symgc --DRT-gcopt=gc:sdcq  Mandelbrot 1  500
+sb-symgc	11.331	0	driver/run benchmarks/D env DGC=symgc sb -I src src -- --DRT-testmode=run-main  Richards 1  100
+sb-symgc	0.716	0	driver/run benchmarks/D env DGC=symgc sb -I src src -- --DRT-testmode=run-main  Mandelbrot 1  500
+sb-symgc	7.156	0	driver/run benchmarks/D env DGC=symgc sb -I src src -- --DRT-testmode=run-main  Storage 1  1000
+sb-symgc	2.946	0	driver/run benchmarks/D env DGC=symgc sb -I src src -- --DRT-testmode=run-main  Permute 1  1000
+sb-symgc	3.206	0	driver/run benchmarks/D env DGC=symgc sb -I src src -- --DRT-testmode=run-main  Towers 1  600
+sb-symgc	6.483	0	driver/run benchmarks/D env DGC=symgc sb -I src src -- --DRT-testmode=run-main  Havlak 1  1500
+sb-symgc	5.543	0	driver/run benchmarks/D env DGC=symgc sb -I src src -- --DRT-testmode=run-main  CD 1  250
+sb-symgc	1.797	0	driver/run benchmarks/D env DGC=symgc sb -I src src -- --DRT-testmode=run-main  Bounce 1  1500
+sb-symgc	3.465	0	driver/run benchmarks/D env DGC=symgc sb -I src src -- --DRT-testmode=run-main  List 1  1500
+sb-symgc	2.065	0	driver/run benchmarks/D env DGC=symgc sb -I src src -- --DRT-testmode=run-main  Queens 1  1000
+sb-symgc	1.823	0	driver/run benchmarks/D env DGC=symgc sb -I src src -- --DRT-testmode=run-main  Json 1  100
+sb-symgc	1.377	0	driver/run benchmarks/D env DGC=symgc sb -I src src -- --DRT-testmode=run-main  NBody 1  250000
+sb-symgc	2.379	0	driver/run benchmarks/D env DGC=symgc sb -I src src -- --DRT-testmode=run-main  Sieve 1  3000
+sb-symgc	1.320	0	driver/run benchmarks/D env DGC=symgc sb -I src src -- --DRT-testmode=run-main  DeltaBlue 1  12000

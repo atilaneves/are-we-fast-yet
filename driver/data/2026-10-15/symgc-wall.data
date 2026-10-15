@@ -1,0 +1,213 @@
+#!/home/atila/.local/share/rebench-venv/bin/rebench -D -c -df results/symgc/wall.data compare.conf wall e:D-symgc e:sb-symgc
+# Execution Start: 2026-10-15T18:20:17.894601+00:00
+# Environment: {"userName":"atila","manualRun":true,"hostName":"archer","osType":"Linux","memory":67275890688,"denoise":{},"cpu":"AMD Ryzen Threadripper 1950X 16-Core Processor","clockSpeed":2200000000,"software":[{"name":"kernel","version":"#1 SMP PREEMPT_DYNAMIC Sat, 03 Oct 2026 11:43:28 +0000"},{"name":"kernel-release","version":"7.2.9-arch1-1"},{"name":"architecture","version":"x86_64"}]}
+# Source: {"repoURL":"https://github.com/smarr/are-we-fast-yet","branchOrTag":"vm-driver","commitId":"91eb1c9169d5e8719152e8538e548189bd6d4c0b","commitMsg":"Merge branch 'd-port' into vm-driver\n","authorName":"Atila Neves","committerName":"Atila Neves","authorEmail":"atila.neves@gmail.com","committerEmail":"atila.neves@gmail.com"}
+invocation	iteration	value	unit	criterion	benchmark	executor	suite	extraArgs	cores	inputSize	varValue	tag	machine	runId
+# benchmark: 0={"name":"List","command":"List","runDetails":{"invocations":3,"iterations":1,"minIterationTime":0,"maxInvocationTime":3600,"execute_exclusively":true,"retries_after_failure":0,"env":{}},"suite":{"name":"wall","command":" %(benchmark)s %(iterations)s ","executor":{"name":"D-symgc","executable":"driver/run","action":"benchmark","runDetails":{"invocations":3,"iterations":1,"minIterationTime":0,"maxInvocationTime":-1,"execute_exclusively":true,"retries_after_failure":0,"env":{}},"variables":{"input_sizes":[""],"cores":[1],"variable_values":[""],"tags":[null]},"args":"benchmarks/D ./harness-symgc --DRT-gcopt=gc:sdcq"}},"variables":{"input_sizes":[""],"cores":[1],"variable_values":[""],"tags":[null]},"extra_args":1500}
+# run_id: 0={"cmdline":"driver/run benchmarks/D ./harness-symgc --DRT-gcopt=gc:sdcq  List 1  1500","cores":1,"extraArgs":"1500","benchmark_id":0}
+1	1	17956.000000	kb	MaxRSS	List	D-symgc	wall	1500	1					0
+1	1	40.000000	ms	total	List	D-symgc	wall	1500	1					0
+2	1	18016.000000	kb	MaxRSS	List	D-symgc	wall	1500	1					0
+2	1	40.000000	ms	total	List	D-symgc	wall	1500	1					0
+3	1	17824.000000	kb	MaxRSS	List	D-symgc	wall	1500	1					0
+3	1	40.000000	ms	total	List	D-symgc	wall	1500	1					0
+# benchmark: 1={"name":"Json","command":"Json","runDetails":{"invocations":3,"iterations":1,"minIterationTime":0,"maxInvocationTime":3600,"execute_exclusively":true,"retries_after_failure":0,"env":{}},"suite":{"name":"wall","command":" %(benchmark)s %(iterations)s ","executor":{"name":"D-symgc","executable":"driver/run","action":"benchmark","runDetails":{"invocations":3,"iterations":1,"minIterationTime":0,"maxInvocationTime":-1,"execute_exclusively":true,"retries_after_failure":0,"env":{}},"variables":{"input_sizes":[""],"cores":[1],"variable_values":[""],"tags":[null]},"args":"benchmarks/D ./harness-symgc --DRT-gcopt=gc:sdcq"}},"variables":{"input_sizes":[""],"cores":[1],"variable_values":[""],"tags":[null]},"extra_args":100}
+# run_id: 1={"cmdline":"driver/run benchmarks/D ./harness-symgc --DRT-gcopt=gc:sdcq  Json 1  100","cores":1,"extraArgs":"100","benchmark_id":1}
+1	1	43084.000000	kb	MaxRSS	Json	D-symgc	wall	100	1					1
+1	1	50.000000	ms	total	Json	D-symgc	wall	100	1					1
+2	1	43072.000000	kb	MaxRSS	Json	D-symgc	wall	100	1					1
+2	1	40.000000	ms	total	Json	D-symgc	wall	100	1					1
+3	1	42800.000000	kb	MaxRSS	Json	D-symgc	wall	100	1					1
+3	1	40.000000	ms	total	Json	D-symgc	wall	100	1					1
+# benchmark: 2={"name":"Permute","command":"Permute","runDetails":{"invocations":3,"iterations":1,"minIterationTime":0,"maxInvocationTime":3600,"execute_exclusively":true,"retries_after_failure":0,"env":{}},"suite":{"name":"wall","command":" %(benchmark)s %(iterations)s ","executor":{"name":"D-symgc","executable":"driver/run","action":"benchmark","runDetails":{"invocations":3,"iterations":1,"minIterationTime":0,"maxInvocationTime":-1,"execute_exclusively":true,"retries_after_failure":0,"env":{}},"variables":{"input_sizes":[""],"cores":[1],"variable_values":[""],"tags":[null]},"args":"benchmarks/D ./harness-symgc --DRT-gcopt=gc:sdcq"}},"variables":{"input_sizes":[""],"cores":[1],"variable_values":[""],"tags":[null]},"extra_args":1000}
+# run_id: 2={"cmdline":"driver/run benchmarks/D ./harness-symgc --DRT-gcopt=gc:sdcq  Permute 1  1000","cores":1,"extraArgs":"1000","benchmark_id":2}
+1	1	18008.000000	kb	MaxRSS	Permute	D-symgc	wall	1000	1					2
+1	1	40.000000	ms	total	Permute	D-symgc	wall	1000	1					2
+2	1	18044.000000	kb	MaxRSS	Permute	D-symgc	wall	1000	1					2
+2	1	40.000000	ms	total	Permute	D-symgc	wall	1000	1					2
+3	1	17936.000000	kb	MaxRSS	Permute	D-symgc	wall	1000	1					2
+3	1	40.000000	ms	total	Permute	D-symgc	wall	1000	1					2
+# benchmark: 3={"name":"Havlak","command":"Havlak","runDetails":{"invocations":3,"iterations":1,"minIterationTime":0,"maxInvocationTime":3600,"execute_exclusively":true,"retries_after_failure":0,"env":{}},"suite":{"name":"wall","command":" %(benchmark)s %(iterations)s ","executor":{"name":"D-symgc","executable":"driver/run","action":"benchmark","runDetails":{"invocations":3,"iterations":1,"minIterationTime":0,"maxInvocationTime":-1,"execute_exclusively":true,"retries_after_failure":0,"env":{}},"variables":{"input_sizes":[""],"cores":[1],"variable_values":[""],"tags":[null]},"args":"benchmarks/D ./harness-symgc --DRT-gcopt=gc:sdcq"}},"variables":{"input_sizes":[""],"cores":[1],"variable_values":[""],"tags":[null]},"extra_args":1500}
+# run_id: 3={"cmdline":"driver/run benchmarks/D ./harness-symgc --DRT-gcopt=gc:sdcq  Havlak 1  1500","cores":1,"extraArgs":"1500","benchmark_id":3}
+1	1	61808.000000	kb	MaxRSS	Havlak	D-symgc	wall	1500	1					3
+1	1	150.000000	ms	total	Havlak	D-symgc	wall	1500	1					3
+2	1	63636.000000	kb	MaxRSS	Havlak	D-symgc	wall	1500	1					3
+2	1	150.000000	ms	total	Havlak	D-symgc	wall	1500	1					3
+3	1	61920.000000	kb	MaxRSS	Havlak	D-symgc	wall	1500	1					3
+3	1	160.000000	ms	total	Havlak	D-symgc	wall	1500	1					3
+# benchmark: 4={"name":"Towers","command":"Towers","runDetails":{"invocations":3,"iterations":1,"minIterationTime":0,"maxInvocationTime":3600,"execute_exclusively":true,"retries_after_failure":0,"env":{}},"suite":{"name":"wall","command":" %(benchmark)s %(iterations)s ","executor":{"name":"sb-symgc","executable":"driver/run","action":"benchmark","runDetails":{"invocations":3,"iterations":1,"minIterationTime":0,"maxInvocationTime":-1,"execute_exclusively":true,"retries_after_failure":0,"env":{}},"variables":{"input_sizes":[""],"cores":[1],"variable_values":[""],"tags":[null]},"args":"benchmarks/D env DGC=symgc sb -I src src -- --DRT-testmode=run-main"}},"variables":{"input_sizes":[""],"cores":[1],"variable_values":[""],"tags":[null]},"extra_args":600}
+# run_id: 4={"cmdline":"driver/run benchmarks/D env DGC=symgc sb -I src src -- --DRT-testmode=run-main  Towers 1  600","cores":1,"extraArgs":"600","benchmark_id":4}
+1	1	165308.000000	kb	MaxRSS	Towers	sb-symgc	wall	600	1					4
+1	1	3140.000000	ms	total	Towers	sb-symgc	wall	600	1					4
+2	1	165584.000000	kb	MaxRSS	Towers	sb-symgc	wall	600	1					4
+2	1	3210.000000	ms	total	Towers	sb-symgc	wall	600	1					4
+3	1	165456.000000	kb	MaxRSS	Towers	sb-symgc	wall	600	1					4
+3	1	3220.000000	ms	total	Towers	sb-symgc	wall	600	1					4
+# benchmark: 5={"name":"Queens","command":"Queens","runDetails":{"invocations":3,"iterations":1,"minIterationTime":0,"maxInvocationTime":3600,"execute_exclusively":true,"retries_after_failure":0,"env":{}},"suite":{"name":"wall","command":" %(benchmark)s %(iterations)s ","executor":{"name":"D-symgc","executable":"driver/run","action":"benchmark","runDetails":{"invocations":3,"iterations":1,"minIterationTime":0,"maxInvocationTime":-1,"execute_exclusively":true,"retries_after_failure":0,"env":{}},"variables":{"input_sizes":[""],"cores":[1],"variable_values":[""],"tags":[null]},"args":"benchmarks/D ./harness-symgc --DRT-gcopt=gc:sdcq"}},"variables":{"input_sizes":[""],"cores":[1],"variable_values":[""],"tags":[null]},"extra_args":1000}
+# run_id: 5={"cmdline":"driver/run benchmarks/D ./harness-symgc --DRT-gcopt=gc:sdcq  Queens 1  1000","cores":1,"extraArgs":"1000","benchmark_id":5}
+1	1	18024.000000	kb	MaxRSS	Queens	D-symgc	wall	1000	1					5
+1	1	20.000000	ms	total	Queens	D-symgc	wall	1000	1					5
+2	1	17744.000000	kb	MaxRSS	Queens	D-symgc	wall	1000	1					5
+2	1	20.000000	ms	total	Queens	D-symgc	wall	1000	1					5
+3	1	18020.000000	kb	MaxRSS	Queens	D-symgc	wall	1000	1					5
+3	1	20.000000	ms	total	Queens	D-symgc	wall	1000	1					5
+# benchmark: 6={"name":"Storage","command":"Storage","runDetails":{"invocations":3,"iterations":1,"minIterationTime":0,"maxInvocationTime":3600,"execute_exclusively":true,"retries_after_failure":0,"env":{}},"suite":{"name":"wall","command":" %(benchmark)s %(iterations)s ","executor":{"name":"D-symgc","executable":"driver/run","action":"benchmark","runDetails":{"invocations":3,"iterations":1,"minIterationTime":0,"maxInvocationTime":-1,"execute_exclusively":true,"retries_after_failure":0,"env":{}},"variables":{"input_sizes":[""],"cores":[1],"variable_values":[""],"tags":[null]},"args":"benchmarks/D ./harness-symgc --DRT-gcopt=gc:sdcq"}},"variables":{"input_sizes":[""],"cores":[1],"variable_values":[""],"tags":[null]},"extra_args":1000}
+# run_id: 6={"cmdline":"driver/run benchmarks/D ./harness-symgc --DRT-gcopt=gc:sdcq  Storage 1  1000","cores":1,"extraArgs":"1000","benchmark_id":6}
+1	1	66060.000000	kb	MaxRSS	Storage	D-symgc	wall	1000	1					6
+1	1	660.000000	ms	total	Storage	D-symgc	wall	1000	1					6
+2	1	66044.000000	kb	MaxRSS	Storage	D-symgc	wall	1000	1					6
+2	1	670.000000	ms	total	Storage	D-symgc	wall	1000	1					6
+3	1	65776.000000	kb	MaxRSS	Storage	D-symgc	wall	1000	1					6
+3	1	660.000000	ms	total	Storage	D-symgc	wall	1000	1					6
+# benchmark: 7={"name":"NBody","command":"NBody","runDetails":{"invocations":3,"iterations":1,"minIterationTime":0,"maxInvocationTime":3600,"execute_exclusively":true,"retries_after_failure":0,"env":{}},"suite":{"name":"wall","command":" %(benchmark)s %(iterations)s ","executor":{"name":"sb-symgc","executable":"driver/run","action":"benchmark","runDetails":{"invocations":3,"iterations":1,"minIterationTime":0,"maxInvocationTime":-1,"execute_exclusively":true,"retries_after_failure":0,"env":{}},"variables":{"input_sizes":[""],"cores":[1],"variable_values":[""],"tags":[null]},"args":"benchmarks/D env DGC=symgc sb -I src src -- --DRT-testmode=run-main"}},"variables":{"input_sizes":[""],"cores":[1],"variable_values":[""],"tags":[null]},"extra_args":250000}
+# run_id: 7={"cmdline":"driver/run benchmarks/D env DGC=symgc sb -I src src -- --DRT-testmode=run-main  NBody 1  250000","cores":1,"extraArgs":"250000","benchmark_id":7}
+1	1	165448.000000	kb	MaxRSS	NBody	sb-symgc	wall	250000	1					7
+1	1	1360.000000	ms	total	NBody	sb-symgc	wall	250000	1					7
+2	1	165292.000000	kb	MaxRSS	NBody	sb-symgc	wall	250000	1					7
+2	1	1390.000000	ms	total	NBody	sb-symgc	wall	250000	1					7
+3	1	165360.000000	kb	MaxRSS	NBody	sb-symgc	wall	250000	1					7
+3	1	1470.000000	ms	total	NBody	sb-symgc	wall	250000	1					7
+# benchmark: 8={"name":"Storage","command":"Storage","runDetails":{"invocations":3,"iterations":1,"minIterationTime":0,"maxInvocationTime":3600,"execute_exclusively":true,"retries_after_failure":0,"env":{}},"suite":{"name":"wall","command":" %(benchmark)s %(iterations)s ","executor":{"name":"sb-symgc","executable":"driver/run","action":"benchmark","runDetails":{"invocations":3,"iterations":1,"minIterationTime":0,"maxInvocationTime":-1,"execute_exclusively":true,"retries_after_failure":0,"env":{}},"variables":{"input_sizes":[""],"cores":[1],"variable_values":[""],"tags":[null]},"args":"benchmarks/D env DGC=symgc sb -I src src -- --DRT-testmode=run-main"}},"variables":{"input_sizes":[""],"cores":[1],"variable_values":[""],"tags":[null]},"extra_args":1000}
+# run_id: 8={"cmdline":"driver/run benchmarks/D env DGC=symgc sb -I src src -- --DRT-testmode=run-main  Storage 1  1000","cores":1,"extraArgs":"1000","benchmark_id":8}
+1	1	191096.000000	kb	MaxRSS	Storage	sb-symgc	wall	1000	1					8
+1	1	12300.000000	ms	total	Storage	sb-symgc	wall	1000	1					8
+2	1	189056.000000	kb	MaxRSS	Storage	sb-symgc	wall	1000	1					8
+2	1	10840.000000	ms	total	Storage	sb-symgc	wall	1000	1					8
+3	1	191128.000000	kb	MaxRSS	Storage	sb-symgc	wall	1000	1					8
+3	1	6680.000000	ms	total	Storage	sb-symgc	wall	1000	1					8
+# benchmark: 9={"name":"Bounce","command":"Bounce","runDetails":{"invocations":3,"iterations":1,"minIterationTime":0,"maxInvocationTime":3600,"execute_exclusively":true,"retries_after_failure":0,"env":{}},"suite":{"name":"wall","command":" %(benchmark)s %(iterations)s ","executor":{"name":"sb-symgc","executable":"driver/run","action":"benchmark","runDetails":{"invocations":3,"iterations":1,"minIterationTime":0,"maxInvocationTime":-1,"execute_exclusively":true,"retries_after_failure":0,"env":{}},"variables":{"input_sizes":[""],"cores":[1],"variable_values":[""],"tags":[null]},"args":"benchmarks/D env DGC=symgc sb -I src src -- --DRT-testmode=run-main"}},"variables":{"input_sizes":[""],"cores":[1],"variable_values":[""],"tags":[null]},"extra_args":1500}
+# run_id: 9={"cmdline":"driver/run benchmarks/D env DGC=symgc sb -I src src -- --DRT-testmode=run-main  Bounce 1  1500","cores":1,"extraArgs":"1500","benchmark_id":9}
+1	1	165440.000000	kb	MaxRSS	Bounce	sb-symgc	wall	1500	1					9
+1	1	1630.000000	ms	total	Bounce	sb-symgc	wall	1500	1					9
+2	1	165488.000000	kb	MaxRSS	Bounce	sb-symgc	wall	1500	1					9
+2	1	1650.000000	ms	total	Bounce	sb-symgc	wall	1500	1					9
+3	1	165404.000000	kb	MaxRSS	Bounce	sb-symgc	wall	1500	1					9
+3	1	1670.000000	ms	total	Bounce	sb-symgc	wall	1500	1					9
+# benchmark: 10={"name":"CD","command":"CD","runDetails":{"invocations":3,"iterations":1,"minIterationTime":0,"maxInvocationTime":3600,"execute_exclusively":true,"retries_after_failure":0,"env":{}},"suite":{"name":"wall","command":" %(benchmark)s %(iterations)s ","executor":{"name":"D-symgc","executable":"driver/run","action":"benchmark","runDetails":{"invocations":3,"iterations":1,"minIterationTime":0,"maxInvocationTime":-1,"execute_exclusively":true,"retries_after_failure":0,"env":{}},"variables":{"input_sizes":[""],"cores":[1],"variable_values":[""],"tags":[null]},"args":"benchmarks/D ./harness-symgc --DRT-gcopt=gc:sdcq"}},"variables":{"input_sizes":[""],"cores":[1],"variable_values":[""],"tags":[null]},"extra_args":250}
+# run_id: 10={"cmdline":"driver/run benchmarks/D ./harness-symgc --DRT-gcopt=gc:sdcq  CD 1  250","cores":1,"extraArgs":"250","benchmark_id":10}
+1	1	63620.000000	kb	MaxRSS	CD	D-symgc	wall	250	1					10
+1	1	90.000000	ms	total	CD	D-symgc	wall	250	1					10
+2	1	63564.000000	kb	MaxRSS	CD	D-symgc	wall	250	1					10
+2	1	90.000000	ms	total	CD	D-symgc	wall	250	1					10
+3	1	63788.000000	kb	MaxRSS	CD	D-symgc	wall	250	1					10
+3	1	90.000000	ms	total	CD	D-symgc	wall	250	1					10
+# benchmark: 11={"name":"Towers","command":"Towers","runDetails":{"invocations":3,"iterations":1,"minIterationTime":0,"maxInvocationTime":3600,"execute_exclusively":true,"retries_after_failure":0,"env":{}},"suite":{"name":"wall","command":" %(benchmark)s %(iterations)s ","executor":{"name":"D-symgc","executable":"driver/run","action":"benchmark","runDetails":{"invocations":3,"iterations":1,"minIterationTime":0,"maxInvocationTime":-1,"execute_exclusively":true,"retries_after_failure":0,"env":{}},"variables":{"input_sizes":[""],"cores":[1],"variable_values":[""],"tags":[null]},"args":"benchmarks/D ./harness-symgc --DRT-gcopt=gc:sdcq"}},"variables":{"input_sizes":[""],"cores":[1],"variable_values":[""],"tags":[null]},"extra_args":600}
+# run_id: 11={"cmdline":"driver/run benchmarks/D ./harness-symgc --DRT-gcopt=gc:sdcq  Towers 1  600","cores":1,"extraArgs":"600","benchmark_id":11}
+1	1	15704.000000	kb	MaxRSS	Towers	D-symgc	wall	600	1					11
+1	1	20.000000	ms	total	Towers	D-symgc	wall	600	1					11
+2	1	15748.000000	kb	MaxRSS	Towers	D-symgc	wall	600	1					11
+2	1	20.000000	ms	total	Towers	D-symgc	wall	600	1					11
+3	1	15944.000000	kb	MaxRSS	Towers	D-symgc	wall	600	1					11
+3	1	20.000000	ms	total	Towers	D-symgc	wall	600	1					11
+# benchmark: 12={"name":"Sieve","command":"Sieve","runDetails":{"invocations":3,"iterations":1,"minIterationTime":0,"maxInvocationTime":3600,"execute_exclusively":true,"retries_after_failure":0,"env":{}},"suite":{"name":"wall","command":" %(benchmark)s %(iterations)s ","executor":{"name":"sb-symgc","executable":"driver/run","action":"benchmark","runDetails":{"invocations":3,"iterations":1,"minIterationTime":0,"maxInvocationTime":-1,"execute_exclusively":true,"retries_after_failure":0,"env":{}},"variables":{"input_sizes":[""],"cores":[1],"variable_values":[""],"tags":[null]},"args":"benchmarks/D env DGC=symgc sb -I src src -- --DRT-testmode=run-main"}},"variables":{"input_sizes":[""],"cores":[1],"variable_values":[""],"tags":[null]},"extra_args":3000}
+# run_id: 12={"cmdline":"driver/run benchmarks/D env DGC=symgc sb -I src src -- --DRT-testmode=run-main  Sieve 1  3000","cores":1,"extraArgs":"3000","benchmark_id":12}
+1	1	173636.000000	kb	MaxRSS	Sieve	sb-symgc	wall	3000	1					12
+1	1	2270.000000	ms	total	Sieve	sb-symgc	wall	3000	1					12
+2	1	173680.000000	kb	MaxRSS	Sieve	sb-symgc	wall	3000	1					12
+2	1	2310.000000	ms	total	Sieve	sb-symgc	wall	3000	1					12
+3	1	173428.000000	kb	MaxRSS	Sieve	sb-symgc	wall	3000	1					12
+3	1	2370.000000	ms	total	Sieve	sb-symgc	wall	3000	1					12
+# benchmark: 13={"name":"Mandelbrot","command":"Mandelbrot","runDetails":{"invocations":3,"iterations":1,"minIterationTime":0,"maxInvocationTime":3600,"execute_exclusively":true,"retries_after_failure":0,"env":{}},"suite":{"name":"wall","command":" %(benchmark)s %(iterations)s ","executor":{"name":"sb-symgc","executable":"driver/run","action":"benchmark","runDetails":{"invocations":3,"iterations":1,"minIterationTime":0,"maxInvocationTime":-1,"execute_exclusively":true,"retries_after_failure":0,"env":{}},"variables":{"input_sizes":[""],"cores":[1],"variable_values":[""],"tags":[null]},"args":"benchmarks/D env DGC=symgc sb -I src src -- --DRT-testmode=run-main"}},"variables":{"input_sizes":[""],"cores":[1],"variable_values":[""],"tags":[null]},"extra_args":500}
+# run_id: 13={"cmdline":"driver/run benchmarks/D env DGC=symgc sb -I src src -- --DRT-testmode=run-main  Mandelbrot 1  500","cores":1,"extraArgs":"500","benchmark_id":13}
+1	1	165476.000000	kb	MaxRSS	Mandelbrot	sb-symgc	wall	500	1					13
+1	1	710.000000	ms	total	Mandelbrot	sb-symgc	wall	500	1					13
+2	1	165356.000000	kb	MaxRSS	Mandelbrot	sb-symgc	wall	500	1					13
+2	1	700.000000	ms	total	Mandelbrot	sb-symgc	wall	500	1					13
+3	1	165356.000000	kb	MaxRSS	Mandelbrot	sb-symgc	wall	500	1					13
+3	1	700.000000	ms	total	Mandelbrot	sb-symgc	wall	500	1					13
+# benchmark: 14={"name":"NBody","command":"NBody","runDetails":{"invocations":3,"iterations":1,"minIterationTime":0,"maxInvocationTime":3600,"execute_exclusively":true,"retries_after_failure":0,"env":{}},"suite":{"name":"wall","command":" %(benchmark)s %(iterations)s ","executor":{"name":"D-symgc","executable":"driver/run","action":"benchmark","runDetails":{"invocations":3,"iterations":1,"minIterationTime":0,"maxInvocationTime":-1,"execute_exclusively":true,"retries_after_failure":0,"env":{}},"variables":{"input_sizes":[""],"cores":[1],"variable_values":[""],"tags":[null]},"args":"benchmarks/D ./harness-symgc --DRT-gcopt=gc:sdcq"}},"variables":{"input_sizes":[""],"cores":[1],"variable_values":[""],"tags":[null]},"extra_args":250000}
+# run_id: 14={"cmdline":"driver/run benchmarks/D ./harness-symgc --DRT-gcopt=gc:sdcq  NBody 1  250000","cores":1,"extraArgs":"250000","benchmark_id":14}
+1	1	17832.000000	kb	MaxRSS	NBody	D-symgc	wall	250000	1					14
+1	1	20.000000	ms	total	NBody	D-symgc	wall	250000	1					14
+2	1	18028.000000	kb	MaxRSS	NBody	D-symgc	wall	250000	1					14
+2	1	20.000000	ms	total	NBody	D-symgc	wall	250000	1					14
+3	1	18000.000000	kb	MaxRSS	NBody	D-symgc	wall	250000	1					14
+3	1	20.000000	ms	total	NBody	D-symgc	wall	250000	1					14
+# benchmark: 15={"name":"Sieve","command":"Sieve","runDetails":{"invocations":3,"iterations":1,"minIterationTime":0,"maxInvocationTime":3600,"execute_exclusively":true,"retries_after_failure":0,"env":{}},"suite":{"name":"wall","command":" %(benchmark)s %(iterations)s ","executor":{"name":"D-symgc","executable":"driver/run","action":"benchmark","runDetails":{"invocations":3,"iterations":1,"minIterationTime":0,"maxInvocationTime":-1,"execute_exclusively":true,"retries_after_failure":0,"env":{}},"variables":{"input_sizes":[""],"cores":[1],"variable_values":[""],"tags":[null]},"args":"benchmarks/D ./harness-symgc --DRT-gcopt=gc:sdcq"}},"variables":{"input_sizes":[""],"cores":[1],"variable_values":[""],"tags":[null]},"extra_args":3000}
+# run_id: 15={"cmdline":"driver/run benchmarks/D ./harness-symgc --DRT-gcopt=gc:sdcq  Sieve 1  3000","cores":1,"extraArgs":"3000","benchmark_id":15}
+1	1	30312.000000	kb	MaxRSS	Sieve	D-symgc	wall	3000	1					15
+1	1	50.000000	ms	total	Sieve	D-symgc	wall	3000	1					15
+2	1	30400.000000	kb	MaxRSS	Sieve	D-symgc	wall	3000	1					15
+2	1	50.000000	ms	total	Sieve	D-symgc	wall	3000	1					15
+3	1	30364.000000	kb	MaxRSS	Sieve	D-symgc	wall	3000	1					15
+3	1	50.000000	ms	total	Sieve	D-symgc	wall	3000	1					15
+# benchmark: 16={"name":"DeltaBlue","command":"DeltaBlue","runDetails":{"invocations":3,"iterations":1,"minIterationTime":0,"maxInvocationTime":3600,"execute_exclusively":true,"retries_after_failure":0,"env":{}},"suite":{"name":"wall","command":" %(benchmark)s %(iterations)s ","executor":{"name":"D-symgc","executable":"driver/run","action":"benchmark","runDetails":{"invocations":3,"iterations":1,"minIterationTime":0,"maxInvocationTime":-1,"execute_exclusively":true,"retries_after_failure":0,"env":{}},"variables":{"input_sizes":[""],"cores":[1],"variable_values":[""],"tags":[null]},"args":"benchmarks/D ./harness-symgc --DRT-gcopt=gc:sdcq"}},"variables":{"input_sizes":[""],"cores":[1],"variable_values":[""],"tags":[null]},"extra_args":12000}
+# run_id: 16={"cmdline":"driver/run benchmarks/D ./harness-symgc --DRT-gcopt=gc:sdcq  DeltaBlue 1  12000","cores":1,"extraArgs":"12000","benchmark_id":16}
+1	1	30608.000000	kb	MaxRSS	DeltaBlue	D-symgc	wall	12000	1					16
+1	1	30.000000	ms	total	DeltaBlue	D-symgc	wall	12000	1					16
+2	1	30616.000000	kb	MaxRSS	DeltaBlue	D-symgc	wall	12000	1					16
+2	1	30.000000	ms	total	DeltaBlue	D-symgc	wall	12000	1					16
+3	1	30564.000000	kb	MaxRSS	DeltaBlue	D-symgc	wall	12000	1					16
+3	1	30.000000	ms	total	DeltaBlue	D-symgc	wall	12000	1					16
+# benchmark: 17={"name":"Richards","command":"Richards","runDetails":{"invocations":3,"iterations":1,"minIterationTime":0,"maxInvocationTime":3600,"execute_exclusively":true,"retries_after_failure":0,"env":{}},"suite":{"name":"wall","command":" %(benchmark)s %(iterations)s ","executor":{"name":"D-symgc","executable":"driver/run","action":"benchmark","runDetails":{"invocations":3,"iterations":1,"minIterationTime":0,"maxInvocationTime":-1,"execute_exclusively":true,"retries_after_failure":0,"env":{}},"variables":{"input_sizes":[""],"cores":[1],"variable_values":[""],"tags":[null]},"args":"benchmarks/D ./harness-symgc --DRT-gcopt=gc:sdcq"}},"variables":{"input_sizes":[""],"cores":[1],"variable_values":[""],"tags":[null]},"extra_args":100}
+# run_id: 17={"cmdline":"driver/run benchmarks/D ./harness-symgc --DRT-gcopt=gc:sdcq  Richards 1  100","cores":1,"extraArgs":"100","benchmark_id":17}
+1	1	17832.000000	kb	MaxRSS	Richards	D-symgc	wall	100	1					17
+1	1	90.000000	ms	total	Richards	D-symgc	wall	100	1					17
+2	1	17800.000000	kb	MaxRSS	Richards	D-symgc	wall	100	1					17
+2	1	90.000000	ms	total	Richards	D-symgc	wall	100	1					17
+3	1	17796.000000	kb	MaxRSS	Richards	D-symgc	wall	100	1					17
+3	1	80.000000	ms	total	Richards	D-symgc	wall	100	1					17
+# benchmark: 18={"name":"Json","command":"Json","runDetails":{"invocations":3,"iterations":1,"minIterationTime":0,"maxInvocationTime":3600,"execute_exclusively":true,"retries_after_failure":0,"env":{}},"suite":{"name":"wall","command":" %(benchmark)s %(iterations)s ","executor":{"name":"sb-symgc","executable":"driver/run","action":"benchmark","runDetails":{"invocations":3,"iterations":1,"minIterationTime":0,"maxInvocationTime":-1,"execute_exclusively":true,"retries_after_failure":0,"env":{}},"variables":{"input_sizes":[""],"cores":[1],"variable_values":[""],"tags":[null]},"args":"benchmarks/D env DGC=symgc sb -I src src -- --DRT-testmode=run-main"}},"variables":{"input_sizes":[""],"cores":[1],"variable_values":[""],"tags":[null]},"extra_args":100}
+# run_id: 18={"cmdline":"driver/run benchmarks/D env DGC=symgc sb -I src src -- --DRT-testmode=run-main  Json 1  100","cores":1,"extraArgs":"100","benchmark_id":18}
+1	1	177896.000000	kb	MaxRSS	Json	sb-symgc	wall	100	1					18
+1	1	1820.000000	ms	total	Json	sb-symgc	wall	100	1					18
+2	1	178100.000000	kb	MaxRSS	Json	sb-symgc	wall	100	1					18
+2	1	1820.000000	ms	total	Json	sb-symgc	wall	100	1					18
+3	1	178112.000000	kb	MaxRSS	Json	sb-symgc	wall	100	1					18
+3	1	1810.000000	ms	total	Json	sb-symgc	wall	100	1					18
+# benchmark: 19={"name":"Mandelbrot","command":"Mandelbrot","runDetails":{"invocations":3,"iterations":1,"minIterationTime":0,"maxInvocationTime":3600,"execute_exclusively":true,"retries_after_failure":0,"env":{}},"suite":{"name":"wall","command":" %(benchmark)s %(iterations)s ","executor":{"name":"D-symgc","executable":"driver/run","action":"benchmark","runDetails":{"invocations":3,"iterations":1,"minIterationTime":0,"maxInvocationTime":-1,"execute_exclusively":true,"retries_after_failure":0,"env":{}},"variables":{"input_sizes":[""],"cores":[1],"variable_values":[""],"tags":[null]},"args":"benchmarks/D ./harness-symgc --DRT-gcopt=gc:sdcq"}},"variables":{"input_sizes":[""],"cores":[1],"variable_values":[""],"tags":[null]},"extra_args":500}
+# run_id: 19={"cmdline":"driver/run benchmarks/D ./harness-symgc --DRT-gcopt=gc:sdcq  Mandelbrot 1  500","cores":1,"extraArgs":"500","benchmark_id":19}
+1	1	18052.000000	kb	MaxRSS	Mandelbrot	D-symgc	wall	500	1					19
+1	1	50.000000	ms	total	Mandelbrot	D-symgc	wall	500	1					19
+2	1	18000.000000	kb	MaxRSS	Mandelbrot	D-symgc	wall	500	1					19
+2	1	50.000000	ms	total	Mandelbrot	D-symgc	wall	500	1					19
+3	1	18052.000000	kb	MaxRSS	Mandelbrot	D-symgc	wall	500	1					19
+3	1	50.000000	ms	total	Mandelbrot	D-symgc	wall	500	1					19
+# benchmark: 20={"name":"Havlak","command":"Havlak","runDetails":{"invocations":3,"iterations":1,"minIterationTime":0,"maxInvocationTime":3600,"execute_exclusively":true,"retries_after_failure":0,"env":{}},"suite":{"name":"wall","command":" %(benchmark)s %(iterations)s ","executor":{"name":"sb-symgc","executable":"driver/run","action":"benchmark","runDetails":{"invocations":3,"iterations":1,"minIterationTime":0,"maxInvocationTime":-1,"execute_exclusively":true,"retries_after_failure":0,"env":{}},"variables":{"input_sizes":[""],"cores":[1],"variable_values":[""],"tags":[null]},"args":"benchmarks/D env DGC=symgc sb -I src src -- --DRT-testmode=run-main"}},"variables":{"input_sizes":[""],"cores":[1],"variable_values":[""],"tags":[null]},"extra_args":1500}
+# run_id: 20={"cmdline":"driver/run benchmarks/D env DGC=symgc sb -I src src -- --DRT-testmode=run-main  Havlak 1  1500","cores":1,"extraArgs":"1500","benchmark_id":20}
+1	1	190008.000000	kb	MaxRSS	Havlak	sb-symgc	wall	1500	1					20
+1	1	4450.000000	ms	total	Havlak	sb-symgc	wall	1500	1					20
+2	1	189840.000000	kb	MaxRSS	Havlak	sb-symgc	wall	1500	1					20
+2	1	4510.000000	ms	total	Havlak	sb-symgc	wall	1500	1					20
+3	1	186368.000000	kb	MaxRSS	Havlak	sb-symgc	wall	1500	1					20
+3	1	6250.000000	ms	total	Havlak	sb-symgc	wall	1500	1					20
+# benchmark: 21={"name":"Queens","command":"Queens","runDetails":{"invocations":3,"iterations":1,"minIterationTime":0,"maxInvocationTime":3600,"execute_exclusively":true,"retries_after_failure":0,"env":{}},"suite":{"name":"wall","command":" %(benchmark)s %(iterations)s ","executor":{"name":"sb-symgc","executable":"driver/run","action":"benchmark","runDetails":{"invocations":3,"iterations":1,"minIterationTime":0,"maxInvocationTime":-1,"execute_exclusively":true,"retries_after_failure":0,"env":{}},"variables":{"input_sizes":[""],"cores":[1],"variable_values":[""],"tags":[null]},"args":"benchmarks/D env DGC=symgc sb -I src src -- --DRT-testmode=run-main"}},"variables":{"input_sizes":[""],"cores":[1],"variable_values":[""],"tags":[null]},"extra_args":1000}
+# run_id: 21={"cmdline":"driver/run benchmarks/D env DGC=symgc sb -I src src -- --DRT-testmode=run-main  Queens 1  1000","cores":1,"extraArgs":"1000","benchmark_id":21}
+1	1	165232.000000	kb	MaxRSS	Queens	sb-symgc	wall	1000	1					21
+1	1	2530.000000	ms	total	Queens	sb-symgc	wall	1000	1					21
+2	1	165396.000000	kb	MaxRSS	Queens	sb-symgc	wall	1000	1					21
+2	1	2860.000000	ms	total	Queens	sb-symgc	wall	1000	1					21
+3	1	165408.000000	kb	MaxRSS	Queens	sb-symgc	wall	1000	1					21
+3	1	2680.000000	ms	total	Queens	sb-symgc	wall	1000	1					21
+# benchmark: 22={"name":"DeltaBlue","command":"DeltaBlue","runDetails":{"invocations":3,"iterations":1,"minIterationTime":0,"maxInvocationTime":3600,"execute_exclusively":true,"retries_after_failure":0,"env":{}},"suite":{"name":"wall","command":" %(benchmark)s %(iterations)s ","executor":{"name":"sb-symgc","executable":"driver/run","action":"benchmark","runDetails":{"invocations":3,"iterations":1,"minIterationTime":0,"maxInvocationTime":-1,"execute_exclusively":true,"retries_after_failure":0,"env":{}},"variables":{"input_sizes":[""],"cores":[1],"variable_values":[""],"tags":[null]},"args":"benchmarks/D env DGC=symgc sb -I src src -- --DRT-testmode=run-main"}},"variables":{"input_sizes":[""],"cores":[1],"variable_values":[""],"tags":[null]},"extra_args":12000}
+# run_id: 22={"cmdline":"driver/run benchmarks/D env DGC=symgc sb -I src src -- --DRT-testmode=run-main  DeltaBlue 1  12000","cores":1,"extraArgs":"12000","benchmark_id":22}
+1	1	175728.000000	kb	MaxRSS	DeltaBlue	sb-symgc	wall	12000	1					22
+1	1	1600.000000	ms	total	DeltaBlue	sb-symgc	wall	12000	1					22
+2	1	175720.000000	kb	MaxRSS	DeltaBlue	sb-symgc	wall	12000	1					22
+2	1	1290.000000	ms	total	DeltaBlue	sb-symgc	wall	12000	1					22
+3	1	175956.000000	kb	MaxRSS	DeltaBlue	sb-symgc	wall	12000	1					22
+3	1	1290.000000	ms	total	DeltaBlue	sb-symgc	wall	12000	1					22
+# benchmark: 23={"name":"Richards","command":"Richards","runDetails":{"invocations":3,"iterations":1,"minIterationTime":0,"maxInvocationTime":3600,"execute_exclusively":true,"retries_after_failure":0,"env":{}},"suite":{"name":"wall","command":" %(benchmark)s %(iterations)s ","executor":{"name":"sb-symgc","executable":"driver/run","action":"benchmark","runDetails":{"invocations":3,"iterations":1,"minIterationTime":0,"maxInvocationTime":-1,"execute_exclusively":true,"retries_after_failure":0,"env":{}},"variables":{"input_sizes":[""],"cores":[1],"variable_values":[""],"tags":[null]},"args":"benchmarks/D env DGC=symgc sb -I src src -- --DRT-testmode=run-main"}},"variables":{"input_sizes":[""],"cores":[1],"variable_values":[""],"tags":[null]},"extra_args":100}
+# run_id: 23={"cmdline":"driver/run benchmarks/D env DGC=symgc sb -I src src -- --DRT-testmode=run-main  Richards 1  100","cores":1,"extraArgs":"100","benchmark_id":23}
+1	1	165348.000000	kb	MaxRSS	Richards	sb-symgc	wall	100	1					23
+1	1	11790.000000	ms	total	Richards	sb-symgc	wall	100	1					23
+2	1	165316.000000	kb	MaxRSS	Richards	sb-symgc	wall	100	1					23
+2	1	11440.000000	ms	total	Richards	sb-symgc	wall	100	1					23
+3	1	165572.000000	kb	MaxRSS	Richards	sb-symgc	wall	100	1					23
+3	1	11020.000000	ms	total	Richards	sb-symgc	wall	100	1					23
+# benchmark: 24={"name":"CD","command":"CD","runDetails":{"invocations":3,"iterations":1,"minIterationTime":0,"maxInvocationTime":3600,"execute_exclusively":true,"retries_after_failure":0,"env":{}},"suite":{"name":"wall","command":" %(benchmark)s %(iterations)s ","executor":{"name":"sb-symgc","executable":"driver/run","action":"benchmark","runDetails":{"invocations":3,"iterations":1,"minIterationTime":0,"maxInvocationTime":-1,"execute_exclusively":true,"retries_after_failure":0,"env":{}},"variables":{"input_sizes":[""],"cores":[1],"variable_values":[""],"tags":[null]},"args":"benchmarks/D env DGC=symgc sb -I src src -- --DRT-testmode=run-main"}},"variables":{"input_sizes":[""],"cores":[1],"variable_values":[""],"tags":[null]},"extra_args":250}
+# run_id: 24={"cmdline":"driver/run benchmarks/D env DGC=symgc sb -I src src -- --DRT-testmode=run-main  CD 1  250","cores":1,"extraArgs":"250","benchmark_id":24}
+1	1	182620.000000	kb	MaxRSS	CD	sb-symgc	wall	250	1					24
+1	1	3410.000000	ms	total	CD	sb-symgc	wall	250	1					24
+2	1	184728.000000	kb	MaxRSS	CD	sb-symgc	wall	250	1					24
+2	1	3370.000000	ms	total	CD	sb-symgc	wall	250	1					24
+3	1	182684.000000	kb	MaxRSS	CD	sb-symgc	wall	250	1					24
+3	1	3410.000000	ms	total	CD	sb-symgc	wall	250	1					24
+# benchmark: 25={"name":"List","command":"List","runDetails":{"invocations":3,"iterations":1,"minIterationTime":0,"maxInvocationTime":3600,"execute_exclusively":true,"retries_after_failure":0,"env":{}},"suite":{"name":"wall","command":" %(benchmark)s %(iterations)s ","executor":{"name":"sb-symgc","executable":"driver/run","action":"benchmark","runDetails":{"invocations":3,"iterations":1,"minIterationTime":0,"maxInvocationTime":-1,"execute_exclusively":true,"retries_after_failure":0,"env":{}},"variables":{"input_sizes":[""],"cores":[1],"variable_values":[""],"tags":[null]},"args":"benchmarks/D env DGC=symgc sb -I src src -- --DRT-testmode=run-main"}},"variables":{"input_sizes":[""],"cores":[1],"variable_values":[""],"tags":[null]},"extra_args":1500}
+# run_id: 25={"cmdline":"driver/run benchmarks/D env DGC=symgc sb -I src src -- --DRT-testmode=run-main  List 1  1500","cores":1,"extraArgs":"1500","benchmark_id":25}
+1	1	167828.000000	kb	MaxRSS	List	sb-symgc	wall	1500	1					25
+1	1	3420.000000	ms	total	List	sb-symgc	wall	1500	1					25
+2	1	167612.000000	kb	MaxRSS	List	sb-symgc	wall	1500	1					25
+2	1	3360.000000	ms	total	List	sb-symgc	wall	1500	1					25
+3	1	167684.000000	kb	MaxRSS	List	sb-symgc	wall	1500	1					25
+3	1	3420.000000	ms	total	List	sb-symgc	wall	1500	1					25

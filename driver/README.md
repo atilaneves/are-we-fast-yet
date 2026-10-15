@@ -55,8 +55,10 @@ built from source with clang -O3 and LTO).
 | D-gc | `benchmarks/D/harness`, ldc2 `-O3`, default GC options |
 | D-gc-sbopts | the same binary with `--DRT-gcopt='cleanup:none heapSizeFactor:4'` |
 | D-manual | `benchmarks/D/harness-manual` (`-d-version=ManualMemory`) |
+| D-symgc | `benchmarks/D/harness-symgc --DRT-gcopt=gc:sdcq`: the D-gc build with symgc 0.0.9 |
 | sb-gc | `sb -I src src -- --DRT-testmode=run-main`, in `benchmarks/D` |
 | sb-manual | the same with `--version=ManualMemory`, run from `results/sb-manual` |
+| sb-symgc | `env DGC=symgc sb -I src src -- --DRT-testmode=run-main`, in `benchmarks/D` |
 | java-Xint, java | `java [-Xint] -cp benchmarks.jar Harness` |
 | node-jitless, node | `node [--jitless] harness.js` |
 | lua | PUC Lua `lua harness.lua` |
@@ -137,6 +139,55 @@ bin/sb's process runs with `gc:snakebite cleanup:none heapSizeFactor:4`
 (snakebite `source/snakebite/process.d:32`), and the guest allocates from
 that GC. D-gc-sbopts gives native D the same options, so that only the VM
 differs. D-gc keeps the defaults.
+
+### symgc columns (D-symgc, sb-symgc)
+
+symgc 0.0.9 (dub package `symgc`, a port of the SDC collector) is an
+experimental collector. Two columns run the D port with it.
+
+**D-symgc.** `driver/build.sh` compiles the benchmark sources with ldc2
+`-O3`, as for D-gc, and the symgc 0.0.9 sources from
+`~/.dub/packages/symgc/0.0.9/symgc/source` (all `.d` files except the two
+Windows ones), with `--d-version=Symgc_druntime_hooks`, the version of the
+dub configuration `standard`. The same command line is used by snakebite
+(`dub.sdl`: `subConfiguration "symgc" "standard"`). The output is
+`benchmarks/D/harness-symgc`. The symgc README says that linking
+`symgc.gcobj` only registers the collector: druntime uses it only when it
+gets the GC name `sdc` (prints "using SYM GC!") or `sdcq` (quiet). The
+column passes `--DRT-gcopt=gc:sdcq`. A native program needs no `DGC`
+variable: `DGC` is snakebite's own selector (`source/snakebite/gc.d`,
+snakebite PR #743), and ordinary D programs ignore it. Without the option
+the same binary uses the conservative GC. symgc is compiled in the same
+mode as the program (`-O3`), as its README requires for speed.
+
+**sb-symgc.** `env DGC=symgc sb ...`, otherwise the same command as sb-gc.
+The release `bin/sb` has symgc 0.0.9 linked (`nm bin/sb` shows
+`symgc.gcobj` symbols). Its C constructor reads `DGC` before druntime
+starts; the value `symgc` selects the quiet `sdcq` factory, any other value
+selects the conservative GC. The process options of "GC options" above
+(`cleanup:none heapSizeFactor:4`) are options of the conservative GC; the
+evidence below shows that the collector is symgc, so these two options do
+not apply to it.
+
+**Evidence that symgc runs.** The smallest block size differs. A guest
+that calls `GC.sizeOf(GC.malloc(n))` printed (usable size in bytes):
+
+| n | 1 | 8 | 9 | 16 | 17 | 24 | 33 |
+|---|--:|--:|--:|---:|---:|---:|---:|
+| native, default GC | 16 | 16 | 16 | 16 | 32 | 32 | 48 |
+| native, `gc:sdcq` | 8 | 8 | 16 | 16 | 24 | 24 | 40 |
+| `sb`, `DGC` unset | 16 | 16 | 16 | 16 | 32 | 32 | 48 |
+| `sb`, `DGC=symgc` | 8 | 8 | 16 | 16 | 24 | 24 | 40 |
+
+The conservative GC rounds to 16-byte classes; symgc has 8-byte classes.
+Also, `harness-symgc ... --DRT-gcopt=gc:sdc` prints "using SYM GC!" and
+the default run does not. (gdb did not work on `bin/sb`: it did not reach
+the breakpoint in 60 s, so there is no breakpoint evidence.)
+
+`driver/compare.sh` takes `EXECUTORS`, `RESULTS` and `SUITES` (see its
+header). The symgc columns were run with `EXECUTORS="D-symgc sb-symgc"
+SUITES=wall`, under `taskset -c 15` (every process of the run pinned to one
+core). The other columns were not pinned (see "No CPU pinning").
 
 ### No CPU pinning
 
@@ -227,6 +278,71 @@ also shows that `--version=ManualMemory` selects other code.
 The wall times of whole invocations are in `wall.log` and in the report.
 They include each VM's startup (for bin/sb: the frontend) and are not the
 comparison of execution speed.
+
+### Full `wall` suite: the symgc columns (D-symgc, sb-symgc)
+
+Only the two symgc executors were run, on the same 14 benchmarks with the
+same arguments, 1 outer iteration, 3 invocations, after a discarded
+pre-run (`EXECUTORS="D-symgc sb-symgc" SUITES=wall`). Every process was
+pinned with `taskset -c 15`, and other jobs ran on the machine at the same
+time. The existing columns above were not re-run: their numbers are kept
+and the ratios below use them (sb-gc is the sb-gc column of the table
+above). Data: `driver/data/2026-10-15/symgc-wall.data`, `symgc-wall.log`,
+`symgc-prewarm.tsv`, and `symgc-rerun-wall.data`, `symgc-rerun-wall.log`.
+
+| Benchmark | D-symgc ms | sb-symgc ms | sb-gc ÷ D-symgc | sb-gc ÷ sb-symgc |
+|---|---:|---:|---:|---:|
+| DeltaBlue | 27.1 | 1,024 | 43.9 | 1.16 |
+| Richards | 81.8 | 11,144 | 147.1 | 1.08 |
+| Json | 32.7 | 1,548 | 46.9 | 0.99 |
+| CD | 85.9 | 3,142 | 39.4 | 1.08 |
+| Havlak | 146.9 | 4,222 | 30.3 | 1.05 |
+| Bounce | 23.4 | 1,387 | 63.5 | 1.07 |
+| List | 33.9 | 3,131 | 117.4 | 1.27 |
+| Mandelbrot | 43.3 | 434 | 23.9 | 2.39 |
+| NBody | 17.3 | 1,115 | 81.6 | 1.26 |
+| Permute | 32.1 | 3,158 | 88.3 | 0.90 |
+| Queens | 18.8 | 2,303 | 104.5 | 0.85 |
+| Sieve | 44.7 | 2,051 | 57.0 | 1.24 |
+| Storage | 658.8 | 10,285 | 11.5 | 0.74 |
+| Towers | 17.6 | 2,933 | 197.9 | 1.19 |
+| **Geomean** | | | **59.1** | **1.12** |
+
+Times are the harness's own time for the one iteration, median of 3. A
+value above 1 means sb-gc is slower. For comparison, D-gc was 25 to 512 ms
+(sb-gc ÷ D-gc geomean 50.6). On the D port, D-symgc ÷ D-gc has geomean
+0.86: faster on Havlak (147 against 256 ms) and DeltaBlue, slower on
+Storage (659 against 512 ms).
+
+**Failures.** None under symgc. The first pass recorded two failed
+invocations: D-symgc Bounce (exit 1, no output, after 27 ms) and sb-symgc
+Permute (exit 1, no output, after 2.9 s). They did not reproduce: 100
+further runs of `harness-symgc Bounce` and 6 of sb-symgc Permute all
+passed. The temporary file system was full for this user (EDQUOT: the
+tools reported "disk quota is full") in the same period, and `driver/run`
+writes the output to a temporary file, so we take it as the cause; we did
+not prove it. Both pairs were run again (3 invocations each, no failure);
+the numbers above come from the second run. The first-pass log entries are
+in `symgc-wall.log`.
+
+**The sb-gc column is older than the sb-symgc column.** The sb-gc numbers
+come from the `bin/sb` of the first run. The sb-symgc run used the
+current release `bin/sb` of snakebite master (it includes PR #744, which
+inlines three-address handlers). The two ratios in the last column
+therefore mix a collector change with a `bin/sb` change. A control with
+the current `bin/sb` and pinned, harness time per iteration, 3 runs each:
+
+| Benchmark | sb-gc (this README) | `bin/sb` now, no `DGC` | `bin/sb` now, `DGC=symgc` |
+|---|---:|---:|---:|
+| Mandelbrot | 1,034 | 401 to 423 | 423 to 432 |
+| DeltaBlue | 1,192 | 1,041 to 1,058 | 1,017 to 1,030 |
+| Sieve | 2,550 | 2,122 to 2,478 | 2,015 to 2,208 |
+| Towers | 3,490 | 2,966 to 3,059 | 2,824 to 2,911 |
+
+With the same binary, symgc changes the time of these four by -8 % to +5 %
+(Mandelbrot +3 %). So the Mandelbrot ratio of 2.39 is the `bin/sb`
+change, not symgc. The control covers four benchmarks only. A fair sb-gc ÷ sb-symgc needs a
+full re-run of sb-gc with the current `bin/sb`.
 
 ### `iterations` suite: incomplete, do not use
 

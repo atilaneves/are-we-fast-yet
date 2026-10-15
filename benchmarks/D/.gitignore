@@ -3,3 +3,5 @@
 /.snakebite/
 /harness-manual
 /build-manual/
+/harness-symgc
+/build-symgc/

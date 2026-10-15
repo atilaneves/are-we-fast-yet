@@ -170,7 +170,7 @@ print("\n### bin/sb summary per invocation (ms, median over the invocations)\n")
 print("| benchmark | executor | " + " | ".join(sb_keys) + " |")
 print("|---|---|" + "---:|" * len(sb_keys))
 for b in benchmarks:
-    for e in ("sb-gc", "sb-manual"):
+    for e in ("sb-gc", "sb-manual", "sb-symgc"):
         s = cell[(e, b)].get("sb")
         if s:
             print(f"| {b} | {e} | " + " | ".join(fmt(s[p]) for p in sb_keys) + " |")

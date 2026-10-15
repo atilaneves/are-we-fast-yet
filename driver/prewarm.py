@@ -8,6 +8,7 @@ and its exit status go to a TSV file.
 
 usage: prewarm.py CONFIG EXPERIMENT OUT.tsv TIMEOUT_SECONDS [REBENCH_FILTER...]
 """
+import os
 import re
 import subprocess
 import sys
@@ -17,11 +18,13 @@ import yaml
 
 config, experiment, out_path = sys.argv[1:4]
 timeout = int(sys.argv[4])
-filters = sys.argv[5:]
+filters = [f for f in sys.argv[5:] if not f.startswith("e:")]
 rebench = "rebench"
 
 with open(config) as f:
     executors = list(yaml.safe_load(f)["executors"])
+if os.environ.get("EXECUTORS"):
+    executors = [e for e in executors if e in os.environ["EXECUTORS"].split()]
 
 with open(out_path, "w") as out:
     out.write("executor\twall_s\texit\tcommand\n")

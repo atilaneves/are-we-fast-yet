@@ -1,0 +1,19 @@
+#!/home/atila/.local/share/rebench-venv/bin/rebench -D -c -df results/symgc-rerun-d/wall.data compare.conf wall s:wall:Bounce e:D-symgc
+# Execution Start: 2026-10-15T18:24:04.370739+00:00
+# Environment: {"userName":"atila","manualRun":true,"hostName":"archer","osType":"Linux","memory":67275890688,"denoise":{},"cpu":"AMD Ryzen Threadripper 1950X 16-Core Processor","clockSpeed":3699334000,"software":[{"name":"kernel","version":"#1 SMP PREEMPT_DYNAMIC Sat, 03 Oct 2026 11:43:28 +0000"},{"name":"kernel-release","version":"7.2.9-arch1-1"},{"name":"architecture","version":"x86_64"}]}
+# Source: {"repoURL":"https://github.com/smarr/are-we-fast-yet","branchOrTag":"vm-driver","commitId":"91eb1c9169d5e8719152e8538e548189bd6d4c0b","commitMsg":"Merge branch 'd-port' into vm-driver\n","authorName":"Atila Neves","committerName":"Atila Neves","authorEmail":"atila.neves@gmail.com","committerEmail":"atila.neves@gmail.com"}
+invocation	iteration	value	unit	criterion	benchmark	executor	suite	extraArgs	cores	inputSize	varValue	tag	machine	runId
+# benchmark: 0={"name":"Bounce","command":"Bounce","runDetails":{"invocations":3,"iterations":1,"minIterationTime":0,"maxInvocationTime":3600,"execute_exclusively":true,"retries_after_failure":0,"env":{}},"suite":{"name":"wall","command":" %(benchmark)s %(iterations)s ","executor":{"name":"D-symgc","executable":"driver/run","action":"benchmark","runDetails":{"invocations":3,"iterations":1,"minIterationTime":0,"maxInvocationTime":-1,"execute_exclusively":true,"retries_after_failure":0,"env":{}},"variables":{"input_sizes":[""],"cores":[1],"variable_values":[""],"tags":[null]},"args":"benchmarks/D ./harness-symgc --DRT-gcopt=gc:sdcq"}},"variables":{"input_sizes":[""],"cores":[1],"variable_values":[""],"tags":[null]},"extra_args":1500}
+# run_id: 0={"cmdline":"driver/run benchmarks/D ./harness-symgc --DRT-gcopt=gc:sdcq  Bounce 1  1500","cores":1,"extraArgs":"1500","benchmark_id":0}
+1	1	18060.000000	kb	MaxRSS	Bounce	D-symgc	wall	1500	1					0
+1	1	30.000000	ms	total	Bounce	D-symgc	wall	1500	1					0
+2	1	17948.000000	kb	MaxRSS	Bounce	D-symgc	wall	1500	1					0
+2	1	30.000000	ms	total	Bounce	D-symgc	wall	1500	1					0
+3	1	17744.000000	kb	MaxRSS	Bounce	D-symgc	wall	1500	1					0
+3	1	30.000000	ms	total	Bounce	D-symgc	wall	1500	1					0
+1	1	165568.000000	kb	MaxRSS	Permute	sb-symgc	wall	1000	1					0
+1	1	3530.000000	ms	total	Permute	sb-symgc	wall	1000	1					0
+2	1	165560.000000	kb	MaxRSS	Permute	sb-symgc	wall	1000	1					0
+2	1	3850.000000	ms	total	Permute	sb-symgc	wall	1000	1					0
+3	1	165308.000000	kb	MaxRSS	Permute	sb-symgc	wall	1000	1					0
+3	1	3450.000000	ms	total	Permute	sb-symgc	wall	1000	1					0
