@@ -1,0 +1,20 @@
+rt-cerealed-2   dub ovrhd 28.6 ms   frontend 1988.6 ms   dep img 21763.4 ms   LDC 2113 -O   1+5 runs
+
+backend      pass    run min    [1mrun med[0m     run σ   cmp min   [1mcmp med[0m   cmp σ        RAM
+        
+bytecode  156/156  4700.0 ms  [1m4827.5 ms[0m  111.0 ms  125.7 ms  [1m128.6 ms[0m  1.5 ms  139.1 MiB
+tests.structs.readme.code:
+tests.utils.size.of.class:
+tests.utils.size.of.struct.with.structs:
+tests.utils.size.of.union:
+tests.utils.sizeof.simple.struct:
+tests.range.output.range.value:
+tests.range.output.range.read:
+tests.range.embedded.input.range:
+tests.range.embedded.output.range:
+
+Time taken: 4 secs, 473 ms, 130 μs, and 9 hnsecs
+156 test(s) run, 0 failed.
+
+OK!
+

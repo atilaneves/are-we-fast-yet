@@ -1,0 +1,17 @@
+tests.range.output.range.value:
+tests.range.output.range.read:
+tests.range.embedded.input.range:
+tests.range.embedded.output.range:
+
+Time taken: 2 secs, 811 ms, 994 μs, and 8 hnsecs
+156 test(s) run, 0 failed.
+
+OK!
+
+rt-cerealed-2   dub ovrhd 29.8 ms   frontend 1980.6 ms   dep img 21434.8 ms   LDC 2113 -O   1+5 runs
+
+backend      pass    run min    [1mrun med[0m    run σ   cmp min   [1mcmp med[0m   cmp σ    peak RSS
+        
+bytecode  156/156  2857.3 ms  [1m2952.1 ms[0m  74.1 ms  137.1 ms  [1m140.8 ms[0m  3.3 ms  1153.2 MiB
+
+Peak RSS: backends use one fresh process, including the frontend; native rows use only the test executable (maximum measured run).

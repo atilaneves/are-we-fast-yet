@@ -1,0 +1,5 @@
+cerealed   dub ovrhd 49.1 ms   frontend 1288.1 ms   dep img 503.1 ms   LDC 2113 -O   1+3 runs
+
+backend      pass    run min    [1mrun med[0m    run σ  cmp min  [1mcmp med[0m   cmp σ       RAM
+        
+bytecode  156/156  4571.7 ms  [1m4705.2 ms[0m  80.2 ms  89.6 ms  [1m91.6 ms[0m  2.1 ms  81.1 MiB

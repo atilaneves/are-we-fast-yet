@@ -1,0 +1,5 @@
+tardy   dub ovrhd 2.5 ms   frontend 865.0 ms   dep img 2.4 ms   LDC 2113 -O   1+5 runs
+
+backend    pass  run min  [1mrun med[0m   run σ  cmp min  [1mcmp med[0m   cmp σ       RAM
+        
+bytecode  53/53  47.3 ms  [1m56.9 ms[0m  6.0 ms  32.9 ms  [1m33.2 ms[0m  0.5 ms  19.3 MiB

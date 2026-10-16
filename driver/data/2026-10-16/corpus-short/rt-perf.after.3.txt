@@ -1,0 +1,13 @@
+2 modules passed unittests
+2 modules passed unittests
+2 modules passed unittests
+2 modules passed unittests
+2 modules passed unittests
+2 modules passed unittests
+rt-perf   dub ovrhd 0.5 ms   frontend 72.1 ms   dep img 0.8 ms   LDC 2113 -O   1+5 runs
+
+backend   pass  run min  [1mrun med[0m   run σ  cmp min  [1mcmp med[0m    cmp σ  peak RSS
+        
+bytecode  PASS  64.3 ms  [1m64.5 ms[0m  0.9 ms   1.0 ms   [1m1.1 ms[0m  21.5 us  59.3 MiB
+
+Peak RSS: backends use one fresh process, including the frontend; native rows use only the test executable (maximum measured run).

@@ -1,0 +1,253 @@
+executor	wall_s	exit	command
+C++	0.053	0	driver/run benchmarks/C++ ./harness  CD 1  250
+C++	0.038	0	driver/run benchmarks/C++ ./harness  Bounce 1  1500
+C++	0.054	0	driver/run benchmarks/C++ ./harness  Mandelbrot 1  500
+C++	0.028	0	driver/run benchmarks/C++ ./harness  Permute 1  1000
+C++	0.026	0	driver/run benchmarks/C++ ./harness  Towers 1  600
+C++	0.040	0	driver/run benchmarks/C++ ./harness  Sieve 1  3000
+C++	0.057	0	driver/run benchmarks/C++ ./harness  Json 1  100
+C++	0.037	0	driver/run benchmarks/C++ ./harness  List 1  1500
+C++	0.110	0	driver/run benchmarks/C++ ./harness  Richards 1  100
+C++	0.032	0	driver/run benchmarks/C++ ./harness  DeltaBlue 1  12000
+C++	0.320	0	driver/run benchmarks/C++ ./harness  Storage 1  1000
+C++	0.035	0	driver/run benchmarks/C++ ./harness  NBody 1  250000
+C++	0.136	0	driver/run benchmarks/C++ ./harness  Havlak 1  1500
+C++	0.019	0	driver/run benchmarks/C++ ./harness  Queens 1  1000
+D-gc	0.145	0	driver/run benchmarks/D ./harness  Json 1  100
+D-gc	0.137	0	driver/run benchmarks/D ./harness  Sieve 1  3000
+D-gc	0.056	0	driver/run benchmarks/D ./harness  Mandelbrot 1  500
+D-gc	0.055	0	driver/run benchmarks/D ./harness  List 1  1500
+D-gc	2.960	0	driver/run benchmarks/D ./harness  Storage 1  1000
+D-gc	0.027	0	driver/run benchmarks/D ./harness  Towers 1  600
+D-gc	0.034	0	driver/run benchmarks/D ./harness  Bounce 1  1500
+D-gc	0.043	0	driver/run benchmarks/D ./harness  Permute 1  1000
+D-gc	0.028	0	driver/run benchmarks/D ./harness  NBody 1  250000
+D-gc	0.227	0	driver/run benchmarks/D ./harness  CD 1  250
+D-gc	0.027	0	driver/run benchmarks/D ./harness  Queens 1  1000
+D-gc	0.054	0	driver/run benchmarks/D ./harness  DeltaBlue 1  12000
+D-gc	0.097	0	driver/run benchmarks/D ./harness  Richards 1  100
+D-gc	0.172	0	driver/run benchmarks/D ./harness  Havlak 1  1500
+D-gc-sbopts	0.025	0	driver/run benchmarks/D ./harness --DRT-gcopt='cleanup:none heapSizeFactor:4'  Queens 1  1000
+D-gc-sbopts	0.089	0	driver/run benchmarks/D ./harness --DRT-gcopt='cleanup:none heapSizeFactor:4'  CD 1  250
+D-gc-sbopts	0.049	0	driver/run benchmarks/D ./harness --DRT-gcopt='cleanup:none heapSizeFactor:4'  Mandelbrot 1  500
+D-gc-sbopts	0.023	0	driver/run benchmarks/D ./harness --DRT-gcopt='cleanup:none heapSizeFactor:4'  NBody 1  250000
+D-gc-sbopts	0.047	0	driver/run benchmarks/D ./harness --DRT-gcopt='cleanup:none heapSizeFactor:4'  Sieve 1  3000
+D-gc-sbopts	0.496	0	driver/run benchmarks/D ./harness --DRT-gcopt='cleanup:none heapSizeFactor:4'  Storage 1  1000
+D-gc-sbopts	0.145	0	driver/run benchmarks/D ./harness --DRT-gcopt='cleanup:none heapSizeFactor:4'  Havlak 1  1500
+D-gc-sbopts	0.063	0	driver/run benchmarks/D ./harness --DRT-gcopt='cleanup:none heapSizeFactor:4'  Json 1  100
+D-gc-sbopts	0.048	0	driver/run benchmarks/D ./harness --DRT-gcopt='cleanup:none heapSizeFactor:4'  List 1  1500
+D-gc-sbopts	0.037	0	driver/run benchmarks/D ./harness --DRT-gcopt='cleanup:none heapSizeFactor:4'  Permute 1  1000
+D-gc-sbopts	0.022	0	driver/run benchmarks/D ./harness --DRT-gcopt='cleanup:none heapSizeFactor:4'  Towers 1  600
+D-gc-sbopts	0.086	0	driver/run benchmarks/D ./harness --DRT-gcopt='cleanup:none heapSizeFactor:4'  Richards 1  100
+D-gc-sbopts	0.048	0	driver/run benchmarks/D ./harness --DRT-gcopt='cleanup:none heapSizeFactor:4'  DeltaBlue 1  12000
+D-gc-sbopts	0.029	0	driver/run benchmarks/D ./harness --DRT-gcopt='cleanup:none heapSizeFactor:4'  Bounce 1  1500
+D-manual	0.024	0	driver/run benchmarks/D ./harness-manual  NBody 1  250000
+D-manual	0.038	0	driver/run benchmarks/D ./harness-manual  List 1  1500
+D-manual	0.050	0	driver/run benchmarks/D ./harness-manual  Mandelbrot 1  500
+D-manual	0.023	0	driver/run benchmarks/D ./harness-manual  Towers 1  600
+D-manual	0.050	0	driver/run benchmarks/D ./harness-manual  Sieve 1  3000
+D-manual	0.349	0	driver/run benchmarks/D ./harness-manual  Storage 1  1000
+D-manual	0.090	0	driver/run benchmarks/D ./harness-manual  Richards 1  100
+D-manual	0.038	0	driver/run benchmarks/D ./harness-manual  Permute 1  1000
+D-manual	0.021	0	driver/run benchmarks/D ./harness-manual  Queens 1  1000
+D-manual	0.106	0	driver/run benchmarks/D ./harness-manual  Havlak 1  1500
+D-manual	0.044	0	driver/run benchmarks/D ./harness-manual  Json 1  100
+D-manual	0.027	0	driver/run benchmarks/D ./harness-manual  DeltaBlue 1  12000
+D-manual	0.062	0	driver/run benchmarks/D ./harness-manual  CD 1  250
+D-manual	0.030	0	driver/run benchmarks/D ./harness-manual  Bounce 1  1500
+D-symgc	0.040	0	driver/run benchmarks/D ./harness-symgc --DRT-gcopt=gc:sdcq  Permute 1  1000
+D-symgc	0.036	0	driver/run benchmarks/D ./harness-symgc --DRT-gcopt=gc:sdcq  DeltaBlue 1  12000
+D-symgc	0.032	0	driver/run benchmarks/D ./harness-symgc --DRT-gcopt=gc:sdcq  Bounce 1  1500
+D-symgc	0.026	0	driver/run benchmarks/D ./harness-symgc --DRT-gcopt=gc:sdcq  Queens 1  1000
+D-symgc	0.053	0	driver/run benchmarks/D ./harness-symgc --DRT-gcopt=gc:sdcq  Sieve 1  3000
+D-symgc	0.029	0	driver/run benchmarks/D ./harness-symgc --DRT-gcopt=gc:sdcq  Towers 1  600
+D-symgc	0.042	0	driver/run benchmarks/D ./harness-symgc --DRT-gcopt=gc:sdcq  Json 1  100
+D-symgc	0.052	0	driver/run benchmarks/D ./harness-symgc --DRT-gcopt=gc:sdcq  Mandelbrot 1  500
+D-symgc	0.026	0	driver/run benchmarks/D ./harness-symgc --DRT-gcopt=gc:sdcq  NBody 1  250000
+D-symgc	0.095	0	driver/run benchmarks/D ./harness-symgc --DRT-gcopt=gc:sdcq  CD 1  250
+D-symgc	0.089	0	driver/run benchmarks/D ./harness-symgc --DRT-gcopt=gc:sdcq  Richards 1  100
+D-symgc	0.653	0	driver/run benchmarks/D ./harness-symgc --DRT-gcopt=gc:sdcq  Storage 1  1000
+D-symgc	0.042	0	driver/run benchmarks/D ./harness-symgc --DRT-gcopt=gc:sdcq  List 1  1500
+D-symgc	0.157	0	driver/run benchmarks/D ./harness-symgc --DRT-gcopt=gc:sdcq  Havlak 1  1500
+sb-gc	2.594	0	driver/run benchmarks/D sb -I src src -- --DRT-testmode=run-main  Havlak 1  1500
+sb-gc	1.167	0	driver/run benchmarks/D sb -I src src -- --DRT-testmode=run-main  Json 1  100
+sb-gc	5.266	0	driver/run benchmarks/D sb -I src src -- --DRT-testmode=run-main  Richards 1  100
+sb-gc	0.660	0	driver/run benchmarks/D sb -I src src -- --DRT-testmode=run-main  Bounce 1  1500
+sb-gc	0.705	0	driver/run benchmarks/D sb -I src src -- --DRT-testmode=run-main  NBody 1  250000
+sb-gc	0.835	0	driver/run benchmarks/D sb -I src src -- --DRT-testmode=run-main  Sieve 1  3000
+sb-gc	1.088	0	driver/run benchmarks/D sb -I src src -- --DRT-testmode=run-main  Queens 1  1000
+sb-gc	1.793	0	driver/run benchmarks/D sb -I src src -- --DRT-testmode=run-main  CD 1  250
+sb-gc	4.242	0	driver/run benchmarks/D sb -I src src -- --DRT-testmode=run-main  Storage 1  1000
+sb-gc	1.358	0	driver/run benchmarks/D sb -I src src -- --DRT-testmode=run-main  Towers 1  600
+sb-gc	0.879	0	driver/run benchmarks/D sb -I src src -- --DRT-testmode=run-main  DeltaBlue 1  12000
+sb-gc	0.961	0	driver/run benchmarks/D sb -I src src -- --DRT-testmode=run-main  List 1  1500
+sb-gc	1.108	0	driver/run benchmarks/D sb -I src src -- --DRT-testmode=run-main  Permute 1  1000
+sb-gc	0.390	0	driver/run benchmarks/D sb -I src src -- --DRT-testmode=run-main  Mandelbrot 1  500
+sb-manual	1.130	0	driver/run results/sb-manual sb --version=ManualMemory -I ../../benchmarks/D/src ../../benchmarks/D/src -- --DRT-testmode=run-main  DeltaBlue 1  12000
+sb-manual	1.291	0	driver/run results/sb-manual sb --version=ManualMemory -I ../../benchmarks/D/src ../../benchmarks/D/src -- --DRT-testmode=run-main  Json 1  100
+sb-manual	1.138	0	driver/run results/sb-manual sb --version=ManualMemory -I ../../benchmarks/D/src ../../benchmarks/D/src -- --DRT-testmode=run-main  Permute 1  1000
+sb-manual	0.701	0	driver/run results/sb-manual sb --version=ManualMemory -I ../../benchmarks/D/src ../../benchmarks/D/src -- --DRT-testmode=run-main  NBody 1  250000
+sb-manual	1.007	0	driver/run results/sb-manual sb --version=ManualMemory -I ../../benchmarks/D/src ../../benchmarks/D/src -- --DRT-testmode=run-main  List 1  1500
+sb-manual	0.892	0	driver/run results/sb-manual sb --version=ManualMemory -I ../../benchmarks/D/src ../../benchmarks/D/src -- --DRT-testmode=run-main  Sieve 1  3000
+sb-manual	5.521	0	driver/run results/sb-manual sb --version=ManualMemory -I ../../benchmarks/D/src ../../benchmarks/D/src -- --DRT-testmode=run-main  Storage 1  1000
+sb-manual	1.136	0	driver/run results/sb-manual sb --version=ManualMemory -I ../../benchmarks/D/src ../../benchmarks/D/src -- --DRT-testmode=run-main  Queens 1  1000
+sb-manual	0.451	0	driver/run results/sb-manual sb --version=ManualMemory -I ../../benchmarks/D/src ../../benchmarks/D/src -- --DRT-testmode=run-main  Mandelbrot 1  500
+sb-manual	1.949	0	driver/run results/sb-manual sb --version=ManualMemory -I ../../benchmarks/D/src ../../benchmarks/D/src -- --DRT-testmode=run-main  CD 1  250
+sb-manual	5.222	0	driver/run results/sb-manual sb --version=ManualMemory -I ../../benchmarks/D/src ../../benchmarks/D/src -- --DRT-testmode=run-main  Richards 1  100
+sb-manual	0.660	0	driver/run results/sb-manual sb --version=ManualMemory -I ../../benchmarks/D/src ../../benchmarks/D/src -- --DRT-testmode=run-main  Bounce 1  1500
+sb-manual	1.379	0	driver/run results/sb-manual sb --version=ManualMemory -I ../../benchmarks/D/src ../../benchmarks/D/src -- --DRT-testmode=run-main  Towers 1  600
+sb-manual	3.347	0	driver/run results/sb-manual sb --version=ManualMemory -I ../../benchmarks/D/src ../../benchmarks/D/src -- --DRT-testmode=run-main  Havlak 1  1500
+sb-symgc	1.115	0	driver/run benchmarks/D env DGC=symgc sb -I src src -- --DRT-testmode=run-main  Permute 1  1000
+sb-symgc	0.965	0	driver/run benchmarks/D env DGC=symgc sb -I src src -- --DRT-testmode=run-main  List 1  1500
+sb-symgc	0.387	0	driver/run benchmarks/D env DGC=symgc sb -I src src -- --DRT-testmode=run-main  Mandelbrot 1  500
+sb-symgc	0.671	0	driver/run benchmarks/D env DGC=symgc sb -I src src -- --DRT-testmode=run-main  NBody 1  250000
+sb-symgc	3.925	0	driver/run benchmarks/D env DGC=symgc sb -I src src -- --DRT-testmode=run-main  Storage 1  1000
+sb-symgc	0.848	0	driver/run benchmarks/D env DGC=symgc sb -I src src -- --DRT-testmode=run-main  DeltaBlue 1  12000
+sb-symgc	0.649	0	driver/run benchmarks/D env DGC=symgc sb -I src src -- --DRT-testmode=run-main  Bounce 1  1500
+sb-symgc	1.104	0	driver/run benchmarks/D env DGC=symgc sb -I src src -- --DRT-testmode=run-main  Queens 1  1000
+sb-symgc	2.492	0	driver/run benchmarks/D env DGC=symgc sb -I src src -- --DRT-testmode=run-main  Havlak 1  1500
+sb-symgc	1.319	0	driver/run benchmarks/D env DGC=symgc sb -I src src -- --DRT-testmode=run-main  Towers 1  600
+sb-symgc	4.994	0	driver/run benchmarks/D env DGC=symgc sb -I src src -- --DRT-testmode=run-main  Richards 1  100
+sb-symgc	1.748	0	driver/run benchmarks/D env DGC=symgc sb -I src src -- --DRT-testmode=run-main  CD 1  250
+sb-symgc	1.113	0	driver/run benchmarks/D env DGC=symgc sb -I src src -- --DRT-testmode=run-main  Json 1  100
+sb-symgc	0.850	0	driver/run benchmarks/D env DGC=symgc sb -I src src -- --DRT-testmode=run-main  Sieve 1  3000
+sb-interp	30.477	0	driver/run benchmarks/D sb -b interpreter -I src src -- --DRT-testmode=run-main  Permute 1  1000
+sb-interp	26.932	0	driver/run benchmarks/D sb -b interpreter -I src src -- --DRT-testmode=run-main  Mandelbrot 1  500
+sb-interp	62.696	0	driver/run benchmarks/D sb -b interpreter -I src src -- --DRT-testmode=run-main  List 1  1500
+sb-interp	46.324	0	driver/run benchmarks/D sb -b interpreter -I src src -- --DRT-testmode=run-main  Havlak 1  1500
+sb-interp	37.506	0	driver/run benchmarks/D sb -b interpreter -I src src -- --DRT-testmode=run-main  Sieve 1  3000
+sb-interp	23.073	0	driver/run benchmarks/D sb -b interpreter -I src src -- --DRT-testmode=run-main  Queens 1  1000
+sb-interp	14.367	0	driver/run benchmarks/D sb -b interpreter -I src src -- --DRT-testmode=run-main  Json 1  100
+sb-interp	26.158	0	driver/run benchmarks/D sb -b interpreter -I src src -- --DRT-testmode=run-main  Bounce 1  1500
+sb-interp	11.711	0	driver/run benchmarks/D sb -b interpreter -I src src -- --DRT-testmode=run-main  DeltaBlue 1  12000
+sb-interp	36.631	0	driver/run benchmarks/D sb -b interpreter -I src src -- --DRT-testmode=run-main  CD 1  250
+sb-interp	98.835	0	driver/run benchmarks/D sb -b interpreter -I src src -- --DRT-testmode=run-main  Storage 1  1000
+sb-interp	34.932	0	driver/run benchmarks/D sb -b interpreter -I src src -- --DRT-testmode=run-main  Towers 1  600
+sb-interp	103.359	0	driver/run benchmarks/D sb -b interpreter -I src src -- --DRT-testmode=run-main  Richards 1  100
+sb-interp	15.718	0	driver/run benchmarks/D sb -b interpreter -I src src -- --DRT-testmode=run-main  NBody 1  250000
+java-Xint	0.573	0	driver/run benchmarks/Java java -Xint -cp benchmarks.jar Harness  Queens 1  1000
+java-Xint	1.970	0	driver/run benchmarks/Java java -Xint -cp benchmarks.jar Harness  NBody 1  250000
+java-Xint	1.188	0	driver/run benchmarks/Java java -Xint -cp benchmarks.jar Harness  Towers 1  600
+java-Xint	1.917	0	driver/run benchmarks/Java java -Xint -cp benchmarks.jar Harness  List 1  1500
+java-Xint	0.658	0	driver/run benchmarks/Java java -Xint -cp benchmarks.jar Harness  Bounce 1  1500
+java-Xint	0.758	0	driver/run benchmarks/Java java -Xint -cp benchmarks.jar Harness  Permute 1  1000
+java-Xint	0.722	0	driver/run benchmarks/Java java -Xint -cp benchmarks.jar Harness  DeltaBlue 1  12000
+java-Xint	3.017	0	driver/run benchmarks/Java java -Xint -cp benchmarks.jar Harness  Havlak 1  1500
+java-Xint	1.765	0	driver/run benchmarks/Java java -Xint -cp benchmarks.jar Harness  CD 1  250
+java-Xint	4.742	0	driver/run benchmarks/Java java -Xint -cp benchmarks.jar Harness  Json 1  100
+java-Xint	5.173	0	driver/run benchmarks/Java java -Xint -cp benchmarks.jar Harness  Richards 1  100
+java-Xint	1.535	0	driver/run benchmarks/Java java -Xint -cp benchmarks.jar Harness  Storage 1  1000
+java-Xint	0.867	0	driver/run benchmarks/Java java -Xint -cp benchmarks.jar Harness  Sieve 1  3000
+java-Xint	0.566	0	driver/run benchmarks/Java java -Xint -cp benchmarks.jar Harness  Mandelbrot 1  500
+java	0.150	0	driver/run benchmarks/Java java -cp benchmarks.jar Harness  Bounce 1  1500
+java	0.128	0	driver/run benchmarks/Java java -cp benchmarks.jar Harness  NBody 1  250000
+java	0.144	0	driver/run benchmarks/Java java -cp benchmarks.jar Harness  Queens 1  1000
+java	0.418	0	driver/run benchmarks/Java java -cp benchmarks.jar Harness  CD 1  250
+java	0.279	0	driver/run benchmarks/Java java -cp benchmarks.jar Harness  Richards 1  100
+java	0.145	0	driver/run benchmarks/Java java -cp benchmarks.jar Harness  Permute 1  1000
+java	0.159	0	driver/run benchmarks/Java java -cp benchmarks.jar Harness  Sieve 1  3000
+java	0.157	0	driver/run benchmarks/Java java -cp benchmarks.jar Harness  Mandelbrot 1  500
+java	0.470	0	driver/run benchmarks/Java java -cp benchmarks.jar Harness  Json 1  100
+java	0.425	0	driver/run benchmarks/Java java -cp benchmarks.jar Harness  DeltaBlue 1  12000
+java	0.135	0	driver/run benchmarks/Java java -cp benchmarks.jar Harness  Towers 1  600
+java	0.227	0	driver/run benchmarks/Java java -cp benchmarks.jar Harness  Storage 1  1000
+java	0.743	0	driver/run benchmarks/Java java -cp benchmarks.jar Harness  Havlak 1  1500
+java	0.136	0	driver/run benchmarks/Java java -cp benchmarks.jar Harness  List 1  1500
+node-jitless	1.148	0	driver/run benchmarks/JavaScript node --jitless harness.js  Json 1  100
+node-jitless	0.716	0	driver/run benchmarks/JavaScript node --jitless harness.js  DeltaBlue 1  12000
+node-jitless	1.651	0	driver/run benchmarks/JavaScript node --jitless harness.js  NBody 1  250000
+node-jitless	2.018	0	driver/run benchmarks/JavaScript node --jitless harness.js  Permute 1  1000
+node-jitless	0.932	0	driver/run benchmarks/JavaScript node --jitless harness.js  Mandelbrot 1  500
+node-jitless	1.765	0	driver/run benchmarks/JavaScript node --jitless harness.js  Bounce 1  1500
+node-jitless	6.396	0	driver/run benchmarks/JavaScript node --jitless harness.js  Richards 1  100
+node-jitless	3.289	0	driver/run benchmarks/JavaScript node --jitless harness.js  Havlak 1  1500
+node-jitless	1.277	0	driver/run benchmarks/JavaScript node --jitless harness.js  Queens 1  1000
+node-jitless	1.498	0	driver/run benchmarks/JavaScript node --jitless harness.js  Sieve 1  3000
+node-jitless	2.678	0	driver/run benchmarks/JavaScript node --jitless harness.js  CD 1  250
+node-jitless	0.931	0	driver/run benchmarks/JavaScript node --jitless harness.js  List 1  1500
+node-jitless	1.017	0	driver/run benchmarks/JavaScript node --jitless harness.js  Storage 1  1000
+node-jitless	1.862	0	driver/run benchmarks/JavaScript node --jitless harness.js  Towers 1  600
+node	0.169	0	driver/run benchmarks/JavaScript node harness.js  Sieve 1  3000
+node	0.172	0	driver/run benchmarks/JavaScript node harness.js  Storage 1  1000
+node	0.262	0	driver/run benchmarks/JavaScript node harness.js  Richards 1  100
+node	0.109	0	driver/run benchmarks/JavaScript node harness.js  List 1  1500
+node	0.126	0	driver/run benchmarks/JavaScript node harness.js  Bounce 1  1500
+node	0.112	0	driver/run benchmarks/JavaScript node harness.js  Queens 1  1000
+node	0.110	0	driver/run benchmarks/JavaScript node harness.js  Towers 1  600
+node	0.106	0	driver/run benchmarks/JavaScript node harness.js  Mandelbrot 1  500
+node	0.094	0	driver/run benchmarks/JavaScript node harness.js  NBody 1  250000
+node	0.269	0	driver/run benchmarks/JavaScript node harness.js  DeltaBlue 1  12000
+node	0.165	0	driver/run benchmarks/JavaScript node harness.js  Json 1  100
+node	0.107	0	driver/run benchmarks/JavaScript node harness.js  Permute 1  1000
+node	0.419	0	driver/run benchmarks/JavaScript node harness.js  Havlak 1  1500
+node	0.289	0	driver/run benchmarks/JavaScript node harness.js  CD 1  250
+lua	1.048	0	driver/run benchmarks/Lua lua harness.lua  NBody 1  250000
+lua	1.330	0	driver/run benchmarks/Lua lua harness.lua  Json 1  100
+lua	7.740	0	driver/run benchmarks/Lua lua harness.lua  Havlak 1  1500
+lua	1.466	0	driver/run benchmarks/Lua lua harness.lua  Towers 1  600
+lua	2.049	0	driver/run benchmarks/Lua lua harness.lua  Storage 1  1000
+lua	0.943	0	driver/run benchmarks/Lua lua harness.lua  List 1  1500
+lua	1.303	0	driver/run benchmarks/Lua lua harness.lua  Permute 1  1000
+lua	3.463	0	driver/run benchmarks/Lua lua harness.lua  CD 1  250
+lua	1.146	0	driver/run benchmarks/Lua lua harness.lua  DeltaBlue 1  12000
+lua	0.491	0	driver/run benchmarks/Lua lua harness.lua  Mandelbrot 1  500
+lua	0.922	0	driver/run benchmarks/Lua lua harness.lua  Queens 1  1000
+lua	0.830	0	driver/run benchmarks/Lua lua harness.lua  Sieve 1  3000
+lua	5.756	0	driver/run benchmarks/Lua lua harness.lua  Richards 1  100
+lua	1.472	0	driver/run benchmarks/Lua lua harness.lua  Bounce 1  1500
+luajit-joff	0.540	0	driver/run benchmarks/Lua luajit -joff harness.lua  List 1  1500
+luajit-joff	0.921	0	driver/run benchmarks/Lua luajit -joff harness.lua  DeltaBlue 1  12000
+luajit-joff	0.533	0	driver/run benchmarks/Lua luajit -joff harness.lua  NBody 1  250000
+luajit-joff	3.929	0	driver/run benchmarks/Lua luajit -joff harness.lua  Richards 1  100
+luajit-joff	4.710	0	driver/run benchmarks/Lua luajit -joff harness.lua  Havlak 1  1500
+luajit-joff	0.677	0	driver/run benchmarks/Lua luajit -joff harness.lua  Permute 1  1000
+luajit-joff	0.200	0	driver/run benchmarks/Lua luajit -joff harness.lua  Mandelbrot 1  500
+luajit-joff	0.459	0	driver/run benchmarks/Lua luajit -joff harness.lua  Queens 1  1000
+luajit-joff	0.771	0	driver/run benchmarks/Lua luajit -joff harness.lua  Json 1  100
+luajit-joff	0.712	0	driver/run benchmarks/Lua luajit -joff harness.lua  Towers 1  600
+luajit-joff	0.705	0	driver/run benchmarks/Lua luajit -joff harness.lua  Bounce 1  1500
+luajit-joff	1.285	0	driver/run benchmarks/Lua luajit -joff harness.lua  Storage 1  1000
+luajit-joff	2.008	0	driver/run benchmarks/Lua luajit -joff harness.lua  CD 1  250
+luajit-joff	0.655	0	driver/run benchmarks/Lua luajit -joff harness.lua  Sieve 1  3000
+luajit	0.347	0	driver/run benchmarks/Lua luajit harness.lua  Permute 1  1000
+luajit	3.789	0	driver/run benchmarks/Lua luajit harness.lua  Havlak 1  1500
+luajit	0.189	0	driver/run benchmarks/Lua luajit harness.lua  List 1  1500
+luajit	0.057	0	driver/run benchmarks/Lua luajit harness.lua  NBody 1  250000
+luajit	0.114	0	driver/run benchmarks/Lua luajit harness.lua  Towers 1  600
+luajit	0.627	0	driver/run benchmarks/Lua luajit harness.lua  DeltaBlue 1  12000
+luajit	0.100	0	driver/run benchmarks/Lua luajit harness.lua  Queens 1  1000
+luajit	0.119	0	driver/run benchmarks/Lua luajit harness.lua  Bounce 1  1500
+luajit	0.241	0	driver/run benchmarks/Lua luajit harness.lua  Json 1  100
+luajit	0.806	0	driver/run benchmarks/Lua luajit harness.lua  Storage 1  1000
+luajit	1.345	0	driver/run benchmarks/Lua luajit harness.lua  CD 1  250
+luajit	1.001	0	driver/run benchmarks/Lua luajit harness.lua  Richards 1  100
+luajit	0.135	0	driver/run benchmarks/Lua luajit harness.lua  Sieve 1  3000
+luajit	0.054	0	driver/run benchmarks/Lua luajit harness.lua  Mandelbrot 1  500
+python3	0.863	0	driver/run benchmarks/Python python3 harness.py  DeltaBlue 1  12000
+python3	1.042	0	driver/run benchmarks/Python python3 harness.py  Queens 1  1000
+python3	3.423	0	driver/run benchmarks/Python python3 harness.py  CD 1  250
+python3	1.628	0	driver/run benchmarks/Python python3 harness.py  Mandelbrot 1  500
+python3	2.344	0	driver/run benchmarks/Python python3 harness.py  Permute 1  1000
+python3	5.012	0	driver/run benchmarks/Python python3 harness.py  Havlak 1  1500
+python3	1.093	0	driver/run benchmarks/Python python3 harness.py  List 1  1500
+python3	2.832	0	driver/run benchmarks/Python python3 harness.py  Sieve 1  3000
+python3	6.242	0	driver/run benchmarks/Python python3 harness.py  Richards 1  100
+python3	2.070	0	driver/run benchmarks/Python python3 harness.py  NBody 1  250000
+python3	1.151	0	driver/run benchmarks/Python python3 harness.py  Json 1  100
+python3	2.037	0	driver/run benchmarks/Python python3 harness.py  Bounce 1  1500
+python3	1.854	0	driver/run benchmarks/Python python3 harness.py  Storage 1  1000
+python3	1.476	0	driver/run benchmarks/Python python3 harness.py  Towers 1  600
+wasm3	0.243	0	driver/run benchmarks/C++ wasm3 harness.wasm  Bounce 1  1500
+wasm3	0.325	0	driver/run benchmarks/C++ wasm3 harness.wasm  Towers 1  600
+wasm3	0.148	0	driver/run benchmarks/C++ wasm3 harness.wasm  Mandelbrot 1  500
+wasm3	0.739	0	driver/run benchmarks/C++ wasm3 harness.wasm  Json 1  100
+wasm3	2.046	0	driver/run benchmarks/C++ wasm3 harness.wasm  Storage 1  1000
+wasm3	0.297	0	driver/run benchmarks/C++ wasm3 harness.wasm  DeltaBlue 1  12000
+wasm3	0.231	0	driver/run benchmarks/C++ wasm3 harness.wasm  NBody 1  250000
+wasm3	1.206	0	driver/run benchmarks/C++ wasm3 harness.wasm  Richards 1  100
+wasm3	0.191	0	driver/run benchmarks/C++ wasm3 harness.wasm  Queens 1  1000
+wasm3	0.542	0	driver/run benchmarks/C++ wasm3 harness.wasm  CD 1  250
+wasm3	1.637	0	driver/run benchmarks/C++ wasm3 harness.wasm  Havlak 1  1500
+wasm3	0.384	0	driver/run benchmarks/C++ wasm3 harness.wasm  List 1  1500
+wasm3	0.336	0	driver/run benchmarks/C++ wasm3 harness.wasm  Permute 1  1000
+wasm3	0.393	0	driver/run benchmarks/C++ wasm3 harness.wasm  Sieve 1  3000

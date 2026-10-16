@@ -1,0 +1,5 @@
+mirror   dub ovrhd 49.6 ms   frontend 1795.7 ms   dep img 9548.7 ms   LDC 2113 -O   1+3 runs
+
+backend      pass   run min   [1mrun med[0m    run σ   cmp min   [1mcmp med[0m   cmp σ       RAM
+        
+bytecode  135/135  155.5 ms  [1m167.9 ms[0m  11.4 ms  105.7 ms  [1m106.1 ms[0m  0.3 ms  21.9 MiB

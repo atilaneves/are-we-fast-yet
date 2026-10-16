@@ -1,0 +1,5 @@
+automem   dub ovrhd 2.1 ms   frontend 925.9 ms   dep img 2.6 ms   LDC 2113 -O   1+5 runs
+
+backend      pass  run min   [1mrun med[0m   run σ  cmp min  [1mcmp med[0m   cmp σ       RAM
+        
+bytecode  123/123  94.5 ms  [1m105.3 ms[0m  9.2 ms  59.8 ms  [1m60.1 ms[0m  9.1 ms  48.2 MiB

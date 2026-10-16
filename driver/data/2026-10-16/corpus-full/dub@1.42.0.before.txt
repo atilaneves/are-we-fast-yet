@@ -1,0 +1,10 @@
+Non-@safe toJson/fromJson methods are deprecated - annotate Flags!(BuildOption).fromJson() with @safe.
+59 modules passed unittests
+59 modules passed unittests
+59 modules passed unittests
+59 modules passed unittests
+dub   dub ovrhd 119.5 ms   frontend 8037.2 ms   dep img 41240.6 ms   LDC 2113 -O   1+3 runs
+
+backend   pass    run min    [1mrun med[0m     run σ   cmp min   [1mcmp med[0m    cmp σ        RAM
+        
+bytecode  PASS  1845.7 ms  [1m1997.9 ms[0m  165.9 ms  843.2 ms  [1m867.6 ms[0m  27.1 ms  683.3 MiB

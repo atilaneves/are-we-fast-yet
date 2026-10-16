@@ -1,0 +1,12 @@
+Non-@safe toJson/fromJson methods are deprecated - annotate Flags!(BuildOption).fromJson() with @safe.
+59 modules passed unittests
+59 modules passed unittests
+59 modules passed unittests
+59 modules passed unittests
+dub   dub ovrhd 103.6 ms   frontend 7889.0 ms   dep img 939.0 ms   LDC 2113 -O   1+3 runs
+
+backend   pass    run min    [1mrun med[0m     run σ    cmp min    [1mcmp med[0m    cmp σ    peak RSS
+        
+bytecode  PASS  1797.8 ms  [1m1916.3 ms[0m  161.8 ms  1003.7 ms  [1m1005.5 ms[0m  31.0 ms  3943.4 MiB
+
+Peak RSS: backends use one fresh process, including the frontend; native rows use only the test executable (maximum measured run).

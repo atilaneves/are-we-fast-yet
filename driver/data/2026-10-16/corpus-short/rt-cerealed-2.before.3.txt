@@ -1,0 +1,5 @@
+rt-cerealed-2   dub ovrhd 0.6 ms   frontend 2091.2 ms   dep img 1.7 ms   LDC 2113 -O   1+5 runs
+
+backend      pass    run min    [1mrun med[0m    run σ   cmp min   [1mcmp med[0m   cmp σ        RAM
+        
+bytecode  156/156  4518.9 ms  [1m4614.1 ms[0m  61.9 ms  119.1 ms  [1m121.8 ms[0m  1.6 ms  265.0 MiB

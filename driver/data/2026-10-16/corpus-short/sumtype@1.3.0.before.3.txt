@@ -1,0 +1,11 @@
+1 modules passed unittests
+1 modules passed unittests
+1 modules passed unittests
+1 modules passed unittests
+1 modules passed unittests
+1 modules passed unittests
+sumtype   dub ovrhd 0.4 ms   frontend 928.6 ms   dep img 0.9 ms   LDC 2113 -O   1+5 runs
+
+backend   pass  run min  [1mrun med[0m   run σ  cmp min  [1mcmp med[0m   cmp σ       RAM
+        
+bytecode  PASS  34.6 ms  [1m38.4 ms[0m  4.6 ms  20.1 ms  [1m20.7 ms[0m  0.6 ms  14.7 MiB

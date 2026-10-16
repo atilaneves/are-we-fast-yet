@@ -396,3 +396,150 @@ Per inner Mandelbrot iteration, frontend and start-up removed:
   11 minutes on a run that had ended.
 - Do not run builds or other benchmarks while a measurement runs.
 - `.gitignore` ignores `*.md`. Add markdown files with `git add -f`.
+
+## Before and after the bytecode VM work of 2026-10-15/16
+
+Work compared: snakebite PRs #741, #744, #748, #750, #753, #757, #758, #761,
+#763. Before = master 9756f1df. After = master 51a6f791. Both `bin/sb` and
+`bin/bench` are release builds in git worktrees (`compare-before`,
+`compare-after`). Data: `driver/data/2026-10-16/`.
+
+### Method
+
+- AWFY: `driver/compare.sh` (suite `wall`, 3 invocations per cell, ReBench
+  Time adapter, 10 ms resolution, one pre-run per command that is dropped).
+  Before run: executors `sb-gc` and `sb-interp` only
+  (`results/before-9756f1df`). After run: all executors with the after
+  `bin/sb`, pinned with `taskset -c 24` (`results/after-51a6f791`). The
+  other executors do not depend on the snakebite build, so the before
+  comparison reuses their numbers from the after run.
+- Tables come from `driver/compare_report.py results/before-9756f1df
+  results/after-51a6f791`. A cell is the median of 3 invocations, in
+  milliseconds (whole-process wall time). A cell with fewer than 3
+  invocations is `n/a`.
+- The `sb-interp` executor (tree-walking interpreter, `sb -b interpreter`)
+  was dropped: it is too slow. It is in `compare.conf` and the before data,
+  but it is not in any table here. The user stopped the after run at about
+  90% (log ends "Aborted by user request"), so some cells are missing.
+- Corpus: `bin/bench <project> -b bytecode -w 1 -r 5`, run from the
+  worktree of each build, with `taskset -c 25`, before and after
+  alternating, 3 rounds. The table value is the median of the 3 round
+  medians. "run" is the run phase median of `bin/bench`; it contains the
+  `bin/sb` compile time (lazy compile). "cmp" is the compile phase median.
+  Scripts: `corpus2.sh` (6 projects; the msgpack-d and sumtype list was
+  run by `corpus3.sh`), parsing by `parse.py`.
+- The full-corpus table is an earlier run (`corpus.sh`): `-w 1 -r 3`, one
+  round, so it has more noise.
+
+### AWFY: sb-gc before and after (ms)
+
+| benchmark | sb-gc before | sb-gc after | after/before |
+|---|--:|--:|--:|
+| Bounce | 1,860 | 610 | 0.328 |
+| CD | 3,790 | 1,630 | 0.430 |
+| DeltaBlue | 1,320 | 850 | 0.644 |
+| Havlak | 4,650 | 2,410 | 0.518 |
+| Json | 1,780 | 1,110 | 0.624 |
+| List | 3,630 | 930 | 0.256 |
+| Mandelbrot | 1,220 | 380 | 0.311 |
+| NBody | 1,840 | 670 | 0.364 |
+| Permute | 2,930 | 1,070 | 0.365 |
+| Queens | 2,550 | 1,000 | 0.392 |
+| Richards | 11,040 | 4,850 | 0.439 |
+| Sieve | 2,990 | 790 | 0.264 |
+| Storage | 6,860 | 4,080 | 0.595 |
+| Towers | 3,130 | 1,350 | 0.431 |
+| geomean | | | 0.409 |
+
+### AWFY: after, all executors (ms)
+
+| benchmark | sb-gc | D-gc | D-symgc | sb-symgc | C++ | lua | luajit-joff | luajit | java-Xint | java | node-jitless | node | wasm3 | python3 |
+|---|--:|--:|--:|--:|--:|--:|--:|--:|--:|--:|--:|--:|--:|--:|
+| Bounce | 610 | 20 | 30 | 700 | 30 | 1,450 | 700 | 110 | 650 | 130 | 1,730 | n/a | 240 | 2,080 |
+| CD | 1,630 | 90 | 90 | n/a | 40 | n/a | 1,880 | 1,280 | 1,780 | 340 | n/a | 280 | 550 | 3,460 |
+| DeltaBlue | 850 | 70 | 30 | 830 | 20 | 1,170 | 850 | 550 | n/a | 400 | n/a | 270 | 290 | 840 |
+| Havlak | 2,410 | 160 | 150 | 2,410 | 110 | 7,650 | 4,540 | n/a | 2,950 | 670 | 3,370 | 420 | 1,580 | 4,880 |
+| Json | 1,110 | 140 | 40 | 1,200 | 50 | 1,300 | 720 | 280 | 4,790 | 440 | 1,110 | n/a | 690 | 1,150 |
+| List | 930 | 40 | 40 | 920 | 30 | 950 | n/a | 190 | 1,960 | 110 | 940 | 100 | 380 | 1,090 |
+| Mandelbrot | 380 | n/a | 40 | 380 | 50 | 480 | n/a | 50 | 560 | 150 | 910 | 100 | 140 | 1,740 |
+| NBody | 670 | n/a | 20 | 670 | 30 | 990 | 530 | 50 | 1,930 | 120 | 1,610 | 80 | 230 | 2,120 |
+| Permute | 1,070 | 30 | 30 | 1,100 | n/a | 1,350 | 650 | 90 | 770 | 140 | 1,950 | 100 | 350 | 2,330 |
+| Queens | 1,000 | 20 | 20 | 1,010 | n/a | 840 | n/a | 80 | 630 | 150 | 1,260 | 100 | 200 | 1,050 |
+| Richards | 4,850 | 80 | 80 | 4,990 | 90 | 5,720 | 3,850 | 1,010 | 5,270 | 250 | 6,130 | 260 | 1,250 | 6,230 |
+| Sieve | 790 | 40 | 50 | 780 | 30 | 820 | 590 | 140 | 910 | 150 | 1,480 | 150 | 380 | 2,810 |
+| Storage | 4,080 | 2,870 | 620 | 3,950 | 280 | 2,010 | 1,220 | 790 | 1,510 | 200 | 1,040 | 170 | 1,980 | 1,870 |
+| Towers | 1,350 | 20 | 20 | 1,270 | 20 | 1,300 | n/a | 100 | 1,190 | n/a | n/a | 100 | 310 | 1,480 |
+
+### AWFY: geomean of sb-gc against each executor
+
+Ratio above 1 means sb-gc is slower. The geomean uses only the benchmarks
+with a result for that executor (column n). D-gc and C++ times of 10 to 30
+ms are at the resolution limit of the Time adapter, so their ratios are
+coarse.
+
+| executor | n | geomean sb-gc after / executor | geomean sb-gc before / executor |
+|---|--:|--:|--:|
+| D-gc | 12 | 19.88 | 47.09 |
+| D-symgc | 14 | 24.37 | 59.63 |
+| sb-symgc | 13 | 0.99 | 2.43 |
+| C++ | 12 | 26.61 | 64.25 |
+| lua | 13 | 0.82 | 2.00 |
+| luajit-joff | 10 | 1.22 | 2.77 |
+| luajit | 13 | 5.66 | 14.09 |
+| java-Xint | 13 | 0.84 | 2.12 |
+| java | 13 | 5.61 | 13.79 |
+| node-jitless | 11 | 0.73 | 1.88 |
+| node | 12 | 8.29 | 20.64 |
+| wasm3 | 14 | 2.71 | 6.63 |
+| python3 | 14 | 0.60 | 1.46 |
+
+### AWFY: missing cells because of the stop
+
+- D-gc: Mandelbrot (0/3), NBody (0/3)
+- sb-symgc: CD (0/3)
+- C++: Permute (0/3), Queens (0/3)
+- lua: CD (0/3)
+- luajit-joff: List (0/3), Mandelbrot (0/3), Queens (0/3), Towers (0/3)
+- luajit: Havlak (0/3)
+- java-Xint: DeltaBlue (0/3)
+- java: Towers (0/3)
+- node-jitless: CD (0/3), DeltaBlue (0/3), Towers (0/3)
+- node: Bounce (0/3), Json (0/3)
+
+All 14 benchmarks have sb-gc before and after.
+
+### Corpus: short list (3 rounds, `-w 1 -r 5`, ms)
+
+| project | run before | run after | run ratio | cmp before | cmp after | cmp ratio |
+|---|--:|--:|--:|--:|--:|--:|
+| cerealed@0.6.12 | 4595.1 | 2742.8 | 0.597 | 89.4 | 102.2 | 1.143 |
+| automem@0.6.11 | 99.9 | 105.1 | 1.052 | 59.4 | 66.0 | 1.111 |
+| tardy@0.0.3 | 54.0 | 61.1 | 1.131 | 31.6 | 39.5 | 1.250 |
+| msgpack-d@1.0.5 | 48.1 | 53.9 | 1.121 | 30.0 | 36.1 | 1.203 |
+| sumtype@1.3.0 | 38.6 | 43.0 | 1.114 | 20.5 | 24.1 | 1.176 |
+
+### Corpus: examples of `build/benches.sh` (3 rounds, `-w 1 -r 5`, ms)
+
+| example | run before | run after | run ratio | cmp before | cmp after | cmp ratio |
+|---|--:|--:|--:|--:|--:|--:|
+| ct-full | 25.7 | 24.7 | 0.961 | 12.0 | 14.0 | 1.167 |
+| rt-perf | 117.4 | 64.5 | 0.549 | 0.9 | 0.9 | 1.000 |
+| rt-cerealed-2 | 4614.1 | 2813.4 | 0.610 | 121.8 | 145.1 | 1.191 |
+
+### Corpus: earlier full-corpus run (1 round, `-w 1 -r 3`, ms)
+
+| project | run before | run after | run ratio | cmp before | cmp after | cmp ratio |
+|---|--:|--:|--:|--:|--:|--:|
+| automem@0.6.11 | 101.3 | 117.5 | 1.160 | 64.9 | 76.6 | 1.180 |
+| cerealed@0.6.12 | 4705.2 | 2799.2 | 0.595 | 91.6 | 109.5 | 1.195 |
+| dub@1.42.0 | 1997.9 | 1916.3 | 0.959 | 867.6 | 1005.5 | 1.159 |
+| fearless@0.0.4 | 19.0 | 20.3 | 1.068 | 10.0 | 11.2 | 1.120 |
+| mirror@0.3.4 | 167.9 | 179.3 | 1.068 | 106.1 | 118.9 | 1.121 |
+
+Reading: programs that run long (cerealed, rt-perf, rt-cerealed-2, AWFY) are
+1.6 to 4 times faster. Short projects, where the run phase is mostly
+compile, are 5 to 13% slower, and the compile phase is 10 to 25% slower
+in every project except rt-perf. Compile phase time grew in all runs; the
+cause was not investigated here. In the full-corpus table, bin/bench was
+the same one-round run, so its 1.16 automem ratio differs from the
+3-round 1.05.

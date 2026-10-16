@@ -1,0 +1,7 @@
+cerealed   dub ovrhd 2.8 ms   frontend 1099.0 ms   dep img 3.0 ms   LDC 2113 -O   1+5 runs
+
+backend      pass    run min    [1mrun med[0m    run σ   cmp min   [1mcmp med[0m   cmp σ   peak RSS
+        
+bytecode  156/156  2672.4 ms  [1m2742.8 ms[0m  47.5 ms  100.9 ms  [1m102.2 ms[0m  3.2 ms  680.9 MiB
+
+Peak RSS: backends use one fresh process, including the frontend; native rows use only the test executable (maximum measured run).

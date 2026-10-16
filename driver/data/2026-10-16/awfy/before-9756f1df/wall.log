@@ -1,0 +1,1302 @@
+### benchmarks/D sb -b interpreter -I src src -- --DRT-testmode=run-main Towers 1 600
+Starting Towers benchmark ...
+Towers: iterations=1 runtime: 35991461us
+Towers: iterations=1 average: 35991461us total: 35991461us
+
+Total Runtime: 35991461us
+src scan:                 0.2 ms
+frontend time:          259.3 ms
+image time:               0.9 ms
+backend latency:      35995.6 ms
+  ModuleInfo:             1.0 ms
+  module ctors:           0.2 ms
+  tests and main:     35994.4 ms
+  other:                  0.0 ms
+### exit 0 wall_us 36264148
+### benchmarks/D sb -b interpreter -I src src -- --DRT-testmode=run-main Towers 1 600
+Starting Towers benchmark ...
+Towers: iterations=1 runtime: 35679001us
+Towers: iterations=1 average: 35679001us total: 35679001us
+
+Total Runtime: 35679001us
+src scan:                 0.2 ms
+frontend time:          258.5 ms
+image time:               0.9 ms
+backend latency:      35682.5 ms
+  ModuleInfo:             0.8 ms
+  module ctors:           0.2 ms
+  tests and main:     35681.6 ms
+  other:                  0.0 ms
+### exit 0 wall_us 35950259
+### benchmarks/D sb -b interpreter -I src src -- --DRT-testmode=run-main Towers 1 600
+Starting Towers benchmark ...
+Towers: iterations=1 runtime: 36489830us
+Towers: iterations=1 average: 36489830us total: 36489830us
+
+Total Runtime: 36489830us
+src scan:                 0.2 ms
+frontend time:          259.0 ms
+image time:               1.0 ms
+backend latency:      36494.1 ms
+  ModuleInfo:             1.1 ms
+  module ctors:           0.2 ms
+  tests and main:     36492.8 ms
+  other:                  0.0 ms
+### exit 0 wall_us 36761993
+### benchmarks/D sb -b interpreter -I src src -- --DRT-testmode=run-main Sieve 1 3000
+Starting Sieve benchmark ...
+Sieve: iterations=1 runtime: 37013743us
+Sieve: iterations=1 average: 37013743us total: 37013743us
+
+Total Runtime: 37013743us
+src scan:                 0.2 ms
+frontend time:          266.7 ms
+image time:               1.1 ms
+backend latency:      37018.2 ms
+  ModuleInfo:             1.4 ms
+  module ctors:           0.3 ms
+  tests and main:     37016.5 ms
+  other:                  0.0 ms
+### exit 0 wall_us 37294930
+### benchmarks/D sb -b interpreter -I src src -- --DRT-testmode=run-main Sieve 1 3000
+Starting Sieve benchmark ...
+Sieve: iterations=1 runtime: 35721968us
+Sieve: iterations=1 average: 35721968us total: 35721968us
+
+Total Runtime: 35721968us
+src scan:                 0.2 ms
+frontend time:          242.7 ms
+image time:               0.9 ms
+backend latency:      35725.1 ms
+  ModuleInfo:             0.7 ms
+  module ctors:           0.2 ms
+  tests and main:     35724.2 ms
+  other:                  0.0 ms
+### exit 0 wall_us 35977227
+### benchmarks/D sb -b interpreter -I src src -- --DRT-testmode=run-main Sieve 1 3000
+Starting Sieve benchmark ...
+Sieve: iterations=1 runtime: 39251000us
+Sieve: iterations=1 average: 39251000us total: 39251000us
+
+Total Runtime: 39251000us
+src scan:                 0.2 ms
+frontend time:          243.6 ms
+image time:               0.9 ms
+backend latency:      39254.2 ms
+  ModuleInfo:             0.7 ms
+  module ctors:           0.2 ms
+  tests and main:     39253.3 ms
+  other:                  0.0 ms
+### exit 0 wall_us 39507299
+### benchmarks/D sb -I src src -- --DRT-testmode=run-main Bounce 1 1500
+Starting Bounce benchmark ...
+Bounce: iterations=1 runtime: 1585052us
+Bounce: iterations=1 average: 1585052us total: 1585052us
+
+Total Runtime: 1585052us
+src scan:                 0.2 ms
+frontend time:          243.7 ms
+image time:               1.0 ms
+backend latency:       1589.2 ms
+  compile:                2.8 ms
+  ModuleInfo:             0.9 ms
+  module ctors:           0.2 ms
+  tests and main:      1585.3 ms
+  other:                  0.0 ms
+### exit 0 wall_us 1841823
+### benchmarks/D sb -I src src -- --DRT-testmode=run-main Bounce 1 1500
+Starting Bounce benchmark ...
+Bounce: iterations=1 runtime: 1605411us
+Bounce: iterations=1 average: 1605411us total: 1605411us
+
+Total Runtime: 1605411us
+src scan:                 0.2 ms
+frontend time:          243.1 ms
+image time:               0.9 ms
+backend latency:       1609.3 ms
+  compile:                2.7 ms
+  ModuleInfo:             0.8 ms
+  module ctors:           0.2 ms
+  tests and main:      1605.7 ms
+  other:                  0.0 ms
+### exit 0 wall_us 1861171
+### benchmarks/D sb -I src src -- --DRT-testmode=run-main Bounce 1 1500
+Starting Bounce benchmark ...
+Bounce: iterations=1 runtime: 1595578us
+Bounce: iterations=1 average: 1595578us total: 1595578us
+
+Total Runtime: 1595578us
+src scan:                 0.2 ms
+frontend time:          245.0 ms
+image time:               0.9 ms
+backend latency:       1599.5 ms
+  compile:                2.7 ms
+  ModuleInfo:             0.8 ms
+  module ctors:           0.2 ms
+  tests and main:      1595.8 ms
+  other:                  0.0 ms
+### exit 0 wall_us 1853513
+### benchmarks/D sb -I src src -- --DRT-testmode=run-main List 1 1500
+Starting List benchmark ...
+List: iterations=1 runtime: 3350652us
+List: iterations=1 average: 3350652us total: 3350652us
+
+Total Runtime: 3350652us
+src scan:                 0.2 ms
+frontend time:          247.8 ms
+image time:               0.9 ms
+backend latency:       3354.6 ms
+  compile:                2.8 ms
+  ModuleInfo:             0.7 ms
+  module ctors:           0.2 ms
+  tests and main:      3350.9 ms
+  other:                  0.0 ms
+### exit 0 wall_us 3612223
+### benchmarks/D sb -I src src -- --DRT-testmode=run-main List 1 1500
+Starting List benchmark ...
+List: iterations=1 runtime: 3362215us
+List: iterations=1 average: 3362215us total: 3362215us
+
+Total Runtime: 3362215us
+src scan:                 0.2 ms
+frontend time:          256.9 ms
+image time:               0.9 ms
+backend latency:       3366.3 ms
+  compile:                2.9 ms
+  ModuleInfo:             0.7 ms
+  module ctors:           0.2 ms
+  tests and main:      3362.5 ms
+  other:                  0.0 ms
+### exit 0 wall_us 3633017
+### benchmarks/D sb -I src src -- --DRT-testmode=run-main List 1 1500
+Starting List benchmark ...
+List: iterations=1 runtime: 3369097us
+List: iterations=1 average: 3369097us total: 3369097us
+
+Total Runtime: 3369097us
+src scan:                 0.2 ms
+frontend time:          244.4 ms
+image time:               0.9 ms
+backend latency:       3373.0 ms
+  compile:                2.8 ms
+  ModuleInfo:             0.7 ms
+  module ctors:           0.2 ms
+  tests and main:      3369.3 ms
+  other:                  0.0 ms
+### exit 0 wall_us 3627120
+### benchmarks/D sb -I src src -- --DRT-testmode=run-main CD 1 250
+Starting CD benchmark ...
+CD: iterations=1 runtime: 3520757us
+CD: iterations=1 average: 3520757us total: 3520757us
+
+Total Runtime: 3520757us
+src scan:                 0.2 ms
+frontend time:          244.7 ms
+image time:               0.9 ms
+backend latency:       3530.6 ms
+  compile:                8.7 ms
+  ModuleInfo:             0.7 ms
+  module ctors:           0.2 ms
+  tests and main:      3521.0 ms
+  other:                  0.0 ms
+### exit 0 wall_us 3785755
+### benchmarks/D sb -I src src -- --DRT-testmode=run-main CD 1 250
+Starting CD benchmark ...
+CD: iterations=1 runtime: 3526445us
+CD: iterations=1 average: 3526445us total: 3526445us
+
+Total Runtime: 3526445us
+src scan:                 0.3 ms
+frontend time:          247.1 ms
+image time:               0.9 ms
+backend latency:       3536.5 ms
+  compile:                8.9 ms
+  ModuleInfo:             0.8 ms
+  module ctors:           0.2 ms
+  tests and main:      3526.7 ms
+  other:                  0.0 ms
+### exit 0 wall_us 3794096
+### benchmarks/D sb -I src src -- --DRT-testmode=run-main CD 1 250
+Starting CD benchmark ...
+CD: iterations=1 runtime: 3519670us
+CD: iterations=1 average: 3519670us total: 3519670us
+
+Total Runtime: 3519670us
+src scan:                 0.3 ms
+frontend time:          243.6 ms
+image time:               0.9 ms
+backend latency:       3529.6 ms
+  compile:                8.8 ms
+  ModuleInfo:             0.8 ms
+  module ctors:           0.2 ms
+  tests and main:      3519.9 ms
+  other:                  0.0 ms
+### exit 0 wall_us 3783606
+### benchmarks/D sb -b interpreter -I src src -- --DRT-testmode=run-main Json 1 100
+Starting Json benchmark ...
+Json: iterations=1 runtime: 13956755us
+Json: iterations=1 average: 13956755us total: 13956755us
+
+Total Runtime: 13956755us
+src scan:                 0.2 ms
+frontend time:          249.6 ms
+image time:               0.9 ms
+backend latency:      13961.4 ms
+  ModuleInfo:             0.8 ms
+  module ctors:           0.2 ms
+  tests and main:     13960.5 ms
+  other:                  0.0 ms
+### exit 0 wall_us 14221118
+### benchmarks/D sb -b interpreter -I src src -- --DRT-testmode=run-main Json 1 100
+Starting Json benchmark ...
+Json: iterations=1 runtime: 13708142us
+Json: iterations=1 average: 13708142us total: 13708142us
+
+Total Runtime: 13708142us
+src scan:                 0.2 ms
+frontend time:          243.6 ms
+image time:               0.9 ms
+backend latency:      13712.8 ms
+  ModuleInfo:             0.7 ms
+  module ctors:           0.2 ms
+  tests and main:     13711.9 ms
+  other:                  0.0 ms
+### exit 0 wall_us 13966602
+### benchmarks/D sb -b interpreter -I src src -- --DRT-testmode=run-main Json 1 100
+Starting Json benchmark ...
+Json: iterations=1 runtime: 13618648us
+Json: iterations=1 average: 13618648us total: 13618648us
+
+Total Runtime: 13618648us
+src scan:                 0.4 ms
+frontend time:          252.7 ms
+image time:               0.9 ms
+backend latency:      13623.4 ms
+  ModuleInfo:             0.8 ms
+  module ctors:           0.2 ms
+  tests and main:     13622.5 ms
+  other:                  0.0 ms
+### exit 0 wall_us 13886501
+### benchmarks/D sb -I src src -- --DRT-testmode=run-main Richards 1 100
+Starting Richards benchmark ...
+Richards: iterations=1 runtime: 10902204us
+Richards: iterations=1 average: 10902204us total: 10902204us
+
+Total Runtime: 10902204us
+src scan:                 0.2 ms
+frontend time:          247.6 ms
+image time:               0.9 ms
+backend latency:      10909.5 ms
+  compile:                6.1 ms
+  ModuleInfo:             0.8 ms
+  module ctors:           0.2 ms
+  tests and main:     10902.5 ms
+  other:                  0.0 ms
+### exit 0 wall_us 11166423
+### benchmarks/D sb -I src src -- --DRT-testmode=run-main Richards 1 100
+Starting Richards benchmark ...
+Richards: iterations=1 runtime: 10775650us
+Richards: iterations=1 average: 10775650us total: 10775650us
+
+Total Runtime: 10775650us
+src scan:                 0.2 ms
+frontend time:          248.6 ms
+image time:               0.9 ms
+backend latency:      10782.9 ms
+  compile:                6.1 ms
+  ModuleInfo:             0.7 ms
+  module ctors:           0.2 ms
+  tests and main:     10775.9 ms
+  other:                  0.0 ms
+### exit 0 wall_us 11040900
+### benchmarks/D sb -I src src -- --DRT-testmode=run-main Richards 1 100
+Starting Richards benchmark ...
+Richards: iterations=1 runtime: 10758149us
+Richards: iterations=1 average: 10758149us total: 10758149us
+
+Total Runtime: 10758149us
+src scan:                 0.2 ms
+frontend time:          241.3 ms
+image time:               0.9 ms
+backend latency:      10765.2 ms
+  compile:                5.9 ms
+  ModuleInfo:             0.7 ms
+  module ctors:           0.2 ms
+  tests and main:     10758.4 ms
+  other:                  0.0 ms
+### exit 0 wall_us 11016145
+### benchmarks/D sb -I src src -- --DRT-testmode=run-main DeltaBlue 1 12000
+Starting DeltaBlue benchmark ...
+DeltaBlue: iterations=1 runtime: 1051381us
+DeltaBlue: iterations=1 average: 1051381us total: 1051381us
+
+Total Runtime: 1051381us
+src scan:                 0.2 ms
+frontend time:          243.4 ms
+image time:               0.9 ms
+backend latency:       1065.3 ms
+  compile:               12.6 ms
+  ModuleInfo:             0.8 ms
+  module ctors:           0.2 ms
+  tests and main:      1051.7 ms
+  other:                  0.0 ms
+### exit 0 wall_us 1319259
+### benchmarks/D sb -I src src -- --DRT-testmode=run-main DeltaBlue 1 12000
+Starting DeltaBlue benchmark ...
+DeltaBlue: iterations=1 runtime: 1028247us
+DeltaBlue: iterations=1 average: 1028247us total: 1028247us
+
+Total Runtime: 1028247us
+src scan:                 0.2 ms
+frontend time:          250.7 ms
+image time:               0.9 ms
+backend latency:       1040.0 ms
+  compile:               10.6 ms
+  ModuleInfo:             0.8 ms
+  module ctors:           0.2 ms
+  tests and main:      1028.5 ms
+  other:                  0.0 ms
+### exit 0 wall_us 1301017
+### benchmarks/D sb -I src src -- --DRT-testmode=run-main DeltaBlue 1 12000
+Starting DeltaBlue benchmark ...
+DeltaBlue: iterations=1 runtime: 1050031us
+DeltaBlue: iterations=1 average: 1050031us total: 1050031us
+
+Total Runtime: 1050031us
+src scan:                 0.2 ms
+frontend time:          244.0 ms
+image time:               0.9 ms
+backend latency:       1061.7 ms
+  compile:               10.5 ms
+  ModuleInfo:             0.7 ms
+  module ctors:           0.2 ms
+  tests and main:      1050.3 ms
+  other:                  0.0 ms
+### exit 0 wall_us 1315541
+### benchmarks/D sb -b interpreter -I src src -- --DRT-testmode=run-main Richards 1 100
+Starting Richards benchmark ...
+Richards: iterations=1 runtime: 109493051us
+Richards: iterations=1 average: 109493051us total: 109493051us
+
+Total Runtime: 109493051us
+src scan:                 0.2 ms
+frontend time:          244.5 ms
+image time:               0.9 ms
+backend latency:     109497.2 ms
+  ModuleInfo:             0.7 ms
+  module ctors:           0.2 ms
+  tests and main:    109496.3 ms
+  other:                  0.0 ms
+### exit 0 wall_us 109751204
+### benchmarks/D sb -b interpreter -I src src -- --DRT-testmode=run-main Richards 1 100
+Starting Richards benchmark ...
+Richards: iterations=1 runtime: 110024404us
+Richards: iterations=1 average: 110024404us total: 110024404us
+
+Total Runtime: 110024404us
+src scan:                 0.2 ms
+frontend time:          279.6 ms
+image time:               1.0 ms
+backend latency:     110029.2 ms
+  ModuleInfo:             0.9 ms
+  module ctors:           0.2 ms
+  tests and main:    110028.2 ms
+  other:                  0.0 ms
+### exit 0 wall_us 110318151
+### benchmarks/D sb -b interpreter -I src src -- --DRT-testmode=run-main Richards 1 100
+Starting Richards benchmark ...
+Richards: iterations=1 runtime: 123637654us
+Richards: iterations=1 average: 123637654us total: 123637654us
+
+Total Runtime: 123637654us
+src scan:                 0.2 ms
+frontend time:          258.8 ms
+image time:               1.0 ms
+backend latency:     123642.6 ms
+  ModuleInfo:             1.2 ms
+  module ctors:           0.2 ms
+  tests and main:    123641.2 ms
+  other:                  0.0 ms
+### exit 0 wall_us 123911442
+### benchmarks/D sb -I src src -- --DRT-testmode=run-main Havlak 1 1500
+Starting Havlak benchmark ...
+Havlak: iterations=1 runtime: 4405428us
+Havlak: iterations=1 average: 4405428us total: 4405428us
+
+Total Runtime: 4405428us
+src scan:                 0.2 ms
+frontend time:          249.4 ms
+image time:               0.9 ms
+backend latency:       4416.9 ms
+  compile:               10.0 ms
+  ModuleInfo:             1.0 ms
+  module ctors:           0.2 ms
+  tests and main:      4405.7 ms
+  other:                  0.0 ms
+### exit 0 wall_us 4677905
+### benchmarks/D sb -I src src -- --DRT-testmode=run-main Havlak 1 1500
+Starting Havlak benchmark ...
+Havlak: iterations=1 runtime: 4336952us
+Havlak: iterations=1 average: 4336952us total: 4336952us
+
+Total Runtime: 4336952us
+src scan:                 0.2 ms
+frontend time:          251.9 ms
+image time:               0.9 ms
+backend latency:       4348.6 ms
+  compile:               10.4 ms
+  ModuleInfo:             0.7 ms
+  module ctors:           0.2 ms
+  tests and main:      4337.2 ms
+  other:                  0.0 ms
+### exit 0 wall_us 4610675
+### benchmarks/D sb -I src src -- --DRT-testmode=run-main Havlak 1 1500
+Starting Havlak benchmark ...
+Havlak: iterations=1 runtime: 4378199us
+Havlak: iterations=1 average: 4378199us total: 4378199us
+
+Total Runtime: 4378199us
+src scan:                 0.2 ms
+frontend time:          251.5 ms
+image time:               0.9 ms
+backend latency:       4389.7 ms
+  compile:               10.3 ms
+  ModuleInfo:             0.7 ms
+  module ctors:           0.2 ms
+  tests and main:      4378.5 ms
+  other:                  0.0 ms
+### exit 0 wall_us 4651486
+### benchmarks/D sb -I src src -- --DRT-testmode=run-main Mandelbrot 1 500
+Starting Mandelbrot benchmark ...
+Mandelbrot: iterations=1 runtime: 954791us
+Mandelbrot: iterations=1 average: 954791us total: 954791us
+
+Total Runtime: 954791us
+src scan:                 0.2 ms
+frontend time:          248.3 ms
+image time:               0.9 ms
+backend latency:        958.7 ms
+  compile:                2.6 ms
+  ModuleInfo:             1.0 ms
+  module ctors:           0.2 ms
+  tests and main:       955.0 ms
+  other:                  0.0 ms
+### exit 0 wall_us 1216308
+### benchmarks/D sb -I src src -- --DRT-testmode=run-main Mandelbrot 1 500
+Starting Mandelbrot benchmark ...
+Mandelbrot: iterations=1 runtime: 947773us
+Mandelbrot: iterations=1 average: 947773us total: 947773us
+
+Total Runtime: 947773us
+src scan:                 0.2 ms
+frontend time:          248.4 ms
+image time:               0.9 ms
+backend latency:        951.5 ms
+  compile:                2.6 ms
+  ModuleInfo:             0.8 ms
+  module ctors:           0.2 ms
+  tests and main:       948.0 ms
+  other:                  0.0 ms
+### exit 0 wall_us 1208845
+### benchmarks/D sb -I src src -- --DRT-testmode=run-main Mandelbrot 1 500
+Starting Mandelbrot benchmark ...
+Mandelbrot: iterations=1 runtime: 966739us
+Mandelbrot: iterations=1 average: 966739us total: 966739us
+
+Total Runtime: 966739us
+src scan:                 0.2 ms
+frontend time:          248.8 ms
+image time:               0.9 ms
+backend latency:        970.5 ms
+  compile:                2.6 ms
+  ModuleInfo:             0.7 ms
+  module ctors:           0.2 ms
+  tests and main:       967.0 ms
+  other:                  0.0 ms
+### exit 0 wall_us 1228146
+### benchmarks/D sb -I src src -- --DRT-testmode=run-main Sieve 1 3000
+Starting Sieve benchmark ...
+Sieve: iterations=1 runtime: 2716368us
+Sieve: iterations=1 average: 2716368us total: 2716368us
+
+Total Runtime: 2716368us
+src scan:                 0.3 ms
+frontend time:          258.0 ms
+image time:               0.9 ms
+backend latency:       2720.5 ms
+  compile:                2.8 ms
+  ModuleInfo:             0.8 ms
+  module ctors:           0.2 ms
+  tests and main:      2716.7 ms
+  other:                  0.0 ms
+### exit 0 wall_us 2988570
+### benchmarks/D sb -I src src -- --DRT-testmode=run-main Sieve 1 3000
+Starting Sieve benchmark ...
+Sieve: iterations=1 runtime: 2675630us
+Sieve: iterations=1 average: 2675630us total: 2675630us
+
+Total Runtime: 2675630us
+src scan:                 0.2 ms
+frontend time:          260.0 ms
+image time:               0.9 ms
+backend latency:       2679.6 ms
+  compile:                2.7 ms
+  ModuleInfo:             0.8 ms
+  module ctors:           0.2 ms
+  tests and main:      2675.9 ms
+  other:                  0.0 ms
+### exit 0 wall_us 2949486
+### benchmarks/D sb -I src src -- --DRT-testmode=run-main Sieve 1 3000
+Starting Sieve benchmark ...
+Sieve: iterations=1 runtime: 2734338us
+Sieve: iterations=1 average: 2734338us total: 2734338us
+
+Total Runtime: 2734338us
+src scan:                 0.2 ms
+frontend time:          260.5 ms
+image time:               0.9 ms
+backend latency:       2738.5 ms
+  compile:                2.7 ms
+  ModuleInfo:             1.0 ms
+  module ctors:           0.2 ms
+  tests and main:      2734.6 ms
+  other:                  0.0 ms
+### exit 0 wall_us 3009557
+### benchmarks/D sb -I src src -- --DRT-testmode=run-main Queens 1 1000
+Starting Queens benchmark ...
+Queens: iterations=1 runtime: 2295774us
+Queens: iterations=1 average: 2295774us total: 2295774us
+
+Total Runtime: 2295774us
+src scan:                 0.2 ms
+frontend time:          303.4 ms
+image time:               1.0 ms
+backend latency:       2301.0 ms
+  compile:                3.3 ms
+  ModuleInfo:             1.3 ms
+  module ctors:           0.3 ms
+  tests and main:      2296.1 ms
+  other:                  0.0 ms
+### exit 0 wall_us 2616369
+### benchmarks/D sb -I src src -- --DRT-testmode=run-main Queens 1 1000
+Starting Queens benchmark ...
+Queens: iterations=1 runtime: 2235836us
+Queens: iterations=1 average: 2235836us total: 2235836us
+
+Total Runtime: 2235836us
+src scan:                 0.2 ms
+frontend time:          290.7 ms
+image time:               1.0 ms
+backend latency:       2240.9 ms
+  compile:                3.3 ms
+  ModuleInfo:             1.2 ms
+  module ctors:           0.2 ms
+  tests and main:      2236.1 ms
+  other:                  0.0 ms
+### exit 0 wall_us 2542943
+### benchmarks/D sb -I src src -- --DRT-testmode=run-main Queens 1 1000
+Starting Queens benchmark ...
+Queens: iterations=1 runtime: 2218433us
+Queens: iterations=1 average: 2218433us total: 2218433us
+
+Total Runtime: 2218433us
+src scan:                 0.2 ms
+frontend time:          286.4 ms
+image time:               1.0 ms
+backend latency:       2223.1 ms
+  compile:                3.2 ms
+  ModuleInfo:             0.9 ms
+  module ctors:           0.2 ms
+  tests and main:      2218.8 ms
+  other:                  0.0 ms
+### exit 0 wall_us 2520528
+### benchmarks/D sb -b interpreter -I src src -- --DRT-testmode=run-main NBody 1 250000
+Starting NBody benchmark ...
+NBody: iterations=1 runtime: 17000580us
+NBody: iterations=1 average: 17000580us total: 17000580us
+
+Total Runtime: 17000580us
+src scan:                 0.3 ms
+frontend time:          290.4 ms
+image time:               1.1 ms
+backend latency:      17004.5 ms
+  ModuleInfo:             0.9 ms
+  module ctors:           0.2 ms
+  tests and main:     17003.5 ms
+  other:                  0.0 ms
+### exit 0 wall_us 17305339
+### benchmarks/D sb -b interpreter -I src src -- --DRT-testmode=run-main NBody 1 250000
+Starting NBody benchmark ...
+NBody: iterations=1 runtime: 15956616us
+NBody: iterations=1 average: 15956616us total: 15956616us
+
+Total Runtime: 15956616us
+src scan:                 0.2 ms
+frontend time:          253.1 ms
+image time:               0.9 ms
+backend latency:      15960.0 ms
+  ModuleInfo:             0.8 ms
+  module ctors:           0.2 ms
+  tests and main:     15959.0 ms
+  other:                  0.0 ms
+### exit 0 wall_us 16222853
+### benchmarks/D sb -b interpreter -I src src -- --DRT-testmode=run-main NBody 1 250000
+Starting NBody benchmark ...
+NBody: iterations=1 runtime: 15495333us
+NBody: iterations=1 average: 15495333us total: 15495333us
+
+Total Runtime: 15495333us
+src scan:                 0.2 ms
+frontend time:          249.8 ms
+image time:               0.9 ms
+backend latency:      15498.7 ms
+  ModuleInfo:             0.7 ms
+  module ctors:           0.2 ms
+  tests and main:     15497.8 ms
+  other:                  0.0 ms
+### exit 0 wall_us 15757588
+### benchmarks/D sb -b interpreter -I src src -- --DRT-testmode=run-main Permute 1 1000
+Starting Permute benchmark ...
+Permute: iterations=1 runtime: 28173822us
+Permute: iterations=1 average: 28173822us total: 28173822us
+
+Total Runtime: 28173822us
+src scan:                 0.2 ms
+frontend time:          250.8 ms
+image time:               0.9 ms
+backend latency:      28177.1 ms
+  ModuleInfo:             0.8 ms
+  module ctors:           0.2 ms
+  tests and main:     28176.1 ms
+  other:                  0.0 ms
+### exit 0 wall_us 28437099
+### benchmarks/D sb -b interpreter -I src src -- --DRT-testmode=run-main Permute 1 1000
+Starting Permute benchmark ...
+Permute: iterations=1 runtime: 27625802us
+Permute: iterations=1 average: 27625802us total: 27625802us
+
+Total Runtime: 27625802us
+src scan:                 0.2 ms
+frontend time:          250.1 ms
+image time:               1.0 ms
+backend latency:      27629.2 ms
+  ModuleInfo:             0.8 ms
+  module ctors:           0.2 ms
+  tests and main:     27628.2 ms
+  other:                  0.0 ms
+### exit 0 wall_us 27888405
+### benchmarks/D sb -b interpreter -I src src -- --DRT-testmode=run-main Permute 1 1000
+Starting Permute benchmark ...
+Permute: iterations=1 runtime: 29183808us
+Permute: iterations=1 average: 29183808us total: 29183808us
+
+Total Runtime: 29183808us
+src scan:                 0.2 ms
+frontend time:          257.1 ms
+image time:               0.9 ms
+backend latency:      29187.2 ms
+  ModuleInfo:             0.8 ms
+  module ctors:           0.2 ms
+  tests and main:     29186.3 ms
+  other:                  0.0 ms
+### exit 0 wall_us 29453452
+### benchmarks/D sb -b interpreter -I src src -- --DRT-testmode=run-main Queens 1 1000
+Starting Queens benchmark ...
+Queens: iterations=1 runtime: 23394239us
+Queens: iterations=1 average: 23394239us total: 23394239us
+
+Total Runtime: 23394239us
+src scan:                 0.2 ms
+frontend time:          249.8 ms
+image time:               0.9 ms
+backend latency:      23397.8 ms
+  ModuleInfo:             0.8 ms
+  module ctors:           0.2 ms
+  tests and main:     23396.9 ms
+  other:                  0.0 ms
+### exit 0 wall_us 23659993
+### benchmarks/D sb -b interpreter -I src src -- --DRT-testmode=run-main Queens 1 1000
+Starting Queens benchmark ...
+Queens: iterations=1 runtime: 23076608us
+Queens: iterations=1 average: 23076608us total: 23076608us
+
+Total Runtime: 23076608us
+src scan:                 0.3 ms
+frontend time:          458.7 ms
+image time:               1.1 ms
+backend latency:      23081.5 ms
+  ModuleInfo:             1.5 ms
+  module ctors:           0.2 ms
+  tests and main:     23079.7 ms
+  other:                  0.0 ms
+### exit 0 wall_us 23553812
+### benchmarks/D sb -b interpreter -I src src -- --DRT-testmode=run-main Queens 1 1000
+Starting Queens benchmark ...
+Queens: iterations=1 runtime: 21868715us
+Queens: iterations=1 average: 21868715us total: 21868715us
+
+Total Runtime: 21868715us
+src scan:                 0.2 ms
+frontend time:          251.1 ms
+image time:               0.9 ms
+backend latency:      21872.0 ms
+  ModuleInfo:             0.8 ms
+  module ctors:           0.2 ms
+  tests and main:     21871.1 ms
+  other:                  0.0 ms
+### exit 0 wall_us 22132848
+### benchmarks/D sb -b interpreter -I src src -- --DRT-testmode=run-main CD 1 250
+Starting CD benchmark ...
+CD: iterations=1 runtime: 36805482us
+CD: iterations=1 average: 36805482us total: 36805482us
+
+Total Runtime: 36805482us
+src scan:                 0.2 ms
+frontend time:          247.5 ms
+image time:               0.9 ms
+backend latency:      36811.3 ms
+  ModuleInfo:             0.7 ms
+  module ctors:           0.2 ms
+  tests and main:     36810.4 ms
+  other:                  0.0 ms
+### exit 0 wall_us 37069004
+### benchmarks/D sb -b interpreter -I src src -- --DRT-testmode=run-main CD 1 250
+Starting CD benchmark ...
+CD: iterations=1 runtime: 36471181us
+CD: iterations=1 average: 36471181us total: 36471181us
+
+Total Runtime: 36471181us
+src scan:                 0.2 ms
+frontend time:          251.4 ms
+image time:               0.9 ms
+backend latency:      36476.9 ms
+  ModuleInfo:             0.8 ms
+  module ctors:           0.2 ms
+  tests and main:     36476.0 ms
+  other:                  0.0 ms
+### exit 0 wall_us 36738223
+### benchmarks/D sb -b interpreter -I src src -- --DRT-testmode=run-main CD 1 250
+Starting CD benchmark ...
+CD: iterations=1 runtime: 36507437us
+CD: iterations=1 average: 36507437us total: 36507437us
+
+Total Runtime: 36507437us
+src scan:                 0.2 ms
+frontend time:          242.9 ms
+image time:               0.9 ms
+backend latency:      36513.3 ms
+  ModuleInfo:             0.7 ms
+  module ctors:           0.2 ms
+  tests and main:     36512.3 ms
+  other:                  0.0 ms
+### exit 0 wall_us 36766386
+### benchmarks/D sb -b interpreter -I src src -- --DRT-testmode=run-main Bounce 1 1500
+Starting Bounce benchmark ...
+Bounce: iterations=1 runtime: 25173030us
+Bounce: iterations=1 average: 25173030us total: 25173030us
+
+Total Runtime: 25173030us
+src scan:                 0.2 ms
+frontend time:          241.8 ms
+image time:               0.9 ms
+backend latency:      25176.3 ms
+  ModuleInfo:             0.8 ms
+  module ctors:           0.2 ms
+  tests and main:     25175.3 ms
+  other:                  0.0 ms
+### exit 0 wall_us 25427417
+### benchmarks/D sb -b interpreter -I src src -- --DRT-testmode=run-main Bounce 1 1500
+Starting Bounce benchmark ...
+Bounce: iterations=1 runtime: 25242846us
+Bounce: iterations=1 average: 25242846us total: 25242846us
+
+Total Runtime: 25242846us
+src scan:                 0.2 ms
+frontend time:          247.7 ms
+image time:               0.9 ms
+backend latency:      25246.1 ms
+  ModuleInfo:             0.7 ms
+  module ctors:           0.2 ms
+  tests and main:     25245.2 ms
+  other:                  0.0 ms
+### exit 0 wall_us 25502824
+### benchmarks/D sb -b interpreter -I src src -- --DRT-testmode=run-main Bounce 1 1500
+Starting Bounce benchmark ...
+Bounce: iterations=1 runtime: 24238569us
+Bounce: iterations=1 average: 24238569us total: 24238569us
+
+Total Runtime: 24238569us
+src scan:                 0.2 ms
+frontend time:          247.6 ms
+image time:               0.9 ms
+backend latency:      24242.0 ms
+  ModuleInfo:             0.8 ms
+  module ctors:           0.2 ms
+  tests and main:     24241.0 ms
+  other:                  0.0 ms
+### exit 0 wall_us 24498882
+### benchmarks/D sb -I src src -- --DRT-testmode=run-main Towers 1 600
+Starting Towers benchmark ...
+Towers: iterations=1 runtime: 2732443us
+Towers: iterations=1 average: 2732443us total: 2732443us
+
+Total Runtime: 2732443us
+src scan:                 0.2 ms
+frontend time:          258.3 ms
+image time:               0.9 ms
+backend latency:       2736.6 ms
+  compile:                2.9 ms
+  ModuleInfo:             0.8 ms
+  module ctors:           0.2 ms
+  tests and main:      2732.7 ms
+  other:                  0.0 ms
+### exit 0 wall_us 3004733
+### benchmarks/D sb -I src src -- --DRT-testmode=run-main Towers 1 600
+Starting Towers benchmark ...
+Towers: iterations=1 runtime: 2873614us
+Towers: iterations=1 average: 2873614us total: 2873614us
+
+Total Runtime: 2873614us
+src scan:                 0.2 ms
+frontend time:          241.3 ms
+image time:               0.9 ms
+backend latency:       2877.7 ms
+  compile:                2.9 ms
+  ModuleInfo:             0.8 ms
+  module ctors:           0.2 ms
+  tests and main:      2873.9 ms
+  other:                  0.0 ms
+### exit 0 wall_us 3128569
+### benchmarks/D sb -I src src -- --DRT-testmode=run-main Towers 1 600
+Starting Towers benchmark ...
+Towers: iterations=1 runtime: 2975183us
+Towers: iterations=1 average: 2975183us total: 2975183us
+
+Total Runtime: 2975183us
+src scan:                 0.2 ms
+frontend time:          243.5 ms
+image time:               0.9 ms
+backend latency:       2979.2 ms
+  compile:                2.9 ms
+  ModuleInfo:             0.7 ms
+  module ctors:           0.2 ms
+  tests and main:      2975.4 ms
+  other:                  0.0 ms
+### exit 0 wall_us 3232149
+### benchmarks/D sb -I src src -- --DRT-testmode=run-main Json 1 100
+Starting Json benchmark ...
+Json: iterations=1 runtime: 1540579us
+Json: iterations=1 average: 1540579us total: 1540579us
+
+Total Runtime: 1540579us
+src scan:                 0.2 ms
+frontend time:          238.8 ms
+image time:               0.9 ms
+backend latency:       1548.8 ms
+  compile:                7.0 ms
+  ModuleInfo:             0.8 ms
+  module ctors:           0.2 ms
+  tests and main:      1540.8 ms
+  other:                  0.0 ms
+### exit 0 wall_us 1797235
+### benchmarks/D sb -I src src -- --DRT-testmode=run-main Json 1 100
+Starting Json benchmark ...
+Json: iterations=1 runtime: 1498461us
+Json: iterations=1 average: 1498461us total: 1498461us
+
+Total Runtime: 1498461us
+src scan:                 0.2 ms
+frontend time:          237.4 ms
+image time:               0.9 ms
+backend latency:       1505.7 ms
+  compile:                6.0 ms
+  ModuleInfo:             0.7 ms
+  module ctors:           0.2 ms
+  tests and main:      1498.7 ms
+  other:                  0.0 ms
+### exit 0 wall_us 1752794
+### benchmarks/D sb -I src src -- --DRT-testmode=run-main Json 1 100
+Starting Json benchmark ...
+Json: iterations=1 runtime: 1522895us
+Json: iterations=1 average: 1522895us total: 1522895us
+
+Total Runtime: 1522895us
+src scan:                 0.2 ms
+frontend time:          238.8 ms
+image time:               0.9 ms
+backend latency:       1530.7 ms
+  compile:                6.6 ms
+  ModuleInfo:             0.7 ms
+  module ctors:           0.2 ms
+  tests and main:      1523.2 ms
+  other:                  0.0 ms
+### exit 0 wall_us 1779332
+### benchmarks/D sb -I src src -- --DRT-testmode=run-main Permute 1 1000
+Starting Permute benchmark ...
+Permute: iterations=1 runtime: 2656857us
+Permute: iterations=1 average: 2656857us total: 2656857us
+
+Total Runtime: 2656857us
+src scan:                 0.2 ms
+frontend time:          240.1 ms
+image time:               0.9 ms
+backend latency:       2660.6 ms
+  compile:                2.6 ms
+  ModuleInfo:             0.7 ms
+  module ctors:           0.2 ms
+  tests and main:      2657.1 ms
+  other:                  0.0 ms
+### exit 0 wall_us 2909396
+### benchmarks/D sb -I src src -- --DRT-testmode=run-main Permute 1 1000
+Starting Permute benchmark ...
+Permute: iterations=1 runtime: 2674699us
+Permute: iterations=1 average: 2674699us total: 2674699us
+
+Total Runtime: 2674699us
+src scan:                 0.2 ms
+frontend time:          237.0 ms
+image time:               0.9 ms
+backend latency:       2678.5 ms
+  compile:                2.6 ms
+  ModuleInfo:             0.7 ms
+  module ctors:           0.2 ms
+  tests and main:      2674.9 ms
+  other:                  0.0 ms
+### exit 0 wall_us 2924282
+### benchmarks/D sb -I src src -- --DRT-testmode=run-main Permute 1 1000
+Starting Permute benchmark ...
+Permute: iterations=1 runtime: 2686171us
+Permute: iterations=1 average: 2686171us total: 2686171us
+
+Total Runtime: 2686171us
+src scan:                 0.2 ms
+frontend time:          248.9 ms
+image time:               0.9 ms
+backend latency:       2689.9 ms
+  compile:                2.6 ms
+  ModuleInfo:             0.7 ms
+  module ctors:           0.2 ms
+  tests and main:      2686.4 ms
+  other:                  0.0 ms
+### exit 0 wall_us 2947598
+### benchmarks/D sb -b interpreter -I src src -- --DRT-testmode=run-main List 1 1500
+Starting List benchmark ...
+List: iterations=1 runtime: 45160437us
+List: iterations=1 average: 45160437us total: 45160437us
+
+Total Runtime: 45160437us
+src scan:                 0.2 ms
+frontend time:          240.8 ms
+image time:               0.9 ms
+backend latency:      45163.7 ms
+  ModuleInfo:             0.7 ms
+  module ctors:           0.2 ms
+  tests and main:     45162.8 ms
+  other:                  0.0 ms
+### exit 0 wall_us 45414273
+### benchmarks/D sb -b interpreter -I src src -- --DRT-testmode=run-main List 1 1500
+Starting List benchmark ...
+List: iterations=1 runtime: 47949391us
+List: iterations=1 average: 47949391us total: 47949391us
+
+Total Runtime: 47949391us
+src scan:                 0.2 ms
+frontend time:          242.6 ms
+image time:               0.9 ms
+backend latency:      47952.8 ms
+  ModuleInfo:             0.7 ms
+  module ctors:           0.2 ms
+  tests and main:     47951.9 ms
+  other:                  0.0 ms
+### exit 0 wall_us 48205714
+### benchmarks/D sb -b interpreter -I src src -- --DRT-testmode=run-main List 1 1500
+Starting List benchmark ...
+List: iterations=1 runtime: 46046820us
+List: iterations=1 average: 46046820us total: 46046820us
+
+Total Runtime: 46046820us
+src scan:                 0.2 ms
+frontend time:          272.6 ms
+image time:               1.0 ms
+backend latency:      46050.9 ms
+  ModuleInfo:             1.2 ms
+  module ctors:           0.2 ms
+  tests and main:     46049.5 ms
+  other:                  0.0 ms
+### exit 0 wall_us 46334048
+### benchmarks/D sb -b interpreter -I src src -- --DRT-testmode=run-main Mandelbrot 1 500
+Starting Mandelbrot benchmark ...
+Mandelbrot: iterations=1 runtime: 18499109us
+Mandelbrot: iterations=1 average: 18499109us total: 18499109us
+
+Total Runtime: 18499109us
+src scan:                 0.2 ms
+frontend time:          246.1 ms
+image time:               0.9 ms
+backend latency:      18502.4 ms
+  ModuleInfo:             0.8 ms
+  module ctors:           0.2 ms
+  tests and main:     18501.4 ms
+  other:                  0.0 ms
+### exit 0 wall_us 18757826
+### benchmarks/D sb -b interpreter -I src src -- --DRT-testmode=run-main Mandelbrot 1 500
+Starting Mandelbrot benchmark ...
+Mandelbrot: iterations=1 runtime: 19335261us
+Mandelbrot: iterations=1 average: 19335261us total: 19335261us
+
+Total Runtime: 19335261us
+src scan:                 0.2 ms
+frontend time:          261.0 ms
+image time:               0.9 ms
+backend latency:      19338.9 ms
+  ModuleInfo:             1.0 ms
+  module ctors:           0.2 ms
+  tests and main:     19337.7 ms
+  other:                  0.0 ms
+### exit 0 wall_us 19609468
+### benchmarks/D sb -b interpreter -I src src -- --DRT-testmode=run-main Mandelbrot 1 500
+Starting Mandelbrot benchmark ...
+Mandelbrot: iterations=1 runtime: 18242382us
+Mandelbrot: iterations=1 average: 18242382us total: 18242382us
+
+Total Runtime: 18242382us
+src scan:                 0.2 ms
+frontend time:          266.1 ms
+image time:               1.0 ms
+backend latency:      18246.2 ms
+  ModuleInfo:             1.1 ms
+  module ctors:           0.2 ms
+  tests and main:     18244.9 ms
+  other:                  0.0 ms
+### exit 0 wall_us 18521692
+### benchmarks/D sb -b interpreter -I src src -- --DRT-testmode=run-main Havlak 1 1500
+Starting Havlak benchmark ...
+Havlak: iterations=1 runtime: 47000826us
+Havlak: iterations=1 average: 47000826us total: 47000826us
+
+Total Runtime: 47000826us
+src scan:                 0.2 ms
+frontend time:          246.9 ms
+image time:               1.0 ms
+backend latency:      47006.9 ms
+  ModuleInfo:             0.8 ms
+  module ctors:           0.2 ms
+  tests and main:     47005.9 ms
+  other:                  0.0 ms
+### exit 0 wall_us 47264500
+### benchmarks/D sb -b interpreter -I src src -- --DRT-testmode=run-main Havlak 1 1500
+Starting Havlak benchmark ...
+Havlak: iterations=1 runtime: 45745923us
+Havlak: iterations=1 average: 45745923us total: 45745923us
+
+Total Runtime: 45745923us
+src scan:                 0.2 ms
+frontend time:          243.2 ms
+image time:               0.9 ms
+backend latency:      45752.0 ms
+  ModuleInfo:             0.7 ms
+  module ctors:           0.2 ms
+  tests and main:     45751.1 ms
+  other:                  0.0 ms
+### exit 0 wall_us 46005655
+### benchmarks/D sb -b interpreter -I src src -- --DRT-testmode=run-main Havlak 1 1500
+Starting Havlak benchmark ...
+Havlak: iterations=1 runtime: 53746999us
+Havlak: iterations=1 average: 53746999us total: 53746999us
+
+Total Runtime: 53746999us
+src scan:                 0.2 ms
+frontend time:          259.4 ms
+image time:               0.9 ms
+backend latency:      53753.6 ms
+  ModuleInfo:             0.8 ms
+  module ctors:           0.2 ms
+  tests and main:     53752.7 ms
+  other:                  0.0 ms
+### exit 0 wall_us 54024664
+### benchmarks/D sb -I src src -- --DRT-testmode=run-main Storage 1 1000
+Starting Storage benchmark ...
+Storage: iterations=1 runtime: 7452618us
+Storage: iterations=1 average: 7452618us total: 7452618us
+
+Total Runtime: 7452618us
+src scan:                 0.2 ms
+frontend time:          302.3 ms
+image time:               1.1 ms
+backend latency:       7458.1 ms
+  compile:                3.6 ms
+  ModuleInfo:             1.4 ms
+  module ctors:           0.2 ms
+  tests and main:      7453.0 ms
+  other:                  0.0 ms
+### exit 0 wall_us 7772321
+### benchmarks/D sb -I src src -- --DRT-testmode=run-main Storage 1 1000
+Starting Storage benchmark ...
+Storage: iterations=1 runtime: 6528725us
+Storage: iterations=1 average: 6528725us total: 6528725us
+
+Total Runtime: 6528725us
+src scan:                 0.2 ms
+frontend time:          254.8 ms
+image time:               0.9 ms
+backend latency:       6533.0 ms
+  compile:                3.0 ms
+  ModuleInfo:             0.8 ms
+  module ctors:           0.2 ms
+  tests and main:      6529.0 ms
+  other:                  0.0 ms
+### exit 0 wall_us 6798216
+### benchmarks/D sb -I src src -- --DRT-testmode=run-main Storage 1 1000
+Starting Storage benchmark ...
+Storage: iterations=1 runtime: 6601576us
+Storage: iterations=1 average: 6601576us total: 6601576us
+
+Total Runtime: 6601576us
+src scan:                 0.2 ms
+frontend time:          246.3 ms
+image time:               0.9 ms
+backend latency:       6605.8 ms
+  compile:                3.0 ms
+  ModuleInfo:             0.8 ms
+  module ctors:           0.2 ms
+  tests and main:      6601.8 ms
+  other:                  0.0 ms
+### exit 0 wall_us 6862369
+### benchmarks/D sb -I src src -- --DRT-testmode=run-main NBody 1 250000
+Starting NBody benchmark ...
+NBody: iterations=1 runtime: 1567200us
+NBody: iterations=1 average: 1567200us total: 1567200us
+
+Total Runtime: 1567200us
+src scan:                 0.3 ms
+frontend time:          254.3 ms
+image time:               0.9 ms
+backend latency:       1571.4 ms
+  compile:                3.0 ms
+  ModuleInfo:             0.8 ms
+  module ctors:           0.2 ms
+  tests and main:      1567.5 ms
+  other:                  0.0 ms
+### exit 0 wall_us 1835097
+### benchmarks/D sb -I src src -- --DRT-testmode=run-main NBody 1 250000
+Starting NBody benchmark ...
+NBody: iterations=1 runtime: 1576744us
+NBody: iterations=1 average: 1576744us total: 1576744us
+
+Total Runtime: 1576744us
+src scan:                 0.2 ms
+frontend time:          255.4 ms
+image time:               0.9 ms
+backend latency:       1580.9 ms
+  compile:                2.9 ms
+  ModuleInfo:             0.8 ms
+  module ctors:           0.2 ms
+  tests and main:      1577.0 ms
+  other:                  0.0 ms
+### exit 0 wall_us 1845447
+### benchmarks/D sb -I src src -- --DRT-testmode=run-main NBody 1 250000
+Starting NBody benchmark ...
+NBody: iterations=1 runtime: 1537262us
+NBody: iterations=1 average: 1537262us total: 1537262us
+
+Total Runtime: 1537262us
+src scan:                 0.2 ms
+frontend time:          249.7 ms
+image time:               0.9 ms
+backend latency:       1541.2 ms
+  compile:                2.8 ms
+  ModuleInfo:             0.7 ms
+  module ctors:           0.2 ms
+  tests and main:      1537.5 ms
+  other:                  0.0 ms
+### exit 0 wall_us 1799810
+### benchmarks/D sb -b interpreter -I src src -- --DRT-testmode=run-main DeltaBlue 1 12000
+Starting DeltaBlue benchmark ...
+DeltaBlue: iterations=1 runtime: 11033543us
+DeltaBlue: iterations=1 average: 11033543us total: 11033543us
+
+Total Runtime: 11033543us
+src scan:                 0.2 ms
+frontend time:          247.1 ms
+image time:               0.9 ms
+backend latency:      11042.2 ms
+  ModuleInfo:             0.8 ms
+  module ctors:           0.2 ms
+  tests and main:     11041.3 ms
+  other:                  0.0 ms
+### exit 0 wall_us 11299045
+### benchmarks/D sb -b interpreter -I src src -- --DRT-testmode=run-main DeltaBlue 1 12000
+Starting DeltaBlue benchmark ...
+DeltaBlue: iterations=1 runtime: 11158988us
+DeltaBlue: iterations=1 average: 11158988us total: 11158988us
+
+Total Runtime: 11158988us
+src scan:                 0.2 ms
+frontend time:          243.5 ms
+image time:               0.9 ms
+backend latency:      11167.9 ms
+  ModuleInfo:             0.8 ms
+  module ctors:           0.2 ms
+  tests and main:     11167.0 ms
+  other:                  0.0 ms
+### exit 0 wall_us 11422308
+### benchmarks/D sb -b interpreter -I src src -- --DRT-testmode=run-main DeltaBlue 1 12000
+Starting DeltaBlue benchmark ...
+DeltaBlue: iterations=1 runtime: 10953001us
+DeltaBlue: iterations=1 average: 10953001us total: 10953001us
+
+Total Runtime: 10953001us
+src scan:                 0.2 ms
+frontend time:          279.7 ms
+image time:               1.0 ms
+backend latency:      10962.9 ms
+  ModuleInfo:             0.9 ms
+  module ctors:           0.2 ms
+  tests and main:     10961.8 ms
+  other:                  0.0 ms
+### exit 0 wall_us 11253668
+### benchmarks/D sb -b interpreter -I src src -- --DRT-testmode=run-main Storage 1 1000
+Starting Storage benchmark ...
+Storage: iterations=1 runtime: 91627305us
+Storage: iterations=1 average: 91627305us total: 91627305us
+
+Total Runtime: 91627305us
+src scan:                 0.2 ms
+frontend time:          241.4 ms
+image time:               0.9 ms
+backend latency:      91630.7 ms
+  ModuleInfo:             0.7 ms
+  module ctors:           0.2 ms
+  tests and main:     91629.8 ms
+  other:                  0.0 ms
+### exit 0 wall_us 91881813
+### benchmarks/D sb -b interpreter -I src src -- --DRT-testmode=run-main Storage 1 1000
+Starting Storage benchmark ...
+Storage: iterations=1 runtime: 95922414us
+Storage: iterations=1 average: 95922414us total: 95922414us
+
+Total Runtime: 95922414us
+src scan:                 0.2 ms
+frontend time:          243.2 ms
+image time:               0.9 ms
+backend latency:      95925.8 ms
+  ModuleInfo:             0.7 ms
+  module ctors:           0.2 ms
+  tests and main:     95924.9 ms
+  other:                  0.0 ms
+### exit 0 wall_us 96179643
+### benchmarks/D sb -b interpreter -I src src -- --DRT-testmode=run-main Storage 1 1000
+Starting Storage benchmark ...
+Storage: iterations=1 runtime: 97251756us
+Storage: iterations=1 average: 97251756us total: 97251756us
+
+Total Runtime: 97251756us
+src scan:                 0.2 ms
+frontend time:          248.1 ms
+image time:               0.9 ms
+backend latency:      97255.2 ms
+  ModuleInfo:             0.8 ms
+  module ctors:           0.2 ms
+  tests and main:     97254.3 ms
+  other:                  0.0 ms
+### exit 0 wall_us 97513235

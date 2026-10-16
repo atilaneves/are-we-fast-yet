@@ -1,0 +1,22 @@
+tests.structs.readme.code:
+tests.utils.size.of.class:
+tests.utils.size.of.struct.with.structs:
+tests.utils.size.of.union:
+tests.utils.sizeof.simple.struct:
+tests.range.output.range.value:
+tests.range.output.range.read:
+tests.range.embedded.input.range:
+tests.range.embedded.output.range:
+
+Time taken: 2 secs, 563 ms, 158 μs, and 8 hnsecs
+156 test(s) run, 0 failed.
+
+OK!
+
+rt-cerealed-2   dub ovrhd 0.6 ms   frontend 2066.6 ms   dep img 1.8 ms   LDC 2113 -O   1+5 runs
+
+backend      pass    run min    [1mrun med[0m    run σ   cmp min   [1mcmp med[0m   cmp σ    peak RSS
+        
+bytecode  156/156  2726.6 ms  [1m2813.4 ms[0m  68.9 ms  146.8 ms  [1m149.1 ms[0m  1.9 ms  1151.2 MiB
+
+Peak RSS: backends use one fresh process, including the frontend; native rows use only the test executable (maximum measured run).

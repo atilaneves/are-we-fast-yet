@@ -1,0 +1,11 @@
+8 modules passed unittests
+8 modules passed unittests
+8 modules passed unittests
+8 modules passed unittests
+8 modules passed unittests
+8 modules passed unittests
+msgpack-d   dub ovrhd 29.4 ms   frontend 496.3 ms   dep img 4180.1 ms   LDC 2113 -O   1+5 runs
+
+backend   pass  run min  [1mrun med[0m   run σ  cmp min  [1mcmp med[0m   cmp σ       RAM
+        
+bytecode  PASS  42.7 ms  [1m48.0 ms[0m  4.4 ms  29.1 ms  [1m30.0 ms[0m  0.6 ms  13.4 MiB

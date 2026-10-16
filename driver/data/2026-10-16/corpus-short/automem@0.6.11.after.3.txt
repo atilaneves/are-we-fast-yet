@@ -1,0 +1,7 @@
+automem   dub ovrhd 2.1 ms   frontend 942.3 ms   dep img 2.6 ms   LDC 2113 -O   1+5 runs
+
+backend      pass  run min   [1mrun med[0m    run σ  cmp min  [1mcmp med[0m   cmp σ   peak RSS
+        
+bytecode  123/123  99.9 ms  [1m112.1 ms[0m  13.3 ms  69.8 ms  [1m72.1 ms[0m  1.8 ms  507.5 MiB
+
+Peak RSS: backends use one fresh process, including the frontend; native rows use only the test executable (maximum measured run).
