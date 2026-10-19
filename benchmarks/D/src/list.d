@@ -61,6 +61,7 @@ final class List : Benchmark {
     private Element* makeList(int length) {
         if (length == 0)
             return null;
+        // Not memory.d's helper: snakebite's bytecode VM would not inline it.
         version (ManualMemory)
             auto e = makePtr!Element(Any(length));
         else

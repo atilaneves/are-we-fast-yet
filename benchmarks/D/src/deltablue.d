@@ -80,6 +80,7 @@ private struct Strength {
     }
 
     private static IdentityDictionary!(Sym*, int) createStrengthTable() {
+        // Not memory.d's helper: snakebite's bytecode VM would not inline it.
         version (ManualMemory)
             auto table = make!(IdentityDictionary!(Sym*, int));
         else
@@ -96,17 +97,22 @@ private struct Strength {
     }
 
     private static IdentityDictionary!(Sym*, Strength*) createStrengthConstants() {
+        // Not memory.d's helper: snakebite's bytecode VM would not inline it.
         version (ManualMemory)
             auto constants = make!(IdentityDictionary!(Sym*, Strength*));
         else
             auto constants = new IdentityDictionary!(Sym*, Strength*);
         auto keys = strengthTable.getKeys();
         keys.forEach((key) {
+            // Not memory.d's helper: snakebite's bytecode VM
+            // would not inline it.
             version (ManualMemory)
                 constants.atPut(key, makePtr!Strength(key));
             else
                 constants.atPut(key, new Strength(key));
         });
+        // GC build: nothing to free; the empty call would
+        // still cost a guest call.
         version (ManualMemory) dispose(keys);
         return constants;
     }
@@ -120,8 +126,12 @@ private struct Strength {
 
     static void releaseConstants() {
         version (ManualMemory) {
+            // GC build: nothing to free; the empty call would
+            // still cost a guest call.
             version (ManualMemory) dispose(strengthTable);
             strengthConstant.destroyValues();
+            // GC build: nothing to free; the empty call would
+            // still cost a guest call.
             version (ManualMemory) dispose(strengthConstant);
             absoluteWeakestStrength = null;
             requiredStrength = null;
@@ -205,6 +215,7 @@ private final class Variable : TrackedObject {
     private bool stay = true;
 
     this() {
+        // Not memory.d's helper: snakebite's bytecode VM would not inline it.
         version (ManualMemory)
             constraints = makePtr!(Vector!AbstractConstraint)(2);
         else
@@ -213,10 +224,13 @@ private final class Variable : TrackedObject {
     }
 
     version (ManualMemory) ~this() {
+        // GC build: nothing to free; the empty call would
+        // still cost a guest call.
         version (ManualMemory) dispose(constraints);
     }
 
     static Variable value_(int aValue) {
+        // Not memory.d's helper: snakebite's bytecode VM would not inline it.
         version (ManualMemory)
             auto v = make!Variable;
         else
@@ -571,6 +585,8 @@ private struct Planner {
         c.removeFromGraph();
         Vector!AbstractConstraint* unsatisfied = removePropagateFrom(out_);
         unsatisfied.forEach((u) { incrementalAdd(u); });
+        // GC build: nothing to free; the empty call would
+        // still cost a guest call.
         version (ManualMemory) dispose(unsatisfied);
     }
 
@@ -587,6 +603,7 @@ private struct Planner {
 
     Plan* makePlan(Vector!AbstractConstraint* sources) {
         const mark = newMark();
+        // Not memory.d's helper: snakebite's bytecode VM would not inline it.
         version (ManualMemory)
             auto plan = makePtr!Plan(15);
         else
@@ -615,6 +632,8 @@ private struct Planner {
 
     bool addPropagate(AbstractConstraint c, int mark) {
         auto todo = Vector!AbstractConstraint.with_(c);
+        // GC build: nothing to free; the empty call would
+        // still cost a guest call.
         version (ManualMemory) scope(exit) dispose(todo);
 
         while (!todo.isEmpty()) {
@@ -631,6 +650,7 @@ private struct Planner {
     }
 
     void change(Variable var, int newValue) {
+        // Not memory.d's helper: snakebite's bytecode VM would not inline it.
         version (ManualMemory)
             auto editC = make!EditConstraint(var, &Strength.preferred, &this);
         else
@@ -643,6 +663,8 @@ private struct Planner {
             plan.execute();
         }
         editC.destroyConstraint(&this);
+        // GC build: nothing to free; the empty call would
+        // still cost a guest call.
         version (ManualMemory) {
             dispose(plan);
             dispose(editV);
@@ -663,6 +685,7 @@ private struct Planner {
     }
 
     Vector!AbstractConstraint* removePropagateFrom(Variable out_) {
+        // Not memory.d's helper: snakebite's bytecode VM would not inline it.
         version (ManualMemory)
             auto unsatisfied = makePtr!(Vector!AbstractConstraint);
         else
@@ -687,6 +710,8 @@ private struct Planner {
                 todo.append(c.getOutput());
             });
         }
+        // GC build: nothing to free; the empty call would
+        // still cost a guest call.
         version (ManualMemory) dispose(todo);
 
         unsatisfied.sort((c1, c2) => c1.getStrength().stronger(c2.getStrength()) ? -1 : 1);
@@ -696,11 +721,14 @@ private struct Planner {
     static void chainTest(int n) {
         Strength.initializeConstants();
         Planner planner;
+        // Not memory.d's helper: snakebite's bytecode VM would not inline it.
         version (ManualMemory)
             auto vars = makeArray!Variable(n + 1);
         else
             auto vars = new Variable[n + 1];
         foreach (ref v; vars)
+            // Not memory.d's helper: snakebite's bytecode VM
+            // would not inline it.
             version (ManualMemory)
                 v = make!Variable;
             else
@@ -709,16 +737,20 @@ private struct Planner {
         foreach (i; 0 .. n) {
             Variable v1 = vars[i];
             Variable v2 = vars[i + 1];
+            // Not memory.d's helper: snakebite's bytecode VM
+            // would not inline it.
             version (ManualMemory)
                 make!EqualityConstraint(v1, v2, &Strength.required_, &planner);
             else
                 new EqualityConstraint(v1, v2, &Strength.required_, &planner);
         }
 
+        // Not memory.d's helper: snakebite's bytecode VM would not inline it.
         version (ManualMemory)
             make!StayConstraint(vars[n], &Strength.strongDefault, &planner);
         else
             new StayConstraint(vars[n], &Strength.strongDefault, &planner);
+        // Not memory.d's helper: snakebite's bytecode VM would not inline it.
         version (ManualMemory)
             auto editC = make!EditConstraint(vars[0], &Strength.preferred, &planner);
         else
@@ -726,6 +758,8 @@ private struct Planner {
 
         auto editV = Vector!AbstractConstraint.with_(editC);
         Plan* plan = planner.extractPlanFromConstraints(editV);
+        // GC build: nothing to free; the empty call would
+        // still cost a guest call.
         version (ManualMemory) dispose(editV);
         foreach (i; 0 .. 100) {
             vars[0].setValue(i);
@@ -734,6 +768,8 @@ private struct Planner {
                 throw new SomError("Chain test failed!");
         }
         editC.destroyConstraint(&planner);
+        // GC build: nothing to free; the empty call would
+        // still cost a guest call.
         version (ManualMemory) {
             dispose(plan);
             disposeArray(vars);
@@ -755,10 +791,14 @@ private struct Planner {
             src = Variable.value_(i);
             dst = Variable.value_(i);
             dests.append(dst);
+            // Not memory.d's helper: snakebite's bytecode VM
+            // would not inline it.
             version (ManualMemory)
                 make!StayConstraint(src, &Strength.default_, &planner);
             else
                 new StayConstraint(src, &Strength.default_, &planner);
+            // Not memory.d's helper: snakebite's bytecode VM
+            // would not inline it.
             version (ManualMemory)
                 make!ScaleConstraint(src, scale, offset, dst, &Strength.required_, &planner);
             else

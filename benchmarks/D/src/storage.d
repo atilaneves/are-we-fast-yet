@@ -24,6 +24,8 @@ final class Storage : Benchmark {
         Random random;
         count = 0;
         auto result = buildTreeDepth(7, random);
+        // GC build: nothing to free; the empty call would
+        // still cost a guest call.
         version (ManualMemory) disposeTree(result);
         return count;
     }
@@ -32,12 +34,15 @@ final class Storage : Benchmark {
         count += 1;
         if (depth == 1) {
             const length = random.next() % 10 + 1;
+            // Not memory.d's helper: snakebite's bytecode VM
+            // would not inline it.
             version (ManualMemory)
                 return newTrees(length);
             else
                 return (new ArrayTree[length]).ptr;
         }
 
+        // Not memory.d's helper: snakebite's bytecode VM would not inline it.
         version (ManualMemory)
             auto arr = newTrees(4);
         else

@@ -65,6 +65,8 @@ private struct ControlFlowGraph {
         if (basicBlockMap.at(name) !is null) {
             node = basicBlockMap.at(name);
         } else {
+            // Not memory.d's helper: snakebite's bytecode VM
+            // would not inline it.
             version (ManualMemory)
                 node = makePtr!BasicBlock(name);
             else
@@ -192,6 +194,7 @@ private struct LoopStructureGraph {
 
     static LoopStructureGraph create() {
         LoopStructureGraph graph;
+        // Not memory.d's helper: snakebite's bytecode VM would not inline it.
         version (ManualMemory)
             graph.root = makePtr!SimpleLoop(null, true);
         else
@@ -208,6 +211,7 @@ private struct LoopStructureGraph {
     }
 
     SimpleLoop* createNewLoop(BasicBlock* bb, bool isReducible) {
+        // Not memory.d's helper: snakebite's bytecode VM would not inline it.
         version (ManualMemory)
             auto loop = makePtr!SimpleLoop(bb, isReducible);
         else
@@ -327,6 +331,7 @@ private struct HavlakLoopFinder {
     this(ControlFlowGraph* cfg, LoopStructureGraph* lsg) {
         this.cfg = cfg;
         this.lsg = lsg;
+        // Not memory.d's helper: snakebite's bytecode VM would not inline it.
         version (ManualMemory)
             number = make!(typeof(number));
         else
@@ -336,6 +341,8 @@ private struct HavlakLoopFinder {
     version (ManualMemory) ~this() {
         nonBackPreds.destroyValues();
         backPreds.destroyValues();
+        // GC build: nothing to free; the empty call would
+        // still cost a guest call.
         version (ManualMemory) {
             dispose(number);
             disposeArray(header);
@@ -343,7 +350,11 @@ private struct HavlakLoopFinder {
             disposeArray(last);
         }
         foreach (ref node; nodes)
+            // GC build: nothing to free; the empty call would
+            // still cost a guest call.
             version (ManualMemory) dispose(node);
+        // GC build: nothing to free; the empty call would
+        // still cost a guest call.
         version (ManualMemory) disposeArray(nodes);
     }
 
@@ -360,18 +371,26 @@ private struct HavlakLoopFinder {
         number.removeAll();
 
         if (size > maxSize) {
+            // Not memory.d's helper: snakebite's bytecode VM
+            // would not inline it.
             version (ManualMemory)
                 header = makeArray!int(size);
             else
                 header = new int[size];
+            // Not memory.d's helper: snakebite's bytecode VM
+            // would not inline it.
             version (ManualMemory)
                 type = makeArray!BasicBlockClass(size);
             else
                 type = new BasicBlockClass[size];
+            // Not memory.d's helper: snakebite's bytecode VM
+            // would not inline it.
             version (ManualMemory)
                 last = makeArray!int(size);
             else
                 last = new int[size];
+            // Not memory.d's helper: snakebite's bytecode VM
+            // would not inline it.
             version (ManualMemory)
                 nodes = makeArray!(UnionFindNode*)(size);
             else
@@ -380,14 +399,20 @@ private struct HavlakLoopFinder {
         }
 
         foreach (i; 0 .. size) {
+            // Not memory.d's helper: snakebite's bytecode VM
+            // would not inline it.
             version (ManualMemory)
                 nonBackPreds.append(makePtr!(Set!int)(initialSize));
             else
                 nonBackPreds.append(new Set!int(initialSize));
+            // Not memory.d's helper: snakebite's bytecode VM
+            // would not inline it.
             version (ManualMemory)
                 backPreds.append(makePtr!(Vector!int)());
             else
                 backPreds.append(new Vector!int());
+            // Not memory.d's helper: snakebite's bytecode VM
+            // would not inline it.
             version (ManualMemory)
                 nodes[i] = makePtr!UnionFindNode;
             else
@@ -580,18 +605,22 @@ private struct LoopTesterApp {
 
     private int buildDiamond(int start) {
         const bb0 = start;
+        // Not memory.d's helper: snakebite's bytecode VM would not inline it.
         version (ManualMemory)
             makePtr!BasicBlockEdge(cfg, bb0, bb0 + 1);
         else
             new BasicBlockEdge(cfg, bb0, bb0 + 1);
+        // Not memory.d's helper: snakebite's bytecode VM would not inline it.
         version (ManualMemory)
             makePtr!BasicBlockEdge(cfg, bb0, bb0 + 2);
         else
             new BasicBlockEdge(cfg, bb0, bb0 + 2);
+        // Not memory.d's helper: snakebite's bytecode VM would not inline it.
         version (ManualMemory)
             makePtr!BasicBlockEdge(cfg, bb0 + 1, bb0 + 3);
         else
             new BasicBlockEdge(cfg, bb0 + 1, bb0 + 3);
+        // Not memory.d's helper: snakebite's bytecode VM would not inline it.
         version (ManualMemory)
             makePtr!BasicBlockEdge(cfg, bb0 + 2, bb0 + 3);
         else
@@ -600,6 +629,7 @@ private struct LoopTesterApp {
     }
 
     private void buildConnect(int start, int end) {
+        // Not memory.d's helper: snakebite's bytecode VM would not inline it.
         version (ManualMemory)
             makePtr!BasicBlockEdge(cfg, start, end);
         else
@@ -630,6 +660,7 @@ private struct LoopTesterApp {
         cfg.createNode(0);
         buildBaseLoop(0);
         cfg.createNode(1);
+        // Not memory.d's helper: snakebite's bytecode VM would not inline it.
         version (ManualMemory)
             makePtr!BasicBlockEdge(cfg, 0, 2);
         else

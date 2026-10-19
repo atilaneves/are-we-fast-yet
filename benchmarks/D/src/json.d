@@ -586,6 +586,7 @@ private final class JsonLiteral : JsonValue {
     }
 
     static JsonLiteral createNull() {
+        // Not memory.d's helper: snakebite's bytecode VM would not inline it.
         version (ManualMemory)
             return make!JsonLiteral("null", true, false, false);
         else
@@ -593,6 +594,7 @@ private final class JsonLiteral : JsonValue {
     }
 
     static JsonLiteral createTrue() {
+        // Not memory.d's helper: snakebite's bytecode VM would not inline it.
         version (ManualMemory)
             return make!JsonLiteral("true", false, true, false);
         else
@@ -600,6 +602,7 @@ private final class JsonLiteral : JsonValue {
     }
 
     static JsonLiteral createFalse() {
+        // Not memory.d's helper: snakebite's bytecode VM would not inline it.
         version (ManualMemory)
             return make!JsonLiteral("false", false, false, true);
         else
@@ -761,6 +764,7 @@ private struct JsonPureStringParser {
 
     private JsonObject readObject() {
         read();
+        // Not memory.d's helper: snakebite's bytecode VM would not inline it.
         version (ManualMemory)
             auto object = make!JsonObject;
         else
@@ -793,6 +797,7 @@ private struct JsonPureStringParser {
 
     private JsonArray readArray() {
         read();
+        // Not memory.d's helper: snakebite's bytecode VM would not inline it.
         version (ManualMemory)
             auto array = make!JsonArray;
         else
@@ -842,6 +847,7 @@ private struct JsonPureStringParser {
     }
 
     private JsonValue readString() {
+        // Not memory.d's helper: snakebite's bytecode VM would not inline it.
         version (ManualMemory)
             return make!JsonString(readStringInternal());
         else
@@ -900,6 +906,7 @@ private struct JsonPureStringParser {
         readFraction();
         readExponent();
 
+        // Not memory.d's helper: snakebite's bytecode VM would not inline it.
         version (ManualMemory)
             return make!JsonNumber(endCapture());
         else
@@ -1041,6 +1048,8 @@ final class Json : Benchmark {
 
     bool check(JsonValue result) {
         const verified = hasExpectedContent(result);
+        // GC build: nothing to free; the empty call would
+        // still cost a guest call.
         version (ManualMemory) dispose(result);
         return verified;
     }
