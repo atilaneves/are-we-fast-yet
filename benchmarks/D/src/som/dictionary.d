@@ -159,12 +159,12 @@ class Dictionary(K, V) {
 
     private void transferEntries(Entry[] oldStorage) {
         foreach (i, current; oldStorage) {
-            if (current is null)
-                continue;
-            if (current.next is null)
-                buckets[current.hash & (oldStorage.length - 1)] = current;
-            else
-                splitBucket(oldStorage, i, current);
+            if (current !is null) {
+                if (current.next is null)
+                    buckets[current.hash & (oldStorage.length - 1)] = current;
+                else
+                    splitBucket(oldStorage, i, current);
+            }
         }
     }
 
