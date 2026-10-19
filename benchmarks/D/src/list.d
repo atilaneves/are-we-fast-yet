@@ -2,13 +2,14 @@ module list;
 
 import benchmark;
 import memory;
+import core.lifetime : move;
 
 private struct Element {
     private Any val;
     private Element* next;
 
     this(Any v) {
-        val = v;
+        val = move(v);
     }
 
     version (ManualMemory) ~this() {
@@ -60,7 +61,10 @@ final class List : Benchmark {
     private Element* makeList(int length) {
         if (length == 0)
             return null;
-        auto e = makePtr!Element(Any(length));
+        version (ManualMemory)
+            auto e = makePtr!Element(Any(length));
+        else
+            auto e = new Element(Any(length));
         e.setNext(makeList(length - 1));
         return e;
     }
