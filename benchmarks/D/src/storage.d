@@ -19,7 +19,7 @@ final class Storage : Benchmark {
         Random random;
         count = 0;
         auto result = buildTreeDepth(7, random);
-        disposeTree(result);
+        version (ManualMemory) disposeTree(result);
         return count;
     }
 
