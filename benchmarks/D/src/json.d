@@ -586,15 +586,24 @@ private final class JsonLiteral : JsonValue {
     }
 
     static JsonLiteral createNull() {
-        return make!JsonLiteral("null", true, false, false);
+        version (ManualMemory)
+            return make!JsonLiteral("null", true, false, false);
+        else
+            return new JsonLiteral("null", true, false, false);
     }
 
     static JsonLiteral createTrue() {
-        return make!JsonLiteral("true", false, true, false);
+        version (ManualMemory)
+            return make!JsonLiteral("true", false, true, false);
+        else
+            return new JsonLiteral("true", false, true, false);
     }
 
     static JsonLiteral createFalse() {
-        return make!JsonLiteral("false", false, false, true);
+        version (ManualMemory)
+            return make!JsonLiteral("false", false, false, true);
+        else
+            return new JsonLiteral("false", false, false, true);
     }
 }
 
@@ -752,7 +761,10 @@ private struct JsonPureStringParser {
 
     private JsonObject readObject() {
         read();
-        auto object = make!JsonObject;
+        version (ManualMemory)
+            auto object = make!JsonObject;
+        else
+            auto object = new JsonObject;
         skipWhiteSpace();
         if (readChar("}"))
             return object;
@@ -781,7 +793,10 @@ private struct JsonPureStringParser {
 
     private JsonArray readArray() {
         read();
-        auto array = make!JsonArray;
+        version (ManualMemory)
+            auto array = make!JsonArray;
+        else
+            auto array = new JsonArray;
         skipWhiteSpace();
         if (readChar("]"))
             return array;
@@ -827,7 +842,10 @@ private struct JsonPureStringParser {
     }
 
     private JsonValue readString() {
-        return make!JsonString(readStringInternal());
+        version (ManualMemory)
+            return make!JsonString(readStringInternal());
+        else
+            return new JsonString(readStringInternal());
     }
 
     private string readStringInternal() {
@@ -882,7 +900,10 @@ private struct JsonPureStringParser {
         readFraction();
         readExponent();
 
-        return make!JsonNumber(endCapture());
+        version (ManualMemory)
+            return make!JsonNumber(endCapture());
+        else
+            return new JsonNumber(endCapture());
     }
 
     private bool readFraction() {
@@ -1020,7 +1041,7 @@ final class Json : Benchmark {
 
     bool check(JsonValue result) {
         const verified = hasExpectedContent(result);
-        dispose(result);
+        version (ManualMemory) dispose(result);
         return verified;
     }
 

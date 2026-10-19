@@ -65,7 +65,10 @@ private struct ControlFlowGraph {
         if (basicBlockMap.at(name) !is null) {
             node = basicBlockMap.at(name);
         } else {
-            node = makePtr!BasicBlock(name);
+            version (ManualMemory)
+                node = makePtr!BasicBlock(name);
+            else
+                node = new BasicBlock(name);
             basicBlockMap.atPut(name, node);
         }
 
@@ -189,7 +192,10 @@ private struct LoopStructureGraph {
 
     static LoopStructureGraph create() {
         LoopStructureGraph graph;
-        graph.root = makePtr!SimpleLoop(null, true);
+        version (ManualMemory)
+            graph.root = makePtr!SimpleLoop(null, true);
+        else
+            graph.root = new SimpleLoop(null, true);
         graph.root.setNestingLevel(0);
         graph.root.setCounter(graph.loopCounter);
         graph.loopCounter += 1;
@@ -202,7 +208,10 @@ private struct LoopStructureGraph {
     }
 
     SimpleLoop* createNewLoop(BasicBlock* bb, bool isReducible) {
-        auto loop = makePtr!SimpleLoop(bb, isReducible);
+        version (ManualMemory)
+            auto loop = makePtr!SimpleLoop(bb, isReducible);
+        else
+            auto loop = new SimpleLoop(bb, isReducible);
         loop.setCounter(loopCounter);
         loopCounter += 1;
         loops.append(loop);
@@ -318,19 +327,24 @@ private struct HavlakLoopFinder {
     this(ControlFlowGraph* cfg, LoopStructureGraph* lsg) {
         this.cfg = cfg;
         this.lsg = lsg;
-        number = make!(typeof(number));
+        version (ManualMemory)
+            number = make!(typeof(number));
+        else
+            number = new typeof(number);
     }
 
     version (ManualMemory) ~this() {
         nonBackPreds.destroyValues();
         backPreds.destroyValues();
-        dispose(number);
-        disposeArray(header);
-        disposeArray(type);
-        disposeArray(last);
+        version (ManualMemory) {
+            dispose(number);
+            disposeArray(header);
+            disposeArray(type);
+            disposeArray(last);
+        }
         foreach (ref node; nodes)
-            dispose(node);
-        disposeArray(nodes);
+            version (ManualMemory) dispose(node);
+        version (ManualMemory) disposeArray(nodes);
     }
 
     void findLoops() {
@@ -346,17 +360,38 @@ private struct HavlakLoopFinder {
         number.removeAll();
 
         if (size > maxSize) {
-            header = makeArray!int(size);
-            type = makeArray!BasicBlockClass(size);
-            last = makeArray!int(size);
-            nodes = makeArray!(UnionFindNode*)(size);
+            version (ManualMemory)
+                header = makeArray!int(size);
+            else
+                header = new int[size];
+            version (ManualMemory)
+                type = makeArray!BasicBlockClass(size);
+            else
+                type = new BasicBlockClass[size];
+            version (ManualMemory)
+                last = makeArray!int(size);
+            else
+                last = new int[size];
+            version (ManualMemory)
+                nodes = makeArray!(UnionFindNode*)(size);
+            else
+                nodes = new UnionFindNode*[size];
             maxSize = size;
         }
 
         foreach (i; 0 .. size) {
-            nonBackPreds.append(makePtr!(Set!int)(initialSize));
-            backPreds.append(makePtr!(Vector!int)());
-            nodes[i] = makePtr!UnionFindNode;
+            version (ManualMemory)
+                nonBackPreds.append(makePtr!(Set!int)(initialSize));
+            else
+                nonBackPreds.append(new Set!int(initialSize));
+            version (ManualMemory)
+                backPreds.append(makePtr!(Vector!int)());
+            else
+                backPreds.append(new Vector!int());
+            version (ManualMemory)
+                nodes[i] = makePtr!UnionFindNode;
+            else
+                nodes[i] = new UnionFindNode;
         }
 
         initAllNodes();
@@ -545,15 +580,30 @@ private struct LoopTesterApp {
 
     private int buildDiamond(int start) {
         const bb0 = start;
-        makePtr!BasicBlockEdge(cfg, bb0, bb0 + 1);
-        makePtr!BasicBlockEdge(cfg, bb0, bb0 + 2);
-        makePtr!BasicBlockEdge(cfg, bb0 + 1, bb0 + 3);
-        makePtr!BasicBlockEdge(cfg, bb0 + 2, bb0 + 3);
+        version (ManualMemory)
+            makePtr!BasicBlockEdge(cfg, bb0, bb0 + 1);
+        else
+            new BasicBlockEdge(cfg, bb0, bb0 + 1);
+        version (ManualMemory)
+            makePtr!BasicBlockEdge(cfg, bb0, bb0 + 2);
+        else
+            new BasicBlockEdge(cfg, bb0, bb0 + 2);
+        version (ManualMemory)
+            makePtr!BasicBlockEdge(cfg, bb0 + 1, bb0 + 3);
+        else
+            new BasicBlockEdge(cfg, bb0 + 1, bb0 + 3);
+        version (ManualMemory)
+            makePtr!BasicBlockEdge(cfg, bb0 + 2, bb0 + 3);
+        else
+            new BasicBlockEdge(cfg, bb0 + 2, bb0 + 3);
         return bb0 + 3;
     }
 
     private void buildConnect(int start, int end) {
-        makePtr!BasicBlockEdge(cfg, start, end);
+        version (ManualMemory)
+            makePtr!BasicBlockEdge(cfg, start, end);
+        else
+            new BasicBlockEdge(cfg, start, end);
     }
 
     private int buildStraight(int start, int n) {
@@ -580,7 +630,10 @@ private struct LoopTesterApp {
         cfg.createNode(0);
         buildBaseLoop(0);
         cfg.createNode(1);
-        makePtr!BasicBlockEdge(cfg, 0, 2);
+        version (ManualMemory)
+            makePtr!BasicBlockEdge(cfg, 0, 2);
+        else
+            new BasicBlockEdge(cfg, 0, 2);
     }
 
     int[2] main(int numDummyLoops, int findLoopIterations, int parLoops,

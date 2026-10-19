@@ -80,7 +80,10 @@ private struct Strength {
     }
 
     private static IdentityDictionary!(Sym*, int) createStrengthTable() {
-        auto table = make!(IdentityDictionary!(Sym*, int));
+        version (ManualMemory)
+            auto table = make!(IdentityDictionary!(Sym*, int));
+        else
+            auto table = new IdentityDictionary!(Sym*, int);
         table.atPut(&absoluteStrongest, -10_000);
         table.atPut(&required_, -800);
         table.atPut(&strongPreferred, -600);
@@ -93,12 +96,18 @@ private struct Strength {
     }
 
     private static IdentityDictionary!(Sym*, Strength*) createStrengthConstants() {
-        auto constants = make!(IdentityDictionary!(Sym*, Strength*));
+        version (ManualMemory)
+            auto constants = make!(IdentityDictionary!(Sym*, Strength*));
+        else
+            auto constants = new IdentityDictionary!(Sym*, Strength*);
         auto keys = strengthTable.getKeys();
         keys.forEach((key) {
-            constants.atPut(key, makePtr!Strength(key));
+            version (ManualMemory)
+                constants.atPut(key, makePtr!Strength(key));
+            else
+                constants.atPut(key, new Strength(key));
         });
-        dispose(keys);
+        version (ManualMemory) dispose(keys);
         return constants;
     }
 
@@ -111,9 +120,9 @@ private struct Strength {
 
     static void releaseConstants() {
         version (ManualMemory) {
-            dispose(strengthTable);
+            version (ManualMemory) dispose(strengthTable);
             strengthConstant.destroyValues();
-            dispose(strengthConstant);
+            version (ManualMemory) dispose(strengthConstant);
             absoluteWeakestStrength = null;
             requiredStrength = null;
         }
@@ -196,16 +205,22 @@ private final class Variable : TrackedObject {
     private bool stay = true;
 
     this() {
-        constraints = makePtr!(Vector!AbstractConstraint)(2);
+        version (ManualMemory)
+            constraints = makePtr!(Vector!AbstractConstraint)(2);
+        else
+            constraints = new Vector!AbstractConstraint(2);
         walkStrength = Strength.absoluteWeakest();
     }
 
     version (ManualMemory) ~this() {
-        dispose(constraints);
+        version (ManualMemory) dispose(constraints);
     }
 
     static Variable value_(int aValue) {
-        auto v = make!Variable;
+        version (ManualMemory)
+            auto v = make!Variable;
+        else
+            auto v = new Variable;
         v.setValue(aValue);
         return v;
     }
@@ -556,7 +571,7 @@ private struct Planner {
         c.removeFromGraph();
         Vector!AbstractConstraint* unsatisfied = removePropagateFrom(out_);
         unsatisfied.forEach((u) { incrementalAdd(u); });
-        dispose(unsatisfied);
+        version (ManualMemory) dispose(unsatisfied);
     }
 
     Plan* extractPlanFromConstraints(Vector!AbstractConstraint* constraints) {
@@ -572,7 +587,10 @@ private struct Planner {
 
     Plan* makePlan(Vector!AbstractConstraint* sources) {
         const mark = newMark();
-        auto plan = makePtr!Plan(15);
+        version (ManualMemory)
+            auto plan = makePtr!Plan(15);
+        else
+            auto plan = new Plan(15);
         Vector!AbstractConstraint* todo = sources;
 
         while (!todo.isEmpty()) {
@@ -597,7 +615,7 @@ private struct Planner {
 
     bool addPropagate(AbstractConstraint c, int mark) {
         auto todo = Vector!AbstractConstraint.with_(c);
-        scope(exit) dispose(todo);
+        version (ManualMemory) scope(exit) dispose(todo);
 
         while (!todo.isEmpty()) {
             AbstractConstraint d = todo.removeFirst();
@@ -613,7 +631,10 @@ private struct Planner {
     }
 
     void change(Variable var, int newValue) {
-        auto editC = make!EditConstraint(var, &Strength.preferred, &this);
+        version (ManualMemory)
+            auto editC = make!EditConstraint(var, &Strength.preferred, &this);
+        else
+            auto editC = new EditConstraint(var, &Strength.preferred, &this);
 
         auto editV = Vector!AbstractConstraint.with_(editC);
         Plan* plan = extractPlanFromConstraints(editV);
@@ -622,8 +643,10 @@ private struct Planner {
             plan.execute();
         }
         editC.destroyConstraint(&this);
-        dispose(plan);
-        dispose(editV);
+        version (ManualMemory) {
+            dispose(plan);
+            dispose(editV);
+        }
     }
 
     void constraintsConsuming(Variable v, scope void delegate(AbstractConstraint) fn) {
@@ -640,7 +663,10 @@ private struct Planner {
     }
 
     Vector!AbstractConstraint* removePropagateFrom(Variable out_) {
-        auto unsatisfied = makePtr!(Vector!AbstractConstraint);
+        version (ManualMemory)
+            auto unsatisfied = makePtr!(Vector!AbstractConstraint);
+        else
+            auto unsatisfied = new Vector!AbstractConstraint;
 
         out_.setDeterminedBy(null);
         out_.setWalkStrength(Strength.absoluteWeakest());
@@ -661,7 +687,7 @@ private struct Planner {
                 todo.append(c.getOutput());
             });
         }
-        dispose(todo);
+        version (ManualMemory) dispose(todo);
 
         unsatisfied.sort((c1, c2) => c1.getStrength().stronger(c2.getStrength()) ? -1 : 1);
         return unsatisfied;
@@ -670,22 +696,37 @@ private struct Planner {
     static void chainTest(int n) {
         Strength.initializeConstants();
         Planner planner;
-        auto vars = makeArray!Variable(n + 1);
+        version (ManualMemory)
+            auto vars = makeArray!Variable(n + 1);
+        else
+            auto vars = new Variable[n + 1];
         foreach (ref v; vars)
-            v = make!Variable;
+            version (ManualMemory)
+                v = make!Variable;
+            else
+                v = new Variable;
 
         foreach (i; 0 .. n) {
             Variable v1 = vars[i];
             Variable v2 = vars[i + 1];
-            make!EqualityConstraint(v1, v2, &Strength.required_, &planner);
+            version (ManualMemory)
+                make!EqualityConstraint(v1, v2, &Strength.required_, &planner);
+            else
+                new EqualityConstraint(v1, v2, &Strength.required_, &planner);
         }
 
-        make!StayConstraint(vars[n], &Strength.strongDefault, &planner);
-        auto editC = make!EditConstraint(vars[0], &Strength.preferred, &planner);
+        version (ManualMemory)
+            make!StayConstraint(vars[n], &Strength.strongDefault, &planner);
+        else
+            new StayConstraint(vars[n], &Strength.strongDefault, &planner);
+        version (ManualMemory)
+            auto editC = make!EditConstraint(vars[0], &Strength.preferred, &planner);
+        else
+            auto editC = new EditConstraint(vars[0], &Strength.preferred, &planner);
 
         auto editV = Vector!AbstractConstraint.with_(editC);
         Plan* plan = planner.extractPlanFromConstraints(editV);
-        dispose(editV);
+        version (ManualMemory) dispose(editV);
         foreach (i; 0 .. 100) {
             vars[0].setValue(i);
             plan.execute();
@@ -693,8 +734,10 @@ private struct Planner {
                 throw new SomError("Chain test failed!");
         }
         editC.destroyConstraint(&planner);
-        dispose(plan);
-        disposeArray(vars);
+        version (ManualMemory) {
+            dispose(plan);
+            disposeArray(vars);
+        }
         ObjectTracker.releaseAll();
     }
 
@@ -712,8 +755,14 @@ private struct Planner {
             src = Variable.value_(i);
             dst = Variable.value_(i);
             dests.append(dst);
-            make!StayConstraint(src, &Strength.default_, &planner);
-            make!ScaleConstraint(src, scale, offset, dst, &Strength.required_, &planner);
+            version (ManualMemory)
+                make!StayConstraint(src, &Strength.default_, &planner);
+            else
+                new StayConstraint(src, &Strength.default_, &planner);
+            version (ManualMemory)
+                make!ScaleConstraint(src, scale, offset, dst, &Strength.required_, &planner);
+            else
+                new ScaleConstraint(src, scale, offset, dst, &Strength.required_, &planner);
         }
 
         planner.change(src, 17);
