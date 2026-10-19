@@ -97,23 +97,17 @@ struct Vector(E) {
         if (storage.length == 0 || isEmpty)
             return false;
 
-        auto newArray = makeArray!E(capacity);
-        size_t newLast = 0;
         bool found = false;
-
-        forEach((it) {
-            if (it is obj) {
+        size_t newLast = firstIdx;
+        foreach (i; firstIdx .. lastIdx) {
+            if (storage[i] is obj) {
                 found = true;
             } else {
-                newArray[newLast] = it;
+                storage[newLast] = storage[i];
                 newLast += 1;
             }
-        });
-
-        disposeArray(storage);
-        storage = newArray;
+        }
         lastIdx = newLast;
-        firstIdx = 0;
         return found;
     }
 
