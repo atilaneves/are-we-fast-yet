@@ -26,9 +26,9 @@ struct Vector(E) {
     }
 
     E at(size_t idx) {
-        if (idx >= storage.length)
+        if (storage.length == 0 || idx >= lastIdx - firstIdx)
             return E.init;
-        return storage[idx];
+        return storage[firstIdx + idx];
     }
 
     void atPut(size_t idx, E val) {
