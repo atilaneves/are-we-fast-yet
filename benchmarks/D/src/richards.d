@@ -20,7 +20,7 @@ private class RBObject : TrackedObject {
     enum Packet noWork = null;
     enum TaskControlBlock noTask = null;
 
-    Packet append(Packet packet, Packet queueHead) {
+    final Packet append(Packet packet, Packet queueHead) {
         packet.setLink(noWork);
         if (noWork is queueHead)
             return packet;
@@ -40,55 +40,55 @@ private class TaskState : RBObject {
     private bool taskWaiting_;
     private bool taskHolding_;
 
-    bool isPacketPending() const {
+    final bool isPacketPending() const {
         return packetPending_;
     }
 
-    bool isTaskHolding() const {
+    final bool isTaskHolding() const {
         return taskHolding_;
     }
 
-    bool isTaskWaiting() const {
+    final bool isTaskWaiting() const {
         return taskWaiting_;
     }
 
-    void setTaskHolding(bool b) {
+    final void setTaskHolding(bool b) {
         taskHolding_ = b;
     }
 
-    void setTaskWaiting(bool b) {
+    final void setTaskWaiting(bool b) {
         taskWaiting_ = b;
     }
 
-    void setPacketPending(bool b) {
+    final void setPacketPending(bool b) {
         packetPending_ = b;
     }
 
-    void packetPending() {
+    final void packetPending() {
         packetPending_ = true;
         taskWaiting_ = false;
         taskHolding_ = false;
     }
 
-    void running() {
+    final void running() {
         packetPending_ = taskWaiting_ = taskHolding_ = false;
     }
 
-    void waiting() {
+    final void waiting() {
         packetPending_ = taskHolding_ = false;
         taskWaiting_ = true;
     }
 
-    void waitingWithPacket() {
+    final void waitingWithPacket() {
         taskHolding_ = false;
         taskWaiting_ = packetPending_ = true;
     }
 
-    bool isTaskHoldingOrWaiting() const {
+    final bool isTaskHoldingOrWaiting() const {
         return taskHolding_ || (!packetPending_ && taskWaiting_);
     }
 
-    bool isWaitingWithPacket() const {
+    final bool isWaitingWithPacket() const {
         return packetPending_ && taskWaiting_ && !taskHolding_;
     }
 
