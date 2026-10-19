@@ -4,8 +4,13 @@ import benchmark;
 import memory;
 import som.random;
 
+version (ManualMemory) {
+    import core.stdc.stdlib : abort, free, malloc;
+    import core.stdc.string : memset;
+}
+
 private struct ArrayTree {
-    ArrayTree[] children;
+    ArrayTree* children;
 }
 
 final class Storage : Benchmark {
@@ -23,22 +28,44 @@ final class Storage : Benchmark {
         return count;
     }
 
-    private ArrayTree[] buildTreeDepth(int depth, ref Random random) {
+    private ArrayTree* buildTreeDepth(int depth, ref Random random) {
         count += 1;
-        if (depth == 1)
-            return makeArray!ArrayTree(random.next() % 10 + 1);
+        if (depth == 1) {
+            const length = random.next() % 10 + 1;
+            version (ManualMemory)
+                return newTrees(length);
+            else
+                return (new ArrayTree[length]).ptr;
+        }
 
-        auto arr = makeArray!ArrayTree(4);
-        foreach (ref tree; arr)
-            tree.children = buildTreeDepth(depth - 1, random);
+        version (ManualMemory)
+            auto arr = newTrees(4);
+        else
+            auto arr = (new ArrayTree[4]).ptr;
+        foreach (i; 0 .. 4)
+            arr[i].children = buildTreeDepth(depth - 1, random);
         return arr;
     }
 
+    version (ManualMemory) private static ArrayTree* newTrees(size_t length) {
+        // The length goes before the elements, as in the cookie of C++ new[].
+        auto memory = cast(size_t*) malloc(size_t.sizeof + length * ArrayTree.sizeof);
+        if (memory is null)
+            abort();
+        memory[0] = length;
+        auto trees = cast(ArrayTree*) (memory + 1);
+        memset(trees, 0, length * ArrayTree.sizeof);
+        return trees;
+    }
+
     // Last to first, as C++ delete[] destroys array elements.
-    private static void disposeTree(ref ArrayTree[] trees) {
-        foreach_reverse (ref tree; trees)
-            disposeTree(tree.children);
-        disposeArray(trees);
+    version (ManualMemory) private static void disposeTree(ArrayTree* trees) {
+        if (trees is null)
+            return;
+        auto cookie = (cast(size_t*) trees) - 1;
+        foreach_reverse (i; 0 .. cookie[0])
+            disposeTree(trees[i].children);
+        free(cookie);
     }
 
     bool check(int result) {
